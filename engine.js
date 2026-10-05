@@ -144,6 +144,7 @@
     const safePanel = !predicate(panel) ? panel + 0.01 : panel;
     return { panel: safePanel, combat: safePanel + offset, delta: safePanel - panelSpeed(s) };
   }
+  function automaticEvent(type) { return ['yao', 'pearl', 'bonus', 'ahaBonus'].includes(type); }
   function validate(cfg) {
     const errors = [], seen = new Set();
     cfg.slots.forEach((s, i) => {
@@ -152,14 +153,23 @@
       if (s.id === 'empty') return;
       if (!['custom', 'other'].includes(s.id) && seen.has(s.id)) errors.push('같은 캐릭터를 중복 편성할 수 없습니다.');
       seen.add(s.id);
-      const numbers = [s.panel, s.base, s.trace, s.boots, s.sub, s.gear, s.planar, s.lc, s.extraPanelPct,
+      const numbers = [s.base, s.trace, s.boots, s.sub, s.gear, s.planar, s.lc, s.extraPanelPct,
         s.extraPanelFlat, s.pct, s.flat, s.initialAdvance, s.waveRefine, s.refine];
-      if (numbers.some(v => !Number.isFinite(Number(v)))) errors.push(`슬롯 ${i + 1}: 숫자를 입력해 주세요.`);
-      if (!(s.base > 0) || !(panelSpeed(s) > 0)) errors.push(`슬롯 ${i + 1}: 기초/패널 속도는 0보다 커야 합니다.`);
-      if (s.initialAdvance < 0 || s.initialAdvance > 100) errors.push(`슬롯 ${i + 1}: 첫 행동 증가는 0~100%입니다.`);
-      if (!(s.refine>=1 && s.refine<=5 && Number.isInteger(s.refine))) errors.push(`슬롯 ${i + 1}: 재련은 1~5재입니다.`);
+      let problem = '';
+      if (s.mode !== 'build' && (s.panel === '' || s.panel == null || Number.isNaN(s.panel))) problem = '마을 속도를 입력해 주세요.';
+      else if (s.mode !== 'build' && !Number.isFinite(Number(s.panel))) problem = '마을 속도를 올바른 숫자로 입력해 주세요.';
+      else if (s.mode !== 'build' && !(s.panel > 0)) problem = '마을 속도는 0보다 커야 합니다.';
+      else if (numbers.some(v => v === '' || v == null || !Number.isFinite(Number(v)))) problem = '숫자를 올바르게 입력해 주세요.';
+      else if (!(s.base > 0)) problem = '기초 속도는 0보다 커야 합니다.';
+      else if (!(panelSpeed(s) > 0) || !Number.isFinite(panelSpeed(s))) problem = '구성 속도는 0보다 큰 유효한 숫자여야 합니다.';
+      else if (s.initialAdvance < 0 || s.initialAdvance > 100) problem = '첫 행동 증가는 0~100%입니다.';
+      else if (!(s.refine>=1 && s.refine<=5 && Number.isInteger(s.refine))) problem = '재련은 1~5재입니다.';
+      else {
+        const a = additions(cfg, i), speed = panelSpeed(s) + effectiveBase(s) * a.pct / 100 + a.flat;
+        if (Number.isFinite(speed) && !(speed > 0)) problem = '전투 속도는 0보다 커야 합니다.';
+      }
+      if (problem) errors.push(`슬롯 ${i + 1}: ${problem}`);
       if (s.id==='tingyun' && s.eidolon && (!Number.isInteger(s.buffTarget) || !cfg.slots[s.buffTarget] || cfg.slots[s.buffTarget].id==='empty')) errors.push('정운 1돌의 축복 대상을 지정해 주세요.');
-      if (!(snapshot(cfg).chars[i].speed > 0)) errors.push(`슬롯 ${i + 1}: 전투 속도가 0 이하입니다.`);
     });
     if (!cfg.slots.some(s => CHARACTERS[s.id]?.elation)) errors.push('환락 캐릭터를 최소 1명 편성해 주세요.');
     if (!(cfg.horizon > 0 && cfg.horizon <= 2000)) errors.push('계산 구간은 0 초과, 2000 AV 이하입니다.');
@@ -167,7 +177,7 @@
     if (Object.values(cfg.buffs).some(v => typeof v === 'number' && !Number.isFinite(v))) errors.push('버프 값은 유효한 숫자여야 합니다.');
     if (!Number.isFinite(cfg.soloWaveBonus) || cfg.soloWaveBonus < 0) errors.push('웨이브 직접 가산은 0 이상의 숫자여야 합니다.');
     cfg.events.forEach((e, i) => {
-      if (!Number.isFinite(e.time) || e.time < 0 || e.time > cfg.horizon || !Number.isFinite(e.value)) errors.push(`이벤트 ${i + 1}: 시간/수치를 확인해 주세요.`);
+      if (!Number.isFinite(e.time) || e.time < 0 || e.time > cfg.horizon || (!automaticEvent(e.type) && !Number.isFinite(e.value))) errors.push(`이벤트 ${i + 1}: 시간/수치를 확인해 주세요.`);
       if (!['pct', 'flat', 'advance', 'bonus', 'yao', 'pearl', 'ddd', 'wave', ...(cfg.rumor?.enabled ? ['ahaBonus', 'ahaAdvance'] : [])].includes(e.type)) errors.push(`이벤트 ${i + 1}: 종류를 확인해 주세요.`);
       if (!['yao', 'wave', 'ddd', 'ahaBonus', 'ahaAdvance'].includes(e.type) && e.target !== 'all' && (!Number.isInteger(e.target) || !cfg.slots[e.target])) errors.push(`이벤트 ${i + 1}: 대상을 확인해 주세요.`);
       if ((e.type === 'advance' || e.type === 'ddd' || e.type === 'ahaAdvance') && (e.value < -100 || e.value > 100)) errors.push(`이벤트 ${i + 1}: 행동 조정은 -100~100%입니다.`);
@@ -244,7 +254,7 @@
     }
     return { errors: [], log, counts, finalSpeed: speeds(), remainingGauge: gauges };
   }
-  const api = { WEIGHTS, CHARACTERS, SOURCES, slot, defaults, panelSpeed, additions, snapshot, solve, validate, simulate, isSoloWave, effectiveBase, ahaBase, rumorConfig, compareBase, isWaveAscended, canWaveDirect };
+  const api = { WEIGHTS, CHARACTERS, SOURCES, slot, defaults, panelSpeed, additions, snapshot, solve, validate, simulate, isSoloWave, effectiveBase, ahaBase, rumorConfig, compareBase, isWaveAscended, canWaveDirect, automaticEvent };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.AhaEngine = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);
