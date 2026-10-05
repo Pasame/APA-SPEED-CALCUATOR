@@ -4,10 +4,10 @@
   function createCalculator(root, initial, prefix = '', rumor = false) {
   const $ = id => document.getElementById(prefix + id);
   let cfg = structuredClone(initial), expanded = new Set();
-  const f=(n,d=3)=>Number.isFinite(n)?n.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
+  const f=(n,d=3,min=d)=>Number.isFinite(n)?n.toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:d}):'—';
   const esc=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const eidolons={aeon:['아하 2돌','웨이브 승격 속도 +25% 선택 · 그 외 효과는 정보만 제공'],yao:['효광 2돌','결계 활성 시 모든 아군 +12%'],huohuo:['곽향 1돌','양명 활성 시 모든 아군 +12%'],hyacine:['히아킨 2돌','선택 시 HP 감소한 아군 +30%'],sparxie:['스파키 2돌','선택 시 아하 타임 후 보너스 턴 · SPD 변화 없음'],pearl:['펄 2돌','선택 시 필살기에 다른 환락 동료도 행동 증가'],wolf:['은랑 2돌','버프 연장·조건부 보너스 턴은 세부에서 수동 지정'],sparkle:['스파클 1돌','선택·활성 시 전투 진입 / 스킬 후 본인 +15%'],hanya:['한아 2돌','선택·활성 시 전투 스킬 후 본인 +20%'],tingyun:['정운 1돌','선택·활성 시 축복 대상 필살기 후 대상 +20%']};
-  const signatureNotes={aeon:'전광 기초 SPD +12~20 · 마을 SPD에는 이미 포함',yao:'전무 상시 속도는 마을 SPD에 포함',wolf:'전무 상시 속도는 마을 SPD에 포함',hyacine:'전무 상시 속도는 마을 SPD에 포함',wave:'전무 착용·활성 시 환락 스킬 후 본인 +24~40%',summeretto:'전무 착용·새로운 소리 활성 시 모든 아군 +20~40%'};
+  const signatureNotes={aeon:'전광 속도는 마을 SPD에 포함',yao:'전무 상시 속도는 마을 SPD에 포함',wolf:'전무 상시 속도는 마을 SPD에 포함',hyacine:'전무 상시 속도는 마을 SPD에 포함',wave:'전무 착용·활성 시 환락 스킬 후 본인 +24~40%',summeretto:'전무 착용·새로운 소리 활성 시 모든 아군 +20~40%'};
   const noSignature=['asta','hanya','tingyun','custom','other','empty'];
   function field(label,key,value,extra=''){return `<label>${label}<input data-key="${key}" type="number" step="0.001" value="${value}" ${extra}></label>`;}
   function check(label,key,value,disabled=false){return `<label class="check"><input data-key="${key}" type="checkbox" ${value?'checked':''} ${disabled?'disabled':''}><span>${label}</span></label>`;}
@@ -98,11 +98,10 @@
 
   function renderRumorSummary(errors) {
     const own = cfg.slots.find(s=>s.id==='aeon'), wave = E.isWaveAscended(cfg);
-    document.getElementById('rumorOwned').value=cfg.rumor.owned?'1':'0';
+    document.querySelectorAll('[data-owned]').forEach(button=>button.setAttribute('aria-pressed',String(cfg.rumor.owned===(button.dataset.owned==='1'))));
     document.getElementById('rumorOwnedControl').hidden=!!own;
     const ownedStatus=document.getElementById('rumorOwnedStatus');
-    ownedStatus.hidden=!own;
-    ownedStatus.textContent=own?'아하 편성 중 · 기초항 '+f(E.ahaBase(cfg)):'';
+    ownedStatus.textContent=(own?'아하 편성 중 · ':cfg.rumor.owned?'보유 · ':'')+'기초항 '+f(E.ahaBase(cfg),3,0)+(!own&&cfg.rumor.owned?' (가정)':'');
     const waveInput=document.getElementById('rumorWaveAscension');
     waveInput.checked=E.isWaveAscended(cfg);
     const eligible=cfg.slots.some(s=>s.id==='wave')&&!!own&&cfg.slots.filter(s=>E.CHARACTERS[s.id].elation).length===2;
@@ -131,9 +130,10 @@
   $('addEvent').addEventListener('click',()=>{cfg.events.push({time:0,type:'advance',target:cfg.slots.findIndex(s=>s.id!=='empty'),value:25});renderEvents();updateResults();});
   root.querySelectorAll('[data-target]').forEach(el=>el.addEventListener('click',()=>{cfg.target=+el.dataset.target;sync();updateResults();}));
   $('sources').innerHTML=E.SOURCES.map(([label,url])=>`<li><a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a></li>`).join('');
-  new ResizeObserver(()=>{if(!$('advanced').hidden&&!$('turns').hidden)updateResults();}).observe($('plot'));
+  const timeline=$('turns');
+  new ResizeObserver(()=>{if(timeline.isConnected&&timeline.getClientRects().length)updateResults();}).observe($('plot'));
   if(rumor){
-    document.getElementById('rumorOwned').addEventListener('change',e=>{cfg.rumor.owned=e.target.value==='1';renderSelects();updateResults();});
+    document.querySelectorAll('[data-owned]').forEach(button=>button.addEventListener('click',()=>{if(cfg.slots.some(s=>s.id==='aeon'))return;cfg.rumor.owned=button.dataset.owned==='1';renderSelects();updateResults();}));
     document.getElementById('rumorWaveAscension').addEventListener('change',e=>{cfg.rumor.waveAscension=e.target.checked;renderSelects();updateResults();});
   }
   renderAll();
@@ -152,6 +152,7 @@
       rumorTemplate.querySelector('.footer').textContent='4.7 찌라시 계산 · 비공식 베타 / 출시 전 변경 가능';
       rumorTemplate.querySelector('#rumor-calc details p').textContent='전투 SPD = 마을 SPD + 유효 기초 SPD × 전투 중 속도 % + 고정 SPD. 아하 타임 SPD = 선택한 기초항 + 환락 캐릭터 전투 SPD의 20% / 10% / 5% / 2.5%. 전광의 기초 SPD 증가를 % 기준에 포함합니다.';
       document.getElementById('rumorCalculator').append(rumorTemplate);
+      rumorTemplate.querySelector('#rumor-party').before(document.querySelector('.rumor-options'));
       window.AhaRumorApp=createCalculator(rumorTemplate,E.rumorConfig(window.AhaApp.getConfig()),'rumor-',true);
     }
     originalRoot.hidden=true;document.getElementById('standardButtons').hidden=true;panel.hidden=false;toggle.setAttribute('aria-expanded','true');panel.focus();
