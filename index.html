@@ -3,11 +3,39 @@
 <style>
 :root{color-scheme:light dark;--bg:light-dark(#f8f9fc,#111219);--surface:light-dark(#fff,#1b1c26);--text:light-dark(#252633,#ededf3);--muted:light-dark(#626577,#a3a5b6);--line:light-dark(#dde0e9,#323442);--accent:light-dark(#6147c2,#ad98ff);--soft:light-dark(#eeebfa,#2b2541);--error:light-dark(#a32635,#ff9ca9)}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.6 system-ui,'Malgun Gothic',sans-serif}main{max-width:1100px;margin:auto;padding:30px 24px 48px}header{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:24px}h1{font-size:24px;letter-spacing:-.6px;margin:0}h2{font-size:18px;margin:0 0 14px}h3{font-size:15px;margin:0 0 12px}p{margin:8px 0 14px}small,.muted,.help{color:var(--muted)}small,.help{font-size:12px}.kicker{font-size:11px;letter-spacing:2px;color:var(--accent);font-weight:650}.row,.toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.toolbar{justify-content:space-between;margin-bottom:14px}button,input,select{font:inherit;color:inherit}button{background:var(--surface);border:1px solid var(--line);border-radius:5px;padding:7px 12px;cursor:pointer}button:hover{border-color:var(--accent)}button:disabled{opacity:.5;cursor:default}input[type=number],select{width:100%;min-width:0;height:40px;border:1px solid var(--line);border-radius:5px;padding:7px 9px;background:var(--surface)}input[type=checkbox]{accent-color:var(--accent);width:16px;height:16px;flex:none;margin:0}input:disabled,select:disabled{opacity:.5}label{display:block;font-size:13px}.check{display:flex;align-items:center;gap:8px;min-height:36px}.check span{white-space:normal}a{color:var(--accent)}[hidden]{display:none!important}.layout{display:grid;grid-template-columns:minmax(0,1fr) 295px;gap:28px;align-items:start}.slot{border-bottom:1px solid var(--line);padding:15px 0}.slot:first-child{padding-top:0}.partyrow{display:grid;grid-template-columns:20px minmax(0,1fr) 112px 66px;gap:10px;align-items:end}.slotnum{font-size:12px;font-weight:650;color:var(--muted);padding-bottom:9px}.partyrow button{height:40px}.partyrow label span{display:block;margin-bottom:4px;color:var(--muted);font-size:12px}.slotconfig{padding-left:30px;margin-top:10px;display:grid;grid-template-columns:minmax(130px,1.4fr) minmax(95px,1fr) 88px;gap:10px;align-items:end}.slotconfig .check{padding-bottom:2px}.slot-note,.combatline{margin:5px 0 0 30px;font-size:12px;color:var(--muted)}.combatline strong{font-weight:500;color:var(--text);font-variant-numeric:tabular-nums}.equipment{margin:12px 0 0 30px;border-top:1px solid var(--line);padding-top:13px}.equipment .grid{gap:8px 16px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.equipment details{margin-top:10px}.result{padding:21px;background:var(--surface);border:1px solid var(--line);border-radius:7px}.big{font-size:24px;font-weight:700;font-variant-numeric:tabular-nums;margin:5px 0}.status{font-size:13px;color:var(--accent)}dl{margin:13px 0 0}dl div{display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid var(--line)}dt{color:var(--muted);font-size:12px}dd{margin:0;font-size:13px;font-variant-numeric:tabular-nums}.rankrow{display:flex;justify-content:space-between;gap:8px;font-size:12px;margin-top:11px}.formula{font-size:12px;overflow-wrap:anywhere;background:var(--soft);padding:10px;margin-top:13px;border-radius:4px}.activeeffects{margin:14px 0 0;padding-left:16px;font-size:12px;color:var(--muted)}.activeeffects li{margin:5px 0}.precision-note{margin-top:16px;font-size:13px;color:var(--muted)}.precision-note strong{color:var(--text);font-weight:500}.errors{padding:10px 14px;border-left:3px solid var(--error);color:var(--error);margin-bottom:16px}.advanced{border-top:1px solid var(--line);margin-top:26px;padding-top:20px}.tabs{display:flex;gap:22px;border-bottom:1px solid var(--line);margin-bottom:22px}.tabs button{border:0;border-radius:0;background:none;color:var(--muted);border-bottom:2px solid transparent;padding:8px 0 12px}.tabs button.active{border-bottom-color:var(--accent);color:var(--accent)}.section{margin-bottom:26px}details{border-top:1px solid var(--line);padding:12px 0}summary{cursor:pointer;font-size:13px;font-weight:600}.notebox{border-left:3px solid var(--accent);padding:5px 0 5px 13px;font-size:13px;margin:14px 0}.presets{margin-top:12px}.presets button{font-size:12px;padding:6px 9px}.event{display:grid;grid-template-columns:84px minmax(0,1.7fr) minmax(0,1.2fr) 80px 40px;gap:10px;margin:10px 0}.event button{padding:5px}.timeline{width:100%;display:block}.timeline text{fill:var(--text);font:12px system-ui,'Malgun Gothic',sans-serif}.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);margin-right:6px}.ring{border:2px solid var(--accent);background:none}.scroll{overflow:auto}table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-size:12px;font-weight:500}.sources li{margin:6px 0;font-size:13px}.footer{margin-top:24px;border-top:1px solid var(--line);padding-top:14px;font-size:12px;color:var(--muted)}:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-@media(max-width:800px){.layout{grid-template-columns:1fr}.layout>aside{order:-1}.result{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}.result dl{grid-column:2;grid-row:1/4;margin:0}.result #ranks,.result .formula,.result .activeeffects{grid-column:1/-1}}
+@media(max-width:800px){.layout{grid-template-columns:1fr}.layout>aside{order:-1}.result{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}.result dl{grid-column:2;grid-row:1/4;margin:0}.result [id$="ranks"],.result .formula,.result .activeeffects{grid-column:1/-1}}
 @media(max-width:520px){main{padding:20px 14px}.partyrow{grid-template-columns:18px minmax(0,1fr) 88px 50px;gap:6px}.partyrow button{font-size:12px;padding:7px 5px}.slotconfig{padding-left:24px;grid-template-columns:minmax(110px,1fr) minmax(85px,1fr) 68px;gap:7px}.slotconfig label{font-size:12px}.slot-note,.combatline,.equipment{margin-left:24px}.result{display:block}.result dl{margin-top:12px}.grid{grid-template-columns:1fr}.tabs{gap:18px}.tabs button{font-size:13px}.event{grid-template-columns:75px minmax(0,1fr) 40px}.eventtarget{grid-column:1/3;grid-row:2}.eventvalue{grid-column:1/3;grid-row:3}.eventvalue:disabled{display:none}.event button{grid-column:3;grid-row:1}.slotconfig select{padding:7px 5px}}
+.rumor-warning{color:var(--accent);font-size:13px;margin:0}.rumor-toolbar{margin:15px 0}.comparison{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.comparison>div{border-top:1px solid var(--line);padding-top:10px}.comparison strong{font-size:20px;display:block}.comparison small{display:block}header>.row{justify-content:flex-end}#rumorPanel:focus{outline:none}#rumorPanel p{font-size:13px}#rumorInformation{max-width:900px}#rumorInformation details p{color:var(--muted)}@media(max-width:520px){header{align-items:flex-start;flex-wrap:wrap}header>.row{width:100%;justify-content:flex-start;gap:8px}.comparison{grid-template-columns:1fr;gap:12px}.rumor-toolbar button{font-size:12px}.toolbar{align-items:flex-start}}
 </style></head><body><main>
-<header><div><div class="kicker">AHA / SPEED</div><h1>아하 속도 계산기</h1><small>붕괴: 스타레일 4.6</small></div><div class="row"><button id="reset">초기화</button><button id="toggleAdvanced" aria-expanded="false" aria-controls="advanced">세부</button></div></header>
-<div id="errors" class="errors" role="alert" hidden></div>
+<header><div><div class="kicker">AHA / SPEED</div><h1>아하 속도 계산기</h1><small>붕괴: 스타레일 4.6</small></div><div class="row"><span id="standardButtons" class="row"><button id="reset">초기화</button><button id="toggleAdvanced" aria-expanded="false" aria-controls="advanced">세부</button></span><button id="toggleRumor" aria-expanded="false" aria-controls="rumorPanel">4.7 아하 찌라시</button></div></header>
+<section id="rumorPanel" role="region" aria-labelledby="rumorHeading" tabindex="-1" hidden>
+<div class="toolbar"><div><h2 id="rumorHeading">4.7 아하 찌라시</h2><p class="rumor-warning">비공식 베타·찌라시 / 출시 전 변경 가능</p></div><button id="closeRumor">4.6 계산기로 돌아가기</button></div>
+<p class="help">확인: 2026-10-05 · v4.6.51 (BETA) · D16706787 / R16685262. 4.7 예정 캐릭터의 개발 빌드 번호입니다. 실행 중 외부 자료를 가져오지 않습니다.</p>
+<div class="row rumor-toolbar"><button id="importRumor">기존 파티 설정 다시 가져오기</button><button id="rumor-reset">찌라시 초기화</button><button id="rumor-toggleAdvanced" aria-expanded="false" aria-controls="rumor-advanced">세부</button></div>
+<p id="rumorImportStatus" class="help" role="status">최초 진입 시 기존 설정을 복사합니다. 여기서 바꾼 값은 4.6 계산기에 적용되지 않습니다.</p>
+<nav class="tabs" aria-label="찌라시 메뉴"><button id="showRumorCalc" aria-pressed="true" aria-controls="rumorCalculation">찌라시 계산</button><button id="showRumorInfo" aria-pressed="false" aria-controls="rumorInformation">아하 정보·출처</button></nav>
+<div id="rumorCalculation"><div class="grid section"><label>미편성 아하 보유 상태<select id="rumorOwned"><option value="1">보유함 · 기초항 94 가정</option><option value="0">미보유 · 기초항 80</option></select></label><div><label class="check"><input type="checkbox" id="rumorWaveAscension"><span>아하·웨이브 승격 활성 (수동)</span></label><small>웨이브 외 환락 동료가 아하 1명일 때만 적용. 아하 명함 +15%, 2돌 +25%를 모든 아군에게 적용합니다.</small></div></div>
+<p id="rumorAssumption" class="notebox"></p><section class="section" aria-labelledby="compareHeading"><h3 id="compareHeading">같은 파티에서 기초항만 비교</h3><p class="help">아래 찌라시 파티의 캐릭터·장비·버프를 모두 고정하고 아하 타임 기초항만 80으로 바꿔 비교합니다. 기존 4.6 파티와의 캐릭터 교체 차이는 포함하지 않습니다.</p><div id="rumorComparison" class="comparison" aria-live="polite"></div><p id="rumorCharacterSummary" class="help"></p></section>
+<div id="rumorCalculator"></div></div>
+<div id="rumorInformation" hidden>
+<p class="notebox">계산 반영: 속도와 행동 게이지만. 원력·에너지·웃음 포인트·피해량·필살기 시점·버프 만료는 자동 계산하지 않습니다. 아래 설명의 피해·자원 효과는 정보만 제공하며, ‘스킵 발동’을 행동 증가로 해석하지 않습니다.</p>
+<details open><summary>기본 정보와 속도 · 계산 반영</summary><p>5성 양자·환락, 기초 SPD 94, 속도 행적 +5. 아하 타임은 보유 또는 편성 시 캐릭터의 기초 SPD를 참조한다는 베타 문구가 있습니다.</p><p>전광은 기초 SPD를 1~5재련에서 +12/14/16/18/20 올립니다. 따라서 편성 아하의 기초항은 1재련 106입니다. 장비 %는 증가한 기초 SPD에 곱하고 행적·신발·부옵의 고정 속도는 뒤에 더합니다. 마을 SPD에는 상시 효과가 포함되므로 전광을 다시 더하지 않습니다.</p><p class="help">전광의 ‘기초 속도 증가’ 문구와 일반 SPD 공식을 조합한 해석입니다. 베타 실기에서 % 버프와 아하 타임의 참조값을 대조한 검증은 없습니다. 미편성 보유 상태는 행적·전광·장비를 참조하지 않고 94로 제한합니다. 이는 미검증 가정입니다.</p></details>
+<details><summary>원력과 필살기 · 정보만 제공</summary><p>원력 8에서 필살기 사용. 일반 공격·전투 스킬·환락 스킬 후 원력 +1, 사도 대상 턴 시작에도 +1. 웃음 포인트 40 도달 시 +1과 전체 치피 +24%(3턴), 아하 타임 종료 후 재발동. 동료 치유·실드로 +1(필살기마다 1회 갱신).</p></details>
+<details><summary>환락만상·포인트·솜씨·명함과 2돌 · 정보만 제공</summary><p>필살기의 환락만상은 아하 캐릭터 턴 시작마다 줄어드는 3턴 상태이며 환락 운명의 길을 승격합니다. 웃음 포인트와 솜씨가 쾌감 포인트·강화 솜씨로 바뀌고, 아하 타임 종료 시 소모 포인트의 10%를 환급합니다. 아하 자신의 방어 무시는 명함 30%, 2돌 60%. 2돌은 동료 승격 수치도 강화합니다.</p><p class="help">명함·2돌만으로 기초항이 달라지지는 않습니다. 파티의 아하 2돌 체크는 웨이브 승격 속도 수치에만 영향을 줍니다. 상태 시작·종료와 자원 환급은 자동 발동하지 않습니다.</p></details>
+<details><summary>확정 피해와 환락 채무 · 정보만 제공</summary><p>환락 스킬은 환락 피해 외에 해당 아하 타임 피해 총합의 20%를 적이 나눠 받는 확정 피해를 가합니다. 아하·동료가 가한 피해의 25%를 환락 채무로 기록하며 목표 최대 HP 10%가 상한이고 단계 전환에도 유지됩니다. 피해·HP를 입력받지 않으므로 계산하지 않습니다.</p></details>
+<details><summary>동료 7명의 승격 · 명함 → 아하 2돌</summary><p class="help">모두 환락만상 중 적용. 웨이브의 체크한 속도 효과만 계산 반영하며, 나머지는 정보만 제공합니다. 숫자는 해당 캐릭터 돌파가 아닌 아하의 명함 → 2돌 비교입니다.</p><ul class="sources">
+<li><a href="https://hsr.gachabase.net/characters/1502/yao-guang/beta?lang=ko" target="_blank" rel="noopener noreferrer">효광</a>: 만사형통 배율 증가 +20% → +40%. 쾌감 10당 에너지 1 회복, 상한 10 → 15.</li>
+<li><a href="https://hsr.gachabase.net/characters/1506/silver-wolf-lv999/beta?lang=ko" target="_blank" rel="noopener noreferrer">은랑 LV.999</a>: 히든 스코어 초과 축적 360 → 999, 강화 솜씨의 20% → 40%를 스코어로 획득. 치피 +40%는 동일.</li>
+<li><a href="https://hsr.gachabase.net/characters/1501/sparxie/beta?lang=ko" target="_blank" rel="noopener noreferrer">스파키</a>: 치피 +30% → +120%, 아군 방어 무시 15% → 20%. 슈퍼 선물의 추가 쾌감은 솜씨 10당 1, 상한 8 → 10.</li>
+<li><a href="https://hsr.gachabase.net/characters/1505/evanescia/beta?lang=ko" target="_blank" rel="noopener noreferrer">에바네시아</a>: 초과 에너지 60 → 240 저장 후 필살기 사용 시 회복(솜씨 재획득 미발동). 방어 무시 10% → 24%, 솜씨 누적 500당 다음 필살기 배율 증가 +50% → +100%.</li>
+<li><a href="https://hsr.gachabase.net/characters/1503/pearl/beta?lang=ko" target="_blank" rel="noopener noreferrer">펄</a>: 솜씨 상한 75로 동일. 필살기 보너스 턴의 일시 솜씨·포인트 잔류 10% → 20%.</li>
+<li><a href="https://hsr.gachabase.net/characters/8010/stelle-elation/beta?lang=ko" target="_blank" rel="noopener noreferrer">환락 개척자</a>: 필살기 치피가 전체 적용되고 추가 +20% → +30%. 아하 대상이면 자신의 환락 스킬을 추가 발동하며 배율 증가 +200% → +300%, 최고 강화 솜씨 참조.</li>
+<li><a href="https://hsr.gachabase.net/characters/1513/aventurine-waveflair/beta?lang=ko" target="_blank" rel="noopener noreferrer">어벤츄린·웨이브</a>: 다른 환락 동료가 아하만 있으면 승격 중 단독 환락 행적 예외가 허용됩니다. 전체 SPD +15% → +25%, 동료 공격의 추가 열의·쾌감 각각 +1 → +2. 일반 단독 환락 판정은 바뀌지 않습니다.</li>
+</ul><p class="help">승격 활성은 직접 체크하며 유지된다고 가정합니다. 만료 시 전체 속도 % 이벤트에 -15/-25를 입력하세요. 웨이브 +25 직접 가산 총량과 공격 횟수도 수동 입력입니다. 비환락 동료가 추가로 있어도 위 예외는 가능하며, 제3의 환락 캐릭터가 있으면 불가합니다.</p></details>
+<details><summary>비술·6돌·추가 아하 타임 · 수동 이벤트로만 반영</summary><p>비술은 전투 진입 시 포인트 20으로 집계되는 추가 아하 타임. 6돌은 첫 필살기에 포인트 40으로 집계되는 추가 아하 타임, 이후 필살기마다 아하 타임 행동 게이지 +20%. 적의 최소 환락 채무는 HP 20%.</p><p>행동 순서 → 효과 추가에서 ‘추가 아하 타임 (수동)’ 또는 ‘아하 타임 행동 증가 % (수동)’를 선택하고 AV를 지정하세요. 자연 게이지는 추가 턴에 소비하지 않습니다. 포인트·필살기 조건은 계산하지 않습니다. 일반 ‘보너스 턴’의 아하 캐릭터와 아하 타임은 서로 다른 대상입니다.</p><p class="help">승격 스킬의 스킵 발동은 숫자로 된 행동 증가로 확인되지 않았으므로 적용하지 않습니다. 일반 아하 타임에 자동 보너스 턴을 추가하지도 않습니다.</p></details>
+<details><summary>확인 자료와 미확정 사항</summary><ul class="sources"><li><a href="https://hsr.gachabase.net/characters/1511/aeon-aha/beta?lang=ko" target="_blank" rel="noopener noreferrer">아하 캐릭터 베타 (한국어)</a></li><li><a href="https://hsr.gachabase.net/characters/1511/aeon-aha/beta?lang=en" target="_blank" rel="noopener noreferrer">아하 캐릭터 베타 (영어 대조)</a></li><li><a href="https://hsr.gachabase.net/lightcones/23065/upon-the-first-echo-of-aha/beta?lang=en" target="_blank" rel="noopener noreferrer">아하 전광 베타</a></li><li><a href="https://hsr.keqingmains.com/misc/speed-guide/" target="_blank" rel="noopener noreferrer">KQM 속도·행동 게이지 연구</a></li></ul><p class="help">한국어·영어 자료에서 SPD 94, 전광 1재련 +12가 일치했습니다. 전광 2~5재련은 캐릭터 페이지의 장비 설명 14/16/18/20을 사용합니다. 아하 2돌 설명에 미해결 문자열이 있어 동료별 승격 문구를 대조했습니다. 상충 자료가 확인되면 미확정으로 취급해야 합니다. 출시 확정값이 아닙니다.</p></details>
+</div></section>
+<div id="standardCalculator"><div id="errors" class="errors" role="alert" hidden></div>
 <div class="layout"><section><h2>파티 편성</h2><p class="help">캐릭터를 고르고 마을 SPD를 입력하세요. 돌파와 전무의 전투 중 속도 효과는 자동으로 계산합니다.</p><div id="party"></div></section>
 <aside><section class="result" aria-live="polite"><small>아하 SPD</small><div id="aha" class="big"></div><div id="status" class="status"></div><dl><div><dt>자연 행동 간격</dt><dd id="av"></dd></div><div><dt>자연 2회까지</dt><dd id="second"></dd></div><div><dt>환락 캐릭터</dt><dd id="n"></dd></div></dl><div id="ranks"></div><div id="formula" class="formula"></div><ul id="activeeffects" class="activeeffects"></ul></section></aside></div>
 <p class="precision-note"><strong>마을 SPD의 소수점을 반영하지 않으면 실제 결과와 오차가 발생할 수 있습니다.</strong> 상시 광추·행적·유물 효과는 마을 SPD에 이미 포함되어 있으므로 다시 더하지 않습니다.</p>
@@ -40,7 +68,7 @@
 <h3 style="margin-top:26px">출처</h3><p class="help">Gachabase는 게임 문구를 제공하는 비공식 데이터베이스입니다. 효과 문구와 수치는 출시 분기를 우선 확인했습니다. 아하 숫자 계수는 커뮤니티 관측식, 일반 행동 공식은 KQM 연구를 사용했습니다. 공식 수치 검증·실기 전투 검증이 완료됐다는 의미는 아닙니다.</p><ul id="sources" class="sources"></ul></div>
 
 </div><footer class="footer">스타레일 4.6 기준 · 전체 버프는 모든 아군에게 적용 · 완·매 본인 제외 및 조건부 발동 대상은 별도 처리</footer>
-</main><script>(function (root) {
+</div></main><script>(function (root) {
   'use strict';
   const WEIGHTS = [0.2, 0.1, 0.05, 0.025];
   const CHARACTERS = {
@@ -62,6 +90,7 @@
     sunday: { name: '선데이', base: 96, trace: 0, elation: false },
     custom: { name: '직접 입력 (환락)', base: 100, trace: 0, elation: true },
     other: { name: '직접 입력 (비환락)', base: 100, trace: 0, elation: false },
+    aeon: { name: '에이언즈★아하', base: 94, trace: 5, elation: true, betaOnly: true },
     empty: { name: '빈 슬롯', base: 0, trace: 0, elation: false }
   };
   const SOURCES = [
@@ -99,10 +128,33 @@
   function present(cfg, id) { return cfg.slots.some(s => s.id === id); }
   function owner(cfg, id) { return cfg.slots.find(s => s.id === id); }
   function eidolonActive(cfg, id) { const s = owner(cfg, id); return !!(s?.eidolon && s.buffActive !== false); }
+  // A base-SPD increase changes the percentage basis; flat traces stay outside it.
+  function effectiveBase(s) {
+    return Number(s.base) + (s.id === 'aeon' && s.signature ? 12 + 2 * (s.refine - 1) : 0);
+  }
+  function rumorConfig(cfg) {
+    const copy = structuredClone(cfg);
+    copy.rumor = { enabled: true, owned: true, waveAscension: false };
+    return copy;
+  }
+  function ahaBase(cfg) {
+    if (!cfg.rumor?.enabled || cfg.rumor.legacyBase) return 80;
+    const aha = owner(cfg, 'aeon');
+    // Ownership-only gear/trace references have no verified combat implementation.
+    return aha ? effectiveBase(aha) : cfg.rumor.owned ? 94 : 80;
+  }
+  function isWaveAscended(cfg) {
+    return !!(cfg.rumor?.enabled && cfg.rumor.waveAscension && present(cfg, 'aeon') &&
+      present(cfg, 'wave') && cfg.slots.filter(s => CHARACTERS[s.id].elation).length === 2);
+  }
+  function canWaveDirect(cfg) { return isSoloWave(cfg) || isWaveAscended(cfg); }
+  function compareBase(cfg) {
+    return { legacy: snapshot({ ...cfg, rumor: { ...cfg.rumor, legacyBase: true } }), beta: snapshot(cfg) };
+  }
   function panelSpeed(s) {
     if (s.mode !== 'build') return Number(s.panel);
-    const lc = s.signature && ['yao','wolf','hyacine'].includes(s.id) ? 18 + 3 * (s.refine - 1) : s.lc;
-    return s.base * (1 + (s.gear + s.planar + lc + s.extraPanelPct) / 100)
+    const lc = s.id === 'aeon' && s.signature ? 0 : s.signature && ['yao','wolf','hyacine'].includes(s.id) ? 18 + 3 * (s.refine - 1) : s.lc;
+    return effectiveBase(s) * (1 + (s.gear + s.planar + lc + s.extraPanelPct) / 100)
       + s.trace + s.boots + s.sub + s.extraPanelFlat;
   }
   function additions(cfg, i) {
@@ -123,6 +175,7 @@
     const tingyun=owner(cfg,'tingyun');
     if (eidolonActive(cfg,'tingyun') && tingyun.buffTarget===i) pct += 20;
     if (s.warrior) pct += 6;
+    if (isWaveAscended(cfg)) pct += owner(cfg, 'aeon').eidolon ? 25 : 15;
     if (present(cfg, 'asta')) flat += Number(b.asta);
     return { pct, flat };
   }
@@ -132,25 +185,26 @@
   function snapshot(cfg, overrides = {}) {
     const chars = cfg.slots.map((s, i) => {
       const c = CHARACTERS[s.id], a = additions(cfg, i), panel = panelSpeed(s);
-      const speed = overrides[i] === undefined ? panel + s.base * a.pct / 100 + a.flat : overrides[i];
-      return { i, id: s.id, name: c.name, elation: c.elation, base: s.base, panel,
+      const speed = overrides[i] === undefined ? panel + effectiveBase(s) * a.pct / 100 + a.flat : overrides[i];
+      return { i, id: s.id, name: c.name, elation: c.elation, base: effectiveBase(s), panel,
         pct: a.pct, flat: a.flat, speed, weight: 0, contribution: 0 };
     });
     const ranked = chars.filter(c => c.elation).sort((a, b) => b.speed - a.speed || a.i - b.i);
     ranked.forEach((c, rank) => { c.rank = rank + 1; c.weight = WEIGHTS[rank]; c.contribution = c.speed * c.weight; });
-    const direct = isSoloWave(cfg) ? cfg.soloWaveBonus : 0;
-    const aha = ranked.length ? 80 + direct + ranked.reduce((v, c) => v + c.contribution, 0) : null;
-    return { chars, ranked, aha, direct, av: aha ? 10000 / aha : null };
+    const direct = canWaveDirect(cfg) ? cfg.soloWaveBonus : 0;
+    const base = ahaBase(cfg);
+    const aha = ranked.length ? base + direct + ranked.reduce((v, c) => v + c.contribution, 0) : null;
+    return { chars, ranked, aha, base, direct, av: aha ? 10000 / aha : null };
   }
   function solve(cfg, idx, target, kind = 'aha') {
     const s = cfg.slots[idx];
     if (!CHARACTERS[s.id].elation) return null;
-    const add = additions(cfg, idx), offset = s.base * add.pct / 100 + add.flat;
+    const add = additions(cfg, idx), offset = effectiveBase(s) * add.pct / 100 + add.flat;
     const predicate = panel => {
       const snap = snapshot(cfg, { [idx]: panel + offset });
       return kind === 'ahead' ? panel + offset > snap.aha + 1e-9 : snap.aha >= target;
     };
-    let lo = s.base + s.trace, hi = Math.max(lo, 1000);
+    let lo = effectiveBase(s) + s.trace, hi = Math.max(lo, 1000);
     if (predicate(lo)) return { panel: lo, combat: lo + offset, delta: lo - panelSpeed(s) };
     while (!predicate(hi) && hi < 1000000) hi *= 2;
     if (!predicate(hi)) return null;
@@ -164,6 +218,7 @@
     const errors = [], seen = new Set();
     cfg.slots.forEach((s, i) => {
       if (!CHARACTERS[s.id]) { errors.push(`슬롯 ${i + 1}: 알 수 없는 캐릭터`); return; }
+      if (CHARACTERS[s.id].betaOnly && !cfg.rumor?.enabled) errors.push('아하 캐릭터는 4.7 찌라시에서만 편성할 수 있습니다.');
       if (s.id === 'empty') return;
       if (!['custom', 'other'].includes(s.id) && seen.has(s.id)) errors.push('같은 캐릭터를 중복 편성할 수 없습니다.');
       seen.add(s.id);
@@ -183,13 +238,13 @@
     if (!Number.isFinite(cfg.soloWaveBonus) || cfg.soloWaveBonus < 0) errors.push('웨이브 직접 가산은 0 이상의 숫자여야 합니다.');
     cfg.events.forEach((e, i) => {
       if (!Number.isFinite(e.time) || e.time < 0 || e.time > cfg.horizon || !Number.isFinite(e.value)) errors.push(`이벤트 ${i + 1}: 시간/수치를 확인해 주세요.`);
-      if (!['pct', 'flat', 'advance', 'bonus', 'yao', 'pearl', 'ddd', 'wave'].includes(e.type)) errors.push(`이벤트 ${i + 1}: 종류를 확인해 주세요.`);
-      if (!['yao', 'wave', 'ddd'].includes(e.type) && e.target !== 'all' && (!Number.isInteger(e.target) || !cfg.slots[e.target])) errors.push(`이벤트 ${i + 1}: 대상을 확인해 주세요.`);
-      if ((e.type === 'advance' || e.type === 'ddd') && (e.value < -100 || e.value > 100)) errors.push(`이벤트 ${i + 1}: 행동 조정은 -100~100%입니다.`);
+      if (!['pct', 'flat', 'advance', 'bonus', 'yao', 'pearl', 'ddd', 'wave', ...(cfg.rumor?.enabled ? ['ahaBonus', 'ahaAdvance'] : [])].includes(e.type)) errors.push(`이벤트 ${i + 1}: 종류를 확인해 주세요.`);
+      if (!['yao', 'wave', 'ddd', 'ahaBonus', 'ahaAdvance'].includes(e.type) && e.target !== 'all' && (!Number.isInteger(e.target) || !cfg.slots[e.target])) errors.push(`이벤트 ${i + 1}: 대상을 확인해 주세요.`);
+      if ((e.type === 'advance' || e.type === 'ddd' || e.type === 'ahaAdvance') && (e.value < -100 || e.value > 100)) errors.push(`이벤트 ${i + 1}: 행동 조정은 -100~100%입니다.`);
       if (e.type === 'yao' && !present(cfg, 'yao')) errors.push('효광 필살기 이벤트에는 효광 편성이 필요합니다.');
       if (e.type === 'pearl' && (!present(cfg, 'pearl') || cfg.slots[e.target]?.id === 'pearl' || e.target === 'all')) errors.push('펄 필살기는 펄 외의 한 캐릭터를 지정해야 합니다.');
-      if (e.type === 'wave' && !isSoloWave(cfg)) errors.push('아하 직접 가산은 웨이브 단독 환락 편성에서만 사용합니다.');
-      if (!['yao', 'wave', 'ddd'].includes(e.type) && e.target !== 'all' && cfg.slots[e.target]?.id === 'empty') errors.push('빈 슬롯은 이벤트 대상이 될 수 없습니다.');
+      if (e.type === 'wave' && !canWaveDirect(cfg)) errors.push('아하 직접 가산은 웨이브 단독 환락 또는 찌라시의 아하·웨이브 승격 조건에서만 사용합니다.');
+      if (!['yao', 'wave', 'ddd', 'ahaBonus', 'ahaAdvance'].includes(e.type) && e.target !== 'all' && cfg.slots[e.target]?.id === 'empty') errors.push('빈 슬롯은 이벤트 대상이 될 수 없습니다.');
       if (e.type === 'bonus' && e.target === 'all') errors.push('보너스 턴의 대상은 캐릭터 1명이어야 합니다.');
     });
     return [...new Set(errors)];
@@ -206,10 +261,10 @@
     function speeds() {
       const chars = snap.chars.map((c, i) => c.speed + c.base * pct[i] / 100 + flat[i]);
       const ranked = snap.ranked.map(c => chars[c.i]).sort((a, b) => b - a);
-      return [...chars, 80 + ranked.reduce((v, s, i) => v + s * WEIGHTS[i], 0) + solo];
+      return [...chars, snap.base + ranked.reduce((v, s, i) => v + s * WEIGHTS[i], 0) + solo];
     }
     function add(actor, type, note) {
-      log.push({ time, actor, name: actor === 4 ? '아하' : snap.chars[actor].name, type, note,
+      log.push({ time, actor, name: actor === 4 ? (cfg.rumor?.enabled ? '아하 타임' : '아하') : snap.chars[actor].name, type, note,
         speed: speeds()[actor] });
       if (type === 'normal') counts[actor].natural++;
       if (type === 'bonus') counts[actor].bonus++;
@@ -236,8 +291,10 @@
         if (e.type === 'advance') { targets.forEach(i => advance(i, e.value)); add(targets[0], 'event', `행동 게이지 ${e.value}% 조정`); }
         if (e.type === 'ddd') { [0, 1, 2, 3].forEach(i => advance(i, e.value)); add(cfg.slots.findIndex(s => s.id !== 'empty'), 'event', `댄댄댄 · 아군 ${e.value}% 행동 증가`); }
         if (e.type === 'bonus') add(targets[0], 'bonus', '사용자 지정 보너스 턴 · 게이지 유지');
+        if (e.type === 'ahaBonus') { add(4, 'bonus', '수동 추가 아하 타임 · 자연 게이지 유지'); afterInstant(); }
+        if (e.type === 'ahaAdvance') { advance(4, e.value); add(4, 'event', '수동 아하 타임 행동 게이지 ' + e.value + '% 조정'); }
         if (e.type === 'yao') { add(4, 'bonus', '효광 필살기 · 자연 게이지 유지'); afterInstant(); }
-        if (e.type === 'wave') { solo = e.value; add(4, 'event', `웨이브 단독 환락 · 직접 가산 총량 ${e.value}`); }
+        if (e.type === 'wave') { solo = e.value; add(4, 'event', `웨이브 ${isWaveAscended(cfg) ? '승격 예외' : '단독 환락'} · 직접 가산 총량 ${e.value}`); }
         if (e.type === 'pearl') {
           const n = snap.ranked.length, amount = [0, 10, 15, 30, 30][n], target = Number(e.target);
           advance(target, amount);
@@ -257,18 +314,20 @@
     }
     return { errors: [], log, counts, finalSpeed: speeds(), remainingGauge: gauges };
   }
-  const api = { WEIGHTS, CHARACTERS, SOURCES, slot, defaults, panelSpeed, additions, snapshot, solve, validate, simulate, isSoloWave };
+  const api = { WEIGHTS, CHARACTERS, SOURCES, slot, defaults, panelSpeed, additions, snapshot, solve, validate, simulate, isSoloWave, effectiveBase, ahaBase, rumorConfig, compareBase, isWaveAscended, canWaveDirect };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.AhaEngine = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);
 </script><script>(function () {
   'use strict';
-  const E = window.AhaEngine, $ = id => document.getElementById(id);
-  let cfg = E.defaults(), expanded = new Set();
+  const E = window.AhaEngine;
+  function createCalculator(root, initial, prefix = '', rumor = false) {
+  const $ = id => document.getElementById(prefix + id);
+  let cfg = structuredClone(initial), expanded = new Set();
   const f=(n,d=3)=>Number.isFinite(n)?n.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
   const esc=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const eidolons={yao:['효광 2돌','결계 활성 · 모든 아군 +12%'],huohuo:['곽향 1돌','양명 활성 · 모든 아군 +12%'],hyacine:['히아킨 2돌','HP 감소한 아군 +30% · 기본은 전원 발동'],sparxie:['스파키 2돌','아하 타임 후 보너스 턴 · SPD 변화 없음'],pearl:['펄 2돌','필살기 시 다른 환락 동료도 행동 증가'],wolf:['은랑 2돌','버프 연장·조건부 보너스 턴은 세부에서 수동 지정'],sparkle:['스파클 1돌','전투 진입 / 스킬 후 본인 +15%'],hanya:['한아 2돌','전투 스킬 후 본인 +20%'],tingyun:['정운 1돌','축복 대상 필살기 후 대상 +20%']};
-  const signatureNotes={yao:'전무 상시 속도는 마을 SPD에 포함',wolf:'전무 상시 속도는 마을 SPD에 포함',hyacine:'전무 상시 속도는 마을 SPD에 포함',wave:'전무: 환락 스킬 후 본인 +24~40%',summeretto:'전무: 새로운 소리 활성 중 모든 아군 +20~40%'};
+  const eidolons={aeon:['아하 2돌','웨이브 승격 속도 +25% 선택 · 그 외 효과는 정보만 제공'],yao:['효광 2돌','결계 활성 · 모든 아군 +12%'],huohuo:['곽향 1돌','양명 활성 · 모든 아군 +12%'],hyacine:['히아킨 2돌','HP 감소한 아군 +30% · 기본은 전원 발동'],sparxie:['스파키 2돌','아하 타임 후 보너스 턴 · SPD 변화 없음'],pearl:['펄 2돌','필살기 시 다른 환락 동료도 행동 증가'],wolf:['은랑 2돌','버프 연장·조건부 보너스 턴은 세부에서 수동 지정'],sparkle:['스파클 1돌','전투 진입 / 스킬 후 본인 +15%'],hanya:['한아 2돌','전투 스킬 후 본인 +20%'],tingyun:['정운 1돌','축복 대상 필살기 후 대상 +20%']};
+  const signatureNotes={aeon:'전광 기초 SPD +12~20 · 마을 SPD에는 이미 포함',yao:'전무 상시 속도는 마을 SPD에 포함',wolf:'전무 상시 속도는 마을 SPD에 포함',hyacine:'전무 상시 속도는 마을 SPD에 포함',wave:'전무: 환락 스킬 후 본인 +24~40%',summeretto:'전무: 새로운 소리 활성 중 모든 아군 +20~40%'};
   const noSignature=['asta','hanya','tingyun','custom','other','empty'];
   function field(label,key,value,extra=''){return `<label>${label}<input data-key="${key}" type="number" step="0.001" value="${value}" ${extra}></label>`;}
   function check(label,key,value,disabled=false){return `<label class="check"><input data-key="${key}" type="checkbox" ${value?'checked':''} ${disabled?'disabled':''}><span>${label}</span></label>`;}
@@ -277,8 +336,8 @@
   function renderParty(){
     $('party').innerHTML=cfg.slots.map((s,i)=>{
       const c=E.CHARACTERS[s.id], e=eidolons[s.id];
-      const options=Object.entries(E.CHARACTERS).map(([id,c])=>{const taken=id!=='empty'&&cfg.slots.some((x,j)=>j!==i&&x.id===id);return `<option value="${id}" ${s.id===id?'selected':''} ${taken?'disabled':''}>${c.name}${taken?' · 편성 중':''}</option>`}).join('');
-      return `<div class="slot" data-party-slot="${i}"><div class="partyrow"><span class="slotnum">${i+1}</span><label><span>캐릭터</span><select data-slot="${i}" aria-label="슬롯 ${i+1} 캐릭터">${options}</select></label><label><span>마을 SPD</span><input data-panel="${i}" aria-label="슬롯 ${i+1} 마을 SPD" type="number" step="0.001" min="1" value="${s.mode==='build'?E.panelSpeed(s).toFixed(3):s.panel}" ${s.id==='empty'||s.mode==='build'?'disabled':''}></label><button data-editor="${i}" aria-expanded="${expanded.has(i)}" aria-controls="equipment${i}" ${s.id==='empty'?'disabled':''}>세부</button></div>${s.id==='empty'?'':`<div class="slotconfig">${e?check(e[0],'eidolon',s.eidolon):'<small>속도 돌파 효과 없음</small>'}<label>전무<select data-key="signature" ${noSignature.includes(s.id)?'disabled':''}><option value="0" ${!s.signature?'selected':''}>${noSignature.includes(s.id)?'해당 없음':'미착용'}</option><option value="1" ${s.signature?'selected':''}>착용</option></select></label><label>재련<select data-key="refine" ${!s.signature?'disabled':''}>${[1,2,3,4,5].map(n=>`<option value="${n}" ${s.refine===n?'selected':''}>${n}재</option>`).join('')}</select></label></div>${e?`<div class="slot-note">${e[1]}</div>`:''}${signatureNotes[s.id]?`<div class="slot-note">${signatureNotes[s.id]}</div>`:''}${s.id==='ruan'?`<div class="slot-note">${check('특성 10레벨 · 본인 제외 아군 +10%','buffActive',s.buffActive)}</div>`:''}${s.id==='asta'?`<div class="slot-note">${field('필살기 고정 SPD (비활성 0)','astaFlat',cfg.buffs.asta)}</div>`:''}${s.id==='tingyun'&&s.eidolon?`<div class="slot-note"><label>축복 대상<select data-key="buffTarget">${targets(s.buffTarget)}</select></label></div>`:''}`}<div class="combatline" ${s.id==='empty'?'hidden':''}>전투 SPD <strong id="combat${i}"></strong></div><div id="equipment${i}" class="equipment" ${!expanded.has(i)||s.id==='empty'?'hidden':''}></div></div>`;
+      const options=Object.entries(E.CHARACTERS).filter(([,c])=>rumor||!c.betaOnly).map(([id,c])=>{const taken=id!=='empty'&&cfg.slots.some((x,j)=>j!==i&&x.id===id);return `<option value="${id}" ${s.id===id?'selected':''} ${taken?'disabled':''}>${c.name}${taken?' · 편성 중':''}</option>`}).join('');
+      return `<div class="slot" data-party-slot="${i}"><div class="partyrow"><span class="slotnum">${i+1}</span><label><span>캐릭터</span><select data-slot="${i}" aria-label="슬롯 ${i+1} 캐릭터">${options}</select></label><label><span>마을 SPD</span><input data-panel="${i}" aria-label="슬롯 ${i+1} 마을 SPD" type="number" step="0.001" min="1" value="${s.mode==='build'?E.panelSpeed(s).toFixed(3):s.panel}" ${s.id==='empty'||s.mode==='build'?'disabled':''}></label><button data-editor="${i}" aria-expanded="${expanded.has(i)}" aria-controls="${prefix}equipment${i}" ${s.id==='empty'?'disabled':''}>세부</button></div>${s.id==='empty'?'':`<div class="slotconfig">${e?check(e[0],'eidolon',s.eidolon):'<small>속도 돌파 효과 없음</small>'}<label>전무<select data-key="signature" ${noSignature.includes(s.id)?'disabled':''}><option value="0" ${!s.signature?'selected':''}>${noSignature.includes(s.id)?'해당 없음':'미착용'}</option><option value="1" ${s.signature?'selected':''}>착용</option></select></label><label>재련<select data-key="refine" ${!s.signature?'disabled':''}>${[1,2,3,4,5].map(n=>`<option value="${n}" ${s.refine===n?'selected':''}>${n}재</option>`).join('')}</select></label></div>${e?`<div class="slot-note">${e[1]}</div>`:''}${signatureNotes[s.id]?`<div class="slot-note">${signatureNotes[s.id]}</div>`:''}${s.id==='ruan'?`<div class="slot-note">${check('특성 10레벨 · 본인 제외 아군 +10%','buffActive',s.buffActive)}</div>`:''}${s.id==='asta'?`<div class="slot-note">${field('필살기 고정 SPD (비활성 0)','astaFlat',cfg.buffs.asta)}</div>`:''}${s.id==='tingyun'&&s.eidolon?`<div class="slot-note"><label>축복 대상<select data-key="buffTarget">${targets(s.buffTarget)}</select></label></div>`:''}`}<div class="combatline" ${s.id==='empty'?'hidden':''}>전투 SPD <strong id="${prefix}combat${i}"></strong></div><div id="${prefix}equipment${i}" class="equipment" ${!expanded.has(i)||s.id==='empty'?'hidden':''}></div></div>`;
     }).join('');
     $('party').querySelectorAll('[data-slot]').forEach(el=>el.addEventListener('change',()=>{
       const i=+el.dataset.slot;
@@ -291,14 +350,14 @@
     $('party').querySelectorAll('.slotconfig [data-key],.slot-note [data-key]').forEach(el=>el.addEventListener(el.type==='number'?'input':'change',()=>{
       const i=+el.closest('[data-party-slot]').dataset.partySlot,s=cfg.slots[i],key=el.dataset.key;
       if(key==='signature')s.signature=el.value==='1';else if(key==='astaFlat')cfg.buffs.asta=el.value===''?NaN:+el.value;else set(el,s,key);
-      if(['signature','eidolon'].includes(key)){renderParty();}
+      if(['signature','eidolon','refine'].includes(key)){renderParty();}
       updateResults();
     }));
     cfg.slots.forEach((s,i)=>{if(expanded.has(i)&&s.id!=='empty')renderEquipment(i);});
   }
   function renderEquipment(i){
     const s=cfg.slots[i],build=s.mode==='build',root=$('equipment'+i);
-    root.innerHTML=`<h3>장비의 전투 중 효과</h3><div class="grid">${check('바커공 · 120 SPD 이상 첫 행동 +40%','vonwacq',s.vonwacq)}${check('메신저 4세트 · 모든 아군 +12% 활성','messenger',s.messenger)}${check('앰포리어스 · 기억 정령 필드, 모든 아군 +8%','amphoreus',s.amphoreus)}${check('여전사 4세트 · 착용자 +6% 활성','warrior',s.warrior)}</div><p class="help">속도 2세트와 상시 장신구 효과는 마을 SPD에 포함됩니다. 메신저·앰포리어스의 동일 효과는 여러 명이 착용해도 한 번만 적용합니다. 매 4세트·댄댄댄은 하단 행동 순서에서 발동 시점을 지정하세요.</p><details><summary>매우 세부적인 개인 설정</summary><div class="grid">${field('캐릭터 기초 SPD','base',s.base,'min="1"')}${field('추가 개인 속도 %','pct',s.pct)}${field('추가 개인 고정 SPD','flat',s.flat)}${field('기타 첫 행동 증가 %','initialAdvance',s.initialAdvance,'min="0" max="100"')}${check('돌파 / 조건부 전무 효과 활성 상태','buffActive',s.buffActive)}${check('히아킨 2돌 HP 감소 조건을 이 대상이 충족','hyacineEligible',s.hyacineEligible,!cfg.slots.some(x=>x.id==='hyacine'))}${check('장신구 착용자의 기억 정령 필드','memospriteActive',s.memospriteActive)}<label>속도 입력 방식<select data-key="mode"><option value="panel" ${!build?'selected':''}>마을 SPD 입력</option><option value="build" ${build?'selected':''}>장비 구성으로 계산</option></select></label></div><p class="help">위 돌파·전무 설정에 포함된 속도 효과를 추가 개인 값에 중복 입력하지 마세요. HP 감소·결계·양명 등은 활성 상태로 가정하며 이곳에서 해제할 수 있습니다.</p>${build?`<div class="grid">${field('행적 고정 SPD','trace',s.trace)}${field('신발 고정 SPD','boots',s.boots)}${field('속도 부옵 합계','sub',s.sub)}${field('유물 세트 속도 %','gear',s.gear)}${field('장신구 상시 속도 %','planar',s.planar)}${field('기타 광추 상시 속도 %','lc',s.lc)}${field('기타 패널 속도 %','extraPanelPct',s.extraPanelPct)}${field('기타 패널 고정 SPD','extraPanelFlat',s.extraPanelFlat)}</div><p class="help">효광·은랑·히아킨의 전무를 선택하면 해당 상시 속도를 구성 계산에 반영합니다. 전무가 있으면 기타 광추 수치는 사용하지 않습니다. 신발 +25는 표시값입니다.</p>`:''}</details>`;
+    root.innerHTML=`<h3>장비의 전투 중 효과</h3><div class="grid">${check('바커공 · 120 SPD 이상 첫 행동 +40%','vonwacq',s.vonwacq)}${check('메신저 4세트 · 모든 아군 +12% 활성','messenger',s.messenger)}${check('앰포리어스 · 기억 정령 필드, 모든 아군 +8%','amphoreus',s.amphoreus)}${check('여전사 4세트 · 착용자 +6% 활성','warrior',s.warrior)}</div><p class="help">속도 2세트와 상시 장신구 효과는 마을 SPD에 포함됩니다. 메신저·앰포리어스의 동일 효과는 여러 명이 착용해도 한 번만 적용합니다. 매 4세트·댄댄댄은 하단 행동 순서에서 발동 시점을 지정하세요.</p><details><summary>매우 세부적인 개인 설정</summary><div class="grid">${field('캐릭터 기초 SPD','base',s.base,'min="1"')}${field('추가 개인 속도 %','pct',s.pct)}${field('추가 개인 고정 SPD','flat',s.flat)}${field('기타 첫 행동 증가 %','initialAdvance',s.initialAdvance,'min="0" max="100"')}${check('돌파 / 조건부 전무 효과 활성 상태','buffActive',s.buffActive)}${check('히아킨 2돌 HP 감소 조건을 이 대상이 충족','hyacineEligible',s.hyacineEligible,!cfg.slots.some(x=>x.id==='hyacine'))}${check('장신구 착용자의 기억 정령 필드','memospriteActive',s.memospriteActive)}<label>속도 입력 방식<select data-key="mode"><option value="panel" ${!build?'selected':''}>마을 SPD 입력</option><option value="build" ${build?'selected':''}>장비 구성으로 계산</option></select></label></div><p class="help">위 돌파·전무 설정에 포함된 속도 효과를 추가 개인 값에 중복 입력하지 마세요. HP 감소·결계·양명 등은 활성 상태로 가정하며 이곳에서 해제할 수 있습니다.</p>${s.id==='aeon'?`<p class="help">기초 SPD ${f(E.effectiveBase(s))}. 전광 증가분은 기초 SPD 입력에 다시 포함하지 마세요. 구성 입력은 (기초 SPD + 전광 증가) × (1 + 상시 %) + 고정 속도입니다.</p>`:''}${build?`<div class="grid">${field('행적 고정 SPD','trace',s.trace)}${field('신발 고정 SPD','boots',s.boots)}${field('속도 부옵 합계','sub',s.sub)}${field('유물 세트 속도 %','gear',s.gear)}${field('장신구 상시 속도 %','planar',s.planar)}${field('기타 광추 상시 속도 %','lc',s.lc)}${field('기타 패널 속도 %','extraPanelPct',s.extraPanelPct)}${field('기타 패널 고정 SPD','extraPanelFlat',s.extraPanelFlat)}</div><p class="help">${rumor?'아하의 전광은 기초 속도에 더하고, ':''}효광·은랑·히아킨의 전무를 선택하면 해당 상시 속도를 구성 계산에 반영합니다. 전무가 있으면 기타 광추 수치는 사용하지 않습니다. 신발 +25는 표시값입니다.</p>`:''}</details>`;
     root.querySelectorAll('[data-key]').forEach(el=>el.addEventListener(el.type==='number'?'input':'change',()=>{set(el,s,el.dataset.key);if(el.dataset.key==='mode'){renderParty();$('equipment'+i).querySelector('details').open=true;}if(el.dataset.key==='buffActive')$('party').querySelectorAll(`[data-party-slot="${i}"] [data-key="buffActive"]`).forEach(x=>x.checked=s.buffActive);updateResults();}));
   }
   function renderBuffs(){
@@ -308,13 +367,13 @@
   function renderSelects(){
     if(!E.CHARACTERS[cfg.slots[cfg.solveSlot]?.id]?.elation)cfg.solveSlot=cfg.slots.findIndex(s=>E.CHARACTERS[s.id].elation);
     $('solveSlot').innerHTML=cfg.slots.map((s,i)=>`<option value="${i}" ${i===cfg.solveSlot?'selected':''} ${E.CHARACTERS[s.id].elation?'':'disabled'}>${E.CHARACTERS[s.id].name}</option>`).join('');
-    $('waveControl').hidden=!E.isSoloWave(cfg);
+    $('waveControl').hidden=!E.canWaveDirect(cfg);
   }
-  const eventNames={pct:'속도 % 증감',flat:'고정 SPD 증감',advance:'행동 게이지 조정 %',bonus:'보너스 턴',yao:'효광 필살기',pearl:'펄 필살기',ddd:'댄댄댄 전체 행동 증가 %',wave:'웨이브 직접 가산 총량'};
+  const eventNames={pct:'속도 % 증감',flat:'고정 SPD 증감',advance:'행동 게이지 조정 %',bonus:'보너스 턴',yao:'효광 필살기',pearl:'펄 필살기',ddd:'댄댄댄 전체 행동 증가 %',wave:'웨이브 직접 가산 총량',...(rumor?{ahaBonus:'추가 아하 타임 (수동)',ahaAdvance:'아하 타임 행동 증가 % (수동)'}:{})};
   function renderEvents(){
-    $('events').innerHTML=cfg.events.map((e,i)=>{const automatic=['bonus','yao','pearl'].includes(e.type);return `<div class="event"><input data-event="${i}" data-field="time" type="number" step="0.001" aria-label="이벤트 ${i+1} 누적 AV" value="${e.time}"><select data-event="${i}" data-field="type" aria-label="이벤트 ${i+1} 종류">${Object.entries(eventNames).map(([k,v])=>`<option value="${k}" ${k===e.type?'selected':''}>${v}</option>`).join('')}</select><select class="eventtarget" data-event="${i}" data-field="target" aria-label="이벤트 ${i+1} 대상"><option value="all" ${e.target==='all'?'selected':''}>아군 전체</option>${targets(e.target)}</select><input class="eventvalue" data-event="${i}" data-field="value" type="number" step="0.01" aria-label="이벤트 ${i+1} 수치" value="${automatic?'':e.value}" placeholder="자동" ${automatic?'disabled':''}><button data-remove="${i}" aria-label="이벤트 ${i+1} 삭제">×</button></div>`}).join('');
+    $('events').innerHTML=cfg.events.map((e,i)=>{const automatic=['bonus','yao','pearl','ahaBonus'].includes(e.type), fixedAha=['ahaBonus','ahaAdvance'].includes(e.type);return `<div class="event"><input data-event="${i}" data-field="time" type="number" step="0.001" aria-label="이벤트 ${i+1} 누적 AV" value="${e.time}"><select data-event="${i}" data-field="type" aria-label="이벤트 ${i+1} 종류">${Object.entries(eventNames).map(([k,v])=>`<option value="${k}" ${k===e.type?'selected':''}>${v}</option>`).join('')}</select><select class="eventtarget" data-event="${i}" data-field="target" aria-label="이벤트 ${i+1} 대상" ${fixedAha?'disabled':''}>${fixedAha?'<option value="all">아하 타임</option>':`<option value="all" ${e.target==='all'?'selected':''}>아군 전체</option>${targets(e.target)}`}</select><input class="eventvalue" data-event="${i}" data-field="value" type="number" step="0.01" aria-label="이벤트 ${i+1} 수치" value="${automatic?'':e.value}" placeholder="자동" ${automatic?'disabled':''}><button data-remove="${i}" aria-label="이벤트 ${i+1} 삭제">×</button></div>`}).join('');
     $('events').querySelectorAll('[data-event]').forEach(el=>el.addEventListener(el.tagName==='SELECT'?'change':'input',()=>{const e=cfg.events[+el.dataset.event],k=el.dataset.field;
-      if(k==='type'){e.type=el.value;if(e.type==='pearl')e.target=cfg.slots.findIndex(s=>s.id!=='pearl'&&s.id!=='empty');if(e.type==='bonus')e.target=cfg.slots.findIndex(s=>s.id!=='empty');if(e.type==='ddd')e.value=24;renderEvents();}
+      if(k==='type'){e.type=el.value;if(e.type==='pearl')e.target=cfg.slots.findIndex(s=>s.id!=='pearl'&&s.id!=='empty');if(e.type==='bonus')e.target=cfg.slots.findIndex(s=>s.id!=='empty');if(e.type==='ddd')e.value=24;if(e.type==='ahaAdvance')e.value=20;renderEvents();}
       else if(k==='target')e.target=el.value==='all'?'all':+el.value;else e[k]=el.value===''?NaN:+el.value;updateResults();
     }));
     $('events').querySelectorAll('[data-remove]').forEach(el=>el.addEventListener('click',()=>{cfg.events.splice(+el.dataset.remove,1);renderEvents();updateResults();}));
@@ -328,7 +387,7 @@
     $('status').textContent=errors.length?'':`현재 속도 유지 시 0라 자연 ${count}회`;
     $('av').textContent=errors.length?'—':f(snap.av)+' AV';$('second').textContent=errors.length?'—':f(snap.av*2)+' AV';$('n').textContent=snap.ranked.length+'명';
     $('ranks').innerHTML=snap.ranked.map(c=>`<div class="rankrow"><span>${c.name} · ${f(c.speed,2)}</span><span>× ${c.weight*100}%</span></div>`).join('');
-    $('formula').textContent='80 + '+snap.ranked.map(c=>f(c.contribution,2)).join(' + ')+(snap.direct?' + '+snap.direct:'')+' = '+f(snap.aha);
+    $('formula').textContent=snap.base+' + '+snap.ranked.map(c=>f(c.contribution,2)).join(' + ')+(snap.direct?' + '+snap.direct:'')+' = '+f(snap.aha);
     const effects=[];
     if(cfg.slots.some(s=>s.id==='yao'&&s.eidolon&&s.buffActive))effects.push('효광 2돌 · 전체 +12%');
     if(cfg.slots.some(s=>s.id==='huohuo'&&s.eidolon&&s.buffActive))effects.push('곽향 1돌 · 전체 +12%');
@@ -338,9 +397,11 @@
     if(cfg.buffs.messenger||cfg.slots.some(s=>s.id!=='empty'&&s.messenger))effects.push('메신저 · 전체 +12%');
     if(cfg.buffs.amphoreus||cfg.slots.some(s=>s.id!=='empty'&&s.amphoreus&&s.memospriteActive))effects.push('앰포리어스 · 전체 +8%');
     if(cfg.buffs.extraPct)effects.push(`추가 전체 ${cfg.buffs.extraPct}%`);if(cfg.buffs.extraFlat)effects.push(`추가 전체 고정 ${cfg.buffs.extraFlat}`);if(cfg.buffs.summerLC)effects.push(`기타 서머레토 전무 · 전체 +${cfg.buffs.summerLC}%`);
+    if(rumor&&E.isWaveAscended(cfg))effects.push('웨이브 승격 · 전체 +'+(cfg.slots.find(s=>s.id==='aeon').eidolon?25:15)+'% (수동 활성)');
     $('activeeffects').hidden=!effects.length;$('activeeffects').innerHTML=effects.map(t=>`<li>${esc(t)}</li>`).join('');
     const r=errors.length||cfg.solveSlot<0?null:E.solve(cfg,cfg.solveSlot,cfg.target),ahead=errors.length||cfg.solveSlot<0?null:E.solve(cfg,cfg.solveSlot,0,'ahead');
     $('inverse').innerHTML=r?`<strong>${E.CHARACTERS[cfg.slots[cfg.solveSlot].id].name} 마을 SPD ${f(r.panel,2)}</strong> → 전투 ${f(r.combat,2)}<div class="help">현재보다 ${r.delta>0?'+':''}${f(r.delta,2)} · 목표 아하 ${f(cfg.target)} 이상</div>${ahead?`<div class="help">아하보다 먼저 자연 행동: 마을 SPD ${f(ahead.panel,2)} 이상 (첫 행동 증가 없는 조건)</div>`:''}`:'환락 캐릭터와 입력값을 확인하세요.';
+    if(rumor) renderRumorSummary(errors);
     const sim=E.simulate(cfg);if(sim.errors.length){$('plot').innerHTML='';$('simSummary').textContent=sim.errors.join(' ');$('log').innerHTML='';return;}
     $('simSummary').textContent=`${cfg.horizon} AV 미만 · 아하 자연 ${sim.counts[4].natural}회 + 보너스 ${sim.counts[4].bonus}회`;
     $('log').innerHTML=sim.log.map(l=>`<tr><td>${f(l.time)}</td><td>${l.name}</td><td>${{normal:'자연',bonus:'보너스',event:'효과'}[l.type]}</td><td>${esc(l.note)}</td></tr>`).join('');draw(sim);
@@ -349,23 +410,79 @@
     const w = Math.max(290,$('plot').clientWidth||900), left=w<480?88:138, right=18, top=38, row=44;
     const actors=[0,1,2,3,4].filter(i=>i===4||cfg.slots[i].id!=='empty'), h=top+actors.length*row+50, x=t=>left+t/cfg.horizon*(w-left-right);
     let svg=`<svg class="timeline" viewBox="0 0 ${w} ${h}" role="img" aria-label="누적 행동값 AV별 캐릭터와 아하 행동 시점"><title>캐릭터별 행동 시점 · ${cfg.horizon} AV</title>`;
-    actors.forEach((a,j)=>{const y=top+j*row;const name=a===4?'아하':E.CHARACTERS[cfg.slots[a].id].name;svg+=`<text x="0" y="${y+5}">${w<480&&name.length>8?name.slice(0,7):name}</text><line x1="${left}" x2="${w-right}" y1="${y}" y2="${y}" stroke="var(--line)"/>`;sim.log.filter(l=>l.actor===a).forEach(l=>{const px=x(l.time),label=esc(`${name} · ${f(l.time)} AV · ${l.note}`);svg+=l.type==='event'?`<line x1="${px}" x2="${px}" y1="${y-10}" y2="${y+10}" stroke="var(--muted)"><title>${label}</title></line>`:`<circle cx="${px}" cy="${y}" r="${l.type==='bonus'?6:4}" fill="${l.type==='bonus'?'var(--surface)':a===4?'var(--accent)':'var(--muted)'}" stroke="${l.type==='bonus'?'var(--accent)':'none'}" stroke-width="2"><title>${label}</title></circle>`;});});
+    actors.forEach((a,j)=>{const y=top+j*row;const name=a===4?(rumor?'아하 타임':'아하'):E.CHARACTERS[cfg.slots[a].id].name;svg+=`<text x="0" y="${y+5}">${w<480&&name.length>8?name.slice(0,7):name}</text><line x1="${left}" x2="${w-right}" y1="${y}" y2="${y}" stroke="var(--line)"/>`;sim.log.filter(l=>l.actor===a).forEach(l=>{const px=x(l.time),label=esc(`${name} · ${f(l.time)} AV · ${l.note}`);svg+=l.type==='event'?`<line x1="${px}" x2="${px}" y1="${y-10}" y2="${y+10}" stroke="var(--muted)"><title>${label}</title></line>`:`<circle cx="${px}" cy="${y}" r="${l.type==='bonus'?6:4}" fill="${l.type==='bonus'?'var(--surface)':a===4?'var(--accent)':'var(--muted)'}" stroke="${l.type==='bonus'?'var(--accent)':'none'}" stroke-width="2"><title>${label}</title></circle>`;});});
     const bottom=top+(actors.length-1)*row+20, ticks=w<480?[0,cfg.horizon/2,cfg.horizon]:[0,cfg.horizon/4,cfg.horizon/2,cfg.horizon*3/4,cfg.horizon];ticks.forEach(t=>{svg+=`<text x="${x(t)}" y="${bottom+15}" text-anchor="${t===0?'start':t===cfg.horizon?'end':'middle'}">${f(t,0)}</text>`;});
     for(let b=150;b<cfg.horizon;b+=100)svg+=`<line x1="${x(b)}" x2="${x(b)}" y1="${top-15}" y2="${bottom-2}" stroke="var(--line)" stroke-dasharray="3 4"/>`;
     svg+=`<text x="${left}" y="${h-5}">누적 행동값 (AV)</text><text x="0" y="17">행동 주체</text></svg>`;$('plot').innerHTML=svg;
   }
 
+  function renderRumorSummary(errors) {
+    const own = cfg.slots.find(s=>s.id==='aeon'), wave = E.isWaveAscended(cfg);
+    document.getElementById('rumorOwned').value=cfg.rumor.owned?'1':'0';
+    document.getElementById('rumorOwned').disabled=!!own;
+    const waveInput=document.getElementById('rumorWaveAscension');
+    waveInput.checked=cfg.rumor.waveAscension;
+    const eligible=cfg.slots.some(s=>s.id==='wave')&&!!own&&cfg.slots.filter(s=>E.CHARACTERS[s.id].elation).length===2;
+    waveInput.disabled=!eligible;
+    document.getElementById('rumorAssumption').textContent=own?
+      '편성 아하의 기초 SPD '+f(E.effectiveBase(own))+'를 아하 타임 기초항으로 참조합니다. 행적·상시 속도 %·전투 버프는 기초항에 직접 더하지 않습니다. 전광의 % 기준 변경은 문구에 따른 해석이며 실기 미검증입니다.' :
+      cfg.rumor.owned?'보유만 / 미편성: 참조 방식이 실기 미검증이므로 행적·장비·전광을 제외한 94로 제한합니다. 미편성 전광은 선택할 수 없습니다.':'미보유 / 미편성: 기존 기초항 80을 사용합니다.';
+    const pair=E.compareBase(cfg), old=pair.legacy, beta=pair.beta;
+    document.getElementById('rumorComparison').innerHTML=errors.length?'<p>입력 오류를 수정하면 비교할 수 있습니다.</p>':
+      '<div><small>기초항 80 · 동일 파티</small><strong>'+f(old.aha)+'</strong><small>아하 타임 SPD · '+f(old.av)+' AV</small></div>'+ 
+      '<div><small>찌라시 기초항 '+f(beta.base)+'</small><strong>'+f(beta.aha)+'</strong><small>아하 타임 SPD · '+f(beta.av)+' AV</small></div>'+ 
+      '<div><small>기초항 변경 차이</small><strong>'+((beta.aha-old.aha)>=0?'+':'')+f(beta.aha-old.aha)+' SPD</strong><small>'+f(beta.av-old.av)+' AV · 자연 간격 변화</small></div>';
+    document.getElementById('rumorCharacterSummary').textContent=own?
+      '아하 캐릭터 전투 SPD: '+f(beta.chars.find(s=>s.id==='aeon').speed)+' · 환락 순위 '+beta.ranked.find(s=>s.id==='aeon').rank+'위 · 가중 기여 '+f(beta.ranked.find(s=>s.id==='aeon').contribution)+' SPD'+(wave?' · 웨이브 승격 속도 버프 반영':''):
+      '아하 미편성: 캐릭터 자신의 행동·환락 속도 기여는 없습니다.';
+    $('aha').previousElementSibling.textContent='아하 타임 SPD';
+  }
   function sync(){['extraPct','extraFlat'].forEach(k=>$(k).value=cfg.buffs[k]);['target','horizon','soloWaveBonus'].forEach(k=>$(k).value=cfg[k]);}
   function renderAll(){sync();renderParty();renderBuffs();renderSelects();renderEvents();updateResults();}
   $('toggleAdvanced').addEventListener('click',()=>{$('advanced').hidden=!$('advanced').hidden;$('toggleAdvanced').setAttribute('aria-expanded',String(!$('advanced').hidden));updateResults();if(!$('advanced').hidden)$('advanced').scrollIntoView({behavior:'smooth',block:'start'});});
-  document.querySelectorAll('[data-tab]').forEach(el=>el.addEventListener('click',()=>{document.querySelectorAll('.view').forEach(v=>v.hidden=v.id!==el.dataset.tab);document.querySelectorAll('[data-tab]').forEach(b=>{b.classList.toggle('active',b===el);b.setAttribute('aria-pressed',String(b===el));});updateResults();}));
+  root.querySelectorAll('[data-tab]').forEach(el=>el.addEventListener('click',()=>{root.querySelectorAll('.view').forEach(v=>v.hidden=v.id!==prefix+el.dataset.tab);root.querySelectorAll('[data-tab]').forEach(b=>{b.classList.toggle('active',b===el);b.setAttribute('aria-pressed',String(b===el));});updateResults();}));
   ['extraPct','extraFlat'].forEach(id=>$(id).addEventListener('input',()=>{cfg.buffs[id]=$(id).value===''?NaN:+$(id).value;updateResults();}));
   ['target','solveSlot','horizon','soloWaveBonus'].forEach(id=>$(id).addEventListener(id==='target'||id==='soloWaveBonus'?'input':'change',()=>{cfg[id]=$(id).value===''?NaN:+$(id).value;updateResults();}));
-  $('reset').addEventListener('click',()=>{cfg=E.defaults();expanded=new Set();renderAll();});
+  $('reset').addEventListener('click',()=>{cfg=rumor?E.rumorConfig(E.defaults()):E.defaults();expanded=new Set();renderAll();});
   $('addEvent').addEventListener('click',()=>{cfg.events.push({time:0,type:'advance',target:cfg.slots.findIndex(s=>s.id!=='empty'),value:25});renderEvents();updateResults();});
-  document.querySelectorAll('[data-target]').forEach(el=>el.addEventListener('click',()=>{cfg.target=+el.dataset.target;sync();updateResults();}));
+  root.querySelectorAll('[data-target]').forEach(el=>el.addEventListener('click',()=>{cfg.target=+el.dataset.target;sync();updateResults();}));
   $('sources').innerHTML=E.SOURCES.map(([label,url])=>`<li><a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a></li>`).join('');
   new ResizeObserver(()=>{if(!$('advanced').hidden&&!$('turns').hidden)updateResults();}).observe($('plot'));
-  renderAll();window.AhaApp={getConfig:()=>structuredClone(cfg),setConfig:value=>{cfg=value;renderAll();}};
+  if(rumor){
+    document.getElementById('rumorOwned').addEventListener('change',e=>{cfg.rumor.owned=e.target.value==='1';renderSelects();updateResults();});
+    document.getElementById('rumorWaveAscension').addEventListener('change',e=>{cfg.rumor.waveAscension=e.target.checked;renderSelects();updateResults();});
+  }
+  renderAll();
+  return { getConfig:()=>structuredClone(cfg), setConfig:value=>{cfg=structuredClone(value);renderAll();} };
+  }
+  const originalRoot=document.getElementById('standardCalculator');
+  // Capture static markup before the main controller fills inputs and computed fields.
+  const rumorTemplate=originalRoot.cloneNode(true);
+  window.AhaApp=createCalculator(originalRoot,E.defaults());
+  const panel=document.getElementById('rumorPanel'), toggle=document.getElementById('toggleRumor');
+  function enterRumor(){
+    if(!window.AhaRumorApp){
+      rumorTemplate.removeAttribute('id');
+      rumorTemplate.querySelectorAll('[id]').forEach(el=>el.id='rumor-'+el.id);
+      rumorTemplate.querySelectorAll('[aria-controls]').forEach(el=>el.setAttribute('aria-controls','rumor-'+el.getAttribute('aria-controls')));
+      rumorTemplate.querySelector('.footer').textContent='4.7 찌라시 계산 · 비공식 베타 / 출시 전 변경 가능';
+      rumorTemplate.querySelector('#rumor-calc details p').textContent='전투 SPD = 마을 SPD + 유효 기초 SPD × 전투 중 속도 % + 고정 SPD. 아하 타임 SPD = 선택한 기초항 + 환락 캐릭터 전투 SPD의 20% / 10% / 5% / 2.5%. 전광의 기초 SPD 증가를 % 기준에 포함합니다.';
+      document.getElementById('rumorCalculator').append(rumorTemplate);
+      window.AhaRumorApp=createCalculator(rumorTemplate,E.rumorConfig(window.AhaApp.getConfig()),'rumor-',true);
+    }
+    originalRoot.hidden=true;document.getElementById('standardButtons').hidden=true;panel.hidden=false;toggle.setAttribute('aria-expanded','true');panel.focus();
+  }
+  function closeRumor(){panel.hidden=true;originalRoot.hidden=false;document.getElementById('standardButtons').hidden=false;toggle.setAttribute('aria-expanded','false');toggle.focus();}
+  toggle.addEventListener('click',()=>panel.hidden?enterRumor():closeRumor());
+  document.getElementById('closeRumor').addEventListener('click',closeRumor);
+  panel.addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();closeRumor();}});
+  document.getElementById('importRumor').addEventListener('click',()=>{window.AhaRumorApp.setConfig(E.rumorConfig(window.AhaApp.getConfig()));document.getElementById('rumorImportStatus').textContent='현재 4.6 파티 설정을 다시 복사했습니다. 찌라시 설정만 교체했습니다.';});
+  function showInfo(info){
+    document.getElementById('rumorCalculation').hidden=info;document.getElementById('rumorInformation').hidden=!info;
+    document.getElementById('showRumorCalc').setAttribute('aria-pressed',String(!info));document.getElementById('showRumorInfo').setAttribute('aria-pressed',String(info));
+    document.getElementById('rumor-toggleAdvanced').hidden=info;
+  }
+  document.getElementById('showRumorCalc').addEventListener('click',()=>showInfo(false));
+  document.getElementById('showRumorInfo').addEventListener('click',()=>showInfo(true));
 })();
 </script></body></html>
