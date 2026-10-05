@@ -6,8 +6,8 @@
   let cfg = structuredClone(initial), expanded = new Set();
   const f=(n,d=3)=>Number.isFinite(n)?n.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
   const esc=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const eidolons={aeon:['아하 2돌','웨이브 승격 속도 +25% 선택 · 그 외 효과는 정보만 제공'],yao:['효광 2돌','결계 활성 · 모든 아군 +12%'],huohuo:['곽향 1돌','양명 활성 · 모든 아군 +12%'],hyacine:['히아킨 2돌','HP 감소한 아군 +30% · 기본은 전원 발동'],sparxie:['스파키 2돌','아하 타임 후 보너스 턴 · SPD 변화 없음'],pearl:['펄 2돌','필살기 시 다른 환락 동료도 행동 증가'],wolf:['은랑 2돌','버프 연장·조건부 보너스 턴은 세부에서 수동 지정'],sparkle:['스파클 1돌','전투 진입 / 스킬 후 본인 +15%'],hanya:['한아 2돌','전투 스킬 후 본인 +20%'],tingyun:['정운 1돌','축복 대상 필살기 후 대상 +20%']};
-  const signatureNotes={aeon:'전광 기초 SPD +12~20 · 마을 SPD에는 이미 포함',yao:'전무 상시 속도는 마을 SPD에 포함',wolf:'전무 상시 속도는 마을 SPD에 포함',hyacine:'전무 상시 속도는 마을 SPD에 포함',wave:'전무: 환락 스킬 후 본인 +24~40%',summeretto:'전무: 새로운 소리 활성 중 모든 아군 +20~40%'};
+  const eidolons={aeon:['아하 2돌','웨이브 승격 속도 +25% 선택 · 그 외 효과는 정보만 제공'],yao:['효광 2돌','결계 활성 시 모든 아군 +12%'],huohuo:['곽향 1돌','양명 활성 시 모든 아군 +12%'],hyacine:['히아킨 2돌','선택 시 HP 감소한 아군 +30%'],sparxie:['스파키 2돌','선택 시 아하 타임 후 보너스 턴 · SPD 변화 없음'],pearl:['펄 2돌','선택 시 필살기에 다른 환락 동료도 행동 증가'],wolf:['은랑 2돌','버프 연장·조건부 보너스 턴은 세부에서 수동 지정'],sparkle:['스파클 1돌','선택·활성 시 전투 진입 / 스킬 후 본인 +15%'],hanya:['한아 2돌','선택·활성 시 전투 스킬 후 본인 +20%'],tingyun:['정운 1돌','선택·활성 시 축복 대상 필살기 후 대상 +20%']};
+  const signatureNotes={aeon:'전광 기초 SPD +12~20 · 마을 SPD에는 이미 포함',yao:'전무 상시 속도는 마을 SPD에 포함',wolf:'전무 상시 속도는 마을 SPD에 포함',hyacine:'전무 상시 속도는 마을 SPD에 포함',wave:'전무 착용·활성 시 환락 스킬 후 본인 +24~40%',summeretto:'전무 착용·새로운 소리 활성 시 모든 아군 +20~40%'};
   const noSignature=['asta','hanya','tingyun','custom','other','empty'];
   function field(label,key,value,extra=''){return `<label>${label}<input data-key="${key}" type="number" step="0.001" value="${value}" ${extra}></label>`;}
   function check(label,key,value,disabled=false){return `<label class="check"><input data-key="${key}" type="checkbox" ${value?'checked':''} ${disabled?'disabled':''}><span>${label}</span></label>`;}
@@ -25,7 +25,7 @@
       cfg.slots[i]=E.slot(el.value,E.panelSpeed(cfg.slots[i])); cfg.slots[i].buffTarget=cfg.slots.findIndex(s=>s.id!=='empty');
       renderAll();
     }));
-    $('party').querySelectorAll('[data-panel]').forEach(el=>el.addEventListener('input',()=>{cfg.slots[+el.dataset.panel].panel=el.value===''?NaN:+el.value;updateResults();}));
+    $('party').querySelectorAll('[data-panel]').forEach(el=>el.addEventListener('input',()=>{cfg.slots[+el.dataset.panel].panel=el.validity.badInput?Infinity:el.value===''?NaN:+el.value;updateResults();}));
     $('party').querySelectorAll('[data-editor]').forEach(el=>el.addEventListener('click',()=>{const i=+el.dataset.editor;expanded.has(i)?expanded.delete(i):expanded.add(i);renderParty();updateResults();}));
     $('party').querySelectorAll('.slotconfig [data-key],.slot-note [data-key]').forEach(el=>el.addEventListener(el.type==='number'?'input':'change',()=>{
       const i=+el.closest('[data-party-slot]').dataset.partySlot,s=cfg.slots[i],key=el.dataset.key;
@@ -51,7 +51,7 @@
   }
   const eventNames={pct:'속도 % 증감',flat:'고정 SPD 증감',advance:'행동 게이지 조정 %',bonus:'보너스 턴',yao:'효광 필살기',pearl:'펄 필살기',ddd:'댄댄댄 전체 행동 증가 %',wave:'웨이브 직접 가산 총량',...(rumor?{ahaBonus:'추가 아하 타임 (수동)',ahaAdvance:'아하 타임 행동 증가 % (수동)'}:{})};
   function renderEvents(){
-    $('events').innerHTML=cfg.events.map((e,i)=>{const automatic=['bonus','yao','pearl','ahaBonus'].includes(e.type), fixedAha=['ahaBonus','ahaAdvance'].includes(e.type);return `<div class="event"><input data-event="${i}" data-field="time" type="number" step="0.001" aria-label="이벤트 ${i+1} 누적 AV" value="${e.time}"><select data-event="${i}" data-field="type" aria-label="이벤트 ${i+1} 종류">${Object.entries(eventNames).map(([k,v])=>`<option value="${k}" ${k===e.type?'selected':''}>${v}</option>`).join('')}</select><select class="eventtarget" data-event="${i}" data-field="target" aria-label="이벤트 ${i+1} 대상" ${fixedAha?'disabled':''}>${fixedAha?'<option value="all">아하 타임</option>':`<option value="all" ${e.target==='all'?'selected':''}>아군 전체</option>${targets(e.target)}`}</select><input class="eventvalue" data-event="${i}" data-field="value" type="number" step="0.01" aria-label="이벤트 ${i+1} 수치" value="${automatic?'':e.value}" placeholder="자동" ${automatic?'disabled':''}><button data-remove="${i}" aria-label="이벤트 ${i+1} 삭제">×</button></div>`}).join('');
+    $('events').innerHTML=cfg.events.map((e,i)=>{const automatic=E.automaticEvent(e.type), fixedAha=['ahaBonus','ahaAdvance'].includes(e.type);return `<div class="event"><input data-event="${i}" data-field="time" type="number" step="0.001" aria-label="이벤트 ${i+1} 누적 AV" value="${e.time}"><select data-event="${i}" data-field="type" aria-label="이벤트 ${i+1} 종류">${Object.entries(eventNames).map(([k,v])=>`<option value="${k}" ${k===e.type?'selected':''}>${v}</option>`).join('')}</select><select class="eventtarget" data-event="${i}" data-field="target" aria-label="이벤트 ${i+1} 대상" ${fixedAha?'disabled':''}>${fixedAha?'<option value="all">아하 타임</option>':`<option value="all" ${e.target==='all'?'selected':''}>아군 전체</option>${targets(e.target)}`}</select><input class="eventvalue" data-event="${i}" data-field="value" type="number" step="0.01" aria-label="이벤트 ${i+1} 수치" value="${automatic?'':e.value}" placeholder="자동" ${automatic?'disabled':''}><button data-remove="${i}" aria-label="이벤트 ${i+1} 삭제">×</button></div>`}).join('');
     $('events').querySelectorAll('[data-event]').forEach(el=>el.addEventListener(el.tagName==='SELECT'?'change':'input',()=>{const e=cfg.events[+el.dataset.event],k=el.dataset.field;
       if(k==='type'){e.type=el.value;if(e.type==='pearl')e.target=cfg.slots.findIndex(s=>s.id!=='pearl'&&s.id!=='empty');if(e.type==='bonus')e.target=cfg.slots.findIndex(s=>s.id!=='empty');if(e.type==='ddd')e.value=24;if(e.type==='ahaAdvance')e.value=20;renderEvents();}
       else if(k==='target')e.target=el.value==='all'?'all':+el.value;else e[k]=el.value===''?NaN:+el.value;updateResults();
@@ -99,11 +99,15 @@
   function renderRumorSummary(errors) {
     const own = cfg.slots.find(s=>s.id==='aeon'), wave = E.isWaveAscended(cfg);
     document.getElementById('rumorOwned').value=cfg.rumor.owned?'1':'0';
-    document.getElementById('rumorOwned').disabled=!!own;
+    document.getElementById('rumorOwnedControl').hidden=!!own;
+    const ownedStatus=document.getElementById('rumorOwnedStatus');
+    ownedStatus.hidden=!own;
+    ownedStatus.textContent=own?'아하 편성 중 · 기초항 '+f(E.ahaBase(cfg)):'';
     const waveInput=document.getElementById('rumorWaveAscension');
-    waveInput.checked=cfg.rumor.waveAscension;
+    waveInput.checked=E.isWaveAscended(cfg);
     const eligible=cfg.slots.some(s=>s.id==='wave')&&!!own&&cfg.slots.filter(s=>E.CHARACTERS[s.id].elation).length===2;
     waveInput.disabled=!eligible;
+    document.getElementById('rumorWaveControl').hidden=!eligible;
     document.getElementById('rumorAssumption').textContent=own?
       '편성 아하의 기초 SPD '+f(E.effectiveBase(own))+'를 아하 타임 기초항으로 참조합니다. 행적·상시 속도 %·전투 버프는 기초항에 직접 더하지 않습니다. 전광의 % 기준 변경은 문구에 따른 해석이며 실기 미검증입니다.' :
       cfg.rumor.owned?'보유만 / 미편성: 참조 방식이 실기 미검증이므로 행적·장비·전광을 제외한 94로 제한합니다. 미편성 전광은 선택할 수 없습니다.':'미보유 / 미편성: 기존 기초항 80을 사용합니다.';
@@ -156,7 +160,7 @@
   toggle.addEventListener('click',()=>panel.hidden?enterRumor():closeRumor());
   document.getElementById('closeRumor').addEventListener('click',closeRumor);
   panel.addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();closeRumor();}});
-  document.getElementById('importRumor').addEventListener('click',()=>{window.AhaRumorApp.setConfig(E.rumorConfig(window.AhaApp.getConfig()));document.getElementById('rumorImportStatus').textContent='현재 4.6 파티 설정을 다시 복사했습니다. 찌라시 설정만 교체했습니다.';});
+  document.getElementById('importRumor').addEventListener('click',()=>{window.AhaRumorApp.setConfig(E.rumorConfig(window.AhaApp.getConfig()));document.getElementById('rumorImportStatus').hidden=false;document.getElementById('rumorImportStatus').textContent='기존 설정을 다시 가져왔습니다.';});
   function showInfo(info){
     document.getElementById('rumorCalculation').hidden=info;document.getElementById('rumorInformation').hidden=!info;
     document.getElementById('showRumorCalc').setAttribute('aria-pressed',String(!info));document.getElementById('showRumorInfo').setAttribute('aria-pressed',String(info));

@@ -202,5 +202,46 @@ test('beta configuration and public snapshots do not share input state',()=>{
   const original=E.defaults(),copied=E.rumorConfig(original);copied.slots[0].panel=1;copied.events.push({});copied.buffs.extraPct=99;
   assert.equal(original.slots[0].panel,200);assert.equal(original.events.length,0);assert.equal(original.buffs.extraPct,0);
 });
+test('automatic events ignore stale manual values without changing their results',()=>{
+  for(const type of ['yao','pearl','bonus','ahaBonus']){
+    const c=type==='ahaBonus'?E.rumorConfig(E.defaults()):E.defaults();
+    c.events=[{time:10,type,target:1,value:NaN}];
+    assert.deepEqual(E.validate(c),[]);
+    const actual=E.simulate(c);assert.deepEqual(actual.errors,[]);
+    c.events[0].value=0;assert.deepEqual(actual,E.simulate(c));
+  }
+});
+test('automatic events continue rejecting invalid times',()=>{
+  for(const type of ['yao','pearl','bonus','ahaBonus']){
+    const c=E.rumorConfig(E.defaults());
+    for(const time of [NaN,-1,151,Infinity]){
+      c.events=[{time,type,target:1,value:NaN}];assert.ok(E.validate(c).some(x=>x.includes('시간')));
+    }
+  }
+});
+test('switching back to manual events keeps missing values invalid',()=>{
+  const c=E.rumorConfig(E.defaults()),event={time:10,type:'yao',target:1,value:NaN};c.events=[event];
+  assert.deepEqual(E.validate(c),[]);
+  for(const type of ['pct','flat','advance','ddd','wave','ahaAdvance']){
+    event.type=type;assert.ok(E.validate(c).some(x=>x.includes('시간/수치')));assert.ok(Number.isNaN(event.value));
+  }
+});
+test('missing town speed produces one slot error and recovers in both modes',()=>{
+  for(const c of [E.defaults(),E.rumorConfig(E.defaults())]){
+    c.slots[0].panel=NaN;assert.deepEqual(E.validate(c),['슬롯 1: 마을 속도를 입력해 주세요.']);
+    c.slots[0].panel=200;assert.deepEqual(E.validate(c),[]);assert.ok(E.snapshot(c).aha>0);
+  }
+});
+test('zero or negative town speed differs from other invalid slot fields',()=>{
+  const c=E.defaults();
+  for(const panel of [0,-1]){c.slots[0].panel=panel;assert.deepEqual(E.validate(c),['슬롯 1: 마을 속도는 0보다 커야 합니다.']);}
+  for(const panel of [Infinity,'bad']){c.slots[0].panel=panel;assert.deepEqual(E.validate(c),['슬롯 1: 마을 속도를 올바른 숫자로 입력해 주세요.']);}
+  c.slots[0].panel=200;c.slots[0].pct=NaN;assert.deepEqual(E.validate(c),['슬롯 1: 숫자를 올바르게 입력해 주세요.']);
+  c.slots[0].pct=-300;assert.deepEqual(E.validate(c),['슬롯 1: 전투 속도는 0보다 커야 합니다.']);
+});
+test('build mode validates its active fields instead of an unused town input',()=>{
+  const c=E.defaults();c.slots[0].panel=NaN;c.slots[0].mode='build';assert.deepEqual(E.validate(c),[]);
+  c.slots[0].gear=NaN;assert.deepEqual(E.validate(c),['슬롯 1: 숫자를 올바르게 입력해 주세요.']);
+});
 console.log(passed+' tests passed.');
 
