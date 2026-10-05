@@ -131,7 +131,7 @@
   $('addEvent').addEventListener('click',()=>{cfg.events.push({time:0,type:'advance',target:cfg.slots.findIndex(s=>s.id!=='empty'),value:25});renderEvents();updateResults();});
   root.querySelectorAll('[data-target]').forEach(el=>el.addEventListener('click',()=>{cfg.target=+el.dataset.target;sync();updateResults();}));
   $('sources').innerHTML=E.SOURCES.map(([label,url])=>`<li><a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a></li>`).join('');
-  new ResizeObserver(()=>{if(!$('advanced').hidden&&!$('turns').hidden)updateResults();}).observe($('plot'));
+  new ResizeObserver(()=>{if($('turns').getClientRects().length)updateResults();}).observe($('plot'));
   if(rumor){
     document.getElementById('rumorOwned').addEventListener('change',e=>{cfg.rumor.owned=e.target.value==='1';renderSelects();updateResults();});
     document.getElementById('rumorWaveAscension').addEventListener('change',e=>{cfg.rumor.waveAscension=e.target.checked;renderSelects();updateResults();});

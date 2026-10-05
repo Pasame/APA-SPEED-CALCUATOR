@@ -33,7 +33,13 @@ if(process.env.PLAYWRIGHT_CHROME_PATH)launch.executablePath=process.env.PLAYWRIG
    };
    await validateInput(main,'');
    const autoEvents=async(root,prefix,types)=>{
-    await page.locator('#'+prefix+'toggleAdvanced').click();await root.locator('[data-tab="turns"]').click();
+    assert.equal(await root.locator('#'+prefix+'advanced').isVisible(),false);
+    assert.equal(await root.locator('#'+prefix+'turns').isVisible(),true);
+    assert.ok(await root.locator('#'+prefix+'plot circle').count()>0);
+    await page.locator('#'+prefix+'toggleAdvanced').click();
+    await root.locator('[data-tab="refs"]').click();
+    assert.equal(await root.locator('#'+prefix+'turns').isVisible(),true);
+    await page.locator('#'+prefix+'toggleAdvanced').click();
     await root.locator('#'+prefix+'addEvent').click();
     const kind=root.locator('[data-field="type"]'),value=root.locator('[data-field="value"]'),time=root.locator('[data-field="time"]'),error=root.locator('#'+prefix+'errors');
     for(const type of types){
@@ -46,7 +52,7 @@ if(process.env.PLAYWRIGHT_CHROME_PATH)launch.executablePath=process.env.PLAYWRIG
     await kind.selectOption('advance');assert.equal(await value.inputValue(),'');assert.equal(await error.isVisible(),true);
     await value.fill('10');assert.equal(await error.isVisible(),false);
     await root.locator('[data-remove="0"]').click();
-    await page.locator('#'+prefix+'toggleAdvanced').click();
+    assert.equal(await root.locator('#'+prefix+'advanced').isVisible(),false);
    };
    await autoEvents(main,'',['yao','pearl','bonus']);
    await main.locator('[data-panel="0"]').fill('210.123');
