@@ -20,7 +20,6 @@
     sunday: { name: '선데이', base: 96, trace: 0, elation: false },
     custom: { name: '직접 입력 (환락)', base: 100, trace: 0, elation: true },
     other: { name: '직접 입력 (비환락)', base: 100, trace: 0, elation: false },
-    aeon: { name: '에이언즈★아하', base: 94, trace: 5, elation: true, betaOnly: true },
     empty: { name: '빈 슬롯', base: 0, trace: 0, elation: false }
   };
   const SOURCES = [
@@ -58,33 +57,10 @@
   function present(cfg, id) { return cfg.slots.some(s => s.id === id); }
   function owner(cfg, id) { return cfg.slots.find(s => s.id === id); }
   function eidolonActive(cfg, id) { const s = owner(cfg, id); return !!(s?.eidolon && s.buffActive !== false); }
-  // A base-SPD increase changes the percentage basis; flat traces stay outside it.
-  function effectiveBase(s) {
-    return Number(s.base) + (s.id === 'aeon' && s.signature ? 12 + 2 * (s.refine - 1) : 0);
-  }
-  function rumorConfig(cfg) {
-    const copy = structuredClone(cfg);
-    copy.rumor = { enabled: true, owned: true, waveAscension: false };
-    return copy;
-  }
-  function ahaBase(cfg) {
-    if (!cfg.rumor?.enabled || cfg.rumor.legacyBase) return 80;
-    const aha = owner(cfg, 'aeon');
-    // Ownership-only gear/trace references have no verified combat implementation.
-    return aha ? effectiveBase(aha) : cfg.rumor.owned ? 94 : 80;
-  }
-  function isWaveAscended(cfg) {
-    return !!(cfg.rumor?.enabled && cfg.rumor.waveAscension && present(cfg, 'aeon') &&
-      present(cfg, 'wave') && cfg.slots.filter(s => CHARACTERS[s.id].elation).length === 2);
-  }
-  function canWaveDirect(cfg) { return isSoloWave(cfg) || isWaveAscended(cfg); }
-  function compareBase(cfg) {
-    return { legacy: snapshot({ ...cfg, rumor: { ...cfg.rumor, legacyBase: true } }), beta: snapshot(cfg) };
-  }
   function panelSpeed(s) {
     if (s.mode !== 'build') return Number(s.panel);
-    const lc = s.id === 'aeon' && s.signature ? 0 : s.signature && ['yao','wolf','hyacine'].includes(s.id) ? 18 + 3 * (s.refine - 1) : s.lc;
-    return effectiveBase(s) * (1 + (s.gear + s.planar + lc + s.extraPanelPct) / 100)
+    const lc = s.signature && ['yao','wolf','hyacine'].includes(s.id) ? 18 + 3 * (s.refine - 1) : s.lc;
+    return s.base * (1 + (s.gear + s.planar + lc + s.extraPanelPct) / 100)
       + s.trace + s.boots + s.sub + s.extraPanelFlat;
   }
   function additions(cfg, i) {
@@ -105,7 +81,6 @@
     const tingyun=owner(cfg,'tingyun');
     if (eidolonActive(cfg,'tingyun') && tingyun.buffTarget===i) pct += 20;
     if (s.warrior) pct += 6;
-    if (isWaveAscended(cfg)) pct += owner(cfg, 'aeon').eidolon ? 25 : 15;
     if (present(cfg, 'asta')) flat += Number(b.asta);
     return { pct, flat };
   }
@@ -115,26 +90,25 @@
   function snapshot(cfg, overrides = {}) {
     const chars = cfg.slots.map((s, i) => {
       const c = CHARACTERS[s.id], a = additions(cfg, i), panel = panelSpeed(s);
-      const speed = overrides[i] === undefined ? panel + effectiveBase(s) * a.pct / 100 + a.flat : overrides[i];
-      return { i, id: s.id, name: c.name, elation: c.elation, base: effectiveBase(s), panel,
+      const speed = overrides[i] === undefined ? panel + s.base * a.pct / 100 + a.flat : overrides[i];
+      return { i, id: s.id, name: c.name, elation: c.elation, base: s.base, panel,
         pct: a.pct, flat: a.flat, speed, weight: 0, contribution: 0 };
     });
     const ranked = chars.filter(c => c.elation).sort((a, b) => b.speed - a.speed || a.i - b.i);
     ranked.forEach((c, rank) => { c.rank = rank + 1; c.weight = WEIGHTS[rank]; c.contribution = c.speed * c.weight; });
-    const direct = canWaveDirect(cfg) ? cfg.soloWaveBonus : 0;
-    const base = ahaBase(cfg);
-    const aha = ranked.length ? base + direct + ranked.reduce((v, c) => v + c.contribution, 0) : null;
-    return { chars, ranked, aha, base, direct, av: aha ? 10000 / aha : null };
+    const direct = isSoloWave(cfg) ? cfg.soloWaveBonus : 0;
+    const aha = ranked.length ? 80 + direct + ranked.reduce((v, c) => v + c.contribution, 0) : null;
+    return { chars, ranked, aha, direct, av: aha ? 10000 / aha : null };
   }
   function solve(cfg, idx, target, kind = 'aha') {
     const s = cfg.slots[idx];
     if (!CHARACTERS[s.id].elation) return null;
-    const add = additions(cfg, idx), offset = effectiveBase(s) * add.pct / 100 + add.flat;
+    const add = additions(cfg, idx), offset = s.base * add.pct / 100 + add.flat;
     const predicate = panel => {
       const snap = snapshot(cfg, { [idx]: panel + offset });
       return kind === 'ahead' ? panel + offset > snap.aha + 1e-9 : snap.aha >= target;
     };
-    let lo = effectiveBase(s) + s.trace, hi = Math.max(lo, 1000);
+    let lo = s.base + s.trace, hi = Math.max(lo, 1000);
     if (predicate(lo)) return { panel: lo, combat: lo + offset, delta: lo - panelSpeed(s) };
     while (!predicate(hi) && hi < 1000000) hi *= 2;
     if (!predicate(hi)) return null;
@@ -148,7 +122,6 @@
     const errors = [], seen = new Set();
     cfg.slots.forEach((s, i) => {
       if (!CHARACTERS[s.id]) { errors.push(`슬롯 ${i + 1}: 알 수 없는 캐릭터`); return; }
-      if (CHARACTERS[s.id].betaOnly && !cfg.rumor?.enabled) errors.push('아하 캐릭터는 4.7 찌라시에서만 편성할 수 있습니다.');
       if (s.id === 'empty') return;
       if (!['custom', 'other'].includes(s.id) && seen.has(s.id)) errors.push('같은 캐릭터를 중복 편성할 수 없습니다.');
       seen.add(s.id);
@@ -168,13 +141,13 @@
     if (!Number.isFinite(cfg.soloWaveBonus) || cfg.soloWaveBonus < 0) errors.push('웨이브 직접 가산은 0 이상의 숫자여야 합니다.');
     cfg.events.forEach((e, i) => {
       if (!Number.isFinite(e.time) || e.time < 0 || e.time > cfg.horizon || !Number.isFinite(e.value)) errors.push(`이벤트 ${i + 1}: 시간/수치를 확인해 주세요.`);
-      if (!['pct', 'flat', 'advance', 'bonus', 'yao', 'pearl', 'ddd', 'wave', ...(cfg.rumor?.enabled ? ['ahaBonus', 'ahaAdvance'] : [])].includes(e.type)) errors.push(`이벤트 ${i + 1}: 종류를 확인해 주세요.`);
-      if (!['yao', 'wave', 'ddd', 'ahaBonus', 'ahaAdvance'].includes(e.type) && e.target !== 'all' && (!Number.isInteger(e.target) || !cfg.slots[e.target])) errors.push(`이벤트 ${i + 1}: 대상을 확인해 주세요.`);
-      if ((e.type === 'advance' || e.type === 'ddd' || e.type === 'ahaAdvance') && (e.value < -100 || e.value > 100)) errors.push(`이벤트 ${i + 1}: 행동 조정은 -100~100%입니다.`);
+      if (!['pct', 'flat', 'advance', 'bonus', 'yao', 'pearl', 'ddd', 'wave'].includes(e.type)) errors.push(`이벤트 ${i + 1}: 종류를 확인해 주세요.`);
+      if (!['yao', 'wave', 'ddd'].includes(e.type) && e.target !== 'all' && (!Number.isInteger(e.target) || !cfg.slots[e.target])) errors.push(`이벤트 ${i + 1}: 대상을 확인해 주세요.`);
+      if ((e.type === 'advance' || e.type === 'ddd') && (e.value < -100 || e.value > 100)) errors.push(`이벤트 ${i + 1}: 행동 조정은 -100~100%입니다.`);
       if (e.type === 'yao' && !present(cfg, 'yao')) errors.push('효광 필살기 이벤트에는 효광 편성이 필요합니다.');
       if (e.type === 'pearl' && (!present(cfg, 'pearl') || cfg.slots[e.target]?.id === 'pearl' || e.target === 'all')) errors.push('펄 필살기는 펄 외의 한 캐릭터를 지정해야 합니다.');
-      if (e.type === 'wave' && !canWaveDirect(cfg)) errors.push('아하 직접 가산은 웨이브 단독 환락 또는 찌라시의 아하·웨이브 승격 조건에서만 사용합니다.');
-      if (!['yao', 'wave', 'ddd', 'ahaBonus', 'ahaAdvance'].includes(e.type) && e.target !== 'all' && cfg.slots[e.target]?.id === 'empty') errors.push('빈 슬롯은 이벤트 대상이 될 수 없습니다.');
+      if (e.type === 'wave' && !isSoloWave(cfg)) errors.push('아하 직접 가산은 웨이브 단독 환락 편성에서만 사용합니다.');
+      if (!['yao', 'wave', 'ddd'].includes(e.type) && e.target !== 'all' && cfg.slots[e.target]?.id === 'empty') errors.push('빈 슬롯은 이벤트 대상이 될 수 없습니다.');
       if (e.type === 'bonus' && e.target === 'all') errors.push('보너스 턴의 대상은 캐릭터 1명이어야 합니다.');
     });
     return [...new Set(errors)];
@@ -191,10 +164,10 @@
     function speeds() {
       const chars = snap.chars.map((c, i) => c.speed + c.base * pct[i] / 100 + flat[i]);
       const ranked = snap.ranked.map(c => chars[c.i]).sort((a, b) => b - a);
-      return [...chars, snap.base + ranked.reduce((v, s, i) => v + s * WEIGHTS[i], 0) + solo];
+      return [...chars, 80 + ranked.reduce((v, s, i) => v + s * WEIGHTS[i], 0) + solo];
     }
     function add(actor, type, note) {
-      log.push({ time, actor, name: actor === 4 ? (cfg.rumor?.enabled ? '아하 타임' : '아하') : snap.chars[actor].name, type, note,
+      log.push({ time, actor, name: actor === 4 ? '아하' : snap.chars[actor].name, type, note,
         speed: speeds()[actor] });
       if (type === 'normal') counts[actor].natural++;
       if (type === 'bonus') counts[actor].bonus++;
@@ -221,10 +194,8 @@
         if (e.type === 'advance') { targets.forEach(i => advance(i, e.value)); add(targets[0], 'event', `행동 게이지 ${e.value}% 조정`); }
         if (e.type === 'ddd') { [0, 1, 2, 3].forEach(i => advance(i, e.value)); add(cfg.slots.findIndex(s => s.id !== 'empty'), 'event', `댄댄댄 · 아군 ${e.value}% 행동 증가`); }
         if (e.type === 'bonus') add(targets[0], 'bonus', '사용자 지정 보너스 턴 · 게이지 유지');
-        if (e.type === 'ahaBonus') { add(4, 'bonus', '수동 추가 아하 타임 · 자연 게이지 유지'); afterInstant(); }
-        if (e.type === 'ahaAdvance') { advance(4, e.value); add(4, 'event', '수동 아하 타임 행동 게이지 ' + e.value + '% 조정'); }
         if (e.type === 'yao') { add(4, 'bonus', '효광 필살기 · 자연 게이지 유지'); afterInstant(); }
-        if (e.type === 'wave') { solo = e.value; add(4, 'event', `웨이브 ${isWaveAscended(cfg) ? '승격 예외' : '단독 환락'} · 직접 가산 총량 ${e.value}`); }
+        if (e.type === 'wave') { solo = e.value; add(4, 'event', `웨이브 단독 환락 · 직접 가산 총량 ${e.value}`); }
         if (e.type === 'pearl') {
           const n = snap.ranked.length, amount = [0, 10, 15, 30, 30][n], target = Number(e.target);
           advance(target, amount);
@@ -244,7 +215,7 @@
     }
     return { errors: [], log, counts, finalSpeed: speeds(), remainingGauge: gauges };
   }
-  const api = { WEIGHTS, CHARACTERS, SOURCES, slot, defaults, panelSpeed, additions, snapshot, solve, validate, simulate, isSoloWave, effectiveBase, ahaBase, rumorConfig, compareBase, isWaveAscended, canWaveDirect };
+  const api = { WEIGHTS, CHARACTERS, SOURCES, slot, defaults, panelSpeed, additions, snapshot, solve, validate, simulate, isSoloWave };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.AhaEngine = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

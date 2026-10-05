@@ -117,4 +117,90 @@ test('Tingyun E1 target and Hanya E2 self speed remain scoped', () => {
   approx(E.snapshot(c).chars[0].speed,200);approx(E.snapshot(c).chars[1].speed,222);
   c.slots[3]=E.slot('hanya',160);c.slots[3].eidolon=true;approx(E.snapshot(c).chars[3].speed,182);
 });
-console.log(`${passed} tests passed.`);
+
+function betaParty(){const c=E.rumorConfig(duo());c.slots[1]=E.slot('aeon',160);return c;}
+test('legacy options absent or disabled always retain base 80',()=>{
+  const c=E.defaults();approx(E.ahaBase(c),80);c.rumor={enabled:false,owned:true};approx(E.snapshot(c).aha,151.35);
+});
+test('4.6 regression fixture preserves snapshots, inverse, and simulation',()=>{
+  const old=require('./engine-4.6.fixture.cjs');
+  for(let n=0;n<24;n++){
+    const c=E.defaults();c.slots[0].panel=120+n*7;c.slots[1].panel=140+n*3;
+    c.slots[0].eidolon=n%2===0;c.slots[2].signature=n%3===0;c.slots[3].vonwacq=n%4===0;
+    c.buffs.extraPct=n;c.slots[3].eidolon=true;c.events=[{time:30,type:'pearl',target:1,value:0},{time:60,type:'pct',target:'all',value:12}];
+    const current=E.snapshot(c);delete current.base;assert.deepEqual(current,old.snapshot(c));
+    assert.deepEqual(E.solve(c,0,160.01),old.solve(c,0,160.01));assert.deepEqual(E.simulate(c),old.simulate(c));
+  }
+});
+test('beta character is rejected in legacy configuration',()=>{
+  const c=duo();c.slots[1]=E.slot('aeon',160);assert.ok(E.validate(c).some(x=>x.includes('찌라시')));
+});
+test('ownership-only beta base uses 94 without adding a fifth party member',()=>{
+  const c=E.rumorConfig(duo());approx(E.snapshot(c).aha,147.4);assert.equal(E.snapshot(c).ranked.length,2);
+  c.rumor.owned=false;approx(E.snapshot(c).aha,133.4);
+});
+test('equipped Aha references effective base independent of ownership-only flag',()=>{
+  const c=betaParty();c.rumor.owned=false;approx(E.ahaBase(c),94);
+  c.slots[1].signature=true;approx(E.ahaBase(c),106);
+  for(let r=1;r<=5;r++){c.slots[1].refine=r;approx(E.ahaBase(c),104+2*r);}
+});
+test('town speed does not add permanent signature, traces or gear twice',()=>{
+  const c=betaParty(),s=c.slots[1];s.signature=true;s.gear=99;s.lc=99;s.trace=99;
+  approx(E.panelSpeed(s),160);approx(E.snapshot(c).chars[1].speed,160);approx(E.ahaBase(c),106);
+});
+test('base-SPD increase changes percentage basis exactly once in build mode',()=>{
+  const s=E.slot('aeon',160);s.signature=true;s.mode='build';s.gear=6;s.lc=99;
+  approx(E.panelSpeed(s),106*1.06+5+25+20);
+  s.signature=false;s.lc=0;approx(E.panelSpeed(s),94*1.06+5+25+20);
+});
+test('team and timed speed buffs use effective base, not town SPD',()=>{
+  const c=betaParty();c.slots[1].signature=true;c.slots[0].eidolon=true;
+  approx(E.snapshot(c).chars[1].speed,160+106*.12);
+  c.events=[{time:1,type:'pct',target:1,value:20}];approx(E.simulate(c).finalSpeed[1],160+106*.32);
+});
+test('signature changes ranking under the same percentage buff',()=>{
+  const c=betaParty();c.slots[0].panel=207;c.slots[1].panel=206.6;c.slots[0].eidolon=true;
+  assert.equal(E.snapshot(c).ranked[0].id,'yao');c.slots[1].signature=true;assert.equal(E.snapshot(c).ranked[0].id,'aeon');
+});
+test('same-party comparison changes only Aha Instant base',()=>{
+  const c=betaParty();c.slots[1].signature=true;c.slots[0].eidolon=true;
+  const r=E.compareBase(c);assert.deepEqual(r.legacy.chars,r.beta.chars);assert.deepEqual(r.legacy.ranked,r.beta.ranked);
+  approx(r.beta.aha-r.legacy.aha,26);approx(r.legacy.base,80);approx(r.beta.base,106);
+});
+test('inverse uses beta base and returns safe result after rank changes',()=>{
+  const c=betaParty();c.slots[1].signature=true;const result=E.solve(c,1,180.01);
+  c.slots[1].panel=result.panel;assert.ok(E.snapshot(c).aha>=180.01);c.slots[1].panel-=.01;assert.ok(E.snapshot(c).aha<180.01);
+});
+test('simulation first natural Aha Instant agrees with snapshot AV',()=>{
+  const c=betaParty();c.slots[1].signature=true;approx(E.simulate(c).log.find(l=>l.actor===4&&l.type==='normal').time,E.snapshot(c).av);
+});
+test('manual beta extra instant retains natural gauge and triggers Sparxie E2 once',()=>{
+  const c=E.rumorConfig(duo());c.slots[1].eidolon=true;c.events=[{time:10,type:'ahaBonus',target:'all',value:0}];
+  const sim=E.simulate(c);approx(sim.log.find(l=>l.actor===4&&l.type==='normal').time,E.snapshot(c).av);
+  assert.equal(sim.log.filter(l=>l.actor===4&&l.type==='bonus').length,1);assert.equal(sim.log.filter(l=>l.actor===1&&l.type==='bonus'&&l.time===10).length,1);
+});
+test('beta manual gauge event advances Aha Instant only',()=>{
+  const c=betaParty();c.events=[{time:0,type:'ahaAdvance',target:'all',value:20}];
+  approx(E.simulate(c).log.find(l=>l.actor===4&&l.type==='normal').time,E.snapshot(c).av*.8);
+  approx(E.simulate(c).log.find(l=>l.actor===0&&l.type==='normal').time,50);
+  c.events[0].value=101;assert.ok(E.validate(c).length);
+});
+test('legacy mode rejects beta manual event kinds',()=>{
+  const c=duo();c.events=[{time:0,type:'ahaBonus',target:'all',value:0}];assert.ok(E.validate(c).some(x=>x.includes('종류')));
+});
+test('Wave ascension exception is scoped and not the legacy solo rule',()=>{
+  const c=betaParty();c.slots[0]=E.slot('wave',160);c.slots[2]=E.slot('huohuo',150);
+  assert.equal(E.isSoloWave(c),false);assert.equal(E.canWaveDirect(c),false);
+  c.rumor.waveAscension=true;assert.equal(E.canWaveDirect(c),true);approx(E.snapshot(c).chars[2].speed,150+98*.15);
+  c.slots[1].eidolon=true;approx(E.snapshot(c).chars[2].speed,150+98*.25);
+  c.slots[3]=E.slot('yao',200);assert.equal(E.canWaveDirect(c),false);approx(E.snapshot(c).chars[2].speed,150);
+});
+test('no automatic technique ultimate resource or extra instant assumption',()=>{
+  const c=betaParty();c.slots[1].eidolon=true;assert.equal(E.simulate(c).counts[4].bonus,0);
+});
+test('beta configuration and public snapshots do not share input state',()=>{
+  const original=E.defaults(),copied=E.rumorConfig(original);copied.slots[0].panel=1;copied.events.push({});copied.buffs.extraPct=99;
+  assert.equal(original.slots[0].panel,200);assert.equal(original.events.length,0);assert.equal(original.buffs.extraPct,0);
+});
+console.log(passed+' tests passed.');
+
