@@ -101,7 +101,7 @@ if(process.env.PLAYWRIGHT_CHROME_PATH)launch.executablePath=process.env.PLAYWRIG
    await page.locator('#rumor-reset').click();assert.deepEqual(await page.evaluate(()=>AhaApp.getConfig()),original);
    await page.locator('#rumorComparisonDetails summary').press('Enter');assert.equal(await page.locator('#rumorComparisonDetails').evaluate(el=>el.open),true);
    assert.ok((await page.locator('#rumorComparison').innerText()).includes('151.350'));
-   await page.locator('#showRumorInfo').press('Enter');assert.ok((await page.locator('#rumorInformation').innerText()).includes('v4.6.51'));
+   await page.locator('#showRumorInfo').press('Enter');assert.ok((await page.locator('#rumorInformation').innerText()).includes('v4.6.52'));
    assert.ok((await page.locator('#rumorInformation').innerText()).includes('미검증'));
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
    await page.locator('#closeRumor').click();await page.locator('#reset').click();assert.equal(await main.locator('#aha').innerText(),'151.350');
