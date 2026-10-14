@@ -243,5 +243,78 @@ test('build mode validates its active fields instead of an unused town input',()
   const c=E.defaults();c.slots[0].panel=NaN;c.slots[0].mode='build';assert.deepEqual(E.validate(c),[]);
   c.slots[0].gear=NaN;assert.deepEqual(E.validate(c),['슬롯 1: 숫자를 올바르게 입력해 주세요.']);
 });
+test('beta planar permanent 6 percent applies once to build, never town input',()=>{
+  for(const planar of ['joy','asc']){const s=E.slot('aeon',160);s.betaPlanar=planar;s.signature=true;s.planar=99;approx(E.panelSpeed(s),160);s.mode='build';approx(E.panelSpeed(s),106*1.12+50);}
+});
+test('Joy first advance requires beta mode and the explicit Elation condition',()=>{
+  const c=betaParty(),s=c.slots[1];s.betaPlanar='joy';
+  approx(E.simulate(c).log.find(l=>l.actor===1&&l.type==='normal').time,62.5);
+  s.joyEligible=true;approx(E.simulate(c).log.find(l=>l.actor===1&&l.type==='normal').time,37.5);
+  approx(E.snapshot(c).chars[1].speed,160);c.rumor.enabled=false;assert.ok(E.validate(c).some(t=>t.includes('베타 장신구')));
+});
+test('planars sharing a slot are rejected rather than inventing stacking',()=>{
+  const c=betaParty();c.slots[1].betaPlanar='joy';c.slots[1].vonwacq=true;
+  assert.ok(E.validate(c).some(t=>t.includes('동시에')));assert.ok(E.simulate(c).errors.length);
+});
+test('start advances at 0, 40, 100 percent keep later natural gauges',()=>{
+  for(const advance of [0,40,100]){const c=duo();c.slots[0].initialAdvance=advance;const l=E.simulate(c).log.filter(l=>l.actor===0&&l.type==='normal');approx(l[0].time,50*(1-advance/100));approx(l[1].time-l[0].time,50);}
+});
+test('Joy plus a generic start advance caps the first gauge at zero',()=>{
+  const c=betaParty();c.slots[1].betaPlanar='joy';c.slots[1].joyEligible=true;c.slots[1].initialAdvance=80;
+  approx(E.simulate(c).log.find(l=>l.actor===1&&l.type==='normal').time,0);
+});
+test('flat trace is not a percentage base and hidden decimals survive',()=>{
+  const c=duo(200.0000001,134.0000002);c.slots[0].trace=999;c.slots[0].pct=12;approx(E.snapshot(c).chars[0].speed,212.1200001);
+});
+test('timed speed decrease and expiration preserve natural progress',()=>{
+  const c=duo();c.events=[{time:10,type:'flat',target:0,value:100},{time:20,type:'flat',target:0,value:-100}];
+  approx(E.simulate(c).log.find(l=>l.actor===0&&l.type==='normal').time,45);
+});
+test('same-time events run in input order before the party natural tie',()=>{
+  const c=duo(200,200);c.events=[{time:50,type:'flat',target:0,value:10},{time:50,type:'flat',target:0,value:-10}];
+  const at=E.simulate(c).log.filter(l=>l.time===50);assert.deepEqual(at.slice(0,4).map(l=>l.type),['event','event','normal','normal']);assert.deepEqual(at.slice(2,4).map(l=>l.actor),[0,1]);
+});
+test('new Aha goal solver verifies the displayed minimum after rank crossing',()=>{
+  const c=duo(140,200);c.target=160.01;const r=E.solveGoal(c,0,{kind:'aha'});
+  assert.ok(!r.error,r.error);assert.ok(r.checked.met);assert.equal(r.previousMet,false);assert.equal(r.rankChanged,true);c.slots[0].panel=r.panel;assert.ok(E.snapshot(c).aha>=c.target);c.slots[0].panel-=.01;assert.ok(E.snapshot(c).aha<c.target);
+});
+test('first-before-Aha solver uses actual start advance, not fixed Aha SPD',()=>{
+  const c=duo(110,200);c.slots[0].vonwacq=true;const r=E.solveGoal(c,0,{kind:'beforeAha'});
+  assert.ok(!r.error,r.error);assert.ok(r.checked.observed.mine<r.checked.observed.theirs);assert.equal(r.previousMet,false);assert.ok(r.panel<=120);
+});
+test('a strict first-before-actor goal rejects an exact tie',()=>{
+  const c=duo(110,150);const r=E.solveGoal(c,0,{kind:'beforeActor',other:1});assert.equal(r.panel,150.01);assert.equal(r.previousMet,false);
+});
+test('natural count solver excludes a precise AV boundary and ignores bonus turns',()=>{
+  const c=duo();c.events=[{time:0,type:'bonus',target:0,value:NaN}];const r=E.solveGoal(c,0,{kind:'count',actor:0,count:3,until:150});
+  assert.equal(r.panel,200.01);assert.equal(r.previousMet,false);assert.equal(r.checked.observed,3);
+});
+test('Aha natural count solver reranks and reuses timed speed buffs',()=>{
+  const c=duo(110,180);c.events=[{time:10,type:'pct',target:0,value:12}];const r=E.solveGoal(c,0,{kind:'count',actor:4,count:2,until:150});assert.ok(!r.error,r.error);assert.ok(r.checked.met);assert.equal(r.previousMet,false);
+});
+test('timed order search finds a nonmonotone feasible island',()=>{
+  const c=duo(110,120),goal={kind:'timedOrder',other:1,time:80};
+  c.slots[0].panel=125;assert.equal(E.goalCheck(c,0,goal).met,true);c.slots[0].panel=125.01;assert.equal(E.goalCheck(c,0,goal).met,false);c.slots[0].panel=110;
+  const r=E.solveGoal(c,0,goal);assert.equal(r.panel,120.01);assert.equal(r.method,'0.01 단위 전수 탐색');assert.equal(r.previousMet,false);
+});
+test('timed order includes manually selected buffs and rejects invalid goal time',()=>{
+  const c=duo(110,150);c.events=[{time:20,type:'flat',target:0,value:30}];const r=E.solveGoal(c,0,{kind:'timedOrder',other:1,time:20});assert.ok(!r.error,r.error);assert.equal(r.previousMet,false);assert.ok(r.checked.observed.mine<r.checked.observed.theirs);
+  assert.ok(E.solveGoal(c,0,{kind:'timedOrder',other:1,time:150}).error);
+});
+test('impossible or unverified solver conditions return reasons',()=>{
+  const c=duo();assert.ok(E.solveGoal(c,0,{kind:'count',actor:1,count:100,until:150}).error);assert.ok(E.solveGoal(c,0,{kind:'beforeActor',other:0}).error);assert.ok(E.solveGoal(c,0,{kind:'count',actor:4,count:2,until:200}).error);
+});
+test('solver never mutates source configuration or beta state',()=>{
+  const c=betaParty(),before=structuredClone(c);E.solveGoal(c,0,{kind:'beforeAha'});assert.deepEqual(c,before);
+});
+test('AV proximity warning is based on simulated time rather than SPD difference',()=>{
+  const c=duo(200,199.999);assert.ok(E.diagnostics(c).some(t=>t.includes('0.01 AV')));c.slots[0].vonwacq=true;assert.ok(!E.diagnostics(c).some(t=>t.includes('0.01 AV')));
+});
+test('diagnostics identify actual rank crossing and avoid double counting sets',()=>{
+  const c=duo(170,168);c.slots[1].pct=20;c.slots[0].messenger=c.slots[1].messenger=true;const warnings=E.diagnostics(c);assert.ok(warnings.some(t=>t.includes('재배정')));assert.ok(warnings.some(t=>t.includes('한 번만')));
+});
+
+test('build solver preserves the fixed gear floor without negative substats',()=>{const c=duo();c.slots[0].mode='build';c.target=90;const floor=E.panelSpeed({...c.slots[0],sub:0});const r=E.solveGoal(c,0,{kind:'aha'});assert.ok(!r.error,r.error);assert.ok(r.panel>=floor);assert.equal(r.previousAvailable,false);});
+test('invalid goals cannot show a spurious achieved result',()=>{const c=duo();assert.ok(E.goalCheck(c,0,{kind:'count',actor:4,count:0,until:150}).error);assert.ok(E.goalCheck(c,0,{kind:'timedOrder',other:1,time:NaN}).error);});
 console.log(passed+' tests passed.');
 
