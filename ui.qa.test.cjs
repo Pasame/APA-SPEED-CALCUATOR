@@ -6,16 +6,16 @@ if(process.env.PLAYWRIGHT_CHROME_PATH)launch.executablePath=process.env.PLAYWRIG
 (async()=>{
  const browser=await chromium.launch(launch),measurements=[];
  try{
-  for(const width of [1280,390,320]){
+  for(const width of [1280,1024,768,390,320]){
    const context=await browser.newContext({viewport:{width,height:844},offline:true}),page=await context.newPage(),errors=[],requests=[];
    page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(/^https?:/.test(r.url()))requests.push(r.url());});
    await page.goto(pathToFileURL(path.join(__dirname,'index.html')).href);
    const main=page.locator('#standardCalculator');
    const measure=async(mode,root)=>{
-    const first=await root.locator('[data-panel="0"]').evaluate(el=>({top:el.getBoundingClientRect().top+scrollY,bottom:el.getBoundingClientRect().bottom+scrollY}));
+    const first=await root.locator('[data-panel="0"]').evaluate(el=>({top:el.getBoundingClientRect().top+scrollY+document.querySelector("main").scrollTop,bottom:el.getBoundingClientRect().bottom+scrollY+document.querySelector("main").scrollTop}));
     const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);
     assert.equal(overflow,false,mode+' overflow '+width);
-    if(width<800)assert.ok(first.bottom<650,mode+' first input '+first.bottom);
+    if(width<=768)assert.ok(first.bottom<650,mode+' first input '+first.bottom);
     measurements.push({width,mode,firstInputTop:Math.round(first.top)});
     const evidence=root.locator('.result-evidence');
     assert.equal(await evidence.evaluate(el=>el.open),false);
@@ -24,20 +24,20 @@ if(process.env.PLAYWRIGHT_CHROME_PATH)launch.executablePath=process.env.PLAYWRIG
     assert.equal(inputStyle,'16px');
     await root.locator('[id$="plot"]').scrollIntoViewIfNeeded();
     const summary=root.locator('aside'),rect=await summary.boundingBox();
-    assert.ok(rect.y>=0&&rect.y<150,mode+' pinned result is visible at '+width);
-    if(width<800){
-     assert.ok(rect.height<160,mode+' compact mobile result');
+    if(width>768)assert.ok(rect.y>=0&&rect.y<150,mode+' pinned result is visible at '+width);else assert.ok(rect.y>=0&&rect.y+rect.height<=845,mode+' bottom result fits '+width);
+    if(width<=768){
+     assert.ok(rect.height<180,mode+' compact mobile result');
      await page.setViewportSize({width,height:400});
      const last=root.locator('[data-panel="3"]');await last.click();
-     assert.equal(await summary.evaluate(el=>getComputedStyle(el).position),'static');
+     assert.equal(await summary.evaluate(el=>getComputedStyle(el).visibility),'hidden');
      const inputRect=await last.boundingBox();assert.ok(inputRect.y>=0&&inputRect.y+inputRect.height<=400,'focused input fits a keyboard-sized viewport');
      await root.locator('.footer').click();await page.keyboard.press('Control+End');
-     const footer=await root.locator('.footer').boundingBox();assert.ok(footer.y+footer.height<=401,'last content remains reachable');
+     await page.waitForFunction(id=>{const root=document.querySelector(id),footer=root.querySelector('.footer').getBoundingClientRect(),bar=root.querySelector('aside').getBoundingClientRect();return footer.bottom<=bar.top+1;},mode==='46'?'#standardCalculator':'#rumorCalculator',{timeout:3000});const footer=await root.locator('.footer').boundingBox();assert.ok(footer.y+footer.height<=(await summary.boundingBox()).y+1,'last content is above the bottom dock '+JSON.stringify({width,mode,footer,bar:await summary.boundingBox(),main:await page.locator('main').evaluate(el=>({height:el.clientHeight,scroll:el.scrollTop,max:el.scrollHeight,active:document.activeElement.tagName,dock:getComputedStyle(document.documentElement).getPropertyValue('--dock-height')}))}));
      await page.setViewportSize({width,height:844});
     }
     await evidence.locator('summary').press('Enter');
     assert.equal(await root.locator('[id$="ranks"]').isVisible(),true);
-    if(width<800)assert.equal(await summary.evaluate(el=>getComputedStyle(el).position),'static');
+    if(width<=768){assert.equal(await summary.evaluate(el=>getComputedStyle(el).position),'fixed');assert.ok((await summary.boundingBox()).height<=844*.55+1);}
     await evidence.locator('summary').press('Enter');await page.keyboard.press('Control+Home');
     const rects=await root.locator('.slot-bottom button,.slotconfig select').evaluateAll(els=>els.map(el=>({left:el.getBoundingClientRect().left,right:el.getBoundingClientRect().right})));
     assert.ok(rects.every(r=>r.left>=0&&r.right<=width),'controls fit '+mode+' '+width);
@@ -46,24 +46,24 @@ if(process.env.PLAYWRIGHT_CHROME_PATH)launch.executablePath=process.env.PLAYWRIG
    await measure('46',main);
    assert.equal(await main.locator('#equipment0').isVisible(),false);
    assert.equal(await main.locator('#effectSummary0').isVisible(),false);
-   const baseOutput=await main.locator('#aha').innerText();
+   const baseOutput=await main.locator('#aha').textContent();
    await main.locator('[data-party-slot="0"] [data-key="eidolon"]').check();
    assert.ok((await main.locator('#effectSummary0').innerText()).includes('+12% 반영'));
    assert.equal(await main.locator('[data-party-slot="0"] [data-key="eidolon"]').evaluate(el=>el===document.activeElement),true);
    await main.locator('[data-editor="0"]').click();
    assert.ok((await main.locator('#equipment0 .effect-notes').innerText()).includes('활성 시'));
    await main.locator('#equipment0 [data-key="buffActive"]').uncheck();
-   assert.equal(await main.locator('#aha').innerText(),baseOutput);
+   assert.equal(await main.locator('#aha').textContent(),baseOutput);
    assert.ok((await main.locator('#effectSummary0').innerText()).includes('비활성'));
    assert.ok(!(await main.locator('#effectSummary0').innerText()).includes('+12% 반영'));
    await page.locator('#reset').click();
    const validateInput=async(root,prefix)=>{
-    const input=root.locator('[data-panel="0"]'),output=root.locator('#'+prefix+'aha'),error=root.locator('#'+prefix+'errors');
-    const baseline=await output.innerText();
+    const input=root.locator('[data-panel="0"]'),output=root.locator('#'+prefix+'aha'),error=root.locator('#'+prefix+'slotError0');
+    const baseline=await output.textContent();
     await input.fill('');assert.equal(await error.innerText(),'슬롯 1: 마을 속도를 입력해 주세요.');
     await input.fill('0');assert.equal(await error.innerText(),'슬롯 1: 마을 속도는 0보다 커야 합니다.');
     await input.fill('');await input.press('1');await input.press('e');assert.equal(await error.innerText(),'슬롯 1: 마을 속도를 올바른 숫자로 입력해 주세요.');
-    await input.fill('200');assert.equal(await error.isVisible(),false);assert.equal(await output.innerText(),baseline);
+    await input.fill('200');assert.equal(await error.isVisible(),false);assert.equal(await output.textContent(),baseline);
    };
    await validateInput(main,'');
    const autoEvents=async(root,prefix,types)=>{
@@ -107,7 +107,7 @@ if(process.env.PLAYWRIGHT_CHROME_PATH)launch.executablePath=process.env.PLAYWRIG
    assert.ok((await main.locator('#inverse').innerText()).includes('200.010'));
    await page.locator('#toggleAdvanced').click();await page.locator('#reset').click();
    await main.locator('[data-panel="0"]').fill('210.123');
-   const original=await page.evaluate(()=>AhaApp.getConfig()),originalOutput=await main.locator('#aha').innerText();
+   const original=await page.evaluate(()=>AhaApp.getConfig()),originalOutput=await main.locator('#aha').textContent();
    await page.locator('#toggleRumor').press('Enter');
    const rumor=page.locator('#rumorCalculator');
    assert.equal(await page.locator('#toggleRumor').getAttribute('aria-expanded'),'true');
@@ -146,7 +146,7 @@ if(process.env.PLAYWRIGHT_CHROME_PATH)launch.executablePath=process.env.PLAYWRIG
    await page.locator('#rumorPanel').press('Escape');
    assert.equal(await page.locator('#toggleRumor').getAttribute('aria-expanded'),'false');
    assert.equal(await page.locator('#toggleRumor').evaluate(el=>el===document.activeElement),true);
-   assert.deepEqual(await page.evaluate(()=>AhaApp.getConfig()),original);assert.equal(await main.locator('#aha').innerText(),originalOutput);
+   assert.deepEqual(await page.evaluate(()=>AhaApp.getConfig()),original);assert.equal(await main.locator('#aha').textContent(),originalOutput);
    await page.locator('#toggleRumor').press('Enter');assert.equal(await rumor.locator('[data-panel="0"]').inputValue(),'220.5');
    await page.locator('#importRumor').click();assert.deepEqual((await page.evaluate(()=>AhaRumorApp.getConfig())).slots,original.slots);
    await page.locator('#rumor-reset').click();assert.deepEqual(await page.evaluate(()=>AhaApp.getConfig()),original);
@@ -155,10 +155,52 @@ if(process.env.PLAYWRIGHT_CHROME_PATH)launch.executablePath=process.env.PLAYWRIG
    await page.locator('#showRumorInfo').press('Enter');assert.ok((await page.locator('#rumorInformation').innerText()).includes('v4.6.52'));
    assert.ok((await page.locator('#rumorInformation').innerText()).includes('미검증'));
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
-   await page.locator('#closeRumor').click();await page.locator('#reset').click();assert.equal(await main.locator('#aha').innerText(),'151.350');
+   await page.locator('#closeRumor').click();await page.locator('#reset').click();assert.equal(await main.locator('#aha').textContent(),'151.350');
+   
+   await page.evaluate(()=>{const c=AhaEngine.defaults();c.events=[{time:0,type:'flat',target:'all',value:200}];AhaApp.setConfig(c);});
+   assert.equal(await main.locator('#natural').textContent(),'3회');assert.equal(await main.locator('#aha').textContent(),'151.350');assert.ok((await main.locator('#aha').locator('..').textContent()).includes('시작 SPD'));
+   await page.locator('#reset').click();await page.locator('#toggleAdvanced').click();await main.locator('[data-tab="calc"]').click();
+   await page.evaluate(()=>{const c=AhaEngine.defaults();c.slots[0].mode='build';c.target=200.01;AhaApp.setConfig(c);});
+   await main.locator('#runGoal').click();await page.waitForFunction(()=>!document.getElementById('runGoal').disabled);await main.locator('#applyGoal').click();
+   assert.equal((await page.evaluate(()=>AhaApp.getConfig())).slots[0].mode,'build');assert.ok(Number(await main.locator('#aha').textContent())>=200.01);
+   await page.locator('#reset').click();await main.locator('#goalKind').selectOption('timedOrder');await main.locator('[data-goal="other"]').selectOption('1');await main.locator('[data-goal="time"]').fill('140');
+   await main.locator('#runGoal').click();await main.locator('[data-panel="0"]').fill('211.124');await page.waitForFunction(()=>!document.getElementById('runGoal').disabled);
+   assert.equal(await main.locator('#applyGoal').isDisabled(),true,'changed input cancels stale exhaustive result');
+   await page.locator('#reset').click();await page.locator('#toggleAdvanced').click();
+   // Mode-specific persistence and URL priority, including offline file URLs.
+   await main.locator('[data-panel="0"]').fill('211.123');await page.locator('#toggleRumor').click();
+   await rumor.locator('[data-panel="0"]').fill('233.456');await page.reload();
+   assert.equal(await page.locator('#rumorPanel').isVisible(),true);assert.equal(await rumor.locator('[data-panel="0"]').inputValue(),'233.456');
+   await page.locator('#closeRumor').click();assert.equal(await main.locator('[data-panel="0"]').inputValue(),'211.123');
+   await page.locator('#toggleAdvanced').click();await main.locator('[data-tab="calc"]').click();
+   await main.locator('#goalKind').selectOption('beforeActor');await main.locator('[data-goal="other"]').selectOption('1');
+   await main.locator('#runGoal').click();await page.waitForFunction(()=>!document.getElementById('runGoal').disabled);
+   assert.ok((await main.locator('#inverse').innerText()).includes('직전 0.01 미달'));
+   await main.locator('#applyGoal').click();assert.equal(await main.locator('[data-panel="0"]').inputValue(),'200.01');
+   const goalSaved=await page.evaluate(()=>AhaApp.getConfig());await main.getByText('예시 설정·저장·공유',{exact:true}).click();await main.locator('#share').click();
+   const url=await main.locator('#shareURL').inputValue();assert.ok(url.includes('#aha='));
+   await page.locator('#reset').click();await page.goto(url);
+   assert.deepEqual(await page.evaluate(()=>AhaApp.getConfig()),await page.evaluate(c=>AhaState.normalize(c,'46'),goalSaved));
+   await main.locator('[data-panel="0"]').fill('222.222');await page.reload();assert.equal(await main.locator('[data-panel="0"]').inputValue(),'222.222','consumed share URL does not overwrite later saved changes');
+   await page.locator('#toggleAdvanced').click();
+   await main.getByText('예시 설정·저장·공유',{exact:true}).click();
+   await main.locator('#preset').selectOption('team');await main.locator('#applyPreset').click();
+   assert.equal(await main.locator('[data-slot="3"]').inputValue(),'huohuo');assert.equal(await main.locator('#combat0').innerText(),'224.240');
+   await page.locator('#toggleRumor').click();assert.equal(await rumor.locator('[data-panel="0"]').inputValue(),'233.456');
+   await page.locator('#rumor-reset').click();await rumor.locator('[data-editor="0"]').click();
+   assert.equal(await main.locator('[data-key="betaPlanar"]').count(),0);await rumor.locator('[data-key="betaPlanar"]').selectOption('joy');
+   assert.equal(await rumor.locator('[data-key="betaPlanar"]').evaluate(el=>el===document.activeElement),true);
+   await rumor.locator('[data-key="joyEligible"]').check();assert.ok((await rumor.locator('#rumor-effectSummary0').innerText()).includes('첫 행동 +40%'));
+   await rumor.locator('#rumor-plot [data-tooltip]').first().press('Enter');assert.equal(await rumor.locator('#rumor-timelineTooltip').isVisible(),true);
+   await rumor.locator('#rumor-plot [data-tooltip]').first().press('Escape');assert.equal(await rumor.locator('#rumor-timelineTooltip').isVisible(),false);
+   const betaEncoded=await page.evaluate(()=>AhaState.encode(AhaRumorApp.getConfig(),'47'));
+   const betaURL=pathToFileURL(path.join(__dirname,'index.html')).href+'#aha='+betaEncoded;await page.goto(betaURL);
+   assert.equal(await page.locator('#rumorPanel').isVisible(),true);assert.equal((await page.evaluate(()=>AhaRumorApp.getConfig())).slots[0].betaPlanar,'joy');
+   await page.goto(pathToFileURL(path.join(__dirname,'index.html')).href+'#aha=INVALID!!!');assert.ok((await page.locator('#sessionNotice').innerText()).includes('적용하지 않았습니다'));
+   await page.evaluate(()=>localStorage.setItem(AhaState.STORAGE_KEY,'{"schema":999}'));await page.goto(pathToFileURL(path.join(__dirname,'index.html')).href);assert.ok((await page.locator('#sessionNotice').innerText()).includes('기본값'));
    assert.deepEqual(errors,[]);assert.deepEqual(requests,[]);await context.close();
   }
-  console.log('PASS QA: auto event transitions, error recovery, ownership restoration, state isolation/import/reset, keyboard and offline');
+  console.log('PASS QA: five widths, solver/build apply/cancellation, dynamic counts, persistence/share/presets, beta gear, focus, event recovery, isolation/import/reset and offline');
   console.log(JSON.stringify(measurements));
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exit(1);});
