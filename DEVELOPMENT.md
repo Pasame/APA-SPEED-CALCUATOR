@@ -40,7 +40,7 @@ GitHub Pages: `main` 브랜치 루트의 `index.html`을 배포합니다. `.noje
 
 ## 2026-10-14 확장
 
-state.js는 Schema 검증·공유·예시를 담당하는 순수 JavaScript 모듈이며 state.test.cjs로 검증합니다. build.js는 engine→state→app 순서로 단일 HTML과 기존 Canvas를 생성합니다. npm test는 기존 56개 기대값을 유지한 계산 77개와 상태 10개, 총 87개를 실행합니다. engine-4.6.fixture.cjs는 그대로 유지합니다.
+state.js는 Schema 검증·공유·예시를 담당하는 순수 JavaScript 모듈이며 state.test.cjs로 검증합니다. build.js는 engine→state→app 순서로 단일 HTML과 기존 Canvas를 생성합니다. npm test는 기존 56개 기대값을 유지한 계산 77개와 상태 11개, 총 88개를 실행합니다. engine-4.6.fixture.cjs는 그대로 유지합니다.
 
 UI QA는 320/390/768/1024/1280px의 두 모드와 저장·공유·프리셋·구성 역산 적용·탐색 취소·동적 자연 횟수까지 확인합니다. 모바일 main은 하단 결과 바 위까지의 독립 스크롤 영역이고 키보드 입력 중에는 전체 높이를 사용합니다. 코드 변경 후 npm test, node ui.qa.test.cjs, npm run build를 실행하고 HTML 소스 동기화를 확인합니다.
 

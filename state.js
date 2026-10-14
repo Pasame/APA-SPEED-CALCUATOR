@@ -28,7 +28,7 @@
     if (!Number.isInteger(cfg.solveSlot)||cfg.solveSlot<0||cfg.solveSlot>3) throw Error('역산 슬롯을 확인해 주세요.');
     cfg.events=input.events.map(e=>{
       if (!plain(e) || typeof e.type!=='string' || !(e.target==='all'||Number.isInteger(e.target))) throw Error('이벤트 형식이 올바르지 않습니다.');
-      return {time:e.time,type:e.type,target:e.target,value:E.automaticEvent(e.type)?0:e.value};
+      return {time:e.time,type:e.type,target:e.target,value:E.automaticEvent(e.type)?(Number.isFinite(e.value)?e.value:NaN):e.value};
     });
     if(mode==='47'&&input.rumor){fields(input.rumor,cfg.rumor);cfg.rumor.enabled=true;}
     cfg.goal=goalDefaults(); if(input.goal)fields(input.goal,cfg.goal);

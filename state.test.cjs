@@ -22,7 +22,7 @@ test('malformed mode, input style, character, event, goal are rejected',()=>{
   const d=E.defaults();d.events=[{time:0,type:'script',target:0,value:1}];assert.throws(()=>S.normalize(d,'46'));d.events=[];d.goal={kind:'script'};assert.throws(()=>S.normalize(d,'46'));
 });
 test('automatic events tolerate inactive values but manual events do not',()=>{
-  const c=E.defaults();c.events=[{time:0,type:'yao',target:0,value:NaN}];assert.equal(S.decode(S.encode(c,'46')).config.events[0].value,0);c.events[0].type='advance';assert.throws(()=>S.encode(c,'46'));
+  const c=E.defaults();c.events=[{time:0,type:'yao',target:0,value:NaN}];assert.ok(Number.isNaN(S.decode(S.encode(c,'46')).config.events[0].value));c.events[0].type='advance';assert.throws(()=>S.encode(c,'46'));
 });
 test('corrupt or overlong sharing payload never enters a configuration',()=>{
   for(const text of ['<script>','!!!','a'.repeat(S.MAX_LINK+1),'e30'])assert.throws(()=>S.decode(text));
@@ -33,4 +33,5 @@ test('prototype keys cannot pollute objects',()=>{
 test('normalized modes own independent arrays and objects',()=>{
   const source=E.defaults(),legacy=S.normalize(source,'46'),beta=S.normalize(E.rumorConfig(source),'47');beta.slots[0].panel=1;beta.events.push({});beta.buffs.extraPct=10;assert.equal(legacy.slots[0].panel,200);assert.equal(source.events.length,0);
 });
+test('restored automatic input stays invalid when switched back to manual',()=>{const c=E.defaults();c.events=[{time:0,type:'yao',target:0,value:NaN}];const restored=S.decode(S.encode(c,'46')).config;assert.deepEqual(E.validate(restored),[]);restored.events[0].type='advance';assert.ok(E.validate(restored).some(t=>t.includes('시간/수치')));restored.events[0].value=10;assert.deepEqual(E.validate(restored),[]);});
 console.log(count+' state tests passed.');
