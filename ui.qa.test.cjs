@@ -198,6 +198,25 @@ if(process.env.PLAYWRIGHT_CHROME_PATH)launch.executablePath=process.env.PLAYWRIG
    assert.equal(await page.locator('#rumorPanel').isVisible(),true);assert.equal((await page.evaluate(()=>AhaRumorApp.getConfig())).slots[0].betaPlanar,'joy');
    await page.goto(pathToFileURL(path.join(__dirname,'index.html')).href+'#aha=INVALID!!!');assert.ok((await page.locator('#sessionNotice').innerText()).includes('적용하지 않았습니다'));
    await page.evaluate(()=>localStorage.setItem(AhaState.STORAGE_KEY,'{"schema":999}'));await page.goto(pathToFileURL(path.join(__dirname,'index.html')).href);assert.ok((await page.locator('#sessionNotice').innerText()).includes('기본값'));
+
+   // Changing beta data must not reset a valid saved release party.
+   await page.evaluate(()=>{const c=AhaEngine.defaults();c.slots[0].panel=217.654;const beta=AhaState.pack(AhaEngine.rumorConfig(c),'47');beta.dataVersion='v4.6.52 D16755051';localStorage.setItem(AhaState.STORAGE_KEY,JSON.stringify({schema:AhaState.SCHEMA,mode:'47',standard:AhaState.pack(c,'46'),rumor:beta}));});
+   await page.reload();assert.equal(await page.locator('#standardCalculator [data-panel="0"]').inputValue(),'217.654');
+   assert.ok((await page.locator('#sessionNotice').innerText()).includes('4.6 설정은 복원'));
+   await page.locator('#toggleRumor').click();await page.locator('#rumor-party [data-slot="0"]').selectOption('aeon');
+   await page.locator('#rumor-party [data-editor="0"]').click();const start=page.locator('#rumor-party [data-key="ahaStart"]');
+   assert.equal(await start.isChecked(),false);await start.press('Space');assert.equal(await start.isChecked(),true);
+   assert.ok((await page.locator('#rumor-effectSummary0').innerText()).includes('첫 행동 +30% 반영'));
+   assert.equal(await page.locator('#standardCalculator [data-key="ahaStart"]').count(),0);
+   assert.equal(await page.evaluate(()=>AhaEngine.initialGauge(AhaRumorApp.getConfig(),0)),7000);
+   await page.reload();assert.equal((await page.evaluate(()=>AhaRumorApp.getConfig())).slots[0].ahaStart,true);
+   await page.locator('#rumor-addEvent').click();await page.locator('#rumor-events [data-field="type"]').selectOption('ahaAdvance');
+   await page.locator('#rumor-events [data-field="time"]').fill('10');await page.locator('#rumor-events [data-field="value"]').fill('100');
+   assert.equal(await page.evaluate(()=>AhaEngine.simulate(AhaRumorApp.getConfig()).log.find(l=>l.actor===4&&l.type==='normal').time),10);
+   await page.locator('#showRumorInfo').click();assert.ok((await page.locator('#rumorInformation').innerText()).includes('v4.6.53'));
+   assert.ok((await page.locator('#rumorInformation').innerText()).includes('12500%'));await page.locator('#showRumorCalc').click();
+   await page.locator('#closeRumor').click();assert.equal(await page.locator('#standardCalculator [data-panel="0"]').inputValue(),'217.654');
+
    assert.deepEqual(errors,[]);assert.deepEqual(requests,[]);await context.close();
   }
   console.log('PASS QA: five widths, solver/build apply/cancellation, dynamic counts, persistence/share/presets, beta gear, focus, event recovery, isolation/import/reset and offline');

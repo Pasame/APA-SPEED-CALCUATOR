@@ -47,7 +47,7 @@
       pct: 0, flat: 0, hyacine: false, waveLC: false, waveRefine: 1,
       vonwacq: false, initialAdvance: 0, eidolon: false, signature: false, refine: 1,
       buffActive: true, hyacineEligible: true, messenger: false, amphoreus: false,
-      warrior: false, memospriteActive: true, betaPlanar: 'none', joyEligible: false };
+      warrior: false, memospriteActive: true, betaPlanar: 'none', joyEligible: false, ...(id === 'aeon' ? { ahaStart: false } : {}) };
   }
   function defaults() {
     return { slots: [slot('yao', 200), slot('wolf', 200), slot('sparxie', 134), slot('pearl', 160)],
@@ -151,6 +151,7 @@
       if (!CHARACTERS[s.id]) { errors.push(`슬롯 ${i + 1}: 알 수 없는 캐릭터`); return; }
       if (CHARACTERS[s.id].betaOnly && !cfg.rumor?.enabled) errors.push('아하 캐릭터는 4.7 찌라시에서만 편성할 수 있습니다.');
       if (s.id === 'empty') return;
+      if (s.ahaStart !== undefined && (typeof s.ahaStart !== 'boolean' || (s.ahaStart && (s.id !== 'aeon' || !cfg.rumor?.enabled)))) errors.push(`슬롯 ${i + 1}: 아하 진입 행적은 찌라시의 아하에게만 적용할 수 있습니다.`);
       if (s.betaPlanar && s.betaPlanar !== 'none') {
         if (!cfg.rumor?.enabled || !PLANARS[s.betaPlanar]) errors.push(`슬롯 ${i + 1}: 베타 장신구는 찌라시 모드에서만 선택할 수 있습니다.`);
         if (s.vonwacq) errors.push(`슬롯 ${i + 1}: 바커공과 베타 장신구는 동시에 장착할 수 없습니다.`);
@@ -257,12 +258,13 @@
     }
     return { errors: [], log, counts, finalSpeed: speeds(), remainingGauge: gauges };
   }
-  const BETA = Object.freeze({ version: 'v4.6.52', data: 'D16755051', resource: 'R16685262', checked: '2026-10-14 (KST)' });
+  const BETA = Object.freeze({ version: 'v4.6.53', data: 'D16833202', resource: 'R16818953', checked: '2026-10-17 (KST)' });
   const PLANARS = Object.freeze({ joy: { name: "God's Moment of Joy", pct: 6 }, asc: { name: 'Subspace ASC Center', pct: 6 } });
   function initialGauge(cfg, i, snap = snapshot(cfg)) {
     const s = cfg.slots[i];
     const advance = s.initialAdvance + (s.vonwacq && snap.chars[i].speed >= 120 ? 40 : 0) +
-      (cfg.rumor?.enabled && s.betaPlanar === 'joy' && s.joyEligible ? 40 : 0);
+      (cfg.rumor?.enabled && s.betaPlanar === 'joy' && s.joyEligible ? 40 : 0) +
+      (cfg.rumor?.enabled && s.id === 'aeon' && s.ahaStart ? 30 : 0);
     return Math.max(0, 10000 * (1 - advance / 100));
   }
   // Goal search is over displayed 0.01 SPD steps. Timed order can have islands.
