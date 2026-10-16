@@ -316,5 +316,45 @@ test('diagnostics identify actual rank crossing and avoid double counting sets',
 
 test('build solver preserves the fixed gear floor without negative substats',()=>{const c=duo();c.slots[0].mode='build';c.target=90;const floor=E.panelSpeed({...c.slots[0],sub:0});const r=E.solveGoal(c,0,{kind:'aha'});assert.ok(!r.error,r.error);assert.ok(r.panel>=floor);assert.equal(r.previousAvailable,false);});
 test('invalid goals cannot show a spurious achieved result',()=>{const c=duo();assert.ok(E.goalCheck(c,0,{kind:'count',actor:4,count:0,until:150}).error);assert.ok(E.goalCheck(c,0,{kind:'timedOrder',other:1,time:NaN}).error);});
+
+test('v53 optional Aha start trace advances the character only and is off by default',()=>{
+  const c=betaParty(),s=c.slots[1],before=E.simulate(c);assert.equal(s.ahaStart,false);
+  const first=(sim,actor)=>sim.log.find(l=>l.actor===actor&&l.type==='normal').time;
+  s.ahaStart=true;const after=E.simulate(c),actions=after.log.filter(l=>l.actor===1&&l.type==='normal');
+  approx(first(after,1),first(before,1)*.7);approx(actions[1].time-actions[0].time,10000/160);
+  approx(first(after,4),first(before,4));approx(first(after,0),first(before,0));
+  const omitted=structuredClone(c);delete omitted.slots[1].ahaStart;assert.deepEqual(E.simulate(omitted),before);
+});
+test('v53 optional Aha start trace stacks once with Joy and generic start advance',()=>{
+  const c=betaParty(),s=c.slots[1];s.ahaStart=true;s.betaPlanar='joy';s.joyEligible=true;
+  approx(E.initialGauge(c,1),3000);approx(E.simulate(c).log.find(l=>l.actor===1&&l.type==='normal').time,18.75);
+  s.initialAdvance=50;approx(E.initialGauge(c,1),0);
+  const before=E.snapshot(c);s.ahaStart=false;assert.deepEqual(E.snapshot(c),before);
+});
+test('v53 optional start trace is rejected on other characters and invalid types',()=>{
+  const c=betaParty();c.slots[0].ahaStart=true;assert.ok(E.validate(c).some(x=>x.includes('진입 행적')));
+  delete c.slots[0].ahaStart;c.slots[1].ahaStart=30;assert.ok(E.validate(c).some(x=>x.includes('진입 행적')));
+});
+test('v53 first-before-actor inverse uses the selected Aha start trace',()=>{
+  const c=betaParty();c.slots[1].ahaStart=true;const goal={kind:'beforeActor',other:0};
+  const r=E.solveGoal(c,1,goal);assert.ok(!r.error,r.error);c.slots[1].panel=r.panel;
+  assert.equal(E.goalCheck(c,1,goal).met,true);c.slots[1].panel-=.01;assert.equal(E.goalCheck(c,1,goal).met,false);
+});
+test('v53 manual ultimate 20 percent and E6 first 100 percent consume natural progress',()=>{
+  for(const value of [20,100]){const c=betaParty();c.slots[2]=E.slot('sparxie',134);c.slots[2].eidolon=true;
+    const period=E.snapshot(c).av;c.events=[{time:10,type:'ahaAdvance',target:'all',value}];
+    const sim=E.simulate(c),natural=sim.log.filter(l=>l.actor===4&&l.type==='normal');
+    approx(natural[0].time,value===100?10:period*.8);approx(natural[1].time-natural[0].time,period);
+    assert.equal(sim.counts[4].bonus,0);
+    assert.equal(sim.log.filter(l=>l.actor===2&&l.type==='bonus').length,natural.length);
+  }
+});
+test('v53 manual ultimate count solver verifies the actual advanced natural schedule',()=>{
+  const c=betaParty();c.events=[{time:10,type:'ahaAdvance',target:'all',value:20}];
+  const goal={kind:'count',actor:4,count:3,until:150};const r=E.solveGoal(c,0,goal);
+  assert.ok(!r.error,r.error);c.slots[0].panel=r.panel;assert.equal(E.goalCheck(c,0,goal).met,true);
+  c.slots[0].panel-=.01;assert.equal(E.goalCheck(c,0,goal).met,false);
+});
+
 console.log(passed+' tests passed.');
 

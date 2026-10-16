@@ -34,4 +34,15 @@ test('normalized modes own independent arrays and objects',()=>{
   const source=E.defaults(),legacy=S.normalize(source,'46'),beta=S.normalize(E.rumorConfig(source),'47');beta.slots[0].panel=1;beta.events.push({});beta.buffs.extraPct=10;assert.equal(legacy.slots[0].panel,200);assert.equal(source.events.length,0);
 });
 test('restored automatic input stays invalid when switched back to manual',()=>{const c=E.defaults();c.events=[{time:0,type:'yao',target:0,value:NaN}];const restored=S.decode(S.encode(c,'46')).config;assert.deepEqual(E.validate(restored),[]);restored.events[0].type='advance';assert.ok(E.validate(restored).some(t=>t.includes('시간/수치')));restored.events[0].value=10;assert.deepEqual(E.validate(restored),[]);});
+
+test('v53 optional start trace round-trips only as an Aha option',()=>{
+  const c=E.rumorConfig(E.defaults());c.slots[0]=E.slot('aeon',160);c.slots[0].ahaStart=true;
+  const restored=S.decode(S.encode(c,'47')).config;assert.equal(restored.slots[0].ahaStart,true);
+  delete c.slots[0].ahaStart;assert.equal(S.normalize(c,'47').slots[0].ahaStart,false);
+});
+test('v52 beta settings are not silently replayed with v53 effects',()=>{
+  const p=S.pack(E.rumorConfig(E.defaults()),'47');assert.throws(()=>S.unpack({...p,dataVersion:'v4.6.52 D16755051'}),/ベ|베타/);
+  assert.equal(S.unpack(S.pack(E.defaults(),'46')).mode,'46');
+});
+
 console.log(count+' state tests passed.');
