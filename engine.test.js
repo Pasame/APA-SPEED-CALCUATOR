@@ -380,5 +380,14 @@ test('Abundance cones enforce path and apply the selected trigger or passive onl
   const sim=E.simulate(c);const first=sim.log.find(x=>x.actor===0&&x.type==='normal');
   approx(first.time,10+8000/220);approx(first.speed,220);approx(sim.finalSpeed[0],200);
 });
+test('display-only signatures preserve town, build and action calculations',()=>{
+  const c=E.defaults(),slot=c.slots[2];
+  slot.mode='build';slot.lc=8;
+  const snap=E.snapshot(c),sim=E.simulate(c);
+  slot.cone='sparxie';slot.refine=5;
+  assert.equal(E.selectedCone(slot).name,'눈부신 파키의 세상');
+  assert.deepEqual(E.snapshot(c),snap);assert.deepEqual(E.simulate(c),sim);
+  assert.equal(E.coneAllowed('yao','sparxie'),false);
+});
 console.log(passed+' tests passed.');
 
