@@ -43,4 +43,9 @@ test('last 4.7 preview settings migrate without changing choices or dropping eve
   assert.deepEqual(S.decode(Buffer.from(JSON.stringify(previous)).toString('base64url')).config,now);
   assert.throws(()=>S.migratePrevious({...previous,mode:'46'}));assert.throws(()=>S.migratePrevious({...previous,dataVersion:'v4.6.52 D16755051'}));
 });
+test('shares remember equipment, refinement, and linked action effects',()=>{
+  const c=E.defaults();c.slots[3]=E.slot('asta',160);c.slots[3].cone='ddd';c.slots[3].refine=3;c.slots[3].eagle=true;
+  c.events=[{type:'coneAction',time:20,target:3,value:0},{type:'eagleAction',time:20,target:3,value:0}];
+  const saved=S.decode(S.encode(c)).config;assert.deepEqual(saved,S.normalize(c));assert.deepEqual(E.simulate(saved),E.simulate(c));
+});
 console.log(count+' state tests passed.');

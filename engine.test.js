@@ -342,5 +342,43 @@ test('4.7 manual ultimate count solver verifies the actual advanced natural sche
   c.slots[0].panel-=.01;assert.equal(E.goalCheck(c,0,goal).met,false);
 });
 
+test('equipped DDD follows refinement at the chosen AV and only advances allies',()=>{
+  const c=E.defaults();c.slots[3]=E.slot('asta',160);c.slots[3].cone='ddd';
+  const base=E.snapshot(c);
+  c.events=[{type:'coneAction',time:10,target:3,value:NaN}];
+  const first=(r,i)=>r.log.find(x=>x.actor===i&&x.type==='normal').time;
+  approx(first(E.simulate(c),0),42);c.slots[3].refine=5;approx(first(E.simulate(c),0),38);
+  approx(first(E.simulate(c),4),base.av);assert.deepEqual(E.snapshot(c),base);
+  c.slots[3]=E.slot('huohuo',160);c.slots[3].cone='ddd';assert.ok(E.validate(c).some(e=>e.includes('광추')));
+});
+test('entry speed lasts through each ally first action and uses the strongest equipped Mediation',()=>{
+  const c=E.defaults();c.slots[2]=E.slot('tingyun',134);c.slots[3]=E.slot('asta',160);
+  c.slots[2].cone=c.slots[3].cone='mediation';c.slots[3].refine=5;
+  approx(E.snapshot(c).chars[0].speed,220);
+  const sim=E.simulate(c),turns=sim.log.filter(x=>x.actor===0&&x.type==='normal');
+  approx(turns[0].time,10000/220);approx(turns[1].time-turns[0].time,50);approx(sim.finalSpeed[0],200);approx(sim.finalSpeed[3],160);
+});
+test('alternative permanent cones affect build speed without double-counting town input',()=>{
+  const s=E.slot('hyacine',180);s.cone='curtain';s.refine=5;approx(E.panelSpeed(s),180);
+  s.mode='build';approx(E.panelSpeed(s),110*1.18+59);
+  s.cone='gold';approx(E.effectiveBase(s),130);approx(E.panelSpeed(s),130*1.06+59);
+  const c=E.defaults();c.slots[0].cone='aeon';approx(E.effectiveBase(c.slots[0]),113);approx(E.ahaBase(c),94);
+});
+test('Summeretto cone starts earlier and Eagle only advances the equipped ally',()=>{
+  const c=E.defaults();c.slots[3]=E.slot('hyacine',160);c.slots[3].cone='summeretto';c.slots[3].refine=3;
+  approx(E.initialGauge(c,3),6500);approx(E.snapshot(c).chars[0].speed,200+101*.3);
+  c.slots[3].coneActive=false;approx(E.snapshot(c).chars[0].speed,200);
+  c.slots[0].eagle=true;c.events=[{type:'eagleAction',target:0,time:10,value:NaN}];
+  const sim=E.simulate(c);approx(sim.log.find(x=>x.actor===0&&x.type==='normal').time,37.5);approx(sim.log.find(x=>x.actor===1&&x.type==='normal').time,50);
+});
+test('Abundance cones enforce path and apply the selected trigger or passive only',()=>{
+  const c=E.defaults();c.slots[3]=E.slot('huohuo',160);const s=c.slots[3];
+  s.cone='montage';s.refine=5;approx(E.panelSpeed(s),160);s.mode='build';approx(E.panelSpeed(s),98*1.18+50);
+  s.mode='panel';s.cone='multiplication';c.events=[{time:10,target:3,type:'coneAction',value:0}];
+  approx(E.simulate(c).log.find(x=>x.actor===3&&x.type==='normal').time,50);
+  s.cone='coffin';
+  const sim=E.simulate(c);const first=sim.log.find(x=>x.actor===0&&x.type==='normal');
+  approx(first.time,10+8000/220);approx(first.speed,220);approx(sim.finalSpeed[0],200);
+});
 console.log(passed+' tests passed.');
 

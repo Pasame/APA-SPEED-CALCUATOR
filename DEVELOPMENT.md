@@ -45,3 +45,5 @@ state.js는 Schema 검증·공유·예시를 담당하는 순수 JavaScript 모�
 UI QA는 320/390/768/1024/1280px의 두 모드와 저장·공유·프리셋·구성 역산 적용·탐색 취소·동적 자연 횟수까지 확인합니다. 모바일 main은 하단 결과 바 위까지의 독립 스크롤 영역이고 키보드 입력 중에는 전체 높이를 사용합니다. 코드 변경 후 npm test, node ui.qa.test.cjs, npm run build를 실행하고 HTML 소스 동기화를 확인합니다.
 
 [2026-10-14 실제 실행 결과·제약](VERIFICATION-2026-10-14.md)
+
+art.json에는 Gachabase에서 확인한 게임 초상화·광추·유물 아이콘을 작은 WebP로 담았습니다. 게임 이미지 권리는 HoYoverse에 있습니다. 빌드 시 인라인하므로 실행 중 CDN 요청은 없습니다.

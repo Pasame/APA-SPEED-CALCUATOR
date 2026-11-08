@@ -23,30 +23,48 @@
     aeon: { name: '에이언즈★아하', base: 94, trace: 5, elation: true },
     empty: { name: '빈 슬롯', base: 0, trace: 0, elation: false }
   };
-  const SOURCES = [
-    ['펄 · 필살기/2돌/행적/연극인', 'https://hsr.gachabase.net/characters/1503/pearl/release/4.6.0/16688351?lang=ko'],
-    ['효광 · 결계 중 2돌 +12%, 전용 광추', 'https://hsr.gachabase.net/characters/1502/yao-guang/release?lang=ko'],
-    ['곽향 · 양명 중 1돌 +12%', 'https://hsr.gachabase.net/characters/1217/huohuo/release/4.4.0?lang=ko'],
-    ['웨이브 · 출시 기초속도 107 / 단독 환락 예외', 'https://hsr.gachabase.net/characters/1513/aventurine-waveflair/release/4.5.0/16247584?lang=ko'],
-    ['웨이브 전광 · 환락 스킬 후 속도 +24% (1재)', 'https://hsr.gachabase.net/lightcones/23064/summer-rides-the-surf/release/4.5.0/16247584?lang=ko'],
-    ['은랑 LV.999 · 기초속도 110 / 전광 +18% (1재)', 'https://hsr.gachabase.net/characters/1506/silver-wolf-lv999/release?branch=release&lang=ko'],
-    ['스파키 · 2돌 보너스 턴', 'https://hsr.gachabase.net/characters/1501/sparxie/release?lang=ko'],
-    ['히아킨 · HP 감소 후 2돌 +30%', 'https://hsr.gachabase.net/characters/1409/hyacine/release?lang=ko'],
-    ['환락 튜토리얼', 'https://hsr.gachabase.net/tutorials/battle/2260/path-of-elation/release?lang=en'],
-    ['속도 순위 계수 · 2026-09 관측 정리 (공식 숫자 명시 아님)', 'https://hohzuki-tries.com/hsr-aha-speed-formula/'],
-    ['행동 게이지·속도 변경 공식 · KQM 연구', 'https://hsr.keqingmains.com/misc/speed-guide/'],
-    ['개척자 6돌 · 효과 변경 근거', 'https://hsr.gachabase.net/diff/characters/8010/stelle-elation?cur=beta_4.1.54_14611439&lang=ko&prev=beta_4.1.53_14536466'],
-    ['완·매 · 자신 제외 +10% (특성 10레벨)', 'https://hsr.gachabase.net/characters/1303/ruan-mei/release/4.5.0/16247584?lang=ko'],
-    ['댄댄댄·메신저·매 · 출시판 장비 문구', 'https://hsr.gachabase.net/characters/1306/sparkle/release/4.3.0/15245519?lang=ko'],
-    ['서머레토 전광·앰포리어스 · 전체 속도 조건부 효과', 'https://hsr.gachabase.net/characters/1512/robin-summeretto/release/4.6.0/16688351?lang=ko']
-  ];
+  const LIGHT_CONES = Object.freeze({
+    aeon:{name:'「아하」가 처음 울리는 순간',path:'elation',kind:'base',values:[12,14,16,18,20]},
+    yao:{name:'그녀가 보기로 결심했을 때',path:'elation',kind:'panel',values:[18,21,24,27,30]},
+    wolf:{name:'갤럭시 시티에 오신 것을 환영합니다',path:'elation',kind:'panel',values:[18,21,24,27,30]},
+    wave:{name:'파도에 내던진 한여름',path:'elation',kind:'combat',values:[24,28,32,36,40]},
+    hyacine:{name:'무지개가 영원히 하늘에 머물길',path:'remembrance',kind:'panel',values:[18,21,24,27,30]},
+    summeretto:{name:'그대는 나아가 노래하리니',path:'remembrance',kind:'team',values:[20,25,30,35,40],first:[30,32.5,35,37.5,40]},
+    curtain:{name:'기억은 영원히 막을 내리지 않는다',path:'remembrance',kind:'panel',values:[6,7.5,9,10.5,12]},
+    gold:{name:'시간을 황금으로 엮어',path:'remembrance',kind:'base',values:[12,14,16,18,20]},
+    farewell:{name:'이별이 더 아름답도록',path:'remembrance',kind:'selfAdvance',values:[12,15,18,21,24]},
+    ddd:{name:'댄스! 댄스! 댄스!',path:'harmony',kind:'teamAdvance',values:[16,18,20,22,24]},
+    mediation:{name:'어울림',path:'harmony',kind:'entry',values:[12,14,16,18,20]},
+    multiplication:{name:'증식',path:'abundance',kind:'selfAdvance',trigger:'basic',values:[12,14,16,18,20]},
+    montage:{name:'꿈의 몽타주',path:'abundance',kind:'panel',values:[8,9,10,11,12]},
+    coffin:{name:'관의 울림',path:'abundance',kind:'ultSpeed',values:[12,14,16,18,20]},
+    love:{name:'이 순간처럼 영원한 사랑',path:'remembrance',kind:'panel',values:[18,21,24,27,30]}
+  });
+  const HARMONY = ['ruan','asta','tingyun','hanya','sparkle','sunday'];
+  const REMEMBRANCE = ['hyacine','summeretto'];
+  function coneAllowed(id,key) {
+    if(!Object.hasOwn(LIGHT_CONES,key))return false;
+    const path=LIGHT_CONES[key].path;
+    return path==='elation'?!!CHARACTERS[id]?.elation:
+      id==='other'||(path==='harmony'?HARMONY.includes(id):path==='abundance'?id==='huohuo':REMEMBRANCE.includes(id));
+  }
+  function selectedCone(s) {
+    if(!s||s.id==='empty')return null;
+    const key=s.cone&&s.cone!=='none'?s.cone:s.signature?s.id:'none';
+    if(!coneAllowed(s.id,key))return null;
+    const cone=LIGHT_CONES[key],i=Number(s.refine)-1;
+    return {...cone,key,value:cone.values[i]??0,start:cone.first?.[i]??0};
+  }
+  function entrySpeed(cfg) {
+    return Math.max(0,...cfg.slots.map(s=>{const c=selectedCone(s);return c?.kind==='entry'?c.value:0;}));
+  }
   function slot(id, speed) {
     const c = CHARACTERS[id];
     return { id, mode: 'panel', panel: speed, base: c.base, trace: c.trace, boots: 25,
       sub: 20, gear: 6, planar: 0, lc: 0, extraPanelPct: 0, extraPanelFlat: 0,
       pct: 0, flat: 0, hyacine: false, waveLC: false, waveRefine: 1,
       vonwacq: false, initialAdvance: 0, eidolon: false, signature: false, refine: 1,
-      buffActive: true, hyacineEligible: true, messenger: false, amphoreus: false,
+      buffActive: true, hyacineEligible: true, messenger: false, amphoreus: false, cone:'none', coneActive:true, eagle:false,
       warrior: false, memospriteActive: true, planarSet: 'none', joyEligible: false, ...(id === 'aeon' ? { ahaStart: true } : {}) };
   }
   function defaults() {
@@ -60,7 +78,8 @@
   function eidolonActive(cfg, id) { const s = owner(cfg, id); return !!(s?.eidolon && s.buffActive !== false); }
   // A base-SPD increase changes the percentage basis; flat traces stay outside it.
   function effectiveBase(s) {
-    return Number(s.base) + (s.id === 'aeon' && s.signature ? 12 + 2 * (s.refine - 1) : 0);
+    const cone=selectedCone(s);
+    return Number(s.base) + (cone?.kind==='base'?cone.value:0);
   }
   function ahaBase(cfg) {
     const aha = owner(cfg, 'aeon');
@@ -74,7 +93,8 @@
   function canWaveDirect(cfg) { return isSoloWave(cfg) || isWaveAscended(cfg); }
   function panelSpeed(s) {
     if (s.mode !== 'build') return Number(s.panel);
-    const lc = s.id === 'aeon' && s.signature ? 0 : s.signature && ['yao','wolf','hyacine'].includes(s.id) ? 18 + 3 * (s.refine - 1) : s.lc;
+    const cone=selectedCone(s);
+    const lc=cone?(cone.kind==='panel'?cone.value:0):s.lc;
     return effectiveBase(s) * (1 + (s.gear + (PLANARS[s.planarSet]?.pct ?? s.planar) + lc + s.extraPanelPct) / 100)
       + s.trace + s.boots + s.sub + s.extraPanelFlat;
   }
@@ -86,11 +106,14 @@
     if ((b.ruan || owner(cfg,'ruan')?.buffActive) && present(cfg, 'ruan') && s.id !== 'ruan') pct += 10;
     if (b.messenger || cfg.slots.some(x=>x.id!=='empty' && x.messenger)) pct += 12;
     if (b.amphoreus || cfg.slots.some(x=>x.id!=='empty' && x.amphoreus && x.memospriteActive)) pct += 8;
-    const summer = owner(cfg,'summeretto');
-    pct += Number(b.summerLC || 0) + (summer?.signature && summer.buffActive !== false ? 20 + 5 * (summer.refine - 1) : 0);
+    const cone=selectedCone(s);
+    const active=slot=>slot.cone&&slot.cone!=='none'?slot.coneActive!==false:slot.buffActive!==false;
+    const teamCone=Math.max(0,...cfg.slots.map(slot=>{const c=selectedCone(slot);return c?.kind==='team'&&active(slot)?c.value:0;}));
+    pct += Number(b.summerLC || 0) + teamCone;
+    flat += s.id==='empty'?0:entrySpeed(cfg);
     if ((s.hyacine && present(cfg, 'hyacine')) || (eidolonActive(cfg,'hyacine') && s.hyacineEligible !== false)) pct += 30;
     if (s.waveLC && CHARACTERS[s.id].elation) pct += 24 + 4 * (s.waveRefine - 1);
-    else if (s.id==='wave' && s.signature && s.buffActive !== false) pct += 24 + 4 * (s.refine - 1);
+    else if (cone?.kind==='combat' && active(s)) pct += cone.value;
     if (s.id==='sparkle' && s.eidolon && s.buffActive !== false) pct += 15;
     if (s.id==='hanya' && s.eidolon && s.buffActive !== false) pct += 20;
     const tingyun=owner(cfg,'tingyun');
@@ -135,12 +158,13 @@
     const safePanel = !predicate(panel) ? panel + 0.01 : panel;
     return { panel: safePanel, combat: safePanel + offset, delta: safePanel - panelSpeed(s) };
   }
-  function automaticEvent(type) { return ['yao', 'pearl', 'bonus', 'ahaBonus'].includes(type); }
+  function automaticEvent(type) { return ['yao', 'pearl', 'bonus', 'ahaBonus', 'coneAction', 'eagleAction'].includes(type); }
   function validate(cfg) {
     const errors = [], seen = new Set();
     cfg.slots.forEach((s, i) => {
       if (!CHARACTERS[s.id]) { errors.push(`슬롯 ${i + 1}: 알 수 없는 캐릭터`); return; }
       if (s.id === 'empty') return;
+      if (s.cone && s.cone!=='none' && !coneAllowed(s.id,s.cone)) errors.push('캐릭터에게 맞는 광추를 선택해 주세요.');
       if (s.ahaStart !== undefined && (typeof s.ahaStart !== 'boolean' || (s.ahaStart && s.id !== 'aeon'))) errors.push(`슬롯 ${i + 1}: 아하 진입 행적은 아하에게만 적용할 수 있습니다.`);
       if (s.planarSet && s.planarSet !== 'none') {
         if (!Object.hasOwn(PLANARS,s.planarSet)) errors.push(`슬롯 ${i + 1}: 지원하는 장신구를 선택해 주세요.`);
@@ -173,13 +197,14 @@
     if (!Number.isFinite(cfg.soloWaveBonus) || cfg.soloWaveBonus < 0) errors.push('웨이브 직접 가산은 0 이상의 숫자여야 합니다.');
     cfg.events.forEach((e, i) => {
       if (!Number.isFinite(e.time) || e.time < 0 || e.time > cfg.horizon || (!automaticEvent(e.type) && !Number.isFinite(e.value))) errors.push(`이벤트 ${i + 1}: 시간/수치를 확인해 주세요.`);
-      if (!['pct', 'flat', 'advance', 'bonus', 'yao', 'pearl', 'ddd', 'wave', 'ahaBonus', 'ahaAdvance'].includes(e.type)) errors.push(`이벤트 ${i + 1}: 종류를 확인해 주세요.`);
+      if (!['pct', 'flat', 'advance', 'bonus', 'yao', 'pearl', 'ddd', 'wave', 'ahaBonus', 'ahaAdvance', 'coneAction', 'eagleAction'].includes(e.type)) errors.push(`이벤트 ${i + 1}: 종류를 확인해 주세요.`);
       if (!['yao', 'wave', 'ddd', 'ahaBonus', 'ahaAdvance'].includes(e.type) && e.target !== 'all' && (!Number.isInteger(e.target) || !cfg.slots[e.target])) errors.push(`이벤트 ${i + 1}: 대상을 확인해 주세요.`);
       if ((e.type === 'advance' || e.type === 'ddd' || e.type === 'ahaAdvance') && (e.value < -100 || e.value > 100)) errors.push(`이벤트 ${i + 1}: 행동 조정은 -100~100%입니다.`);
       if (e.type === 'yao' && !present(cfg, 'yao')) errors.push('효광 필살기 이벤트에는 효광 편성이 필요합니다.');
       if (e.type === 'pearl' && (!present(cfg, 'pearl') || cfg.slots[e.target]?.id === 'pearl' || e.target === 'all')) errors.push('펄 필살기는 펄 외의 한 캐릭터를 지정해야 합니다.');
       if (e.type === 'wave' && !canWaveDirect(cfg)) errors.push('아하 직접 가산은 웨이브 단독 환락 또는 아하·웨이브 승격 조건에서만 사용합니다.');
       if (!['yao', 'wave', 'ddd', 'ahaBonus', 'ahaAdvance'].includes(e.type) && e.target !== 'all' && cfg.slots[e.target]?.id === 'empty') errors.push('빈 슬롯은 이벤트 대상이 될 수 없습니다.');
+      if (['coneAction','eagleAction'].includes(e.type) && !Number.isInteger(e.target)) errors.push('장비 효과를 쓸 캐릭터를 선택해 주세요.');
       if (e.type === 'bonus' && e.target === 'all') errors.push('보너스 턴의 대상은 캐릭터 1명이어야 합니다.');
     });
     return [...new Set(errors)];
@@ -188,12 +213,12 @@
     const errors = validate(cfg); if (errors.length) return { errors, log: [], counts: [] };
     const snap = snapshot(cfg), gauges = cfg.slots.map((s, i) => s.id === 'empty' ? Infinity : initialGauge(cfg, i, snap));
     gauges.push(10000);
-    const pct = [0, 0, 0, 0], flat = [0, 0, 0, 0];
+    const pct = [0, 0, 0, 0], flat = [0, 0, 0, 0], timedCone = [0, 0, 0, 0], entry=entrySpeed(cfg);
     let solo = snap.direct, time = 0, cursor = 0;
     const events = cfg.events.map((e, order) => ({ ...e, order })).sort((a, b) => a.time - b.time || a.order - b.order);
     const log = [], counts = Array.from({ length: 5 }, () => ({ natural: 0, bonus: 0 }));
     function speeds() {
-      const chars = snap.chars.map((c, i) => c.speed + c.base * pct[i] / 100 + flat[i]);
+      const chars = snap.chars.map((c, i) => c.speed + c.base * pct[i] / 100 + flat[i] + timedCone[i] - (counts[i].natural&&c.id!=='empty'?entry:0));
       const ranked = snap.ranked.map(c => chars[c.i]).sort((a, b) => b - a);
       return [...chars, snap.base + ranked.reduce((v, s, i) => v + s * WEIGHTS[i], 0) + solo];
     }
@@ -224,6 +249,13 @@
         if (e.type === 'pct' || e.type === 'flat') { targets.forEach(i => { (e.type === 'pct' ? pct : flat)[i] += e.value; }); add(targets[0], 'event', `${e.type === 'pct' ? '속도 %' : '고정 속도'} ${e.value >= 0 ? '+' : ''}${e.value} · ${e.target === 'all' ? '아군 전체' : '지정 대상'}`); }
         if (e.type === 'advance') { targets.forEach(i => advance(i, e.value)); add(targets[0], 'event', `행동 게이지 ${e.value}% 조정`); }
         if (e.type === 'ddd') { [0, 1, 2, 3].forEach(i => advance(i, e.value)); add(cfg.slots.findIndex(s => s.id !== 'empty'), 'event', `댄댄댄 · 아군 ${e.value}% 행동 증가`); }
+        if (e.type === 'coneAction') {
+          const i=Number(e.target),c=selectedCone(cfg.slots[i]);
+          if(c?.kind==='teamAdvance'){[0,1,2,3].forEach(j=>advance(j,c.value));add(i,'event','댄댄댄 · 아군 '+c.value+'% 행동 증가');}
+          if(c?.kind==='ultSpeed'){cfg.slots.forEach((s,j)=>{if(s.id!=='empty')timedCone[j]=Math.max(timedCone[j],c.value);});add(i,'event','관의 울림 · 아군 속도 +'+c.value);}
+          if(c?.kind==='selfAdvance'){advance(i,c.value);add(i,'event','광추 · 본인 '+c.value+'% 행동 증가');}
+        }
+        if (e.type === 'eagleAction' && cfg.slots[e.target]?.eagle) { advance(Number(e.target),25); add(Number(e.target),'event','매 4세트 · 본인 25% 행동 증가'); }
         if (e.type === 'bonus') add(targets[0], 'bonus', '사용자 지정 보너스 턴 · 게이지 유지');
         if (e.type === 'ahaBonus') { add(4, 'bonus', '수동 추가 아하 타임 · 자연 게이지 유지'); afterInstant(); }
         if (e.type === 'ahaAdvance') { advance(4, e.value); add(4, 'event', '수동 아하 타임 행동 게이지 ' + e.value + '% 조정'); }
@@ -243,15 +275,16 @@
         gauges[actor] = 10000;
         add(actor, 'normal', actor === 4 ? '자연 아하 타임' : '자연 행동');
         if (actor === 4) afterInstant();
+        else timedCone[actor]=0;
       }
       if (guard === 1999) return { errors: ['행동 수가 너무 많습니다. 입력 속도나 계산 구간을 줄여 주세요.'], log: [], counts: [] };
     }
     return { errors: [], log, counts, finalSpeed: speeds(), remainingGauge: gauges };
   }
-  const PLANARS = Object.freeze({ joy: { name: "God's Moment of Joy", pct: 6 }, asc: { name: 'Subspace ASC Center', pct: 6 } });
+  const PLANARS = Object.freeze({ joy: { name: '신의 순간의 환락', pct: 6 }, asc: { name: '아공간 이상 사물 수용소', pct: 6 } });
   function initialGauge(cfg, i, snap = snapshot(cfg)) {
     const s = cfg.slots[i];
-    const advance = s.initialAdvance + (s.vonwacq && snap.chars[i].speed >= 120 ? 40 : 0) +
+    const advance = s.initialAdvance + (selectedCone(s)?.start??0) + (s.vonwacq && snap.chars[i].speed >= 120 ? 40 : 0) +
       (s.planarSet === 'joy' && s.joyEligible ? 40 : 0) +
       (s.id === 'aeon' && s.ahaStart !== false ? 30 : 0);
     return Math.max(0, 10000 * (1 - advance / 100));
@@ -298,7 +331,7 @@
     const wave = canWaveDirect(cfg) && (cfg.soloWaveBonus !== 0 || cfg.events.some(e => e.type === 'wave'));
     // Aha weighted speed and fixed-schedule natural counts are monotone without
     // Wave's action-dependent reset. Static first turns also are monotone.
-    const monotone = !wave && (['aha','count'].includes(goal.kind) || (goal.kind !== 'timedOrder' && cfg.events.length === 0));
+    const monotone = !wave && (goal.kind==='aha'||(entrySpeed(cfg)===0&&!cfg.events.some(e=>e.type==='coneAction'&&selectedCone(cfg.slots[e.target])?.kind==='ultSpeed'))) && (['aha','count'].includes(goal.kind) || (goal.kind !== 'timedOrder' && cfg.events.length === 0));
     let units;
     if (monotone) {
       let lo = minimum, hi = maximum;
@@ -334,7 +367,7 @@
     return notes;
   }
 
-  const api = { PLANARS, initialGauge, goalProblem, goalCheck, solveGoal, goalSearch, diagnostics, WEIGHTS, CHARACTERS, SOURCES, slot, defaults, panelSpeed, additions, snapshot, solve, validate, simulate, isSoloWave, effectiveBase, ahaBase, isWaveAscended, canWaveDirect, automaticEvent };
+  const api = { PLANARS, initialGauge, goalProblem, goalCheck, solveGoal, goalSearch, diagnostics, WEIGHTS, CHARACTERS, LIGHT_CONES, selectedCone, coneAllowed, entrySpeed, slot, defaults, panelSpeed, additions, snapshot, solve, validate, simulate, isSoloWave, effectiveBase, ahaBase, isWaveAscended, canWaveDirect, automaticEvent };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.AhaEngine = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);
