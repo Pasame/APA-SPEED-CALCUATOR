@@ -38,12 +38,20 @@
     multiplication:{name:'증식',path:'abundance',kind:'selfAdvance',trigger:'basic',values:[12,14,16,18,20]},
     montage:{name:'꿈의 몽타주',path:'abundance',kind:'panel',values:[8,9,10,11,12]},
     coffin:{name:'관의 울림',path:'abundance',kind:'ultSpeed',values:[12,14,16,18,20]},
-    love:{name:'이 순간처럼 영원한 사랑',path:'remembrance',kind:'panel',values:[18,21,24,27,30]}
+    love:{name:'이 순간처럼 영원한 사랑',path:'remembrance',kind:'panel',values:[18,21,24,27,30]},
+    sparxie:{name:'눈부신 파키의 세상',path:'elation',kind:'display'},
+    pearl:{name:'내일에 바치는 색채',path:'elation',kind:'display'},
+    eva:{name:'다음 꽃피는 계절의 만남',path:'elation',kind:'display'},
+    huohuo:{name:'섬뜩한 밤',path:'abundance',kind:'display'},
+    ruan:{name:'거울 속 지난날의 나',path:'harmony',kind:'display'},
+    sparkle:{name:'속세에서의 유희',path:'harmony',kind:'display'},
+    sunday:{name:'대지로 돌아온 비행',path:'harmony',kind:'display'}
   });
   const HARMONY = ['ruan','asta','tingyun','hanya','sparkle','sunday'];
   const REMEMBRANCE = ['hyacine','summeretto'];
   function coneAllowed(id,key) {
     if(!Object.hasOwn(LIGHT_CONES,key))return false;
+    if(LIGHT_CONES[key].kind==='display')return id===key;
     const path=LIGHT_CONES[key].path;
     return path==='elation'?!!CHARACTERS[id]?.elation:
       id==='other'||(path==='harmony'?HARMONY.includes(id):path==='abundance'?id==='huohuo':REMEMBRANCE.includes(id));
@@ -53,7 +61,7 @@
     const key=s.cone&&s.cone!=='none'?s.cone:s.signature?s.id:'none';
     if(!coneAllowed(s.id,key))return null;
     const cone=LIGHT_CONES[key],i=Number(s.refine)-1;
-    return {...cone,key,value:cone.values[i]??0,start:cone.first?.[i]??0};
+    return {...cone,key,value:cone.values?.[i]??0,start:cone.first?.[i]??0};
   }
   function entrySpeed(cfg) {
     return Math.max(0,...cfg.slots.map(s=>{const c=selectedCone(s);return c?.kind==='entry'?c.value:0;}));
@@ -94,7 +102,7 @@
   function panelSpeed(s) {
     if (s.mode !== 'build') return Number(s.panel);
     const cone=selectedCone(s);
-    const lc=cone?(cone.kind==='panel'?cone.value:0):s.lc;
+    const lc=cone&&cone.kind!=='display'?(cone.kind==='panel'?cone.value:0):s.lc;
     return effectiveBase(s) * (1 + (s.gear + (PLANARS[s.planarSet]?.pct ?? s.planar) + lc + s.extraPanelPct) / 100)
       + s.trace + s.boots + s.sub + s.extraPanelFlat;
   }

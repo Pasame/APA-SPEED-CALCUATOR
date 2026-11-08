@@ -24,12 +24,56 @@
   const eidolons={aeon:['아하 2돌','웨이브 승격 중 아군 속도 +25%'],yao:['효광 2돌','결계 활성 시 모든 아군 +12%'],huohuo:['곽향 1돌','양명 활성 시 모든 아군 +12%'],hyacine:['히아킨 2돌','선택 시 HP 감소한 아군 +30%'],sparxie:['스파키 2돌','선택 시 아하 타임 후 보너스 턴 · SPD 변화 없음'],pearl:['펄 2돌','선택 시 필살기에 다른 환락 동료도 행동 증가'],wolf:['은랑 2돌','버프 연장·조건부 보너스 턴은 세부에서 수동 지정'],sparkle:['스파클 1돌','선택·활성 시 전투 진입 / 스킬 후 본인 +15%'],hanya:['한아 2돌','선택·활성 시 전투 스킬 후 본인 +20%'],tingyun:['정운 1돌','선택·활성 시 축복 대상 필살기 후 대상 +20%']};
   const art=window.AhaArt||{};
   function icon(id,cls=''){return art[id]?'<img class="game-icon '+cls+'" src="'+art[id]+'" width="40" height="40" alt="">':'<span class="game-icon icon-placeholder '+cls+'" aria-hidden="true"></span>';}
-  function choice(value,label,artId,selected,disabled=false){return '<option value="'+value+'" label="'+esc(label)+'" '+(selected?'selected ':'')+(disabled?'disabled':'')+'>'+icon(artId)+'<span>'+esc(label)+'</span></option>';}
-  function pictureSelect(label,attr,artId,options,cls=''){
-    return '<label class="picture-field '+cls+'"><span>'+label+'</span><span class="picture-select">'+icon(artId)+'<select class="image-select" '+attr+'><button type="button"><selectedcontent></selectedcontent></button>'+options+'</select></span></label>';
+  function choice(value,label,artId,selected,disabled=false){
+    return '<option value="'+value+'" data-image="'+artId+'" '+(selected?'selected ':'')+(disabled?'disabled':'')+'>'+esc(label)+'</option>';
   }
+  function pictureSelect(label,attr,artId,options,cls,id,value){
+    return '<div class="picture-field '+cls+'"><span class="control-label">'+label+'</span>'+
+      '<button type="button" class="picker-trigger" data-picker="'+id+'" data-title="'+label+'" aria-haspopup="dialog" aria-controls="picturePicker" aria-label="'+esc(label+': '+value)+'">'+icon(artId)+'<span class="picker-value">'+esc(value)+'</span><span class="picker-chevron" aria-hidden="true"></span></button>'+
+      '<select '+attr+' hidden>'+options+'</select></div>';
+  }
+  function coneLabel(id,slot){
+    const name=E.LIGHT_CONES[id].name, character=E.CHARACTERS[id];
+    return name+(character?(id===slot.id?' (전광)':' ('+character.name+' 전광)'):'');
+  }
+  const picker=$('picturePicker'),pickList=$('pickerOptions');
+  let openChoice=null;
+  function openPicker(trigger){
+    const control=trigger.parentElement.querySelector('select');
+    openChoice={id:trigger.dataset.picker,control};
+    $('pickerTitle').textContent=trigger.dataset.title+' 선택';
+    pickList.innerHTML=Array.from(control.options,option=>'<button type="button" class="picker-option" data-choice="'+esc(option.value)+'" aria-pressed="'+option.selected+'" '+(option.disabled?'disabled':'')+'>'+icon(option.dataset.image)+'<span>'+esc(option.textContent)+'</span></button>').join('');
+    picker.showModal();
+    const current=pickList.querySelector('[aria-pressed="true"]:not(:disabled)');
+    (current||pickList.querySelector('button:not(:disabled)'))?.focus();
+  }
+  root.addEventListener('click',event=>{
+    const trigger=event.target.closest('[data-picker]');
+    if(trigger)openPicker(trigger);
+  });
+  pickList.addEventListener('click',event=>{
+    const option=event.target.closest('[data-choice]');
+    if(!option||!openChoice)return;
+    const {control}=openChoice;
+    if(control.value!==option.dataset.choice){control.value=option.dataset.choice;control.dispatchEvent(new Event('change',{bubbles:true}));}
+    picker.close();
+  });
+  pickList.addEventListener('keydown',event=>{
+    const choices=[...pickList.querySelectorAll('button:not(:disabled)')],i=choices.indexOf(document.activeElement);
+    const next=event.key==='Home'?0:event.key==='End'?choices.length-1:event.key==='ArrowDown'?Math.min(choices.length-1,i+1):event.key==='ArrowUp'?Math.max(0,i-1):-1;
+    if(next>=0){event.preventDefault();choices[next]?.focus();}
+  });
+  $('pickerClose').addEventListener('click',()=>picker.close());
+  picker.addEventListener('click',event=>{if(event.target===picker)picker.close();});
+  picker.addEventListener('close',()=>{
+    if(picker.open)return;
+    const id=openChoice?.id;
+    if(id)root.querySelector('[data-picker="'+id+'"]')?.focus({preventScroll:true});
+    openChoice=null;
+  });
   function coneHelp(cone){
     if(!cone)return '';
+    if(cone.kind==='display')return '속도·행동 순서에 영향 없음';
     const {kind,value,start}=cone;
     if(kind==='base')return '기초 속도 +'+value;
     if(kind==='panel')return '상시 속도 +'+value+'%';
@@ -57,13 +101,13 @@
         const taken=!['empty','custom','other'].includes(id)&&cfg.slots.some((x,j)=>j!==i&&x.id===id);
         return choice(id,c.name+(taken?' · 편성 중':''),'char-'+id,s.id===id,taken);
       }).join('');
-      const cones=choice('none','선택 안 함','',!cone)+Object.entries(E.LIGHT_CONES).filter(([id])=>E.coneAllowed(s.id,id)).map(([id,c])=>choice(id,c.name,'cone-'+id,cone?.key===id)).join('');
+      const cones=choice('none','선택 안 함','',!cone)+Object.entries(E.LIGHT_CONES).filter(([id])=>E.coneAllowed(s.id,id)).sort(([a],[b])=>Number(b===s.id)-Number(a===s.id)).map(([id])=>choice(id,coneLabel(id,s),'cone-'+id,cone?.key===id)).join('');
       return `<article class="slot" data-party-slot="${i}">
         <div class="partyrow">
-          ${pictureSelect('캐릭터 '+(i+1),'data-slot="'+i+'" aria-label="슬롯 '+(i+1)+' 캐릭터"','char-'+s.id,options,'character-choice')}
+          ${pictureSelect('캐릭터 '+(i+1),'data-slot="'+i+'" aria-label="슬롯 '+(i+1)+' 캐릭터"','char-'+s.id,options,'character-choice','char-'+i,E.CHARACTERS[s.id].name)}
           <label><span>마을 속도</span><input data-panel="${i}" aria-label="슬롯 ${i+1} 마을 속도" type="number" step="0.001" min="1" inputmode="decimal" value="${s.mode==='build'?E.panelSpeed(s).toFixed(3):s.panel}" ${s.id==='empty'||s.mode==='build'?'disabled':''}></label>
         </div>
-        ${s.id==='empty'?'':`<div class="slotconfig">${pictureSelect('광추','data-key="cone" aria-label="슬롯 '+(i+1)+' 광추"',cone?'cone-'+cone.key:'',cones,'cone-choice')}
+        ${s.id==='empty'?'':`<div class="slotconfig">${pictureSelect('광추','data-key="cone" aria-label="슬롯 '+(i+1)+' 광추"',cone?'cone-'+cone.key:'',cones,'cone-choice','cone-'+i,cone?coneLabel(cone.key,s):'선택 안 함')}
           <label>재련<select data-key="refine" ${!cone?'disabled':''}>${[1,2,3,4,5].map(n=>`<option value="${n}" ${s.refine===n?'selected':''}>${n}재</option>`).join('')}</select></label></div>
           <div class="slot-bottom"><div class="combatline">전투 속도 <strong id="combat${i}"></strong></div>${e?check(e[0],'eidolon',s.eidolon):''}<button type="button" class="secondary gear-button" data-editor="${i}" aria-expanded="${expanded.has(i)}" aria-controls="equipment${i}">유물·효과</button></div>
           ${cone&&['teamAdvance','selfAdvance','ultSpeed'].includes(cone.kind)?`<div class="cone-action"><span>${coneHelp(cone)}</span><button type="button" data-cone-action="${i}">${cone.kind==='selfAdvance'?(cone.trigger==='basic'?'일반 공격 직후 추가':'정령 퇴장 시점 추가'):'필살기 시점 추가'}</button></div>`:''}
@@ -96,7 +140,7 @@
     const planars=[['none','선택 안 함'],['vonwacq','생명의 바커 공'],['amphoreus','영원의 땅 앰포리어스'],...Object.entries(E.PLANARS).map(([id,c])=>[id,c.name])];
     root.innerHTML=`<div class="effect-notes">${eidolons[s.id]?`<p class="help">${eidolons[s.id][1]}</p>`:''}${cone?`<p class="help">${coneHelp(cone)}</p>`:''}</div><div class="grid condition-controls">${cone&&['combat','team'].includes(cone.kind)?check('광추 속도 효과 적용','coneActive',s.cone==='none'?s.buffActive:s.coneActive):''}${['yao','huohuo','hyacine','sparxie','pearl','sparkle','hanya','tingyun','ruan','wave','summeretto'].includes(s.id)?check(s.id==='ruan'?'특성 10레벨 활성 · 본인 제외 +10%':'이 캐릭터의 조건부 효과 적용','buffActive',s.buffActive):''}${s.id==='aeon'?check('진입 행적 · 본인 첫 행동 +30%','ahaStart',s.ahaStart):''}${s.id==='asta'?field('필살기 고정 SPD (0이면 비활성)','astaFlat',cfg.buffs.asta):''}${s.id==='tingyun'&&s.eidolon?`<label>축복 대상<select data-key="buffTarget">${targets(s.buffTarget)}</select></label>`:''}</div>${s.id==='aeon'?'<p class="help">진입 행적은 아하 캐릭터의 첫 행동만 당깁니다. 기타 첫 행동 증가에 중복 입력하지 마세요.</p>':''}<h3>유물 고르기</h3>
     <div class="gear-choices">
-    ${pictureSelect('차원 장신구','data-key="planarSet"',planar,planars.map(([id,name])=>choice(id,name,id,planar===id)).join(''))}
+    ${pictureSelect('차원 장신구','data-key="planarSet"',planar,planars.map(([id,name])=>choice(id,name,id,planar===id)).join(''),'planar-choice','planar-'+i,planars.find(([id])=>id===planar)?.[1]||'선택 안 함')}
     ${planar==='vonwacq'?'<p class="help">속도 120 이상이면 첫 행동을 40% 당겨요.</p>':''}
     ${planar==='joy'?check('환락도 40% 이상 · 첫 행동 40% 당김','joyEligible',s.joyEligible):''}
     ${planar==='amphoreus'?check('기억 정령이 있어 아군 속도 +8%','memospriteActive',s.memospriteActive):''}
