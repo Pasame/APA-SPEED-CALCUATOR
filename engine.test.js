@@ -3,10 +3,11 @@ const E = require('./engine.js');
 let passed = 0;
 function test(name, f) { f(); passed++; console.log('PASS', name); }
 function approx(a, b, tolerance = 1e-8) { assert.ok(Math.abs(a - b) < tolerance, `${a} != ${b}`); }
-function duo(a = 200, b = 134) { const c = E.defaults(); c.slots = [E.slot('yao', a), E.slot('sparxie', b), E.slot('empty', 0), E.slot('empty', 0)]; return c; }
+function unowned(){return {...E.defaults(),ahaOwned:false};}
+function duo(a = 200, b = 134) { const c = unowned(); c.slots = [E.slot('yao', a), E.slot('sparxie', b), E.slot('empty', 0), E.slot('empty', 0)]; return c; }
 test('two Elation weighted speed 133.4', () => approx(E.snapshot(duo()).aha, 133.4));
 test('four Elation weighted speed and sort independent of slots', () => {
-  const c = E.defaults(); approx(E.snapshot(c).aha, 151.35);
+  const c = unowned(); approx(E.snapshot(c).aha, 151.35);
   c.slots.reverse(); approx(E.snapshot(c).aha, 151.35);
 });
 test('non-Elation does not contribute', () => { const c = duo(); c.slots[2] = E.slot('huohuo', 400); approx(E.snapshot(c).aha, 133.4); });
@@ -24,7 +25,7 @@ test('snapshot solve re-ranks and returns safe 0.01 panel step', () => {
   assert.ok(E.snapshot(c, { 0: r.combat }).aha >= 160);
   assert.ok(E.snapshot(c, { 0: r.combat - 0.01 }).aha < 160);
 });
-test('strict before-Aha inverse', () => { const c = E.defaults(); const r = E.solve(c, 2, 0, 'ahead'); assert.ok(r.combat > E.snapshot(c, { 2: r.combat }).aha); });
+test('strict before-Aha inverse', () => { const c = unowned(); const r = E.solve(c, 2, 0, 'ahead'); assert.ok(r.combat > E.snapshot(c, { 2: r.combat }).aha); });
 test('133.4 yields two natural Aha turns before 150 AV', () => { const c = duo(); const r = E.simulate(c); assert.equal(r.counts[4].natural, 2); });
 test('exact cycle boundary excluded and just beyond included', () => {
   const c = duo(200, 1000 / 7.5 - 1200); // override via panel to avoid rounding the rational
@@ -50,12 +51,12 @@ test('Sparxie E2 bonus on both natural and bonus Aha instants', () => {
   const r = E.simulate(c); assert.equal(r.counts[1].bonus, 3);
 });
 test('Pearl four Elation gives 30 percent advance PLUS bonus', () => {
-  const c = E.defaults(); c.events = [{ time: 0, type: 'pearl', target: 1, value: 0 }];
+  const c = unowned(); c.events = [{ time: 0, type: 'pearl', target: 1, value: 0 }];
   const r = E.simulate(c); assert.equal(r.counts[1].bonus, 1);
   approx(r.log.find(x => x.actor === 1 && x.type === 'normal').time, 35);
 });
 test('Pearl E2 advances other Elation but not Pearl or Aha', () => {
-  const c = E.defaults(); c.pearlE2 = true; c.events = [{ time: 0, type: 'pearl', target: 1, value: 0 }];
+  const c = unowned(); c.pearlE2 = true; c.events = [{ time: 0, type: 'pearl', target: 1, value: 0 }];
   const r = E.simulate(c); approx(r.log.find(x => x.actor === 0 && x.type === 'normal').time, 35);
   approx(r.log.find(x => x.actor === 3 && x.type === 'normal').time, 62.5);
   approx(r.log.find(x => x.actor === 4 && x.type === 'normal').time, 10000 / 151.35);
@@ -76,11 +77,11 @@ test('invalid duplicate and zero speed inputs report errors', () => {
 test('deterministic equal speed ties', () => { const c = duo(150, 150); const r = E.simulate(c); assert.deepEqual(r.log.filter(x => x.type === 'normal').slice(0, 2).map(x => x.actor), [0, 1]); });
 test('event negative speed produces error, not a fake timeline', () => { const c = duo(); c.events = [{ time: 0, type: 'pct', target: 0, value: -1000 }]; assert.ok(E.simulate(c).errors.length); });
 test('Amphoreus and Summeretto LC team percentages are additive on base', () => {
-  const c = E.defaults(); c.buffs.amphoreus = true; c.buffs.summerLC = 20; c.buffs.yao = true;
+  const c = unowned(); c.buffs.amphoreus = true; c.buffs.summerLC = 20; c.buffs.yao = true;
   assert.ok(Math.abs(E.snapshot(c).chars[0].speed - 240.4) < 1e-9);
 });
 test('invalid event target and Wave direct input report validation errors', () => {
-  const c = E.defaults(); c.events = [{time:0,type:'bonus',target:99,value:0}];
+  const c = unowned(); c.events = [{time:0,type:'bonus',target:99,value:0}];
   assert.ok(E.simulate(c).errors.length); c.events=[]; c.soloWaveBonus=NaN;
   assert.ok(E.simulate(c).errors.length);
 });
@@ -89,63 +90,60 @@ test('all-target event logs on an occupied slot', () => {
   assert.equal(E.simulate(c).log[0].actor, 1);
 });
 test('inverse minimum includes the entered speed traces', () => {
-  const c = E.defaults(); const r = E.solve(c,0,90);
+  const c = unowned(); const r = E.solve(c,0,90);
   assert.equal(r.panel,110);
 });
 test('inline eidolons apply team speed to non-Elation members too', () => {
-  const c=E.defaults();c.slots[3]=E.slot('huohuo',160);c.slots[0].eidolon=true;c.slots[3].eidolon=true;
+  const c=unowned();c.slots[3]=E.slot('huohuo',160);c.slots[0].eidolon=true;c.slots[3].eidolon=true;
   const snap=E.snapshot(c);approx(snap.aha,155.688);approx(snap.chars[3].speed,183.52);
 });
 test('Hyacine E2 applies to all eligible party members with an individual opt-out', () => {
-  const c=E.defaults();c.slots[3]=E.slot('hyacine',160);c.slots[3].eidolon=true;
+  const c=unowned();c.slots[3]=E.slot('hyacine',160);c.slots[3].eidolon=true;
   E.snapshot(c).chars.forEach((s,i)=>approx(s.speed,c.slots[i].panel+c.slots[i].base*.3));
   c.slots[0].hyacineEligible=false;approx(E.snapshot(c).chars[0].speed,200);
   c.slots[3].buffActive=false;approx(E.snapshot(c).chars[1].speed,200);
 });
 test('signature refinement does not double-add town speed but affects conditional speed', () => {
-  const c=E.defaults();c.slots[0].signature=true;c.slots[0].refine=5;approx(E.snapshot(c).aha,151.35);
+  const c=unowned();c.slots[0].signature=true;c.slots[0].refine=5;approx(E.snapshot(c).aha,151.35);
   c.slots[0].mode='build';approx(E.panelSpeed(c.slots[0]),191.36);
   c.slots[0]=E.slot('wave',160);c.slots[0].signature=true;c.slots[0].refine=5;approx(E.snapshot(c).chars[0].speed,202.8);
 });
 test('Summeretto signature applies to all members; duplicate equipment buffs do not stack', () => {
-  const c=E.defaults();c.slots[3]=E.slot('summeretto',160);c.slots[3].signature=true;c.slots[3].refine=5;
+  const c=unowned();c.slots[3]=E.slot('summeretto',160);c.slots[3].signature=true;c.slots[3].refine=5;
   E.snapshot(c).chars.forEach((s,i)=>approx(s.speed,c.slots[i].panel+c.slots[i].base*.4));
   c.slots[0].messenger=c.slots[1].messenger=true;approx(E.snapshot(c).chars[0].speed,252.52);
 });
 test('Tingyun E1 target and Hanya E2 self speed remain scoped', () => {
-  const c=E.defaults();c.slots[3]=E.slot('tingyun',160);c.slots[3].eidolon=true;c.slots[3].buffTarget=1;
+  const c=unowned();c.slots[3]=E.slot('tingyun',160);c.slots[3].eidolon=true;c.slots[3].buffTarget=1;
   approx(E.snapshot(c).chars[0].speed,200);approx(E.snapshot(c).chars[1].speed,222);
   c.slots[3]=E.slot('hanya',160);c.slots[3].eidolon=true;approx(E.snapshot(c).chars[3].speed,182);
 });
 
-function betaParty(){const c=E.rumorConfig(duo());c.slots[1]=E.slot('aeon',160);return c;}
-test('legacy options absent or disabled always retain base 80',()=>{
-  const c=E.defaults();approx(E.ahaBase(c),80);c.rumor={enabled:false,owned:true};approx(E.snapshot(c).aha,151.35);
+function ahaParty(){const c={...duo(),ahaOwned:true};c.slots[1]=E.slot('aeon',160);return c;}
+test('default party uses 94 only when Aha is owned or slotted',()=>{
+  const c=E.defaults();approx(E.snapshot(c).aha,165.35);c.ahaOwned=false;approx(E.snapshot(c).aha,151.35);
 });
 test('4.6 regression fixture preserves snapshots, inverse, and simulation',()=>{
   const old=require('./engine-4.6.fixture.cjs');
   for(let n=0;n<24;n++){
-    const c=E.defaults();c.slots[0].panel=120+n*7;c.slots[1].panel=140+n*3;
+    const c=unowned();c.slots[0].panel=120+n*7;c.slots[1].panel=140+n*3;
     c.slots[0].eidolon=n%2===0;c.slots[2].signature=n%3===0;c.slots[3].vonwacq=n%4===0;
     c.buffs.extraPct=n;c.slots[3].eidolon=true;c.events=[{time:30,type:'pearl',target:1,value:0},{time:60,type:'pct',target:'all',value:12}];
     const current=E.snapshot(c);delete current.base;assert.deepEqual(current,old.snapshot(c));
-    assert.deepEqual(E.solve(c,0,160.01),old.solve(c,0,160.01));assert.deepEqual(E.simulate(c),old.simulate(c));
+    assert.deepEqual(E.solve(c,0,160.01),old.solve(c,0,160.01));const previous=old.simulate(c);previous.log.forEach(l=>{if(l.actor===4)l.name='아하 타임';});assert.deepEqual(E.simulate(c),previous);
   }
 });
-test('beta character is rejected in legacy configuration',()=>{
-  const c=duo();c.slots[1]=E.slot('aeon',160);assert.ok(E.validate(c).some(x=>x.includes('찌라시')));
-});
-test('ownership-only beta base uses 94 without adding a fifth party member',()=>{
-  const c=E.rumorConfig(duo());approx(E.snapshot(c).aha,147.4);assert.equal(E.snapshot(c).ranked.length,2);
-  c.rumor.owned=false;approx(E.snapshot(c).aha,133.4);
+test('ownership-only Aha base uses 94 without adding a fifth party member',()=>{
+  const c={...duo(),ahaOwned:true};approx(E.snapshot(c).aha,147.4);assert.equal(E.snapshot(c).ranked.length,2);
+  c.ahaOwned=false;approx(E.snapshot(c).aha,133.4);
 });
 test('equipped Aha references effective base independent of ownership-only flag',()=>{
-  const c=betaParty();c.rumor.owned=false;approx(E.ahaBase(c),94);
+  const c=ahaParty();c.ahaOwned=false;approx(E.ahaBase(c),94);
   c.slots[1].signature=true;approx(E.ahaBase(c),106);
   for(let r=1;r<=5;r++){c.slots[1].refine=r;approx(E.ahaBase(c),104+2*r);}
 });
 test('town speed does not add permanent signature, traces or gear twice',()=>{
-  const c=betaParty(),s=c.slots[1];s.signature=true;s.gear=99;s.lc=99;s.trace=99;
+  const c=ahaParty(),s=c.slots[1];s.signature=true;s.gear=99;s.lc=99;s.trace=99;
   approx(E.panelSpeed(s),160);approx(E.snapshot(c).chars[1].speed,160);approx(E.ahaBase(c),106);
 });
 test('base-SPD increase changes percentage basis exactly once in build mode',()=>{
@@ -154,57 +152,45 @@ test('base-SPD increase changes percentage basis exactly once in build mode',()=
   s.signature=false;s.lc=0;approx(E.panelSpeed(s),94*1.06+5+25+20);
 });
 test('team and timed speed buffs use effective base, not town SPD',()=>{
-  const c=betaParty();c.slots[1].signature=true;c.slots[0].eidolon=true;
+  const c=ahaParty();c.slots[1].signature=true;c.slots[0].eidolon=true;
   approx(E.snapshot(c).chars[1].speed,160+106*.12);
   c.events=[{time:1,type:'pct',target:1,value:20}];approx(E.simulate(c).finalSpeed[1],160+106*.32);
 });
 test('signature changes ranking under the same percentage buff',()=>{
-  const c=betaParty();c.slots[0].panel=207;c.slots[1].panel=206.6;c.slots[0].eidolon=true;
+  const c=ahaParty();c.slots[0].panel=207;c.slots[1].panel=206.6;c.slots[0].eidolon=true;
   assert.equal(E.snapshot(c).ranked[0].id,'yao');c.slots[1].signature=true;assert.equal(E.snapshot(c).ranked[0].id,'aeon');
 });
-test('same-party comparison changes only Aha Instant base',()=>{
-  const c=betaParty();c.slots[1].signature=true;c.slots[0].eidolon=true;
-  const r=E.compareBase(c);assert.deepEqual(r.legacy.chars,r.beta.chars);assert.deepEqual(r.legacy.ranked,r.beta.ranked);
-  approx(r.beta.aha-r.legacy.aha,26);approx(r.legacy.base,80);approx(r.beta.base,106);
-});
-test('inverse uses beta base and returns safe result after rank changes',()=>{
-  const c=betaParty();c.slots[1].signature=true;const result=E.solve(c,1,180.01);
+test('inverse uses Aha base and returns safe result after rank changes',()=>{
+  const c=ahaParty();c.slots[1].signature=true;const result=E.solve(c,1,180.01);
   c.slots[1].panel=result.panel;assert.ok(E.snapshot(c).aha>=180.01);c.slots[1].panel-=.01;assert.ok(E.snapshot(c).aha<180.01);
 });
 test('simulation first natural Aha Instant agrees with snapshot AV',()=>{
-  const c=betaParty();c.slots[1].signature=true;approx(E.simulate(c).log.find(l=>l.actor===4&&l.type==='normal').time,E.snapshot(c).av);
+  const c=ahaParty();c.slots[1].signature=true;approx(E.simulate(c).log.find(l=>l.actor===4&&l.type==='normal').time,E.snapshot(c).av);
 });
-test('manual beta extra instant retains natural gauge and triggers Sparxie E2 once',()=>{
-  const c=E.rumorConfig(duo());c.slots[1].eidolon=true;c.events=[{time:10,type:'ahaBonus',target:'all',value:0}];
+test('manual extra instant retains natural gauge and triggers Sparxie E2 once',()=>{
+  const c={...duo(),ahaOwned:true};c.slots[1].eidolon=true;c.events=[{time:10,type:'ahaBonus',target:'all',value:0}];
   const sim=E.simulate(c);approx(sim.log.find(l=>l.actor===4&&l.type==='normal').time,E.snapshot(c).av);
   assert.equal(sim.log.filter(l=>l.actor===4&&l.type==='bonus').length,1);assert.equal(sim.log.filter(l=>l.actor===1&&l.type==='bonus'&&l.time===10).length,1);
 });
-test('beta manual gauge event advances Aha Instant only',()=>{
-  const c=betaParty();c.events=[{time:0,type:'ahaAdvance',target:'all',value:20}];
+test('manual gauge event advances Aha Instant only',()=>{
+  const c=ahaParty();c.events=[{time:0,type:'ahaAdvance',target:'all',value:20}];
   approx(E.simulate(c).log.find(l=>l.actor===4&&l.type==='normal').time,E.snapshot(c).av*.8);
   approx(E.simulate(c).log.find(l=>l.actor===0&&l.type==='normal').time,50);
   c.events[0].value=101;assert.ok(E.validate(c).length);
 });
-test('legacy mode rejects beta manual event kinds',()=>{
-  const c=duo();c.events=[{time:0,type:'ahaBonus',target:'all',value:0}];assert.ok(E.validate(c).some(x=>x.includes('종류')));
-});
 test('Wave ascension exception is scoped and not the legacy solo rule',()=>{
-  const c=betaParty();c.slots[0]=E.slot('wave',160);c.slots[2]=E.slot('huohuo',150);
+  const c=ahaParty();c.slots[0]=E.slot('wave',160);c.slots[2]=E.slot('huohuo',150);
   assert.equal(E.isSoloWave(c),false);assert.equal(E.canWaveDirect(c),false);
-  c.rumor.waveAscension=true;assert.equal(E.canWaveDirect(c),true);approx(E.snapshot(c).chars[2].speed,150+98*.15);
+  c.waveAscension=true;assert.equal(E.canWaveDirect(c),true);approx(E.snapshot(c).chars[2].speed,150+98*.15);
   c.slots[1].eidolon=true;approx(E.snapshot(c).chars[2].speed,150+98*.25);
   c.slots[3]=E.slot('yao',200);assert.equal(E.canWaveDirect(c),false);approx(E.snapshot(c).chars[2].speed,150);
 });
 test('no automatic technique ultimate resource or extra instant assumption',()=>{
-  const c=betaParty();c.slots[1].eidolon=true;assert.equal(E.simulate(c).counts[4].bonus,0);
-});
-test('beta configuration and public snapshots do not share input state',()=>{
-  const original=E.defaults(),copied=E.rumorConfig(original);copied.slots[0].panel=1;copied.events.push({});copied.buffs.extraPct=99;
-  assert.equal(original.slots[0].panel,200);assert.equal(original.events.length,0);assert.equal(original.buffs.extraPct,0);
+  const c=ahaParty();c.slots[1].eidolon=true;assert.equal(E.simulate(c).counts[4].bonus,0);
 });
 test('automatic events ignore stale manual values without changing their results',()=>{
   for(const type of ['yao','pearl','bonus','ahaBonus']){
-    const c=type==='ahaBonus'?E.rumorConfig(E.defaults()):E.defaults();
+    const c=E.defaults();
     c.events=[{time:10,type,target:1,value:NaN}];
     assert.deepEqual(E.validate(c),[]);
     const actual=E.simulate(c);assert.deepEqual(actual.errors,[]);
@@ -213,21 +199,21 @@ test('automatic events ignore stale manual values without changing their results
 });
 test('automatic events continue rejecting invalid times',()=>{
   for(const type of ['yao','pearl','bonus','ahaBonus']){
-    const c=E.rumorConfig(E.defaults());
+    const c=E.defaults();
     for(const time of [NaN,-1,151,Infinity]){
       c.events=[{time,type,target:1,value:NaN}];assert.ok(E.validate(c).some(x=>x.includes('시간')));
     }
   }
 });
 test('switching back to manual events keeps missing values invalid',()=>{
-  const c=E.rumorConfig(E.defaults()),event={time:10,type:'yao',target:1,value:NaN};c.events=[event];
+  const c=E.defaults(),event={time:10,type:'yao',target:1,value:NaN};c.events=[event];
   assert.deepEqual(E.validate(c),[]);
   for(const type of ['pct','flat','advance','ddd','wave','ahaAdvance']){
     event.type=type;assert.ok(E.validate(c).some(x=>x.includes('시간/수치')));assert.ok(Number.isNaN(event.value));
   }
 });
-test('missing town speed produces one slot error and recovers in both modes',()=>{
-  for(const c of [E.defaults(),E.rumorConfig(E.defaults())]){
+test('missing town speed produces one slot error and recovers for owned and unowned Aha',()=>{
+  for(const c of [E.defaults(),unowned()]){
     c.slots[0].panel=NaN;assert.deepEqual(E.validate(c),['슬롯 1: 마을 속도를 입력해 주세요.']);
     c.slots[0].panel=200;assert.deepEqual(E.validate(c),[]);assert.ok(E.snapshot(c).aha>0);
   }
@@ -243,24 +229,24 @@ test('build mode validates its active fields instead of an unused town input',()
   const c=E.defaults();c.slots[0].panel=NaN;c.slots[0].mode='build';assert.deepEqual(E.validate(c),[]);
   c.slots[0].gear=NaN;assert.deepEqual(E.validate(c),['슬롯 1: 숫자를 올바르게 입력해 주세요.']);
 });
-test('beta planar permanent 6 percent applies once to build, never town input',()=>{
-  for(const planar of ['joy','asc']){const s=E.slot('aeon',160);s.betaPlanar=planar;s.signature=true;s.planar=99;approx(E.panelSpeed(s),160);s.mode='build';approx(E.panelSpeed(s),106*1.12+50);}
+test('planar set permanent 6 percent applies once to build, never town input',()=>{
+  for(const planar of ['joy','asc']){const s=E.slot('aeon',160);s.planarSet=planar;s.signature=true;s.planar=99;approx(E.panelSpeed(s),160);s.mode='build';approx(E.panelSpeed(s),106*1.12+50);}
 });
-test('Joy first advance requires beta mode and the explicit Elation condition',()=>{
-  const c=betaParty(),s=c.slots[1];s.betaPlanar='joy';
+test('Joy first advance requires the explicit Elation condition',()=>{
+  const c=ahaParty(),s=c.slots[1];s.planarSet='joy';s.ahaStart=false;
   approx(E.simulate(c).log.find(l=>l.actor===1&&l.type==='normal').time,62.5);
   s.joyEligible=true;approx(E.simulate(c).log.find(l=>l.actor===1&&l.type==='normal').time,37.5);
-  approx(E.snapshot(c).chars[1].speed,160);c.rumor.enabled=false;assert.ok(E.validate(c).some(t=>t.includes('베타 장신구')));
+  approx(E.snapshot(c).chars[1].speed,160);s.planarSet='constructor';assert.ok(E.validate(c).some(t=>t.includes('장신구')));
 });
 test('planars sharing a slot are rejected rather than inventing stacking',()=>{
-  const c=betaParty();c.slots[1].betaPlanar='joy';c.slots[1].vonwacq=true;
+  const c=ahaParty();c.slots[1].planarSet='joy';c.slots[1].vonwacq=true;
   assert.ok(E.validate(c).some(t=>t.includes('동시에')));assert.ok(E.simulate(c).errors.length);
 });
 test('start advances at 0, 40, 100 percent keep later natural gauges',()=>{
   for(const advance of [0,40,100]){const c=duo();c.slots[0].initialAdvance=advance;const l=E.simulate(c).log.filter(l=>l.actor===0&&l.type==='normal');approx(l[0].time,50*(1-advance/100));approx(l[1].time-l[0].time,50);}
 });
 test('Joy plus a generic start advance caps the first gauge at zero',()=>{
-  const c=betaParty();c.slots[1].betaPlanar='joy';c.slots[1].joyEligible=true;c.slots[1].initialAdvance=80;
+  const c=ahaParty();c.slots[1].planarSet='joy';c.slots[1].joyEligible=true;c.slots[1].initialAdvance=80;
   approx(E.simulate(c).log.find(l=>l.actor===1&&l.type==='normal').time,0);
 });
 test('flat trace is not a percentage base and hidden decimals survive',()=>{
@@ -305,7 +291,7 @@ test('impossible or unverified solver conditions return reasons',()=>{
   const c=duo();assert.ok(E.solveGoal(c,0,{kind:'count',actor:1,count:100,until:150}).error);assert.ok(E.solveGoal(c,0,{kind:'beforeActor',other:0}).error);assert.ok(E.solveGoal(c,0,{kind:'count',actor:4,count:2,until:200}).error);
 });
 test('solver never mutates source configuration or beta state',()=>{
-  const c=betaParty(),before=structuredClone(c);E.solveGoal(c,0,{kind:'beforeAha'});assert.deepEqual(c,before);
+  const c=ahaParty(),before=structuredClone(c);E.solveGoal(c,0,{kind:'beforeAha'});assert.deepEqual(c,before);
 });
 test('AV proximity warning is based on simulated time rather than SPD difference',()=>{
   const c=duo(200,199.999);assert.ok(E.diagnostics(c).some(t=>t.includes('0.01 AV')));c.slots[0].vonwacq=true;assert.ok(!E.diagnostics(c).some(t=>t.includes('0.01 AV')));
@@ -317,31 +303,31 @@ test('diagnostics identify actual rank crossing and avoid double counting sets',
 test('build solver preserves the fixed gear floor without negative substats',()=>{const c=duo();c.slots[0].mode='build';c.target=90;const floor=E.panelSpeed({...c.slots[0],sub:0});const r=E.solveGoal(c,0,{kind:'aha'});assert.ok(!r.error,r.error);assert.ok(r.panel>=floor);assert.equal(r.previousAvailable,false);});
 test('invalid goals cannot show a spurious achieved result',()=>{const c=duo();assert.ok(E.goalCheck(c,0,{kind:'count',actor:4,count:0,until:150}).error);assert.ok(E.goalCheck(c,0,{kind:'timedOrder',other:1,time:NaN}).error);});
 
-test('v53 optional Aha start trace advances the character only and is off by default',()=>{
-  const c=betaParty(),s=c.slots[1],before=E.simulate(c);assert.equal(s.ahaStart,false);
+test('4.7 Aha start trace advances the character only and is on by default',()=>{
+  const c=ahaParty(),s=c.slots[1];assert.equal(s.ahaStart,true);s.ahaStart=false;const before=E.simulate(c);
   const first=(sim,actor)=>sim.log.find(l=>l.actor===actor&&l.type==='normal').time;
   s.ahaStart=true;const after=E.simulate(c),actions=after.log.filter(l=>l.actor===1&&l.type==='normal');
   approx(first(after,1),first(before,1)*.7);approx(actions[1].time-actions[0].time,10000/160);
   approx(first(after,4),first(before,4));approx(first(after,0),first(before,0));
-  const omitted=structuredClone(c);delete omitted.slots[1].ahaStart;assert.deepEqual(E.simulate(omitted),before);
+  const omitted=structuredClone(c);delete omitted.slots[1].ahaStart;assert.deepEqual(E.simulate(omitted),after);
 });
-test('v53 optional Aha start trace stacks once with Joy and generic start advance',()=>{
-  const c=betaParty(),s=c.slots[1];s.ahaStart=true;s.betaPlanar='joy';s.joyEligible=true;
+test('4.7 Aha start trace stacks once with Joy and generic start advance',()=>{
+  const c=ahaParty(),s=c.slots[1];s.ahaStart=true;s.planarSet='joy';s.joyEligible=true;
   approx(E.initialGauge(c,1),3000);approx(E.simulate(c).log.find(l=>l.actor===1&&l.type==='normal').time,18.75);
   s.initialAdvance=50;approx(E.initialGauge(c,1),0);
   const before=E.snapshot(c);s.ahaStart=false;assert.deepEqual(E.snapshot(c),before);
 });
-test('v53 optional start trace is rejected on other characters and invalid types',()=>{
-  const c=betaParty();c.slots[0].ahaStart=true;assert.ok(E.validate(c).some(x=>x.includes('진입 행적')));
+test('4.7 start trace is rejected on other characters and invalid types',()=>{
+  const c=ahaParty();c.slots[0].ahaStart=true;assert.ok(E.validate(c).some(x=>x.includes('진입 행적')));
   delete c.slots[0].ahaStart;c.slots[1].ahaStart=30;assert.ok(E.validate(c).some(x=>x.includes('진입 행적')));
 });
-test('v53 first-before-actor inverse uses the selected Aha start trace',()=>{
-  const c=betaParty();c.slots[1].ahaStart=true;const goal={kind:'beforeActor',other:0};
+test('4.7 first-before-actor inverse uses the selected Aha start trace',()=>{
+  const c=ahaParty();c.slots[1].ahaStart=true;const goal={kind:'beforeActor',other:0};
   const r=E.solveGoal(c,1,goal);assert.ok(!r.error,r.error);c.slots[1].panel=r.panel;
   assert.equal(E.goalCheck(c,1,goal).met,true);c.slots[1].panel-=.01;assert.equal(E.goalCheck(c,1,goal).met,false);
 });
-test('v53 manual ultimate 20 percent and E6 first 100 percent consume natural progress',()=>{
-  for(const value of [20,100]){const c=betaParty();c.slots[2]=E.slot('sparxie',134);c.slots[2].eidolon=true;
+test('4.7 manual ultimate 20 percent and E6 first 100 percent consume natural progress',()=>{
+  for(const value of [20,100]){const c=ahaParty();c.slots[2]=E.slot('sparxie',134);c.slots[2].eidolon=true;
     const period=E.snapshot(c).av;c.events=[{time:10,type:'ahaAdvance',target:'all',value}];
     const sim=E.simulate(c),natural=sim.log.filter(l=>l.actor===4&&l.type==='normal');
     approx(natural[0].time,value===100?10:period*.8);approx(natural[1].time-natural[0].time,period);
@@ -349,8 +335,8 @@ test('v53 manual ultimate 20 percent and E6 first 100 percent consume natural pr
     assert.equal(sim.log.filter(l=>l.actor===2&&l.type==='bonus').length,natural.length);
   }
 });
-test('v53 manual ultimate count solver verifies the actual advanced natural schedule',()=>{
-  const c=betaParty();c.events=[{time:10,type:'ahaAdvance',target:'all',value:20}];
+test('4.7 manual ultimate count solver verifies the actual advanced natural schedule',()=>{
+  const c=ahaParty();c.events=[{time:10,type:'ahaAdvance',target:'all',value:20}];
   const goal={kind:'count',actor:4,count:3,until:150};const r=E.solveGoal(c,0,goal);
   assert.ok(!r.error,r.error);c.slots[0].panel=r.panel;assert.equal(E.goalCheck(c,0,goal).met,true);
   c.slots[0].panel-=.01;assert.equal(E.goalCheck(c,0,goal).met,false);

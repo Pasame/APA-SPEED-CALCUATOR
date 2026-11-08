@@ -20,11 +20,11 @@
     sunday: { name: '선데이', base: 96, trace: 0, elation: false },
     custom: { name: '직접 입력 (환락)', base: 100, trace: 0, elation: true },
     other: { name: '직접 입력 (비환락)', base: 100, trace: 0, elation: false },
-    aeon: { name: '에이언즈★아하', base: 94, trace: 5, elation: true, betaOnly: true },
+    aeon: { name: '에이언즈★아하', base: 94, trace: 5, elation: true },
     empty: { name: '빈 슬롯', base: 0, trace: 0, elation: false }
   };
   const SOURCES = [
-    ['펄 · 스타레일 4.6 · 필살기/2돌/행적/연극인', 'https://hsr.gachabase.net/characters/1503/pearl/release/4.6.0/16688351?lang=ko'],
+    ['펄 · 필살기/2돌/행적/연극인', 'https://hsr.gachabase.net/characters/1503/pearl/release/4.6.0/16688351?lang=ko'],
     ['효광 · 결계 중 2돌 +12%, 전용 광추', 'https://hsr.gachabase.net/characters/1502/yao-guang/release?lang=ko'],
     ['곽향 · 양명 중 1돌 +12%', 'https://hsr.gachabase.net/characters/1217/huohuo/release/4.4.0?lang=ko'],
     ['웨이브 · 출시 기초속도 107 / 단독 환락 예외', 'https://hsr.gachabase.net/characters/1513/aventurine-waveflair/release/4.5.0/16247584?lang=ko'],
@@ -32,10 +32,10 @@
     ['은랑 LV.999 · 기초속도 110 / 전광 +18% (1재)', 'https://hsr.gachabase.net/characters/1506/silver-wolf-lv999/release?branch=release&lang=ko'],
     ['스파키 · 2돌 보너스 턴', 'https://hsr.gachabase.net/characters/1501/sparxie/release?lang=ko'],
     ['히아킨 · HP 감소 후 2돌 +30%', 'https://hsr.gachabase.net/characters/1409/hyacine/release?lang=ko'],
-    ['환락 튜토리얼 · 4.6 출시 데이터', 'https://hsr.gachabase.net/tutorials/battle/2260/path-of-elation/release?lang=en'],
+    ['환락 튜토리얼', 'https://hsr.gachabase.net/tutorials/battle/2260/path-of-elation/release?lang=en'],
     ['속도 순위 계수 · 2026-09 관측 정리 (공식 숫자 명시 아님)', 'https://hohzuki-tries.com/hsr-aha-speed-formula/'],
     ['행동 게이지·속도 변경 공식 · KQM 연구', 'https://hsr.keqingmains.com/misc/speed-guide/'],
-    ['개척자 6돌 · 테스트 중 속도 효과 삭제 이력', 'https://hsr.gachabase.net/diff/characters/8010/stelle-elation?cur=beta_4.1.54_14611439&lang=ko&prev=beta_4.1.53_14536466'],
+    ['개척자 6돌 · 효과 변경 근거', 'https://hsr.gachabase.net/diff/characters/8010/stelle-elation?cur=beta_4.1.54_14611439&lang=ko&prev=beta_4.1.53_14536466'],
     ['완·매 · 자신 제외 +10% (특성 10레벨)', 'https://hsr.gachabase.net/characters/1303/ruan-mei/release/4.5.0/16247584?lang=ko'],
     ['댄댄댄·메신저·매 · 출시판 장비 문구', 'https://hsr.gachabase.net/characters/1306/sparkle/release/4.3.0/15245519?lang=ko'],
     ['서머레토 전광·앰포리어스 · 전체 속도 조건부 효과', 'https://hsr.gachabase.net/characters/1512/robin-summeretto/release/4.6.0/16688351?lang=ko']
@@ -47,13 +47,13 @@
       pct: 0, flat: 0, hyacine: false, waveLC: false, waveRefine: 1,
       vonwacq: false, initialAdvance: 0, eidolon: false, signature: false, refine: 1,
       buffActive: true, hyacineEligible: true, messenger: false, amphoreus: false,
-      warrior: false, memospriteActive: true, betaPlanar: 'none', joyEligible: false, ...(id === 'aeon' ? { ahaStart: false } : {}) };
+      warrior: false, memospriteActive: true, planarSet: 'none', joyEligible: false, ...(id === 'aeon' ? { ahaStart: true } : {}) };
   }
   function defaults() {
     return { slots: [slot('yao', 200), slot('wolf', 200), slot('sparxie', 134), slot('pearl', 160)],
       buffs: { yao: false, huohuo: false, ruan: false, messenger: false, amphoreus: false, summerLC: 0, asta: 0, extraPct: 0, extraFlat: 0 },
       sparxieE2: false, pearlE2: false, soloWaveBonus: 0, horizon: 150,
-      target: 133.4, solveSlot: 0, events: [] };
+      target: 133.4, solveSlot: 0, events: [], ahaOwned: true, waveAscension: false };
   }
   function present(cfg, id) { return cfg.slots.some(s => s.id === id); }
   function owner(cfg, id) { return cfg.slots.find(s => s.id === id); }
@@ -62,29 +62,20 @@
   function effectiveBase(s) {
     return Number(s.base) + (s.id === 'aeon' && s.signature ? 12 + 2 * (s.refine - 1) : 0);
   }
-  function rumorConfig(cfg) {
-    const copy = structuredClone(cfg);
-    copy.rumor = { enabled: true, owned: true, waveAscension: false };
-    return copy;
-  }
   function ahaBase(cfg) {
-    if (!cfg.rumor?.enabled || cfg.rumor.legacyBase) return 80;
     const aha = owner(cfg, 'aeon');
     // Ownership-only gear/trace references have no verified combat implementation.
-    return aha ? effectiveBase(aha) : cfg.rumor.owned ? 94 : 80;
+    return aha ? effectiveBase(aha) : cfg.ahaOwned ? CHARACTERS.aeon.base : 80;
   }
   function isWaveAscended(cfg) {
-    return !!(cfg.rumor?.enabled && cfg.rumor.waveAscension && present(cfg, 'aeon') &&
+    return !!(cfg.waveAscension && present(cfg, 'aeon') &&
       present(cfg, 'wave') && cfg.slots.filter(s => CHARACTERS[s.id].elation).length === 2);
   }
   function canWaveDirect(cfg) { return isSoloWave(cfg) || isWaveAscended(cfg); }
-  function compareBase(cfg) {
-    return { legacy: snapshot({ ...cfg, rumor: { ...cfg.rumor, legacyBase: true } }), beta: snapshot(cfg) };
-  }
   function panelSpeed(s) {
     if (s.mode !== 'build') return Number(s.panel);
     const lc = s.id === 'aeon' && s.signature ? 0 : s.signature && ['yao','wolf','hyacine'].includes(s.id) ? 18 + 3 * (s.refine - 1) : s.lc;
-    return effectiveBase(s) * (1 + (s.gear + (PLANARS[s.betaPlanar]?.pct ?? s.planar) + lc + s.extraPanelPct) / 100)
+    return effectiveBase(s) * (1 + (s.gear + (PLANARS[s.planarSet]?.pct ?? s.planar) + lc + s.extraPanelPct) / 100)
       + s.trace + s.boots + s.sub + s.extraPanelFlat;
   }
   function additions(cfg, i) {
@@ -149,12 +140,11 @@
     const errors = [], seen = new Set();
     cfg.slots.forEach((s, i) => {
       if (!CHARACTERS[s.id]) { errors.push(`슬롯 ${i + 1}: 알 수 없는 캐릭터`); return; }
-      if (CHARACTERS[s.id].betaOnly && !cfg.rumor?.enabled) errors.push('아하 캐릭터는 4.7 찌라시에서만 편성할 수 있습니다.');
       if (s.id === 'empty') return;
-      if (s.ahaStart !== undefined && (typeof s.ahaStart !== 'boolean' || (s.ahaStart && (s.id !== 'aeon' || !cfg.rumor?.enabled)))) errors.push(`슬롯 ${i + 1}: 아하 진입 행적은 찌라시의 아하에게만 적용할 수 있습니다.`);
-      if (s.betaPlanar && s.betaPlanar !== 'none') {
-        if (!cfg.rumor?.enabled || !PLANARS[s.betaPlanar]) errors.push(`슬롯 ${i + 1}: 베타 장신구는 찌라시 모드에서만 선택할 수 있습니다.`);
-        if (s.vonwacq) errors.push(`슬롯 ${i + 1}: 바커공과 베타 장신구는 동시에 장착할 수 없습니다.`);
+      if (s.ahaStart !== undefined && (typeof s.ahaStart !== 'boolean' || (s.ahaStart && s.id !== 'aeon'))) errors.push(`슬롯 ${i + 1}: 아하 진입 행적은 아하에게만 적용할 수 있습니다.`);
+      if (s.planarSet && s.planarSet !== 'none') {
+        if (!Object.hasOwn(PLANARS,s.planarSet)) errors.push(`슬롯 ${i + 1}: 지원하는 장신구를 선택해 주세요.`);
+        if (s.vonwacq) errors.push(`슬롯 ${i + 1}: 바커공과 이 장신구는 동시에 장착할 수 없습니다.`);
       }
       if (!['custom', 'other'].includes(s.id) && seen.has(s.id)) errors.push('같은 캐릭터를 중복 편성할 수 없습니다.');
       seen.add(s.id);
@@ -183,12 +173,12 @@
     if (!Number.isFinite(cfg.soloWaveBonus) || cfg.soloWaveBonus < 0) errors.push('웨이브 직접 가산은 0 이상의 숫자여야 합니다.');
     cfg.events.forEach((e, i) => {
       if (!Number.isFinite(e.time) || e.time < 0 || e.time > cfg.horizon || (!automaticEvent(e.type) && !Number.isFinite(e.value))) errors.push(`이벤트 ${i + 1}: 시간/수치를 확인해 주세요.`);
-      if (!['pct', 'flat', 'advance', 'bonus', 'yao', 'pearl', 'ddd', 'wave', ...(cfg.rumor?.enabled ? ['ahaBonus', 'ahaAdvance'] : [])].includes(e.type)) errors.push(`이벤트 ${i + 1}: 종류를 확인해 주세요.`);
+      if (!['pct', 'flat', 'advance', 'bonus', 'yao', 'pearl', 'ddd', 'wave', 'ahaBonus', 'ahaAdvance'].includes(e.type)) errors.push(`이벤트 ${i + 1}: 종류를 확인해 주세요.`);
       if (!['yao', 'wave', 'ddd', 'ahaBonus', 'ahaAdvance'].includes(e.type) && e.target !== 'all' && (!Number.isInteger(e.target) || !cfg.slots[e.target])) errors.push(`이벤트 ${i + 1}: 대상을 확인해 주세요.`);
       if ((e.type === 'advance' || e.type === 'ddd' || e.type === 'ahaAdvance') && (e.value < -100 || e.value > 100)) errors.push(`이벤트 ${i + 1}: 행동 조정은 -100~100%입니다.`);
       if (e.type === 'yao' && !present(cfg, 'yao')) errors.push('효광 필살기 이벤트에는 효광 편성이 필요합니다.');
       if (e.type === 'pearl' && (!present(cfg, 'pearl') || cfg.slots[e.target]?.id === 'pearl' || e.target === 'all')) errors.push('펄 필살기는 펄 외의 한 캐릭터를 지정해야 합니다.');
-      if (e.type === 'wave' && !canWaveDirect(cfg)) errors.push('아하 직접 가산은 웨이브 단독 환락 또는 찌라시의 아하·웨이브 승격 조건에서만 사용합니다.');
+      if (e.type === 'wave' && !canWaveDirect(cfg)) errors.push('아하 직접 가산은 웨이브 단독 환락 또는 아하·웨이브 승격 조건에서만 사용합니다.');
       if (!['yao', 'wave', 'ddd', 'ahaBonus', 'ahaAdvance'].includes(e.type) && e.target !== 'all' && cfg.slots[e.target]?.id === 'empty') errors.push('빈 슬롯은 이벤트 대상이 될 수 없습니다.');
       if (e.type === 'bonus' && e.target === 'all') errors.push('보너스 턴의 대상은 캐릭터 1명이어야 합니다.');
     });
@@ -208,7 +198,7 @@
       return [...chars, snap.base + ranked.reduce((v, s, i) => v + s * WEIGHTS[i], 0) + solo];
     }
     function add(actor, type, note) {
-      log.push({ time, actor, name: actor === 4 ? (cfg.rumor?.enabled ? '아하 타임' : '아하') : snap.chars[actor].name, type, note,
+      log.push({ time, actor, name: actor === 4 ? '아하 타임' : snap.chars[actor].name, type, note,
         speed: speeds()[actor] });
       if (type === 'normal') counts[actor].natural++;
       if (type === 'bonus') counts[actor].bonus++;
@@ -258,13 +248,12 @@
     }
     return { errors: [], log, counts, finalSpeed: speeds(), remainingGauge: gauges };
   }
-  const BETA = Object.freeze({ version: 'v4.6.53', data: 'D16833202', resource: 'R16818953', checked: '2026-10-17 (KST)' });
   const PLANARS = Object.freeze({ joy: { name: "God's Moment of Joy", pct: 6 }, asc: { name: 'Subspace ASC Center', pct: 6 } });
   function initialGauge(cfg, i, snap = snapshot(cfg)) {
     const s = cfg.slots[i];
     const advance = s.initialAdvance + (s.vonwacq && snap.chars[i].speed >= 120 ? 40 : 0) +
-      (cfg.rumor?.enabled && s.betaPlanar === 'joy' && s.joyEligible ? 40 : 0) +
-      (cfg.rumor?.enabled && s.id === 'aeon' && s.ahaStart ? 30 : 0);
+      (s.planarSet === 'joy' && s.joyEligible ? 40 : 0) +
+      (s.id === 'aeon' && s.ahaStart !== false ? 30 : 0);
     return Math.max(0, 10000 * (1 - advance / 100));
   }
   // Goal search is over displayed 0.01 SPD steps. Timed order can have islands.
@@ -345,7 +334,7 @@
     return notes;
   }
 
-  const api = { BETA, PLANARS, initialGauge, goalProblem, goalCheck, solveGoal, goalSearch, diagnostics, WEIGHTS, CHARACTERS, SOURCES, slot, defaults, panelSpeed, additions, snapshot, solve, validate, simulate, isSoloWave, effectiveBase, ahaBase, rumorConfig, compareBase, isWaveAscended, canWaveDirect, automaticEvent };
+  const api = { PLANARS, initialGauge, goalProblem, goalCheck, solveGoal, goalSearch, diagnostics, WEIGHTS, CHARACTERS, SOURCES, slot, defaults, panelSpeed, additions, snapshot, solve, validate, simulate, isSoloWave, effectiveBase, ahaBase, isWaveAscended, canWaveDirect, automaticEvent };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.AhaEngine = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);
