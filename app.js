@@ -1,22 +1,21 @@
 (function () {
   'use strict';
   const E = window.AhaEngine, S = window.AhaState;
-  let activeMode='46', models={standard:E.defaults(),rumor:null};
-  const notice=(text)=>{const el=document.getElementById('sessionNotice');el.hidden=!text;el.textContent=text;};
+  const $=id=>document.getElementById(id);
+  const notice=text=>{$('sessionNotice').hidden=!text;$('sessionNotice').textContent=text;};
+  let initial=E.defaults();
   try {
     const raw=localStorage.getItem(S.STORAGE_KEY);
-    if(raw){const saved=JSON.parse(raw);if(saved.schema!==S.SCHEMA)throw Error('저장된 설정 버전을 지원하지 않습니다.');
-      if(saved.standard?.mode!=='46'||(saved.rumor&&saved.rumor.mode!=='47'))throw Error('저장 모드가 올바르지 않습니다.');models.standard=S.unpack(saved.standard).config;
-      // A beta revision mismatch must not discard a valid 4.6 configuration.
-      try{models.rumor=saved.rumor?S.unpack(saved.rumor).config:null;}catch(error){models.rumor=null;notice('4.6 설정은 복원했습니다. 이전 찌라시 설정은 적용하지 않았습니다. '+error.message);}
-      activeMode=saved.mode==='47'&&models.rumor?'47':'46';}
-  }catch(error){notice('저장 설정을 복원하지 못해 기본값을 사용합니다. '+error.message);models={standard:E.defaults(),rumor:null};}
-  if(location.hash.startsWith('#aha='))try{const shared=S.decode(location.hash.slice(5));models[shared.mode==='47'?'rumor':'standard']=shared.config;activeMode=shared.mode;notice('공유 설정을 가져왔습니다. 저장된 설정보다 우선합니다.');try{history.replaceState(null,'',location.href.split('#')[0]);}catch(error){/* Some file hosts do not allow history updates. */}}catch(error){notice('공유 설정을 적용하지 않았습니다. '+error.message);}
-  function persist(){try{localStorage.setItem(S.STORAGE_KEY,JSON.stringify({schema:S.SCHEMA,mode:activeMode,standard:S.pack(models.standard,'46'),rumor:models.rumor?S.pack(models.rumor,'47'):null}));}catch(error){notice('자동 저장을 사용할 수 없습니다. 현재 계산과 공유 링크는 사용할 수 있습니다.');}}
-  function changed(config,rumor){if(E.validate(config).length)return;try{models[rumor?'rumor':'standard']=S.normalize(config,rumor?'47':'46');persist();}catch(error){/* Keep the last valid settings while a field is incomplete. */}}
-
-  function createCalculator(root, initial, prefix = '', rumor = false) {
-  const $ = id => document.getElementById(prefix + id);
+    if(raw)initial=S.unpack(JSON.parse(raw)).config;
+    else {
+      const previous=localStorage.getItem(S.PREVIOUS_STORAGE_KEY);
+      if(previous){const saved=JSON.parse(previous);if(saved?.rumor){initial=S.migratePrevious(saved.rumor).config;notice('이전 아하 파티 설정을 4.7로 옮겼습니다.');}}
+    }
+  }catch(error){notice('저장 설정을 복원하지 못해 기본값을 사용합니다. '+error.message);}
+  function readShare(){const shared=S.decode(location.hash.slice(5));try{history.replaceState(null,'',location.href.split('#')[0]);}catch(error){/* Some file hosts restrict history. */}notice('공유 설정을 가져왔습니다.');return shared.config;}
+  if(location.hash.startsWith('#aha='))try{initial=readShare();}catch(error){notice('공유 설정을 적용하지 않았습니다. '+error.message);}
+  function changed(config){if(E.validate(config).length)return;try{localStorage.setItem(S.STORAGE_KEY,JSON.stringify(S.pack(config)));}catch(error){/* Keep last valid settings or allow offline use without storage. */}}
+  const root=$('calculator');
   let cfg = structuredClone(initial), expanded = new Set(), solved=null, compareIdx=0; cfg.goal ||= S.goalDefaults();
   const key=()=>JSON.stringify(cfg);
   const focusEditor=(i,key)=>{renderParty();(key?$('equipment'+i).querySelector(`[data-key="${key}"]`):$('party').querySelector(`[data-editor="${i}"]`))?.focus({preventScroll:true});updateResults();};
@@ -32,8 +31,8 @@
   function renderParty(){
     $('party').innerHTML=cfg.slots.map((s,i)=>{
       const c=E.CHARACTERS[s.id], e=eidolons[s.id];
-      const options=Object.entries(E.CHARACTERS).filter(([,c])=>rumor||!c.betaOnly).map(([id,c])=>{const taken=id!=='empty'&&cfg.slots.some((x,j)=>j!==i&&x.id===id);return `<option value="${id}" ${s.id===id?'selected':''} ${taken?'disabled':''}>${c.name}${taken?' · 편성 중':''}</option>`}).join('');
-      return `<div class="slot" data-party-slot="${i}"><div class="partyrow"><label><span><b class="slotnum">${i+1}</b>캐릭터</span><select data-slot="${i}" aria-label="슬롯 ${i+1} 캐릭터">${options}</select></label><label><span>마을 SPD</span><input data-panel="${i}" aria-label="슬롯 ${i+1} 마을 SPD" type="number" step="0.001" min="1" value="${s.mode==='build'?E.panelSpeed(s).toFixed(3):s.panel}" ${s.id==='empty'||s.mode==='build'?'disabled':''}></label></div>${s.id==='empty'?'':`<div class="slotconfig">${e?check(e[0],'eidolon',s.eidolon):'<small>돌파 속도 없음</small>'}<label>전광<select data-key="signature" ${noSignature.includes(s.id)?'disabled':''}><option value="0" ${!s.signature?'selected':''}>${noSignature.includes(s.id)?'해당 없음':'미착용'}</option><option value="1" ${s.signature?'selected':''}>착용</option></select></label><label>재련<select data-key="refine" ${!s.signature?'disabled':''}>${[1,2,3,4,5].map(n=>`<option value="${n}" ${s.refine===n?'selected':''}>${n}재</option>`).join('')}</select></label></div>`}<div class="slot-bottom"><div class="combatline" ${s.id==='empty'?'hidden':''}>전투 SPD <strong id="${prefix}combat${i}"></strong></div><button data-editor="${i}" aria-expanded="${expanded.has(i)}" aria-controls="${prefix}equipment${i}" ${s.id==='empty'?'disabled':''}>장비·효과</button></div><p id="${prefix}slotError${i}" class="slot-error" hidden></p><p id="${prefix}effectSummary${i}" class="slot-summary" hidden></p><div id="${prefix}equipment${i}" class="equipment" ${!expanded.has(i)||s.id==='empty'?'hidden':''}></div></div>`;
+      const options=Object.entries(E.CHARACTERS).map(([id,c])=>{const taken=id!=='empty'&&cfg.slots.some((x,j)=>j!==i&&x.id===id);return `<option value="${id}" ${s.id===id?'selected':''} ${taken?'disabled':''}>${c.name}${taken?' · 편성 중':''}</option>`}).join('');
+      return `<div class="slot" data-party-slot="${i}"><div class="partyrow"><label><span><b class="slotnum">${i+1}</b>캐릭터</span><select data-slot="${i}" aria-label="슬롯 ${i+1} 캐릭터">${options}</select></label><label><span>마을 SPD</span><input data-panel="${i}" aria-label="슬롯 ${i+1} 마을 SPD" type="number" step="0.001" min="1" value="${s.mode==='build'?E.panelSpeed(s).toFixed(3):s.panel}" ${s.id==='empty'||s.mode==='build'?'disabled':''}></label></div>${s.id==='empty'?'':`<div class="slotconfig">${e?check(e[0],'eidolon',s.eidolon):'<small>돌파 속도 없음</small>'}<label>전광<select data-key="signature" ${noSignature.includes(s.id)?'disabled':''}><option value="0" ${!s.signature?'selected':''}>${noSignature.includes(s.id)?'해당 없음':'미착용'}</option><option value="1" ${s.signature?'selected':''}>착용</option></select></label><label>재련<select data-key="refine" ${!s.signature?'disabled':''}>${[1,2,3,4,5].map(n=>`<option value="${n}" ${s.refine===n?'selected':''}>${n}재</option>`).join('')}</select></label></div>`}<div class="slot-bottom"><div class="combatline" ${s.id==='empty'?'hidden':''}>전투 SPD <strong id="combat${i}"></strong></div><button data-editor="${i}" aria-expanded="${expanded.has(i)}" aria-controls="equipment${i}" ${s.id==='empty'?'disabled':''}>장비·효과</button></div><p id="slotError${i}" class="slot-error" hidden></p><p id="effectSummary${i}" class="slot-summary" hidden></p><div id="equipment${i}" class="equipment" ${!expanded.has(i)||s.id==='empty'?'hidden':''}></div></div>`;
 
     }).join('');
     $('party').querySelectorAll('[data-slot]').forEach(el=>el.addEventListener('change',()=>{
@@ -54,8 +53,8 @@
   }
   function renderEquipment(i){
     const s=cfg.slots[i],build=s.mode==='build',root=$('equipment'+i);
-    root.innerHTML=`<div class="effect-notes">${eidolons[s.id]?`<p class="help">${eidolons[s.id][1]}</p>`:''}${signatureNotes[s.id]?`<p class="help">${signatureNotes[s.id]}</p>`:''}</div><div class="grid condition-controls">${['yao','huohuo','hyacine','sparxie','pearl','sparkle','hanya','tingyun','ruan','wave','summeretto'].includes(s.id)?check(s.id==='ruan'?'특성 10레벨 활성 · 본인 제외 +10%':'조건부 효과 활성 가정','buffActive',s.buffActive):''}${rumor&&s.id==='aeon'?check('진입 행적 · 본인 첫 행동 +30% (영문·원시값 기준)','ahaStart',s.ahaStart):''}${s.id==='asta'?field('필살기 고정 SPD (0이면 비활성)','astaFlat',cfg.buffs.asta):''}${s.id==='tingyun'&&s.eidolon?`<label>축복 대상<select data-key="buffTarget">${targets(s.buffTarget)}</select></label>`:''}</div>${rumor&&s.id==='aeon'?'<p class="help">진입 행적은 한국어 12500%와 영문 30%·원시값 0.3이 불일치해 기본 미적용입니다. 선택 시 아하 캐릭터의 첫 행동만 30% 당깁니다. 기타 첫 행동 증가에 중복 입력하지 마세요.</p>':''}<h3>장비의 전투 중 효과</h3><div class="grid">${check('바커공 · 120 SPD 이상 첫 행동 +40%','vonwacq',s.vonwacq)}${rumor?`<label>베타 장신구<select data-key="betaPlanar"><option value="none" ${!s.betaPlanar||s.betaPlanar==='none'?'selected':''}>직접 입력 / 기타</option>${Object.entries(E.PLANARS).map(([id,c])=>`<option value="${id}" ${s.betaPlanar===id?'selected':''}>${c.name} · SPD +6%</option>`).join('')}</select></label>${s.betaPlanar==='joy'?check('환락도 40% 이상 충족 가정 · 첫 행동 +40%','joyEligible',s.joyEligible):''}<p class="help">상시 +6%는 마을 SPD에 포함, 구성 입력에서는 한 번만 계산합니다. 바커공과 동시 장착하지 않습니다.</p>`:''}${check('메신저 4세트 · 모든 아군 +12% 활성','messenger',s.messenger)}${check('앰포리어스 · 기억 정령 필드, 모든 아군 +8%','amphoreus',s.amphoreus)}${check('여전사 4세트 · 착용자 +6% 활성','warrior',s.warrior)}</div><p class="help">속도 2세트와 상시 장신구 효과는 마을 SPD에 포함됩니다. 메신저·앰포리어스의 동일 효과는 여러 명이 착용해도 한 번만 적용합니다. 매 4세트·댄댄댄은 하단 행동 순서에서 발동 시점을 지정하세요.</p><details><summary>매우 세부적인 개인 설정</summary><div class="grid">${field('캐릭터 기초 SPD','base',s.base,'min="1"')}${field('추가 개인 속도 %','pct',s.pct)}${field('추가 개인 고정 SPD','flat',s.flat)}${field('기타 첫 행동 증가 %','initialAdvance',s.initialAdvance,'min="0" max="100"')}${check('히아킨 2돌 HP 감소 조건을 이 대상이 충족','hyacineEligible',s.hyacineEligible,!cfg.slots.some(x=>x.id==='hyacine'))}${check('장신구 착용자의 기억 정령 필드','memospriteActive',s.memospriteActive)}<label>속도 입력 방식<select data-key="mode"><option value="panel" ${!build?'selected':''}>마을 SPD 입력</option><option value="build" ${build?'selected':''}>장비 구성으로 계산</option></select></label></div><p class="help">위 돌파·전무 설정에 포함된 속도 효과를 추가 개인 값에 중복 입력하지 마세요. HP 감소·결계·양명 등은 활성 상태로 가정하며 이곳에서 해제할 수 있습니다.</p>${s.id==='aeon'?`<p class="help">기초 SPD ${f(E.effectiveBase(s))}. 전광 증가분은 기초 SPD 입력에 다시 포함하지 마세요. 구성 입력은 (기초 SPD + 전광 증가) × (1 + 상시 %) + 고정 속도입니다.</p>`:''}${build?`<div class="grid">${field('행적 고정 SPD','trace',s.trace)}${field('신발 고정 SPD','boots',s.boots)}${field('속도 부옵 합계','sub',s.sub)}${field('유물 세트 속도 %','gear',s.gear)}${field('장신구 상시 속도 %','planar',E.PLANARS[s.betaPlanar]?.pct??s.planar,E.PLANARS[s.betaPlanar]?'disabled':'')}${field('기타 광추 상시 속도 %','lc',s.lc)}${field('기타 패널 속도 %','extraPanelPct',s.extraPanelPct)}${field('기타 패널 고정 SPD','extraPanelFlat',s.extraPanelFlat)}</div><p class="help">${rumor?'아하의 전광은 기초 속도에 더하고, ':''}효광·은랑·히아킨의 전무를 선택하면 해당 상시 속도를 구성 계산에 반영합니다. 전무가 있으면 기타 광추 수치는 사용하지 않습니다. 신발 +25는 표시값입니다.</p>`:''}</details>`;
-    root.querySelectorAll('[data-key]').forEach(el=>el.addEventListener(el.type==='number'?'input':'change',()=>{if(el.dataset.key==='astaFlat')set(el,cfg.buffs,'asta');else if(el.dataset.key==='betaPlanar'){s.betaPlanar=el.value;if(el.value!=='none')s.vonwacq=false;focusEditor(i,'betaPlanar');return;}else{set(el,s,el.dataset.key);if(el.dataset.key==='vonwacq'&&s.vonwacq){s.betaPlanar='none';focusEditor(i,'vonwacq');return;}}if(el.dataset.key==='mode'){renderParty();$('equipment'+i).querySelector('details').open=true;$('equipment'+i).querySelector('[data-key="mode"]').focus({preventScroll:true});}if(el.dataset.key==='buffActive')$('party').querySelectorAll(`[data-party-slot="${i}"] [data-key="buffActive"]`).forEach(x=>x.checked=s.buffActive);updateResults();}));
+    root.innerHTML=`<div class="effect-notes">${eidolons[s.id]?`<p class="help">${eidolons[s.id][1]}</p>`:''}${signatureNotes[s.id]?`<p class="help">${signatureNotes[s.id]}</p>`:''}</div><div class="grid condition-controls">${['yao','huohuo','hyacine','sparxie','pearl','sparkle','hanya','tingyun','ruan','wave','summeretto'].includes(s.id)?check(s.id==='ruan'?'특성 10레벨 활성 · 본인 제외 +10%':'조건부 효과 활성 가정','buffActive',s.buffActive):''}${s.id==='aeon'?check('진입 행적 · 본인 첫 행동 +30%','ahaStart',s.ahaStart):''}${s.id==='asta'?field('필살기 고정 SPD (0이면 비활성)','astaFlat',cfg.buffs.asta):''}${s.id==='tingyun'&&s.eidolon?`<label>축복 대상<select data-key="buffTarget">${targets(s.buffTarget)}</select></label>`:''}</div>${s.id==='aeon'?'<p class="help">진입 행적은 아하 캐릭터의 첫 행동만 당깁니다. 기타 첫 행동 증가에 중복 입력하지 마세요.</p>':''}<h3>장비의 전투 중 효과</h3><div class="grid">${check('바커공 · 120 SPD 이상 첫 행동 +40%','vonwacq',s.vonwacq)}<label>차원 장신구<select data-key="planarSet"><option value="none" ${!s.planarSet||s.planarSet==='none'?'selected':''}>직접 입력 / 기타</option>${Object.entries(E.PLANARS).map(([id,c])=>`<option value="${id}" ${s.planarSet===id?'selected':''}>${c.name} · SPD +6%</option>`).join('')}</select></label>${s.planarSet==='joy'?check('환락도 40% 이상 충족 가정 · 첫 행동 +40%','joyEligible',s.joyEligible):''}<p class="help">상시 +6%는 마을 SPD에 포함, 구성 입력에서는 한 번만 계산합니다. 바커공과 동시 장착하지 않습니다.</p>${check('메신저 4세트 · 모든 아군 +12% 활성','messenger',s.messenger)}${check('앰포리어스 · 기억 정령 필드, 모든 아군 +8%','amphoreus',s.amphoreus)}${check('여전사 4세트 · 착용자 +6% 활성','warrior',s.warrior)}</div><p class="help">속도 2세트와 상시 장신구 효과는 마을 SPD에 포함됩니다. 메신저·앰포리어스의 동일 효과는 여러 명이 착용해도 한 번만 적용합니다. 매 4세트·댄댄댄은 하단 행동 순서에서 발동 시점을 지정하세요.</p><details><summary>매우 세부적인 개인 설정</summary><div class="grid">${field('캐릭터 기초 SPD','base',s.base,'min="1"')}${field('추가 개인 속도 %','pct',s.pct)}${field('추가 개인 고정 SPD','flat',s.flat)}${field('기타 첫 행동 증가 %','initialAdvance',s.initialAdvance,'min="0" max="100"')}${check('히아킨 2돌 HP 감소 조건을 이 대상이 충족','hyacineEligible',s.hyacineEligible,!cfg.slots.some(x=>x.id==='hyacine'))}${check('장신구 착용자의 기억 정령 필드','memospriteActive',s.memospriteActive)}<label>속도 입력 방식<select data-key="mode"><option value="panel" ${!build?'selected':''}>마을 SPD 입력</option><option value="build" ${build?'selected':''}>장비 구성으로 계산</option></select></label></div><p class="help">위 돌파·전무 설정에 포함된 속도 효과를 추가 개인 값에 중복 입력하지 마세요. HP 감소·결계·양명 등은 활성 상태로 가정하며 이곳에서 해제할 수 있습니다.</p>${s.id==='aeon'?`<p class="help">기초 SPD ${f(E.effectiveBase(s))}. 전광 증가분은 기초 SPD 입력에 다시 포함하지 마세요. 구성 입력은 (기초 SPD + 전광 증가) × (1 + 상시 %) + 고정 속도입니다.</p>`:''}${build?`<div class="grid">${field('행적 고정 SPD','trace',s.trace)}${field('신발 고정 SPD','boots',s.boots)}${field('속도 부옵 합계','sub',s.sub)}${field('유물 세트 속도 %','gear',s.gear)}${field('장신구 상시 속도 %','planar',E.PLANARS[s.planarSet]?.pct??s.planar,E.PLANARS[s.planarSet]?'disabled':'')}${field('기타 광추 상시 속도 %','lc',s.lc)}${field('기타 패널 속도 %','extraPanelPct',s.extraPanelPct)}${field('기타 패널 고정 SPD','extraPanelFlat',s.extraPanelFlat)}</div><p class="help">아하의 전광은 기초 속도에 더하고, 효광·은랑·히아킨의 전무를 선택하면 해당 상시 속도를 구성 계산에 반영합니다. 전무가 있으면 기타 광추 수치는 사용하지 않습니다. 신발 +25는 표시값입니다.</p>`:''}</details>`;
+    root.querySelectorAll('[data-key]').forEach(el=>el.addEventListener(el.type==='number'?'input':'change',()=>{if(el.dataset.key==='astaFlat')set(el,cfg.buffs,'asta');else if(el.dataset.key==='planarSet'){s.planarSet=el.value;if(el.value!=='none')s.vonwacq=false;focusEditor(i,'planarSet');return;}else{set(el,s,el.dataset.key);if(el.dataset.key==='vonwacq'&&s.vonwacq){s.planarSet='none';focusEditor(i,'vonwacq');return;}}if(el.dataset.key==='mode'){renderParty();$('equipment'+i).querySelector('details').open=true;$('equipment'+i).querySelector('[data-key="mode"]').focus({preventScroll:true});}if(el.dataset.key==='buffActive')$('party').querySelectorAll(`[data-party-slot="${i}"] [data-key="buffActive"]`).forEach(x=>x.checked=s.buffActive);updateResults();}));
   }
   function renderBuffs(){
     $('buffs').innerHTML=check('추가 메신저 4세트 효과 활성','messenger',cfg.buffs.messenger)+check('추가 앰포리어스 효과 활성','amphoreus',cfg.buffs.amphoreus)+field('기타 기억 캐릭터에 장착한 서머레토 전무 · 전체 속도 %','summerLC',cfg.buffs.summerLC);
@@ -69,7 +68,7 @@
     $('compareSlot').innerHTML=cfg.slots.map((s,i)=>`<option value="${i}" ${i===compareIdx?'selected':''} ${s.id==='empty'?'disabled':''}>${E.CHARACTERS[s.id].name}</option>`).join('');
     renderGoalFields();
   }
-  const eventNames={pct:'속도 % 증감',flat:'고정 SPD 증감',advance:'행동 게이지 조정 %',bonus:'보너스 턴',yao:'효광 필살기',pearl:'펄 필살기',ddd:'댄댄댄 전체 행동 증가 %',wave:'웨이브 직접 가산 총량',...(rumor?{ahaBonus:'추가 아하 타임 (수동)',ahaAdvance:'아하 타임 행동 증가 % (필살기 20 / 6돌 첫 100)'}:{})};
+  const eventNames={pct:'속도 % 증감',flat:'고정 SPD 증감',advance:'행동 게이지 조정 %',bonus:'보너스 턴',yao:'효광 필살기',pearl:'펄 필살기',ddd:'댄댄댄 전체 행동 증가 %',wave:'웨이브 직접 가산 총량',ahaBonus:'추가 아하 타임 (수동)',ahaAdvance:'아하 타임 행동 증가 % (필살기 20 / 6돌 첫 100)'};
   function renderEvents(){
     $('events').innerHTML=cfg.events.map((e,i)=>{const automatic=E.automaticEvent(e.type), fixedAha=['ahaBonus','ahaAdvance'].includes(e.type);return `<div class="event"><input data-event="${i}" data-field="time" type="number" step="0.001" aria-label="이벤트 ${i+1} 누적 AV" value="${e.time}"><select data-event="${i}" data-field="type" aria-label="이벤트 ${i+1} 종류">${Object.entries(eventNames).map(([k,v])=>`<option value="${k}" ${k===e.type?'selected':''}>${v}</option>`).join('')}</select><select class="eventtarget" data-event="${i}" data-field="target" aria-label="이벤트 ${i+1} 대상" ${fixedAha?'disabled':''}>${fixedAha?'<option value="all">아하 타임</option>':`<option value="all" ${e.target==='all'?'selected':''}>아군 전체</option>${targets(e.target)}`}</select><input class="eventvalue" data-event="${i}" data-field="value" type="number" step="0.01" aria-label="이벤트 ${i+1} 수치" value="${automatic?'':e.value}" placeholder="자동" ${automatic?'disabled':''}><button data-remove="${i}" aria-label="이벤트 ${i+1} 삭제">×</button></div>`}).join('');
     $('events').querySelectorAll('[data-event]').forEach(el=>el.addEventListener(el.tagName==='SELECT'?'change':'input',()=>{const e=cfg.events[+el.dataset.event],k=el.dataset.field;
@@ -82,7 +81,7 @@
     const errors=E.validate(cfg),snap=E.snapshot(cfg);
     const globalErrors=errors.filter(t=>!/^슬롯 \d+:/.test(t));$('errors').hidden=!globalErrors.length;$('errors').innerHTML=globalErrors.map(esc).join('<br>');
     cfg.slots.forEach((s,i)=>{const local=errors.filter(t=>t.startsWith('슬롯 '+(i+1)+':')),error=$('slotError'+i),input=$('party').querySelector(`[data-panel="${i}"]`);error.hidden=!local.length;error.textContent=local.join(' ');input.setAttribute('aria-invalid',String(!!local.length));input.setAttribute('aria-describedby',error.id);});
-    changed(cfg,rumor);
+    changed(cfg);
     cfg.slots.forEach((s,i)=>{if($('combat'+i))$('combat'+i).textContent=f(snap.chars[i].speed);const inp=$('party').querySelector(`[data-panel="${i}"]`);if(s.mode==='build')inp.value=Number.isFinite(E.panelSpeed(s))?E.panelSpeed(s).toFixed(3):'';});
     cfg.slots.forEach((s,i)=>{const notes=[],c=snap.chars[i];
       if(s.eidolon){if(s.id==='wolf')notes.push('은랑 2돌 선택 · 행동 효과 수동');else if(s.id==='aeon')notes.push('아하 2돌 선택 · 웨이브 승격 '+(E.isWaveAscended(cfg)?'+25% 반영':'미적용'));else notes.push((eidolons[s.id]?.[0]||'돌파 선택')+(s.buffActive?' · 활성 가정':' · 비활성')+(s.id==='pearl'?' · 필살기 시 반영':s.id==='sparxie'?' · 아하 타임 후 반영':''));}
@@ -90,8 +89,8 @@
       if(c.pct)notes.push('속도 '+(c.pct>0?'+':'')+f(c.pct,2,0)+'% 반영 (조건 설정 기준)');
       if(c.flat)notes.push('고정 SPD '+(c.flat>0?'+':'')+f(c.flat,2,0)+' 반영');
       if(s.vonwacq)notes.push(c.speed>=120?'바커공 첫 행동 +40%':'바커공 · 120 SPD 미달, 미적용');
-      if(E.PLANARS[s.betaPlanar])notes.push(E.PLANARS[s.betaPlanar].name+' · 상시 +6% '+(s.mode==='panel'?'마을 SPD 포함':'구성 반영')+(s.betaPlanar==='joy'?(s.joyEligible?' · 첫 행동 +40% (조건 충족 가정)':' · 환락도 조건 미선택, 행동 증가 미적용'):''));
-      if(rumor&&s.id==='aeon')notes.push(s.ahaStart?'진입 행적 첫 행동 +30% 반영 (영문·원시값 기준)':'진입 행적 미적용 · 장비·효과에서 선택');
+      if(E.PLANARS[s.planarSet])notes.push(E.PLANARS[s.planarSet].name+' · 상시 +6% '+(s.mode==='panel'?'마을 SPD 포함':'구성 반영')+(s.planarSet==='joy'?(s.joyEligible?' · 첫 행동 +40% (조건 충족 가정)':' · 환락도 조건 미선택, 행동 증가 미적용'):''));
+      if(s.id==='aeon')notes.push(s.ahaStart?'진입 행적 첫 행동 +30% 반영':'진입 행적 미적용 · 장비·효과에서 선택');
       if(s.initialAdvance)notes.push('첫 행동 '+f(s.initialAdvance,2,0)+'%');
       if(s.amphoreus&&!s.memospriteActive)notes.push('앰포리어스 · 정령 없음, 미적용');
       const summary=$('effectSummary'+i);summary.hidden=s.id==='empty'||!notes.length;summary.textContent=notes.join(' · ');
@@ -113,11 +112,11 @@
     if(cfg.buffs.messenger||cfg.slots.some(s=>s.id!=='empty'&&s.messenger))effects.push('메신저 · 전체 +12%');
     if(cfg.buffs.amphoreus||cfg.slots.some(s=>s.id!=='empty'&&s.amphoreus&&s.memospriteActive))effects.push('앰포리어스 · 전체 +8%');
     if(cfg.buffs.extraPct)effects.push(`추가 전체 ${cfg.buffs.extraPct}%`);if(cfg.buffs.extraFlat)effects.push(`추가 전체 고정 ${cfg.buffs.extraFlat}`);if(cfg.buffs.summerLC)effects.push(`기타 서머레토 전무 · 전체 +${cfg.buffs.summerLC}%`);
-    if(rumor&&E.isWaveAscended(cfg))effects.push('웨이브 승격 · 전체 +'+(cfg.slots.find(s=>s.id==='aeon').eidolon?25:15)+'% (수동 활성)');
+    if(E.isWaveAscended(cfg))effects.push('웨이브 승격 · 전체 +'+(cfg.slots.find(s=>s.id==='aeon').eidolon?25:15)+'% (수동 활성)');
     $('activeeffects').hidden=!effects.length;$('activeeffects').innerHTML=effects.map(t=>`<li>${esc(t)}</li>`).join('');
     const r=errors.length||cfg.solveSlot<0||cfg.goal.kind!=='aha'?null:E.solve(cfg,cfg.solveSlot,cfg.target),ahead=errors.length||cfg.solveSlot<0||cfg.goal.kind!=='aha'?null:E.solve(cfg,cfg.solveSlot,0,'ahead');
     $('inverse').innerHTML=r?`<strong>${E.CHARACTERS[cfg.slots[cfg.solveSlot].id].name} 마을 SPD ${f(r.panel,2)}</strong> → 전투 ${f(r.combat,2)}<div class="help">현재보다 ${r.delta>0?'+':''}${f(r.delta,2)} · 목표 아하 ${f(cfg.target)} 이상</div>${ahead?`<div class="help">아하보다 먼저 자연 행동: 마을 SPD ${f(ahead.panel,2)} 이상 (첫 행동 증가 없는 조건)</div>`:''}`:'환락 캐릭터와 입력값을 확인하세요.';
-    if(rumor) renderRumorSummary(errors);
+    renderAhaOptions();
     const sim=E.simulate(cfg);renderGoal(snap,errors,sim,r);aha.previousElementSibling.textContent=cfg.events.length?'아하 타임 시작 SPD':'아하 타임 SPD';av.previousElementSibling.textContent=cfg.events.length?'초기 간격':'자연 간격';if(sim.errors.length){$('aha').textContent='—';$('av').textContent='—';$('natural').textContent='—';$('edgeWarnings').hidden=true;$('plot').innerHTML='';$('simSummary').textContent=sim.errors.join(' ');$('log').innerHTML='';return;}
     const roundZero=cfg.horizon<150?E.simulate({...cfg,horizon:150}):sim;
     $('natural').textContent=roundZero.log.filter(l=>l.actor===4&&l.type==='normal'&&l.time<150-1e-9).length+'회';
@@ -160,37 +159,23 @@
     const no=E.snapshot(off),yes=E.snapshot(on);$('buffComparison').textContent='활성 OFF '+f(no.aha)+' → ON '+f(yes.aha)+' 아하 SPD · 자연 간격 '+f(no.av)+' → '+f(yes.av)+' AV';
   }
 
-  function renderRumorSummary(errors) {
-    const own = cfg.slots.find(s=>s.id==='aeon'), wave = E.isWaveAscended(cfg);
-    document.querySelectorAll('[data-owned]').forEach(button=>button.setAttribute('aria-pressed',String(cfg.rumor.owned===(button.dataset.owned==='1'))));
-    document.getElementById('rumorOwnedControl').hidden=!!own;
-    const ownedStatus=document.getElementById('rumorOwnedStatus');
-    ownedStatus.textContent=(own?'아하 편성 중 · ':cfg.rumor.owned?'보유 · ':'')+'기초항 '+f(E.ahaBase(cfg),3,0)+(own?' (참조 가정)':cfg.rumor.owned?' (가정)':'');
-    const waveInput=document.getElementById('rumorWaveAscension');
-    waveInput.checked=E.isWaveAscended(cfg);
-    const eligible=cfg.slots.some(s=>s.id==='wave')&&!!own&&cfg.slots.filter(s=>E.CHARACTERS[s.id].elation).length===2;
-    waveInput.disabled=!eligible;
-    document.getElementById('rumorWaveControl').hidden=!eligible;
-    document.getElementById('rumorAssumption').textContent=own?
-      '편성 아하의 기초 SPD '+f(E.effectiveBase(own))+'를 아하 타임 기초항으로 참조합니다. 행적·상시 속도 %·전투 버프는 기초항에 직접 더하지 않습니다. 전광의 % 기준 변경은 문구에 따른 해석이며 실기 미검증입니다.' :
-      cfg.rumor.owned?'보유만 / 미편성: 참조 방식이 실기 미검증이므로 행적·장비·전광을 제외한 94로 제한합니다. 미편성 전광은 선택할 수 없습니다.':'미보유 / 미편성: 기존 기초항 80을 사용합니다.';
-    const pair=E.compareBase(cfg), old=pair.legacy, beta=pair.beta;
-    document.getElementById('rumorComparison').innerHTML=errors.length?'<p>입력 오류를 수정하면 비교할 수 있습니다.</p>':
-      '<div><small>기초항 80 · 동일 파티</small><strong>'+f(old.aha)+'</strong><small>아하 타임 SPD · '+f(old.av)+' AV</small></div>'+ 
-      '<div><small>찌라시 기초항 '+f(beta.base)+'</small><strong>'+f(beta.aha)+'</strong><small>아하 타임 SPD · '+f(beta.av)+' AV</small></div>'+ 
-      '<div><small>기초항 변경 차이</small><strong>'+((beta.aha-old.aha)>=0?'+':'')+f(beta.aha-old.aha)+' SPD</strong><small>'+f(beta.av-old.av)+' AV · 자연 간격 변화</small></div>';
-    document.getElementById('rumorCharacterSummary').textContent=own?
-      '아하 캐릭터 전투 SPD: '+f(beta.chars.find(s=>s.id==='aeon').speed)+' · 환락 순위 '+beta.ranked.find(s=>s.id==='aeon').rank+'위 · 가중 기여 '+f(beta.ranked.find(s=>s.id==='aeon').contribution)+' SPD'+(wave?' · 웨이브 승격 속도 버프 반영':''):
-      '아하 미편성: 캐릭터 자신의 행동·환락 속도 기여는 없습니다.';
-    $('aha').previousElementSibling.textContent='아하 타임 SPD';
+  function renderAhaOptions(){
+    const own=cfg.slots.some(s=>s.id==='aeon');
+    root.querySelectorAll('[data-owned]').forEach(button=>button.setAttribute('aria-pressed',String(cfg.ahaOwned===(button.dataset.owned==='1'))));
+    $('ahaOwnedControl').hidden=own;
+    $('ahaOwnedStatus').textContent=(own?'아하 편성 중 · ':cfg.ahaOwned?'보유 · ':'미보유 · ')+'기초항 '+f(E.ahaBase(cfg),3,0)+(own||cfg.ahaOwned?' (참조 가정)':'');
+    const eligible=own&&cfg.slots.some(s=>s.id==='wave')&&cfg.slots.filter(s=>E.CHARACTERS[s.id].elation).length===2;
+    $('waveAscension').checked=E.isWaveAscended(cfg);
+    $('waveAscension').disabled=!eligible;
+    $('waveAscensionControl').hidden=!eligible;
   }
   function sync(){['extraPct','extraFlat'].forEach(k=>$(k).value=cfg.buffs[k]);['target','horizon','soloWaveBonus'].forEach(k=>$(k).value=cfg[k]);}
   function renderAll(){sync();renderParty();renderBuffs();renderSelects();renderEvents();updateResults();}
   $('toggleAdvanced').addEventListener('click',()=>{$('advanced').hidden=!$('advanced').hidden;$('toggleAdvanced').setAttribute('aria-expanded',String(!$('advanced').hidden));updateResults();if(!$('advanced').hidden){$('advanced').focus({preventScroll:true});$('advanced').scrollIntoView({block:'start'});}});
-  root.querySelectorAll('[data-tab]').forEach(el=>el.addEventListener('click',()=>{root.querySelectorAll('.view').forEach(v=>v.hidden=v.id!==prefix+el.dataset.tab);root.querySelectorAll('[data-tab]').forEach(b=>{b.classList.toggle('active',b===el);b.setAttribute('aria-pressed',String(b===el));});updateResults();}));
+  root.querySelectorAll('[data-tab]').forEach(el=>el.addEventListener('click',()=>{root.querySelectorAll('.view').forEach(v=>v.hidden=v.id!==el.dataset.tab);root.querySelectorAll('[data-tab]').forEach(b=>{b.classList.toggle('active',b===el);b.setAttribute('aria-pressed',String(b===el));});updateResults();}));
   ['extraPct','extraFlat'].forEach(id=>$(id).addEventListener('input',()=>{cfg.buffs[id]=$(id).value===''?NaN:+$(id).value;updateResults();}));
   ['target','solveSlot','horizon','soloWaveBonus'].forEach(id=>$(id).addEventListener(id==='target'||id==='soloWaveBonus'?'input':'change',()=>{cfg[id]=$(id).value===''?NaN:+$(id).value;updateResults();}));
-  $('reset').addEventListener('click',()=>{cfg=rumor?E.rumorConfig(E.defaults()):E.defaults();cfg.goal=S.goalDefaults();expanded=new Set();solved=null;renderAll();});
+  $('reset').addEventListener('click',()=>{cfg=E.defaults();cfg.goal=S.goalDefaults();expanded=new Set();solved=null;renderAll();});
   $('addEvent').addEventListener('click',()=>{cfg.events.push({time:0,type:'advance',target:cfg.slots.findIndex(s=>s.id!=='empty'),value:25});renderEvents();updateResults();});
   root.querySelectorAll('[data-target]').forEach(el=>el.addEventListener('click',()=>{cfg.target=+el.dataset.target;sync();updateResults();}));
   $('goalKind').addEventListener('change',()=>{cfg.goal.kind=$('goalKind').value;solved=null;renderSelects();updateResults();});
@@ -203,56 +188,20 @@
   });
   $('applyGoal').addEventListener('click',()=>{if(solved?.key!==key()||solved.result.error)return;const slot=cfg.slots[cfg.solveSlot];if(slot.mode==='build')slot.sub+=solved.result.panel-E.panelSpeed(slot);else slot.panel=solved.result.panel;solved=null;renderAll();});
   $('compareSlot').addEventListener('change',()=>{compareIdx=+$('compareSlot').value;updateResults();});
-  if(rumor)$('preset').insertAdjacentHTML('beforeend','<option value="aha">아하 전광 1재 + Joy · 환락도 충족 가정</option>');
-  $('applyPreset').addEventListener('click',()=>{cfg=S.preset($('preset').value,rumor?'47':'46');expanded=new Set();solved=null;renderAll();$('utilityStatus').textContent='현재 모드에 예시 설정을 적용했습니다.';});
-  $('share').addEventListener('click',async()=>{try{const url=new URL(location.href);url.hash='aha='+S.encode(cfg,rumor?'47':'46');$('shareURL').value=url.href;$('shareFallback').hidden=false;try{await navigator.clipboard.writeText(url.href);$('utilityStatus').textContent='공유 링크를 복사했습니다.';}catch(error){$('utilityStatus').textContent='자동 복사가 허용되지 않았습니다. 아래 주소를 선택해 복사하세요.';$('shareURL').focus();$('shareURL').select();}}catch(error){$('utilityStatus').textContent='공유할 수 없습니다. '+error.message;}});
+  $('applyPreset').addEventListener('click',()=>{cfg=S.preset($('preset').value);expanded=new Set();solved=null;renderAll();$('utilityStatus').textContent='예시 설정을 적용했습니다.';});
+  $('share').addEventListener('click',async()=>{try{const url=new URL(location.href);url.hash='aha='+S.encode(cfg);$('shareURL').value=url.href;$('shareFallback').hidden=false;try{await navigator.clipboard.writeText(url.href);$('utilityStatus').textContent='공유 링크를 복사했습니다.';}catch(error){$('utilityStatus').textContent='자동 복사가 허용되지 않았습니다. 아래 주소를 선택해 복사하세요.';$('shareURL').focus();$('shareURL').select();}}catch(error){$('utilityStatus').textContent='공유할 수 없습니다. '+error.message;}});
   const dock=root.querySelector('aside');new ResizeObserver(()=>{if(dock.getClientRects().length&&matchMedia('(max-width:768px)').matches)document.documentElement.style.setProperty('--dock-height',dock.getBoundingClientRect().height+'px');}).observe(dock);
   $('sources').innerHTML=E.SOURCES.map(([label,url])=>`<li><a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a></li>`).join('');
   const timeline=$('turns');
   new ResizeObserver(()=>{if(timeline.isConnected&&timeline.getClientRects().length)updateResults();}).observe($('plot'));
-  if(rumor){
-    document.querySelectorAll('[data-owned]').forEach(button=>button.addEventListener('click',()=>{if(cfg.slots.some(s=>s.id==='aeon'))return;cfg.rumor.owned=button.dataset.owned==='1';renderSelects();updateResults();}));
-    document.getElementById('rumorWaveAscension').addEventListener('change',e=>{cfg.rumor.waveAscension=e.target.checked;renderSelects();updateResults();});
-  }
+  root.querySelectorAll('[data-owned]').forEach(button=>button.addEventListener('click',()=>{cfg.ahaOwned=button.dataset.owned==='1';renderSelects();updateResults();}));
+  $('waveAscension').addEventListener('change',e=>{cfg.waveAscension=e.target.checked;renderSelects();updateResults();});
+  $('showInfo').addEventListener('click',()=>{$('ahaInfo').open=true;$('ahaInfo').querySelector('summary').focus({preventScroll:true});$('ahaInfo').scrollIntoView({block:'start'});});
+  window.AhaApp={getConfig:()=>structuredClone(cfg),setConfig:value=>{cfg=S.normalize(value);expanded=new Set();solved=null;renderAll();}};
   renderAll();
-  return { getConfig:()=>structuredClone(cfg), setConfig:value=>{cfg=structuredClone(value);cfg.goal ||= S.goalDefaults();solved=null;renderAll();} };
-  }
-  const originalRoot=document.getElementById('standardCalculator');
-  // Capture static markup before the main controller fills inputs and computed fields.
-  const rumorTemplate=originalRoot.cloneNode(true);
-  window.AhaApp=createCalculator(originalRoot,models.standard);
-  const panel=document.getElementById('rumorPanel'), toggle=document.getElementById('toggleRumor');
-  function enterRumor(){
-    if(!window.AhaRumorApp){
-      rumorTemplate.removeAttribute('id');
-      rumorTemplate.querySelectorAll('[id]').forEach(el=>el.id='rumor-'+el.id);
-      rumorTemplate.querySelectorAll('[aria-controls]').forEach(el=>el.setAttribute('aria-controls','rumor-'+el.getAttribute('aria-controls')));
-      rumorTemplate.querySelector('.footer').textContent='4.7 찌라시 계산 · 비공식 베타 / 출시 전 변경 가능';
-      rumorTemplate.querySelector('#rumor-events').previousElementSibling.textContent='시간은 누적 AV입니다. 버프 종료는 같은 값의 음수를 입력하세요. 효광·펄 필살기 수치는 자동 계산하며, 아하 필살기는 행동 증가 20%, 6돌 첫 필살기는 100%를 직접 입력합니다.';
-      rumorTemplate.querySelector('#rumor-calc details p').textContent='전투 SPD = 마을 SPD + 유효 기초 SPD × 전투 중 속도 % + 고정 SPD. 아하 타임 SPD = 선택한 기초항 + 환락 캐릭터 전투 SPD의 20% / 10% / 5% / 2.5%. 전광의 기초 SPD 증가를 % 기준에 포함합니다.';
-      document.getElementById('rumorCalculator').append(rumorTemplate);
-      rumorTemplate.querySelector('#rumor-party').before(document.querySelector('.rumor-options'));
-      rumorTemplate.querySelector('.footer').before(document.getElementById('rumorComparisonDetails'));
-      window.AhaRumorApp=createCalculator(rumorTemplate,models.rumor||E.rumorConfig(window.AhaApp.getConfig()),'rumor-',true);
-    }
-    activeMode='47';persist();showInfo(false);originalRoot.hidden=true;document.getElementById('standardButtons').hidden=true;panel.hidden=false;toggle.setAttribute('aria-expanded','true');toggle.setAttribute('aria-pressed','true');document.getElementById('closeRumor').setAttribute('aria-pressed','false');panel.focus({preventScroll:true});
-  }
-  function closeRumor(focusTarget=toggle){activeMode='46';persist();panel.hidden=true;originalRoot.hidden=false;document.getElementById('standardButtons').hidden=false;toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-pressed','false');document.getElementById('closeRumor').setAttribute('aria-pressed','true');focusTarget.focus({preventScroll:true});}
-  toggle.addEventListener('click',enterRumor);
-  document.getElementById('closeRumor').addEventListener('click',()=>closeRumor(document.getElementById('closeRumor')));
-  panel.addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();closeRumor();}});
-  document.getElementById('importRumor').addEventListener('click',()=>{window.AhaRumorApp.setConfig(E.rumorConfig(window.AhaApp.getConfig()));document.getElementById('rumorImportStatus').hidden=false;document.getElementById('rumorImportStatus').textContent='기존 설정을 다시 가져왔습니다.';});
-  function showInfo(info){
-    document.getElementById('rumorCalculation').hidden=info;document.getElementById('rumorInformation').hidden=!info;
-    document.getElementById('showRumorCalc').setAttribute('aria-pressed',String(!info));document.getElementById('showRumorInfo').setAttribute('aria-pressed',String(info));
-    document.getElementById('rumorTools').hidden=info;
-  }
-  document.getElementById('showRumorCalc').addEventListener('click',()=>showInfo(false));
-  document.getElementById('showRumorInfo').addEventListener('click',()=>showInfo(true));
   const fullHeight=window.innerHeight;const keyboard=()=>document.documentElement.classList.toggle('keyboard-open',!!window.visualViewport&&window.visualViewport.height<fullHeight-150&&document.activeElement?.matches('input,select,textarea'));
   window.visualViewport?.addEventListener('resize',keyboard);document.addEventListener('focusout',()=>requestAnimationFrame(keyboard));
-  window.addEventListener('hashchange',()=>{if(!location.hash.startsWith('#aha='))return;try{const shared=S.decode(location.hash.slice(5));models[shared.mode==='47'?'rumor':'standard']=shared.config;activeMode=shared.mode;if(shared.mode==='47'){enterRumor();window.AhaRumorApp.setConfig(shared.config);}else{window.AhaApp.setConfig(shared.config);closeRumor(document.getElementById('closeRumor'));}notice('공유 설정을 가져왔습니다. 저장된 설정보다 우선합니다.');history.replaceState(null,'',location.href.split('#')[0]);}catch(error){notice('공유 설정을 적용하지 않았습니다. '+error.message);}});
+  window.addEventListener('hashchange',()=>{if(!location.hash.startsWith('#aha='))return;try{cfg=readShare();expanded=new Set();solved=null;renderAll();}catch(error){notice('공유 설정을 적용하지 않았습니다. '+error.message);}});
   const scroller=document.querySelector('main');let previousHeight=scroller.clientHeight;
   new ResizeObserver(()=>{const height=scroller.clientHeight;if(height<previousHeight&&Math.abs(scroller.scrollHeight-scroller.scrollTop-previousHeight)<32)scroller.scrollTop=scroller.scrollHeight;previousHeight=height;}).observe(scroller);
-  if(activeMode==='47')enterRumor();
 })();
