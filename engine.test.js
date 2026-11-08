@@ -380,6 +380,16 @@ test('Abundance cones enforce path and apply the selected trigger or passive onl
   const sim=E.simulate(c);const first=sim.log.find(x=>x.actor===0&&x.type==='normal');
   approx(first.time,10+8000/220);approx(first.speed,220);approx(sim.finalSpeed[0],200);
 });
+test('other light cone preserves manually entered SPD',()=>{
+  const cfg=E.defaults(),slot=cfg.slots[0];
+  slot.mode='build';slot.lc=8;
+  const baseline=E.snapshot(cfg);
+  slot.cone='other';
+  assert.deepEqual(E.validate(cfg),[]);
+  assert.deepEqual(E.snapshot(cfg),baseline);
+  assert.ok(E.coneAllowed('aeon','other'));
+  assert.ok(!E.coneAllowed('empty','other'));
+});
 test('display-only signatures preserve town, build and action calculations',()=>{
   const c=E.defaults(),slot=c.slots[2];
   slot.mode='build';slot.lc=8;

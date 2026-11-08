@@ -45,13 +45,14 @@
     huohuo:{name:'섬뜩한 밤',path:'abundance',kind:'display'},
     ruan:{name:'거울 속 지난날의 나',path:'harmony',kind:'display'},
     sparkle:{name:'속세에서의 유희',path:'harmony',kind:'display'},
-    sunday:{name:'대지로 돌아온 비행',path:'harmony',kind:'display'}
+    sunday:{name:'대지로 돌아온 비행',path:'harmony',kind:'display'},
+    other:{name:'기타 광추',kind:'display'}
   });
   const HARMONY = ['ruan','asta','tingyun','hanya','sparkle','sunday'];
   const REMEMBRANCE = ['hyacine','summeretto'];
   function coneAllowed(id,key) {
     if(!Object.hasOwn(LIGHT_CONES,key))return false;
-    if(LIGHT_CONES[key].kind==='display')return id===key;
+    if(LIGHT_CONES[key].kind==='display')return id===key||(key==='other'&&id!=='empty'&&Object.hasOwn(CHARACTERS,id));
     const path=LIGHT_CONES[key].path;
     return path==='elation'?!!CHARACTERS[id]?.elation:
       id==='other'||(path==='harmony'?HARMONY.includes(id):path==='abundance'?id==='huohuo':REMEMBRANCE.includes(id));
