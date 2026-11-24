@@ -1,6 +1,8 @@
 # 상세 설정과 계산 근거
 
-[계산기](https://pasame.github.io/fluffy-archive/) · [사용 안내](README.md) · [개발 안내](DEVELOPMENT.md)
+> 과거 계산기 개발 당시의 참고 기록입니다. 현행 사용법과 파일 위치는 README.md를 확인해 주세요.
+
+[계산기](https://pasame.github.io/fluffy-archive/tools/aha/index.html) · [사용 안내](README.md) · [개발 안내](DEVELOPMENT.md)
 
 ## 상세 사용법
 

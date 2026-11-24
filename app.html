@@ -118,8 +118,14 @@ input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline
 }
 @media(max-width:350px){main{padding-left:12px;padding-right:12px}.slot,.slot:first-child{padding:12px}.partyrow,.slotconfig{grid-template-columns:minmax(0,1fr) clamp(78px,5.5rem,42%)}}
 
+/* Archive branding; calculation layout and behavior stay independent. */
+:root{--bg:light-dark(#fff9f5,#1c191c);--surface:light-dark(#ffffff,#282328);--text:light-dark(#2d2027,#f8f0f3);--muted:light-dark(#62545b,#c3b5be);--line:light-dark(#e9dfe2,#4b3d47);--soft:light-dark(#f4eeed,#352d33);--accent:light-dark(#a43162,#f6a8c9);--selected:light-dark(#fdeaf1,#402530);--field-border:light-dark(#bbabb2,#89747f)}
+.archive-back{display:inline-flex;min-height:32px;align-items:center;margin-bottom:4px;color:var(--muted);font-size:.875rem;text-decoration:none}
+.archive-back:hover{text-decoration:underline;color:var(--accent)}
+.result .big{font-variant-numeric:tabular-nums}
+#runGoal{color:light-dark(#fff,#321524)}
 </style></head><body><main tabindex="-1">
-<header><div class="masthead"><span class="eyebrow">붕괴: 스타레일 / 4.7</span><h1>아하 속도 계산기</h1></div><div class="page-tools row"><button id="toggleAdvanced" aria-expanded="false" aria-controls="advanced">고급 계산</button><button id="reset" class="secondary">초기화</button></div></header><p id="sessionNotice" class="help" role="status" hidden></p>
+<header><div class="masthead"><a class="archive-back" href="../../index.html">← Fluffy Archive</a><br><span class="eyebrow">붕괴: 스타레일 / 4.7</span><h1>아하 속도 계산기</h1></div><div class="page-tools row"><button id="toggleAdvanced" aria-expanded="false" aria-controls="advanced">고급 계산</button><button id="reset" class="secondary">초기화</button></div></header><p id="sessionNotice" class="help" role="status" hidden></p>
 <div id="calculator"><div id="errors" class="errors" role="alert" hidden></div>
 <div class="layout"><div class="calculator-main"><section><h2 class="step-heading">파티 설정</h2><p class="help party-help">마을 속도를 입력하면 결과가 바로 바뀌어요.</p><div class="row aha-options"><div id="ahaOwnedControl" class="ownership" role="group" aria-label="미편성 아하 보유 상태"><span>아하</span><button data-owned="0" aria-pressed="false">미보유</button><button data-owned="1" aria-pressed="true">보유</button></div><p id="ahaOwnedStatus" class="help" role="status"></p><div id="waveAscensionControl" hidden><label class="check"><input type="checkbox" id="waveAscension"><span>아하·웨이브 승격 중</span></label></div></div><div id="party"></div></section>
 
