@@ -1,6 +1,6 @@
 # 아하 속도 계산기
 
-[계산기 열기](https://pasame.github.io/APA-SPEED-CALCUATOR/)
+[계산기 열기](https://pasame.github.io/fluffy-archive/)
 
 파티를 고르고 마을 SPD와 돌파·전광·재련을 입력하세요. 행동 순서는 기본 화면에서 확인합니다. 장비 구성과 조건부 효과는 캐릭터의 ‘장비·효과’에서 조정합니다.
 

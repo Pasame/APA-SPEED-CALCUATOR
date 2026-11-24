@@ -1,6 +1,6 @@
 # 개발 안내
 
-[계산기](https://pasame.github.io/APA-SPEED-CALCUATOR/) · [사용 안내](README.md) · [계산 근거](REFERENCE.md)
+[계산기](https://pasame.github.io/fluffy-archive/) · [사용 안내](README.md) · [계산 근거](REFERENCE.md)
 
 ## 파일 구성
 
