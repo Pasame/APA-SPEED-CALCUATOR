@@ -1,4 +1,62 @@
 (() => {
+  for (const group of document.querySelectorAll('[data-choice-group]')) {
+    const buttons = [...group.querySelectorAll('[data-choice]')];
+    const panels = [...group.querySelectorAll('[data-choice-panel]')];
+    for (const button of buttons) button.addEventListener('click', () => {
+      for (const item of buttons) item.setAttribute('aria-pressed', String(item === button));
+      for (const panel of panels) panel.hidden = panel.id !== button.dataset.choice;
+    });
+  }
+
+  const gameCatalog = document.querySelector('[data-game-catalog]');
+  if (gameCatalog) {
+    const views = [...gameCatalog.querySelectorAll('[data-view]')];
+    const panels = [...gameCatalog.querySelectorAll('[data-view-panel]')];
+    const categories = [...gameCatalog.querySelectorAll('[data-category]')];
+    const parties = [...gameCatalog.querySelectorAll('[data-party]')];
+    const characters = [...gameCatalog.querySelectorAll('[data-character]')];
+    const search = gameCatalog.querySelector('[data-character-query]');
+    const normalizeName = text => text.normalize('NFKC').toLocaleLowerCase('ko').replace(/[\s·•・]/g, '');
+    let view = gameCatalog.dataset.defaultKind;
+    let category = categories[0]?.dataset.category;
+
+    function renderCatalog(writeLocation = false) {
+      for (const button of views) button.setAttribute('aria-pressed', String(button.dataset.view === view));
+      for (const panel of panels) panel.hidden = panel.dataset.viewPanel !== view;
+      for (const button of categories) button.setAttribute('aria-pressed', String(button.dataset.category === category));
+      for (const party of parties) party.hidden = party.dataset.party !== category;
+      let count = 0;
+      for (const character of characters) {
+        character.hidden = !normalizeName(character.dataset.search).includes(normalizeName(search.value));
+        if (!character.hidden) count++;
+      }
+      if (search) {
+        gameCatalog.querySelector('[data-character-count]').textContent = `${count}명`;
+        gameCatalog.querySelector('[data-character-empty]').hidden = count !== 0;
+      }
+      if (writeLocation) {
+        const params = new URLSearchParams();
+        params.set('view', view);
+        if (view === 'party' && category) params.set('category', category);
+        if (search?.value.trim()) params.set('q', search.value.trim());
+        try { history.replaceState(null, '', location.pathname + '?' + params.toString()); } catch { /* Local files may restrict history. */ }
+      }
+    }
+
+    function readCatalogLocation() {
+      const params = new URLSearchParams(location.search);
+      view = views.some(button => button.dataset.view === params.get('view')) ? params.get('view') : gameCatalog.dataset.defaultKind;
+      category = categories.some(button => button.dataset.category === params.get('category')) ? params.get('category') : categories[0]?.dataset.category;
+      if (search) search.value = (params.get('q') || '').slice(0, 80);
+      renderCatalog();
+    }
+    for (const button of views) button.addEventListener('click', () => { view = button.dataset.view; renderCatalog(true); });
+    for (const button of categories) button.addEventListener('click', () => { category = button.dataset.category; renderCatalog(true); });
+    search?.addEventListener('input', () => renderCatalog(true));
+    window.addEventListener('popstate', readCatalogLocation);
+    readCatalogLocation();
+  }
+
   const catalog = document.querySelector('[data-catalog]');
   if (!catalog) return;
   const query = catalog.querySelector('[data-query]');
@@ -7,7 +65,7 @@
   const entries = [...catalog.querySelectorAll('[data-entry]')];
   const chips = [...catalog.querySelectorAll('[data-kind-filter]')];
   let selectedKind = '';
-  const normalize = value => value.normalize('NFKC').toLocaleLowerCase('ko').replace(/\s+/g, ' ').trim();
+  const normalize = value => value.normalize('NFKC').toLocaleLowerCase('ko').replace(/[·•・]/g, '').replace(/\s+/g, ' ').trim();
 
   function readLocation() {
     const params = new URLSearchParams(location.search);
