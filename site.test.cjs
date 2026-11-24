@@ -55,3 +55,87 @@ for (const source of ['engine.js', 'state.js', 'app.js']) {
 assert.ok(!/<script[^>]+src=/.test(calculator));
 assert.ok(!/<link[^>]+rel="stylesheet"/.test(calculator));
 console.log('PASS moved calculator remains self-contained and includes unmodified source modules');
+
+const profiles = require('./site/profiles.json');
+const assets = require('./site/assets-manifest.json');
+const { categories, slots, substatsForSlot } = require('./site/visual.cjs');
+assert.deepEqual(substatsForSlot('속도', ['속도', '격파 특수효과']), ['격파 특수효과']);
+assert.deepEqual(substatsForSlot('속도', ['속도 145까지', 'HP%']), ['HP%']);
+assert.deepEqual(substatsForSlot('에너지 회복효율 / 격파 특수효과', ['속도', '격파 특수효과']), ['속도', '격파 특수효과 (주옵션 제외)']);
+assert.deepEqual(substatsForSlot('HP%', ['속도', 'HP% / 방어력%']), ['속도', '방어력%']);
+for (const profile of profiles) {
+  assert.ok(known.has(profile.id));
+  assert.ok(assets.characters[profile.characterId]);
+  assert.equal(profile.cones.length, 5, `${profile.id} has five equipment choices`);
+  assert.equal(new Set(profile.cones.map(cone => cone.id)).size, 5);
+  for (const cone of profile.cones) assert.ok(assets.cones[cone.id]);
+  for (const build of profile.relicBuilds) {
+    assert.equal(build.cavernSets.reduce((sum, set) => sum + set.pieces, 0), 4);
+    const cavern = build.cavernSets.flatMap(set => Array(set.pieces).fill(set.id));
+    const pieces = Object.keys(slots).map((slot, index) => {
+      assert.ok(build.mainStats[slot], `${profile.id}: ${slot} has a main stat`);
+      const set = assets.relicSets[index < 4 ? cavern[index] : build.planarSet];
+      assert.ok(set?.pieces[slot], `${profile.id}: actual ${slot} image exists`);
+      return set.pieces[slot];
+    });
+    assert.equal(new Set(pieces).size, 6, 'six distinct relic pieces, not repeated set icons');
+    assert.ok(build.substats.length);
+  }
+  assert.deepEqual(profile.eidolons.map(item => item.level), [1, 2, 3, 4, 5, 6]);
+  assert.ok(profile.related.every(id => docs.some(doc => doc.id === id && doc.party)));
+}
+const parties = docs.filter(doc => doc.party);
+assert.deepEqual(new Set(parties.map(doc => doc.party.category)), new Set(Object.keys(categories)));
+for (const doc of parties) {
+  assert.equal(doc.party.members.length, 4);
+  assert.equal(new Set(doc.party.members.map(member => member.id)).size, 4);
+  for (const member of [...doc.party.members, ...doc.party.alternatives]) {
+    if (member.id) assert.ok(assets.characters[member.id], `portrait ${member.id} exists`);
+    if (member.guideId) assert.ok(known.has(member.guideId));
+  }
+}
+const hsr = fs.readFileSync(path.join(root, 'games/hsr/index.html'), 'utf8');
+assert.ok(!/>전체<\/button>/.test(hsr));
+assert.ok(hsr.includes('data-character-query'));
+assert.equal((hsr.match(/data-character data-search/g) || []).length, profiles.length);
+const searchPage = fs.readFileSync(path.join(root, 'search/index.html'), 'utf8');
+const gallagherSearch = searchPage.match(/<a class="doc-card"[^>]+href="[^\"]*hsr-gallagher[^>]+>/)[0];
+assert.ok(gallagherSearch.includes('알맞은 타이밍'));
+assert.ok(gallagherSearch.includes('태양과 번개의 여전사'));
+for (const profile of profiles) {
+  const page = fs.readFileSync(path.join(root, `guides/${profile.id}/index.html`), 'utf8');
+  assert.ok(page.includes('기본 운영과 행적'));
+  assert.ok(page.includes('tools/aha/index.html'));
+  assert.ok(!page.includes('undefined'));
+}
+console.log('PASS visual guides have real equipment pieces, complete stats, linked parties and no all-category tab');
+
+// Detail pages do not have a catalog. Their equipment controls must still work,
+// and changing one group must not change another group's selection.
+function choiceGroup(ids) {
+  const buttons = ids.map(id => ({
+    dataset: { choice: id },
+    attributes: {},
+    setAttribute(name, value) { this.attributes[name] = value; },
+    addEventListener(name, callback) { this[name] = callback; },
+  }));
+  const panels = ids.map((id, index) => ({ id, hidden: index !== 0 }));
+  return {
+    buttons, panels,
+    querySelectorAll(selector) { return selector === '[data-choice]' ? buttons : panels; },
+  };
+}
+const cones = choiceGroup(['cone-0', 'cone-1']);
+const relics = choiceGroup(['relic-0', 'relic-1']);
+vm.runInNewContext(fs.readFileSync(path.join(root, 'site/app.js'), 'utf8'), {
+  document: { querySelectorAll() { return [cones, relics]; }, querySelector() { return null; } },
+});
+cones.buttons[1].click();
+assert.deepEqual(cones.panels.map(panel => panel.hidden), [true, false]);
+assert.deepEqual(relics.panels.map(panel => panel.hidden), [false, true]);
+assert.equal(cones.buttons[1].attributes['aria-pressed'], 'true');
+relics.buttons[1].click();
+cones.buttons[0].click();
+assert.deepEqual(relics.panels.map(panel => panel.hidden), [true, false]);
+assert.deepEqual(cones.panels.map(panel => panel.hidden), [false, true]);
+console.log('PASS equipment choices work without a catalog and keep cone/relic selections independent');

@@ -248,149 +248,6 @@
     ]
   },
   {
-    "id": "hsr-firefly-super-break",
-    "title": "반디 슈퍼 격파 파티",
-    "game": "hsr",
-    "kind": "party",
-    "summary": "반디와 화합 개척자를 중심으로 적의 강인성을 깎고 슈퍼 격파 피해를 내는 조합입니다.",
-    "tags": [
-      "반디",
-      "슈퍼 격파",
-      "화합 개척자",
-      "완·매",
-      "갤러거"
-    ],
-    "updated": "2026-11-24",
-    "basis": "KQM 3.0 조합 예시와 4.2 반디 강화 상태 운용을 대조한 입문 편성",
-    "sections": [
-      {
-        "title": "파티 편성",
-        "paragraphs": [
-          "반디 · 개척자(화합) · 완·매 · 갤러거"
-        ],
-        "bullets": [
-          "반디는 필살기의 강화 상태에서 전투 스킬을 사용해 강인성을 깎습니다. 4.2 강화 상태에서는 강화 전투 스킬이 공격한 주 대상과 인접한 적에게 화염 약점을 부여할 수 있습니다.",
-          "화합 개척자는 필살기로 아군의 격파 특수효과를 높이고, 약점 격파 상태의 적을 공격할 때 슈퍼 격파 피해를 가할 수 있게 합니다.",
-          "완·매는 강인성 감소를 돕고 적의 약점 격파 상태를 연장합니다. 갤러거는 만취로 격파 피해와 회복을 지원하며, 일반 공격으로 전투 스킬 포인트를 마련합니다."
-        ]
-      },
-      {
-        "title": "전투 순서",
-        "paragraphs": [
-          "완·매의 전투 스킬을 유지하고, 화합 개척자의 필살기를 격파 직전이나 직후에 켜세요. 반디가 강화 상태에 들어갈 때 쓸 전투 스킬 포인트를 남겨 두세요."
-        ],
-        "bullets": [
-          "갤러거의 필살기는 화염 약점이 있는 적들의 강인성을 동시에 깎습니다. 강화 일반 공격을 이어 쓰면 주 대상의 강인성을 더 줄일 수 있습니다.",
-          "적이 강인성 감소를 막고 있다면 해당 구간이 끝나는 타이밍을 확인한 뒤 격파 지원 효과와 반디의 강화 공격을 맞추세요."
-        ]
-      }
-    ],
-    "sources": [
-      {
-        "label": "KQM · 반디·화합 개척자·완·매·갤러거 편성",
-        "url": "https://hsr.keqingmains.com/q/gallagher-quickguide/"
-      },
-      {
-        "label": "HoYoLAB · 4.2 반디 강화 공식 공지",
-        "url": "https://www.hoyolab.com/article/44655474"
-      },
-      {
-        "label": "Prydwen · 반디 강화 운용과 시너지 분석",
-        "url": "https://www.prydwen.gg/star-rail/characters/firefly"
-      },
-      {
-        "label": "Prydwen · 화합 개척자의 슈퍼 격파 지원",
-        "url": "https://www.prydwen.gg/star-rail/characters/trailblazer-harmony"
-      }
-    ],
-    "related": [
-      "hsr-ruan-mei",
-      "hsr-gallagher",
-      "aha"
-    ],
-    "quickFacts": [
-      [
-        "기본 편성",
-        "반디 · 개척자(화합) · 완·매 · 갤러거"
-      ],
-      [
-        "전투 목표",
-        "약점 격파 후 슈퍼 격파 피해에 집중"
-      ]
-    ]
-  },
-  {
-    "id": "hsr-kafka-black-swan-dot",
-    "title": "카프카·블랙 스완 지속 피해 파티",
-    "game": "hsr",
-    "kind": "party",
-    "summary": "블랙 스완이 쌓은 지속 피해를 카프카가 즉시 발동시키는 조합입니다.",
-    "tags": [
-      "카프카",
-      "블랙 스완",
-      "페라",
-      "곽향",
-      "지속 피해",
-      "DoT"
-    ],
-    "updated": "2026-11-24",
-    "basis": "KQM 2.0 조합 예시와 카프카·블랙 스완·곽향의 3.4~4.2 강화 상태를 대조한 입문 편성",
-    "sections": [
-      {
-        "title": "파티 편성",
-        "paragraphs": [
-          "카프카 · 블랙 스완 · 페라 · 곽향"
-        ],
-        "bullets": [
-          "블랙 스완은 아르카나를 쌓고 전투 스킬로 적의 방어력을 낮춥니다. 카프카는 적의 턴을 기다리지 않고 전투 스킬과 필살기로 걸려 있는 지속 피해를 즉시 발동시킬 수 있습니다.",
-          "페라는 필살기로 적의 방어력을 낮추고 일반 공격으로 전투 스킬 포인트를 보탭니다. 곽향은 치유와 디버프 해제를 맡고 필살기로 동료의 에너지와 공격력을 지원합니다."
-        ]
-      },
-      {
-        "title": "전투 순서",
-        "paragraphs": [
-          "카프카가 전투 스킬을 쓸 대상에 아르카나나 감전이 걸려 있는지 먼저 확인하세요. 페라는 방어력 감소가 필요할 때 필살기를 쓰고, 카프카가 전투 스킬을 쓸 포인트를 확보해 주세요."
-        ],
-        "bullets": [
-          "적이 큰 피해나 디버프를 가했다면 곽향의 전투 스킬로 아군을 회복하세요. 양명이 유지되고 치료가 급하지 않을 때에는 일반 공격으로 포인트를 보탭니다.",
-          "카프카의 전투 스킬에 쓸 포인트가 부족하다면, 블랙 스완은 방어력 감소가 유지되는 동안 일반 공격으로 포인트를 보탤 수 있습니다."
-        ]
-      }
-    ],
-    "sources": [
-      {
-        "label": "KQM · 카프카·블랙 스완·페라·곽향 편성과 운용",
-        "url": "https://hsr.keqingmains.com/black-swan/"
-      },
-      {
-        "label": "Prydwen · 강화 카프카의 지속 피해 발동과 편성",
-        "url": "https://www.prydwen.gg/star-rail/characters/kafka"
-      },
-      {
-        "label": "Prydwen · 강화 블랙 스완의 아르카나와 시너지",
-        "url": "https://www.prydwen.gg/star-rail/characters/black-swan"
-      },
-      {
-        "label": "Prydwen · 강화 곽향의 회복과 지원",
-        "url": "https://www.prydwen.gg/star-rail/characters/huohuo"
-      }
-    ],
-    "related": [
-      "hsr-huohuo",
-      "aha"
-    ],
-    "quickFacts": [
-      [
-        "기본 편성",
-        "카프카 · 블랙 스완 · 페라 · 곽향"
-      ],
-      [
-        "전투 목표",
-        "블랙 스완의 지속 피해를 카프카로 즉시 발동"
-      ]
-    ]
-  },
-  {
     "id": "zzz-first-squad",
     "game": "zzz",
     "kind": "guide",
@@ -624,5 +481,659 @@
       }
     ],
     "related": []
+  },
+  {
+    "id": "hsr-kafka-black-swan-dot",
+    "game": "hsr",
+    "kind": "party",
+    "title": "카프카·블랙 스완 지속 피해 파티",
+    "summary": "블랙 스완이 쌓은 아르카나를 카프카가 적의 턴 전에 발동시키는 조합입니다.",
+    "tags": [
+      "카프카",
+      "블랙 스완",
+      "페라",
+      "곽향",
+      "지속 피해",
+      "DoT"
+    ],
+    "updated": "2026-11-24",
+    "basis": "KQM 2.0 편성 예시와 카프카·블랙 스완·곽향의 3.4~4.2 강화 효과를 참고했습니다.",
+    "sections": [
+      {
+        "title": "전투 스킬 포인트 관리",
+        "paragraphs": [
+          "블랙 스완은 방어력 감소가 유지되는 동안 일반 공격으로 전투 스킬 포인트를 보탤 수 있습니다. 곽향도 당장 치유가 필요하지 않고 양명이 남아 있다면 일반 공격을 사용하세요."
+        ],
+        "bullets": []
+      }
+    ],
+    "sources": [
+      {
+        "label": "KQM · 블랙 스완과 카프카의 편성 예시",
+        "url": "https://hsr.keqingmains.com/black-swan/"
+      },
+      {
+        "label": "Prydwen · 카프카의 강화 효과와 운용",
+        "url": "https://www.prydwen.gg/star-rail/characters/kafka"
+      },
+      {
+        "label": "Prydwen · 블랙 스완의 강화 효과와 운용",
+        "url": "https://www.prydwen.gg/star-rail/characters/black-swan"
+      },
+      {
+        "label": "Prydwen · 곽향의 강화 효과와 운용",
+        "url": "https://www.prydwen.gg/star-rail/characters/huohuo"
+      }
+    ],
+    "related": [
+      "hsr-huohuo",
+      "hsr-ruan-mei",
+      "aha"
+    ],
+    "party": {
+      "category": "dot",
+      "lead": "카프카 · 블랙 스완",
+      "members": [
+        {
+          "id": "1005",
+          "name": "카프카",
+          "role": "지속 피해 발동"
+        },
+        {
+          "id": "1307",
+          "name": "블랙 스완",
+          "role": "아르카나 부여"
+        },
+        {
+          "id": "1106",
+          "name": "페라",
+          "role": "방어력 감소"
+        },
+        {
+          "id": "1217",
+          "name": "곽향",
+          "role": "치유 · 에너지 회복",
+          "guideId": "hsr-huohuo"
+        }
+      ],
+      "steps": [
+        "블랙 스완으로 아르카나를 쌓으세요.",
+        "페라의 필살기로 적의 방어력을 낮추세요.",
+        "지속 피해가 걸린 적에게 카프카의 전투 스킬이나 필살기를 사용하세요."
+      ],
+      "alternatives": [
+        {
+          "name": "완·매",
+          "reason": "페라 자리에 편성해 파티 피해와 약점 격파 효율을 높일 수 있습니다.",
+          "id": "1303"
+        }
+      ],
+      "note": "카프카가 전투 스킬을 쓸 대상에 아르카나나 감전이 걸려 있는지 확인하세요."
+    }
+  },
+  {
+    "id": "hsr-hysilens-dot",
+    "game": "hsr",
+    "kind": "party",
+    "title": "히실렌스 지속 피해 파티",
+    "summary": "히실렌스의 결계에 여러 지속 피해를 모으고 카프카와 함께 즉시 발동시키는 조합입니다.",
+    "tags": [
+      "히실렌스",
+      "카프카",
+      "블랙 스완",
+      "곽향",
+      "지속 피해",
+      "DoT"
+    ],
+    "updated": "2026-11-24",
+    "basis": "공식 3.5 캐릭터 소개와 Prydwen의 히실렌스 조합 분석을 참고했습니다.",
+    "sections": [
+      {
+        "title": "결계 유지",
+        "paragraphs": [
+          "히실렌스의 추가 능력 「정복의 검」을 해금하면 전투 시작 시 결계를 펼칩니다. 결계는 히실렌스 자신의 턴을 기준으로 지속 시간이 줄어드므로 필살기 사용 시점을 함께 확인하세요."
+        ],
+        "bullets": [
+          "곽향의 필살기는 공격력을 높이고 아군의 에너지를 채워, 히실렌스와 카프카의 필살기 사용을 돕습니다."
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "HoYoverse · 3.5 업데이트의 히실렌스 소개",
+        "url": "https://hsr.hoyoverse.com/en-us/news/158598"
+      },
+      {
+        "label": "Prydwen · 히실렌스의 결계와 편성 분석",
+        "url": "https://www.prydwen.gg/star-rail/characters/hysilens"
+      }
+    ],
+    "related": [
+      "hsr-kafka-black-swan-dot",
+      "hsr-huohuo",
+      "hsr-ruan-mei"
+    ],
+    "party": {
+      "category": "dot",
+      "lead": "히실렌스",
+      "members": [
+        {
+          "id": "1410",
+          "name": "히실렌스",
+          "role": "결계 · 지속 피해"
+        },
+        {
+          "id": "1005",
+          "name": "카프카",
+          "role": "지속 피해 발동"
+        },
+        {
+          "id": "1307",
+          "name": "블랙 스완",
+          "role": "아르카나 부여"
+        },
+        {
+          "id": "1217",
+          "name": "곽향",
+          "role": "치유 · 에너지 회복",
+          "guideId": "hsr-huohuo"
+        }
+      ],
+      "steps": [
+        "히실렌스와 블랙 스완으로 적에게 지속 피해를 부여하세요.",
+        "히실렌스의 결계를 유지하고 카프카로 지속 피해를 발동하세요.",
+        "히실렌스의 필살기도 지속 피해가 쌓인 적에게 사용하세요."
+      ],
+      "alternatives": [
+        {
+          "name": "완·매",
+          "reason": "블랙 스완 자리에 편성해 히실렌스와 카프카의 피해를 높이고 약점 격파 효율을 지원할 수 있습니다.",
+          "id": "1303"
+        }
+      ],
+      "note": "히실렌스의 필살기로 기존 지속 피해를 즉시 발동하려면 추가 능력 「연회의 거품」을 해금하세요."
+    }
+  },
+  {
+    "id": "hsr-feixiao-follow-up",
+    "game": "hsr",
+    "kind": "party",
+    "title": "비소 추가 공격 파티",
+    "summary": "토파즈&복순이와 어벤츄린의 추가 공격으로 비소의 필살기를 자주 쓰는 조합입니다.",
+    "tags": [
+      "비소",
+      "토파즈&복순이",
+      "로빈",
+      "어벤츄린",
+      "추가 공격"
+    ],
+    "updated": "2026-11-24",
+    "basis": "HoYoWiki 로빈 편성 예시와 KQM 비소 가이드의 운용을 참고했습니다.",
+    "sections": [
+      {
+        "title": "공격 대상과 보호막",
+        "paragraphs": [
+          "토파즈의 표식은 아군이 적에게 주는 추가 공격 피해를 높입니다. 어벤츄린의 보호막을 받은 아군이 추가 공격을 하면, 관련 행적 해금 후 어벤츄린의 추가 공격에도 기여할 수 있습니다."
+        ],
+        "bullets": []
+      }
+    ],
+    "sources": [
+      {
+        "label": "HoYoWiki · 로빈의 비소 추가 공격 편성",
+        "url": "https://wiki.hoyolab.com/pc/hsr/entry/2366?lang=ko-kr"
+      },
+      {
+        "label": "KQM · 비소의 추가 공격 조합과 대체 캐릭터",
+        "url": "https://hsr.keqingmains.com/q/feixiao-quickguide/"
+      }
+    ],
+    "related": [],
+    "party": {
+      "category": "followup",
+      "lead": "비소",
+      "members": [
+        {
+          "id": "1220",
+          "name": "비소",
+          "role": "주력 딜러"
+        },
+        {
+          "id": "1112",
+          "name": "토파즈&복순이",
+          "role": "추가 공격 · 표식"
+        },
+        {
+          "id": "1309",
+          "name": "로빈",
+          "role": "피해 증가 · 행동 지원"
+        },
+        {
+          "id": "1304",
+          "name": "어벤츄린",
+          "role": "보호막 · 추가 공격"
+        }
+      ],
+      "steps": [
+        "토파즈의 표식을 우선 처치할 적에게 맞추세요.",
+        "어벤츄린의 보호막을 유지하세요. 아군이 행동한 뒤 로빈의 필살기로 다시 행동할 기회를 만드세요.",
+        "아군의 공격으로 비황을 모아 비소의 필살기를 사용하세요."
+      ],
+      "alternatives": [
+        {
+          "name": "Mar. 7th(수렵)",
+          "reason": "토파즈 자리에 넣고 비소를 스승으로 지정하세요. 2성혼을 해금하면 추가 공격으로 비황 수급도 도울 수 있습니다.",
+          "id": "1224"
+        }
+      ],
+      "note": "비소의 필살기 자원인 비황은 아군이 적을 공격하면 쌓입니다."
+    }
+  },
+  {
+    "id": "hsr-evanescia-elation",
+    "game": "hsr",
+    "kind": "party",
+    "title": "에바네시아 환락 파티",
+    "summary": "효광과 환락 개척자가 웃음 포인트를 보태고, 곽향의 에너지 회복으로 에바네시아의 필살기를 지원합니다.",
+    "tags": [
+      "에바네시아",
+      "효광",
+      "환락 개척자",
+      "곽향",
+      "환락",
+      "아하 타임"
+    ],
+    "updated": "2026-11-24",
+    "basis": "공식 에바네시아 안내와 Prydwen의 4.2 에바네시아 편성 분석을 참고했습니다.",
+    "sections": [
+      {
+        "title": "환락 포인트와 에너지",
+        "paragraphs": [
+          "아하 타임에 환락 스킬이 발동합니다. 에바네시아는 환락 스킬과 동료의 효과로 얻는 「훌륭한 솜씨에는 보상을」을 에너지 수급에 활용합니다."
+        ],
+        "bullets": [
+          "곽향의 필살기는 에바네시아의 높은 최대 에너지에 비례해 에너지를 회복시킵니다. 현재 에너지와 상한을 확인하고 사용하세요."
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "HoYoLAB · 4.6 이벤트 워프의 에바네시아 안내",
+        "url": "https://www.hoyolab.com/article/46851682?lang=ko-kr"
+      },
+      {
+        "label": "Prydwen · 에바네시아의 환락 운용과 편성",
+        "url": "https://www.prydwen.gg/star-rail/characters/evanescia"
+      }
+    ],
+    "related": [
+      "hsr-huohuo",
+      "aha"
+    ],
+    "party": {
+      "category": "elation",
+      "lead": "에바네시아",
+      "members": [
+        {
+          "id": "1505",
+          "name": "에바네시아",
+          "role": "환락 딜러"
+        },
+        {
+          "id": "1502",
+          "name": "효광",
+          "role": "아하 타임 · 피해 지원"
+        },
+        {
+          "id": "8010",
+          "name": "개척자(환락)",
+          "role": "웃음 포인트 · 피해 지원"
+        },
+        {
+          "id": "1217",
+          "name": "곽향",
+          "role": "치유 · 에너지 회복",
+          "guideId": "hsr-huohuo"
+        }
+      ],
+      "steps": [
+        "환락 캐릭터들의 스킬로 웃음 포인트를 모으세요.",
+        "효광의 필살기로 아하 타임을 발동해 파티의 환락 스킬을 쓰세요.",
+        "곽향으로 에너지를 보충하고, 적에게 피해 증가 효과가 걸렸을 때 에바네시아의 필살기를 사용하세요."
+      ],
+      "alternatives": [
+        {
+          "name": "스파클",
+          "reason": "효광이 없을 때 행동 게이지와 치명타 피해를 지원합니다. 이 편성에서는 환락 개척자를 남겨 두세요.",
+          "id": "1306"
+        }
+      ],
+      "note": "에바네시아의 최대 에너지는 480이며 필살기 한 번에 240을 사용합니다."
+    }
+  },
+  {
+    "id": "hsr-aglaea-remembrance",
+    "game": "hsr",
+    "kind": "party",
+    "title": "아글라이아 기억 파티",
+    "summary": "아글라이아와 의상공의 합동 공격을 유지하도록 행동 순서와 에너지를 지원하는 조합입니다.",
+    "tags": [
+      "아글라이아",
+      "선데이",
+      "로빈",
+      "곽향",
+      "기억",
+      "기억 정령"
+    ],
+    "updated": "2026-11-24",
+    "basis": "공식 3.0 캐릭터 소개와 Prydwen의 아글라이아 운용 분석을 참고했습니다.",
+    "sections": [
+      {
+        "title": "강화 상태 유지",
+        "paragraphs": [
+          "아글라이아는 첫 필살기 이후 의상공과 합동 공격을 사용합니다. 행동 순서에 표시되는 카운트다운이 끝나기 전에 필살기를 다시 사용하면 의상공이 사라지지 않고 쌓은 속도 효과를 유지합니다."
+        ],
+        "bullets": []
+      }
+    ],
+    "sources": [
+      {
+        "label": "HoYoverse · 3.0 업데이트의 아글라이아 소개",
+        "url": "https://hsr.hoyoverse.com/en-us/news/127987?type=activity"
+      },
+      {
+        "label": "Prydwen · 아글라이아의 기억 정령과 에너지 지원",
+        "url": "https://www.prydwen.gg/star-rail/characters/aglaea"
+      }
+    ],
+    "related": [
+      "hsr-huohuo"
+    ],
+    "party": {
+      "category": "remembrance",
+      "lead": "아글라이아",
+      "members": [
+        {
+          "id": "1402",
+          "name": "아글라이아",
+          "role": "기억 정령 · 합동 공격"
+        },
+        {
+          "id": "1313",
+          "name": "선데이",
+          "role": "행동 지원 · 에너지 회복"
+        },
+        {
+          "id": "1309",
+          "name": "로빈",
+          "role": "피해 증가 · 행동 지원"
+        },
+        {
+          "id": "1217",
+          "name": "곽향",
+          "role": "치유 · 에너지 회복",
+          "guideId": "hsr-huohuo"
+        }
+      ],
+      "steps": [
+        "아글라이아의 의상공을 소환한 뒤 선데이의 전투 스킬로 둘의 행동을 앞당기세요.",
+        "선데이와 곽향의 필살기로 아글라이아의 에너지를 채우세요.",
+        "합동 공격을 이어 가고 카운트다운이 끝나기 전에 아글라이아의 필살기를 다시 사용하세요."
+      ],
+      "alternatives": [
+        {
+          "name": "개척자(기억)",
+          "reason": "로빈 자리에 편성해 미미의 효과로 아글라이아의 행동을 앞당기고 피해를 보탤 수 있습니다.",
+          "id": "8008"
+        }
+      ],
+      "note": "이 편성의 핵심은 아글라이아와 기억 정령의 행동 횟수 및 강화 상태 유지입니다."
+    }
+  },
+  {
+    "id": "hsr-castorice-hp",
+    "game": "hsr",
+    "kind": "party",
+    "title": "카스토리스 HP 소모 파티",
+    "summary": "아군의 HP를 소모해 죽음의 용을 소환하고, 히아킨으로 회복하는 조합입니다.",
+    "tags": [
+      "카스토리스",
+      "기억 개척자",
+      "트리비",
+      "히아킨",
+      "HP 소모",
+      "기억"
+    ],
+    "updated": "2026-11-24",
+    "basis": "KQM 카스토리스 가이드의 기억 개척자·트리비·히아킨 편성 예시를 참고했습니다.",
+    "sections": [
+      {
+        "title": "HP와 소환 타이밍",
+        "paragraphs": [
+          "히아킨의 광역 치유는 아군이 다시 HP를 소모할 여유를 만듭니다. 미미의 지원을 카스토리스에게 먼저 걸어 두면 이후에 소환한 죽음의 용도 효과를 받을 수 있습니다."
+        ],
+        "bullets": []
+      }
+    ],
+    "sources": [
+      {
+        "label": "KQM · 카스토리스의 HP 소모·회복과 편성 분석",
+        "url": "https://hsr.keqingmains.com/castorice/"
+      }
+    ],
+    "related": [
+      "hsr-aglaea-remembrance"
+    ],
+    "party": {
+      "category": "hp",
+      "lead": "카스토리스",
+      "members": [
+        {
+          "id": "1407",
+          "name": "카스토리스",
+          "role": "HP 소모 · 기억 정령"
+        },
+        {
+          "id": "8008",
+          "name": "개척자(기억)",
+          "role": "미미 · 행동 지원"
+        },
+        {
+          "id": "1403",
+          "name": "트리비",
+          "role": "광역 피해 지원"
+        },
+        {
+          "id": "1409",
+          "name": "히아킨",
+          "role": "광역 치유"
+        }
+      ],
+      "steps": [
+        "트리비의 지원 효과를 유지하고 미미의 지원을 카스토리스에게 적용하세요.",
+        "카스토리스의 전투 스킬로 아군 HP를 소모해 필살기 자원을 모으세요.",
+        "필살기로 죽음의 용을 소환하고 히아킨으로 아군의 HP를 회복하세요."
+      ],
+      "alternatives": [
+        {
+          "name": "나찰",
+          "reason": "히아킨 자리에 편성하면 결계와 자동 치유로 아군의 HP 소모를 보완할 수 있습니다.",
+          "id": "1203"
+        }
+      ],
+      "note": "카스토리스의 운명의 길은 기억이며, 이 편성은 아군 HP 소모와 회복을 반복해 용을 소환합니다."
+    }
+  },
+  {
+    "id": "hsr-firefly-super-break",
+    "game": "hsr",
+    "kind": "party",
+    "title": "반디 슈퍼 격파 파티",
+    "summary": "반디와 화합 개척자를 중심으로 적의 강인성을 깎고 슈퍼 격파 피해를 내는 조합입니다.",
+    "tags": [
+      "반디",
+      "슈퍼 격파",
+      "화합 개척자",
+      "완·매",
+      "갤러거"
+    ],
+    "updated": "2026-11-24",
+    "basis": "KQM 3.0 조합 예시와 4.2에 강화된 반디의 운용을 참고했습니다.",
+    "sections": [
+      {
+        "title": "화염 약점과 강인성",
+        "paragraphs": [
+          "4.2 강화 효과를 활성화한 반디는 강화 전투 스킬의 주 대상과 인접한 적에게 화염 약점을 부여할 수 있습니다. 화염 약점이 생기면 갤러거의 필살기로 여러 적의 강인성을 함께 깎을 수 있습니다."
+        ],
+        "bullets": [
+          "적이 강인성 감소를 막는 구간이 끝날 때 완·매의 지원 효과와 반디의 강화 공격을 맞추세요."
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "KQM · 반디·화합 개척자·완·매·갤러거 편성",
+        "url": "https://hsr.keqingmains.com/q/gallagher-quickguide/"
+      },
+      {
+        "label": "HoYoLAB · 4.2 반디 강화 공식 공지",
+        "url": "https://www.hoyolab.com/article/44655474"
+      },
+      {
+        "label": "Prydwen · 강화 반디의 운용과 대체 캐릭터",
+        "url": "https://www.prydwen.gg/star-rail/characters/firefly"
+      },
+      {
+        "label": "Prydwen · 화합 개척자의 슈퍼 격파 지원",
+        "url": "https://www.prydwen.gg/star-rail/characters/trailblazer-harmony"
+      }
+    ],
+    "related": [
+      "hsr-ruan-mei",
+      "hsr-gallagher",
+      "aha"
+    ],
+    "party": {
+      "category": "break",
+      "lead": "반디",
+      "members": [
+        {
+          "id": "1310",
+          "name": "반디",
+          "role": "슈퍼 격파 딜러"
+        },
+        {
+          "id": "8006",
+          "name": "개척자(화합)",
+          "role": "슈퍼 격파 지원"
+        },
+        {
+          "id": "1303",
+          "name": "완·매",
+          "role": "약점 격파 효율",
+          "guideId": "hsr-ruan-mei"
+        },
+        {
+          "id": "1301",
+          "name": "갤러거",
+          "role": "치유 · 격파 지원",
+          "guideId": "hsr-gallagher"
+        }
+      ],
+      "steps": [
+        "완·매의 전투 스킬을 유지하세요.",
+        "격파 직전이나 직후에 화합 개척자의 필살기를 사용하세요.",
+        "반디의 필살기 이후 강화 전투 스킬로 강인성을 깎고, 격파된 적을 다시 공격하세요."
+      ],
+      "alternatives": [
+        {
+          "name": "영사",
+          "reason": "갤러거 자리에 편성해 광역 치유와 강인성 감소를 보탤 수 있습니다. 반디와 함께 쓸 전투 스킬 포인트를 관리하세요.",
+          "id": "1222"
+        }
+      ],
+      "note": "반디가 강화 상태에 들어갈 때 전투 스킬 포인트를 남겨 두세요."
+    }
+  },
+  {
+    "id": "hsr-acheron-hypercarry",
+    "game": "hsr",
+    "kind": "party",
+    "title": "아케론 하이퍼캐리 파티",
+    "summary": "은랑과 페라가 적에게 디버프를 걸고, 아케론의 필살기에 피해를 집중하는 조합입니다.",
+    "tags": [
+      "아케론",
+      "은랑",
+      "페라",
+      "갤러거",
+      "하이퍼캐리",
+      "공허"
+    ],
+    "updated": "2026-11-24",
+    "basis": "KQM의 공허 두 명 편성 예시와 Prydwen의 4.7 운용 분석을 참고했습니다.",
+    "sections": [
+      {
+        "title": "공허 동료 조건",
+        "paragraphs": [
+          "아케론은 추가 능력을 해금하면 아케론 외 공허 동료가 두 명일 때 해당 피해 증가 효과를 최대로 받습니다. 2성혼부터는 이 조건을 공허 동료 한 명으로 충족할 수 있습니다."
+        ],
+        "bullets": [
+          "은랑과 페라가 방어력을 낮춘 상태에서 아케론의 필살기를 쓰세요. 갤러거의 필살기와 강화 일반 공격도 각각 디버프 부여에 사용할 수 있습니다."
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "KQM · 아케론·은랑·페라·갤러거 편성과 운용",
+        "url": "https://hsr.keqingmains.com/acheron/"
+      },
+      {
+        "label": "Prydwen · 4.7 아케론의 공허 조건과 시너지",
+        "url": "https://www.prydwen.gg/star-rail/characters/acheron"
+      }
+    ],
+    "related": [
+      "hsr-gallagher"
+    ],
+    "party": {
+      "category": "hypercarry",
+      "lead": "아케론",
+      "members": [
+        {
+          "id": "1308",
+          "name": "아케론",
+          "role": "필살기 딜러"
+        },
+        {
+          "id": "1006",
+          "name": "은랑",
+          "role": "약점 부여 · 방어력 감소"
+        },
+        {
+          "id": "1106",
+          "name": "페라",
+          "role": "광역 방어력 감소"
+        },
+        {
+          "id": "1301",
+          "name": "갤러거",
+          "role": "치유 · 디버프",
+          "guideId": "hsr-gallagher"
+        }
+      ],
+      "steps": [
+        "은랑과 페라가 적에게 디버프를 걸어 아케론의 꿈 조각을 모으세요.",
+        "갤러거의 필살기와 강화 일반 공격도 디버프 수급에 활용하세요.",
+        "꿈 조각을 9개 모으면 적의 방어력 감소가 유지되는 동안 아케론의 필살기를 사용하세요."
+      ],
+      "alternatives": [
+        {
+          "name": "초구",
+          "reason": "은랑 자리에 편성할 수 있습니다. 적이 행동할 때도 디버프를 부여해 아케론의 꿈 조각 수급을 돕습니다.",
+          "id": "1218"
+        }
+      ],
+      "note": "아케론의 필살기 자원은 디버프로 쌓는 꿈 조각입니다."
+    }
   }
 ]

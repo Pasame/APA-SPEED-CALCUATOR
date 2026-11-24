@@ -1,5 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
+const { createVisuals } = require('./visual.cjs');
 
 const games = [
   {
@@ -64,6 +65,9 @@ const escape = value => String(value).replace(/[&<>"']/g, character => ({
 
 function buildArchive(root, art) {
   const docs = JSON.parse(fs.readFileSync(path.join(root, 'site/content.json'), 'utf8'));
+  const profiles = JSON.parse(fs.readFileSync(path.join(root, 'site/profiles.json'), 'utf8'));
+  const assets = JSON.parse(fs.readFileSync(path.join(root, 'site/assets-manifest.json'), 'utf8'));
+  const visual = createVisuals({ profiles, assets, docs, escape });
   const ids = new Set();
   for (const doc of docs) {
     if (!/^[a-z0-9-]+$/.test(doc.id) || ids.has(doc.id)) {
@@ -115,6 +119,15 @@ function buildArchive(root, art) {
 
   const card = (doc, prefix, searchable = false) => {
     const game = games.find(item => item.id === doc.game);
+    const profile = profiles.find(item => item.id === doc.id);
+    const equipmentText = profile ? [
+      ...profile.cones.flatMap(cone => [cone.name, cone.short, cone.detail]),
+      ...profile.relicBuilds.flatMap(build => [
+        build.name,
+        ...build.cavernSets.map(set => assets.relicSets[set.id].name),
+        assets.relicSets[build.planarSet].name,
+      ]),
+    ] : [];
     const sectionText = (doc.sections || []).flatMap(section => [
       section.title,
       ...(section.paragraphs || []),
@@ -128,6 +141,7 @@ function buildArchive(root, art) {
       kinds[doc.kind],
       ...(doc.tags || []),
       ...sectionText,
+      ...equipmentText,
     ].join(' ');
     const searchAttributes = searchable
       ? ` data-entry data-game="${doc.game}" data-kind="${doc.kind}" data-search="${escape(searchableText)}"`
@@ -273,9 +287,6 @@ function buildArchive(root, art) {
 
   for (const game of games) {
     const ownDocs = entries.filter(doc => doc.game === game.id);
-    const availableKinds = [...new Set(ownDocs.map(doc => doc.kind))];
-    const kindFilters = availableKinds.map(kind => `
-      <button type="button" data-kind-filter="${kind}" aria-pressed="false">${kinds[kind]}</button>`).join('');
 
     write(`games/${game.id}/index.html`, layout({
       title: game.name,
@@ -294,16 +305,8 @@ function buildArchive(root, art) {
           </div>
           <p>육성과 파티, 필요한 도구를 함께 확인하세요.</p>
         </div>
-        <div class="game-page" data-catalog>
-          <section class="catalog-main" aria-label="게임 자료">
-            <h2 class="sr-only">게임 자료</h2>
-            <div class="filter-chips" role="group" aria-label="자료 종류">
-              <button type="button" data-kind-filter="" aria-pressed="true">전체</button>${kindFilters}
-            </div>
-            <p class="result-count" role="status" data-count>자료 ${ownDocs.length}개</p>
-            <div class="doc-grid">${ownDocs.map(doc => card(doc, '../../', true)).join('')}</div>
-            <p class="empty-state" data-empty hidden>이 조건에 맞는 자료가 없어요. 다른 종류를 선택해 주세요.</p>
-          </section>
+        <div class="game-page">
+          ${visual.gameCatalog(ownDocs, '../../', kinds, card)}
           <aside class="info-board">
             <p class="eyebrow">정보판</p>
             <h2>공식 소식 확인하기</h2>
@@ -319,6 +322,15 @@ function buildArchive(root, art) {
   }
 
   for (const doc of docs) {
+    if (profiles.some(profile => profile.id === doc.id) || doc.party) {
+      write(`guides/${doc.id}/index.html`, layout({
+        title: doc.title,
+        description: doc.summary,
+        prefix: '../../',
+        body: doc.party ? visual.partyDetail(doc, '../../') : visual.characterDetail(doc, '../../'),
+      }));
+      continue;
+    }
     const game = games.find(item => item.id === doc.game);
     const related = (doc.related || [])
       .map(id => entries.find(entry => entry.id === id))
