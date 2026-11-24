@@ -2,9 +2,18 @@ const http = require('node:http');
 const fs = require('node:fs');
 const path = require('node:path');
 const port = Number(process.env.AHA_PORT || 8767);
-const html = path.join(__dirname, 'index.html');
+const root = __dirname;
+const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.png': 'image/png', '.jpg': 'image/jpeg' };
 http.createServer((req, res) => {
-  if (req.url !== '/' && req.url !== '/index.html') { res.writeHead(404); res.end(); return; }
-  res.writeHead(200, {'Content-Type':'text/html; charset=utf-8', 'Cache-Control':'no-store'});
-  fs.createReadStream(html).pipe(res);
-}).listen(port, '127.0.0.1', () => console.log(`Aha calculator: http://127.0.0.1:${port}/`));
+  let pathname;
+  try { pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname); }
+  catch { res.writeHead(400); res.end(); return; }
+  if (pathname.startsWith('/fluffy-archive/')) pathname = pathname.slice('/fluffy-archive'.length);
+  let file = path.resolve(root, '.' + pathname);
+  if (!file.startsWith(root + path.sep) && file !== root) { res.writeHead(404); res.end(); return; }
+  if (pathname.endsWith('/')) file = path.join(file, 'index.html');
+  const type = types[path.extname(file)];
+  if (!type || !fs.existsSync(file) || !fs.statSync(file).isFile()) { res.writeHead(404); res.end('Not found'); return; }
+  res.writeHead(200, { 'Content-Type': type, 'Cache-Control': 'no-store' });
+  fs.createReadStream(file).pipe(res);
+}).listen(port, '127.0.0.1', () => console.log(`Fluffy Archive: http://127.0.0.1:${port}/`));

@@ -1,5 +1,8 @@
 (function () {
   'use strict';
+  if (location.protocol === 'file:' || location.protocol === 'about:') {
+    document.querySelector('.archive-back').href = 'https://pasame.github.io/fluffy-archive/';
+  }
   const E = window.AhaEngine, S = window.AhaState;
   const $=id=>document.getElementById(id);
   const notice=text=>{$('sessionNotice').hidden=!text;$('sessionNotice').textContent=text;};

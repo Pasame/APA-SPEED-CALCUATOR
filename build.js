@@ -7,7 +7,11 @@ const app = fs.readFileSync(path.join(dir, 'app.js'), 'utf8');
 const state = fs.readFileSync(path.join(dir, 'state.js'), 'utf8');
 const art = JSON.parse(fs.readFileSync(path.join(dir, 'art.json'), 'utf8'));
 const output = template.replace('/*__ART__*/', () => 'window.AhaArt='+JSON.stringify(art)+';').replace('/*__ENGINE__*/', () => engine).replace('/*__STATE__*/', () => state).replace('/*__APP__*/', () => app);
-fs.writeFileSync(path.join(dir, 'index.html'), output);
+const calculatorDir = path.join(dir, 'tools', 'aha');
+fs.mkdirSync(calculatorDir, { recursive: true });
+fs.writeFileSync(path.join(calculatorDir, 'index.html'), output);
+const { buildArchive } = require('./site/build.cjs');
+const archive = buildArchive(dir, art);
 const canvasHtml = output.replace(/:root\{[^}]+\}/, ':root{/*__HOST_THEME__*/}');
 const canvas = `import { useHostTheme } from "cursor/canvas";
 const documentSource = ${JSON.stringify(canvasHtml)};
@@ -19,4 +23,5 @@ export default function AhaSpeedCalculator() {
 }
 `;
 fs.writeFileSync(path.join(dir, 'aha-speed.canvas.tsx'), canvas);
-console.log('Built standalone index.html (' + Buffer.byteLength(output) + ' bytes)');
+console.log('Built standalone tools/aha/index.html (' + Buffer.byteLength(output) + ' bytes)');
+console.log(`Built archive: ${archive.games} games, ${archive.documents} guides`);

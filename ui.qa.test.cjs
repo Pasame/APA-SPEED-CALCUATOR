@@ -9,7 +9,7 @@ if(process.env.PLAYWRIGHT_CHROME_PATH)launch.executablePath=process.env.PLAYWRIG
   for(const width of [1280,1024,768,390,320]){
    const context=await browser.newContext({viewport:{width,height:844},offline:true}),page=await context.newPage(),errors=[],requests=[];
    page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(/^https?:/.test(r.url()))requests.push(r.url());});
-   await page.goto(pathToFileURL(path.join(__dirname,'index.html')).href);
+   await page.goto(pathToFileURL(path.join(__dirname,'tools','aha','index.html')).href);
    const main=page.locator('#calculator'),picker=page.locator('#picturePicker');
    const pick=async(id,value)=>{
      await main.locator('[data-picker="'+id+'"]').click();
@@ -234,7 +234,7 @@ if(process.env.PLAYWRIGHT_CHROME_PATH)launch.executablePath=process.env.PLAYWRIG
    assert.equal(await main.locator('[data-slot="3"]').inputValue(),'huohuo');assert.equal(await main.locator('#combat0').innerText(),'224.240');
    await main.locator('#plot [data-tooltip]').first().press('Enter');assert.equal(await main.locator('#timelineTooltip').isVisible(),true);
    await main.locator('#plot [data-tooltip]').first().press('Escape');assert.equal(await main.locator('#timelineTooltip').isVisible(),false);
-   const fileURL=pathToFileURL(path.join(__dirname,'index.html')).href;
+   const fileURL=pathToFileURL(path.join(__dirname,'tools','aha','index.html')).href;
    await page.goto(fileURL+'#aha=INVALID!!!');assert.ok((await page.locator('#sessionNotice').innerText()).includes('열 수 없어요'));
    await page.evaluate(()=>{
     const c=AhaEngine.defaults();c.slots[0].panel=217.654;c.slots[3]=AhaEngine.slot('aeon',160);c.slots[3].ahaStart=false;c.slots[3].betaPlanar='joy';delete c.slots[3].planarSet;c.rumor={enabled:true,owned:false,waveAscension:false};
