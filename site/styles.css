@@ -36,12 +36,12 @@ h3 { font-size: 1.1875rem; line-height: 1.5; letter-spacing: -.025em; }
 .skip-link { position: fixed; top: -100px; left: 16px; z-index: 5; padding: 12px 18px; background: var(--surface); border-radius: 12px; }
 .skip-link:focus { top: 12px; }
 .site-header { border-bottom: 1px solid var(--line); background: var(--surface); }
-.header-inner { max-width: 1160px; margin: auto; padding: 20px 32px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.header-inner { max-width: 1160px; margin: auto; padding: 20px 32px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
 .brand { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; font-weight: 550; letter-spacing: -.04em; }
 .brand strong { font-weight: 750; }
 .brand img { flex: 0 0 40px; }
-.header-inner nav { display: flex; gap: 28px; align-items: center; }
-.header-inner nav a { min-height: 44px; display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-weight: 600; }
+.header-inner nav { display: flex; gap: 28px; align-items: center; margin-left: auto; }
+.header-inner nav a { min-height: 44px; display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-weight: 600; white-space: nowrap; }
 .header-inner nav a:hover, .header-inner nav a[aria-current] { color: var(--accent); text-decoration: underline; text-underline-offset: 7px; }
 main { max-width: 1160px; margin: auto; padding: 36px 32px 64px; }
 .eyebrow { font-size: .875rem; font-weight: 600; color: var(--muted); line-height: 1.5; }

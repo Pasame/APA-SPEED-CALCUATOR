@@ -31,7 +31,7 @@ for (const page of pages) {
 console.log('PASS generated pages have valid links and assets under a Pages project path');
 
 const home = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-const redirect = home.match(/<script>(function forwardCalculatorShare[\s\S]*?)<\/script>/)[1];
+const redirect = home.match(/<script>\s*(function forwardCalculatorShare[\s\S]*?)<\/script>/)[1];
 for (const base of ['https://pasame.github.io/fluffy-archive/', 'https://pasame.github.io/fluffy-archive/index.html']) {
   let destination;
   const location = { href: base + '?from=old#aha=encoded-value', hash: '#aha=encoded-value', search: '?from=old', replace(value) { destination = value; } };
