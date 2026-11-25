@@ -83,7 +83,7 @@ function buildArchive(root, art) {
       !kinds[doc.kind] ||
       !doc.title ||
       !doc.summary ||
-      !doc.sections?.length ||
+      (!doc.sections?.length && !doc.party?.steps?.length) ||
       !doc.sources?.length
     ) {
       throw new Error(`문서 필수 항목 누락: ${doc.id}`);

@@ -45,9 +45,21 @@ function createVisuals({ profiles, assets, docs, escape }) {
 
   function partyTile(doc, prefix) {
     return `<a class="party-tile" href="${prefix}guides/${doc.id}/index.html" data-party="${doc.party.category}">
-      <div class="party-faces">${doc.party.members.map(member => image('characters', member.id, prefix, '', member.name)).join('')}</div>
+      <div class="party-faces">${doc.party.members.map(member => partyPortrait(member, doc.party.alternatives || [], prefix)).join('')}</div>
       <strong>${escape(doc.party.lead)}</strong><span>${escape(doc.party.variant || '메인 딜러 편성')} <span aria-hidden="true">→</span></span>
     </a>`;
+  }
+
+  function partyPortrait(member, alternatives, prefix) {
+    const replacements = alternatives.filter(candidate => candidate.replaces === member.id);
+    const badges = replacements.map(candidate => {
+      const label = `${member.name} 대체: ${candidate.name}`;
+      const portrait = image('characters', candidate.id, prefix, 'alternative-face', label);
+      return `<span title="${escape(label)}" data-replacement-badge="${member.id}">${portrait}</span>`;
+    }).join('');
+    const options = badges ? `<span class="portrait-options">${badges}</span>` : '';
+    const portrait = image('characters', member.id, prefix, 'member-face', member.name);
+    return `<span class="party-portrait">${portrait}${options}</span>`;
   }
 
   function gameCatalog(ownDocs, prefix, kinds, card) {
@@ -77,7 +89,7 @@ function createVisuals({ profiles, assets, docs, escape }) {
             <p class="empty-state" data-character-empty hidden>이 조건에 맞는 육성 가이드가 없어요. 검색어나 필터를 바꿔 주세요.</p>`;
         } else if (kind === 'party') {
           content = `<div class="filter-chips party-categories" role="group" aria-label="파티 유형">${partyCategories.map(([key, name], index) => `<button type="button" data-category="${key}" aria-pressed="${index === 0}">${name}</button>`).join('')}</div>
-            <div class="section-heading"><h2 data-party-heading>메인 딜러 선택</h2><p class="eyebrow">얼굴을 누르면 편성과 운영을 볼 수 있어요.</p></div>
+            <div class="section-heading"><h2 data-party-heading>메인 딜러 선택</h2><p class="eyebrow">작은 얼굴은 대체 후보</p></div>
             <div class="party-grid">${parties.map(doc => partyTile(doc, prefix)).join('')}</div>`;
         } else {
           content = `<div class="doc-grid">${entries.map(doc => card(doc, prefix)).join('')}</div>`;
@@ -178,13 +190,29 @@ function createVisuals({ profiles, assets, docs, escape }) {
 
   function partyDetail(doc, prefix) {
     const party = doc.party;
+    const memberIds = new Set(party.members.map(member => member.id));
+    if (party.members.length !== 4 || memberIds.size !== 4) {
+      throw new Error(`Invalid party members: ${doc.id}`);
+    }
+    if (party.members.filter(member => Number(member.id) >= 8000).length > 1) {
+      throw new Error(`Duplicate Trailblazer: ${doc.id}`);
+    }
+    const replacementPairs = new Set();
     for (const alternative of party.alternatives || []) {
-      if (!party.members.some(member => member.id === alternative.replaces)) {
+      if (!memberIds.has(alternative.replaces)) {
         throw new Error(`Missing replacement target: ${doc.id}/${alternative.name}`);
       }
+      const pair = `${alternative.replaces}:${alternative.id}`;
+      if (memberIds.has(alternative.id) || replacementPairs.has(pair) || !alternative.reason?.trim()) {
+        throw new Error(`Invalid replacement: ${doc.id}/${alternative.name}`);
+      }
+      if (Number(alternative.id) >= 8000 && party.members.some(member => Number(member.id) >= 8000 && member.id !== alternative.replaces)) {
+        throw new Error(`Duplicate Trailblazer replacement: ${doc.id}/${alternative.name}`);
+      }
+      replacementPairs.add(pair);
     }
     const roster = party.members.map(member => {
-      const content = `${image('characters', member.id, prefix)}<strong>${escape(member.name)}</strong><span>${escape(member.role)}</span>`;
+      const content = `${partyPortrait(member, party.alternatives || [], prefix)}<strong>${escape(member.name)}</strong><span>${escape(member.role)}</span>`;
       const card = member.guideId
         ? `<a class="roster-member" href="${prefix}guides/${member.guideId}/index.html">${content}<small>육성 보기 →</small></a>`
         : `<div class="roster-member">${content}</div>`;
@@ -211,8 +239,8 @@ function createVisuals({ profiles, assets, docs, escape }) {
         </section>
         <section class="visual-section">
           <h2>이렇게 운영하세요</h2>
-          <ol class="rotation-steps">${party.steps.map(step => `<li>${escape(step)}</li>`).join('')}</ol>
-          <details class="equipment-reason"><summary>편성과 운영 자세히</summary>${detailedSections(doc.sections)}</details>
+          <ol class="rotation-steps">${party.steps.map(step => `<li>${escape(step)}</li>`).join('')}</ol>${doc.sections.length ? `
+          <details class="equipment-reason"><summary>편성과 운영 자세히</summary>${detailedSections(doc.sections)}</details>` : ''}
         </section>
         ${sources(doc)}
       </article>`;

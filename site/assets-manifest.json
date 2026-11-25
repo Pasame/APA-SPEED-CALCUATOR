@@ -12,6 +12,26 @@
     }
   },
   "characters": {
+    "1001": {
+      "name": "Mar. 7th(보존)",
+      "path": "site/assets/hsr/characters/1001.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1001.png"
+    },
+    "1002": {
+      "name": "단항",
+      "path": "site/assets/hsr/characters/1002.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1002.png"
+    },
+    "1003": {
+      "name": "히메코",
+      "path": "site/assets/hsr/characters/1003.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1003.png"
+    },
+    "1004": {
+      "name": "웰트",
+      "path": "site/assets/hsr/characters/1004.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1004.png"
+    },
     "1005": {
       "name": "카프카",
       "path": "site/assets/hsr/characters/1005.png",
@@ -22,20 +42,165 @@
       "path": "site/assets/hsr/characters/1006.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1006.png"
     },
+    "1008": {
+      "name": "아를란",
+      "path": "site/assets/hsr/characters/1008.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1008.png"
+    },
+    "1009": {
+      "name": "아스타",
+      "path": "site/assets/hsr/characters/1009.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1009.png"
+    },
+    "1013": {
+      "name": "헤르타",
+      "path": "site/assets/hsr/characters/1013.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1013.png"
+    },
+    "1014": {
+      "name": "세이버",
+      "path": "site/assets/hsr/characters/1014.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1014.png"
+    },
+    "1015": {
+      "name": "아처",
+      "path": "site/assets/hsr/characters/1015.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1015.png"
+    },
+    "1101": {
+      "name": "브로냐",
+      "path": "site/assets/hsr/characters/1101.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1101.png"
+    },
+    "1102": {
+      "name": "제레",
+      "path": "site/assets/hsr/characters/1102.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1102.png"
+    },
+    "1103": {
+      "name": "서벌",
+      "path": "site/assets/hsr/characters/1103.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1103.png"
+    },
+    "1104": {
+      "name": "게파드",
+      "path": "site/assets/hsr/characters/1104.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1104.png"
+    },
+    "1105": {
+      "name": "나타샤",
+      "path": "site/assets/hsr/characters/1105.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1105.png"
+    },
     "1106": {
       "name": "페라",
       "path": "site/assets/hsr/characters/1106.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1106.png"
+    },
+    "1107": {
+      "name": "클라라",
+      "path": "site/assets/hsr/characters/1107.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1107.png"
+    },
+    "1108": {
+      "name": "삼포",
+      "path": "site/assets/hsr/characters/1108.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1108.png"
+    },
+    "1109": {
+      "name": "후크",
+      "path": "site/assets/hsr/characters/1109.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1109.png"
+    },
+    "1110": {
+      "name": "링스",
+      "path": "site/assets/hsr/characters/1110.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1110.png"
+    },
+    "1111": {
+      "name": "루카",
+      "path": "site/assets/hsr/characters/1111.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1111.png"
     },
     "1112": {
       "name": "토파즈&복순이",
       "path": "site/assets/hsr/characters/1112.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1112.png"
     },
+    "1201": {
+      "name": "청작",
+      "path": "site/assets/hsr/characters/1201.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1201.png"
+    },
+    "1202": {
+      "name": "정운",
+      "path": "site/assets/hsr/characters/1202.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1202.png"
+    },
     "1203": {
       "name": "나찰",
       "path": "site/assets/hsr/characters/1203.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1203.png"
+    },
+    "1204": {
+      "name": "경원",
+      "path": "site/assets/hsr/characters/1204.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1204.png"
+    },
+    "1205": {
+      "name": "블레이드",
+      "path": "site/assets/hsr/characters/1205.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1205.png"
+    },
+    "1206": {
+      "name": "소상",
+      "path": "site/assets/hsr/characters/1206.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1206.png"
+    },
+    "1207": {
+      "name": "어공",
+      "path": "site/assets/hsr/characters/1207.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1207.png"
+    },
+    "1208": {
+      "name": "부현",
+      "path": "site/assets/hsr/characters/1208.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1208.png"
+    },
+    "1209": {
+      "name": "연경",
+      "path": "site/assets/hsr/characters/1209.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1209.png"
+    },
+    "1210": {
+      "name": "계네빈",
+      "path": "site/assets/hsr/characters/1210.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1210.png"
+    },
+    "1211": {
+      "name": "백로",
+      "path": "site/assets/hsr/characters/1211.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1211.png"
+    },
+    "1212": {
+      "name": "경류",
+      "path": "site/assets/hsr/characters/1212.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1212.png"
+    },
+    "1213": {
+      "name": "단항•음월",
+      "path": "site/assets/hsr/characters/1213.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1213.png"
+    },
+    "1214": {
+      "name": "설의",
+      "path": "site/assets/hsr/characters/1214.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1214.png"
+    },
+    "1215": {
+      "name": "한아",
+      "path": "site/assets/hsr/characters/1215.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1215.png"
     },
     "1217": {
       "name": "곽향",
@@ -52,20 +217,40 @@
       "path": "site/assets/hsr/characters/1220.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1220.png"
     },
+    "1221": {
+      "name": "운리",
+      "path": "site/assets/hsr/characters/1221.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1221.png"
+    },
     "1222": {
       "name": "영사",
       "path": "site/assets/hsr/characters/1222.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1222.png"
+    },
+    "1223": {
+      "name": "맥택",
+      "path": "site/assets/hsr/characters/1223.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1223.png"
     },
     "1224": {
       "name": "Mar. 7th(수렵)",
       "path": "site/assets/hsr/characters/1224.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1224.png"
     },
+    "1225": {
+      "name": "망귀인",
+      "path": "site/assets/hsr/characters/1225.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1225.png"
+    },
     "1301": {
       "name": "갤러거",
       "path": "site/assets/hsr/characters/1301.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1301.png"
+    },
+    "1302": {
+      "name": "아젠티",
+      "path": "site/assets/hsr/characters/1302.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1302.png"
     },
     "1303": {
       "name": "완•매",
@@ -76,6 +261,11 @@
       "name": "어벤츄린",
       "path": "site/assets/hsr/characters/1304.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1304.png"
+    },
+    "1305": {
+      "name": "Dr. 레이시오",
+      "path": "site/assets/hsr/characters/1305.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1305.png"
     },
     "1306": {
       "name": "스파클",
@@ -102,10 +292,40 @@
       "path": "site/assets/hsr/characters/1310.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1310.png"
     },
+    "1312": {
+      "name": "미샤",
+      "path": "site/assets/hsr/characters/1312.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1312.png"
+    },
     "1313": {
       "name": "선데이",
       "path": "site/assets/hsr/characters/1313.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1313.png"
+    },
+    "1314": {
+      "name": "제이드",
+      "path": "site/assets/hsr/characters/1314.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1314.png"
+    },
+    "1315": {
+      "name": "부트힐",
+      "path": "site/assets/hsr/characters/1315.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1315.png"
+    },
+    "1317": {
+      "name": "라파",
+      "path": "site/assets/hsr/characters/1317.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1317.png"
+    },
+    "1321": {
+      "name": "달리아",
+      "path": "site/assets/hsr/characters/1321.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1321.png"
+    },
+    "1401": {
+      "name": "더 헤르타",
+      "path": "site/assets/hsr/characters/1401.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1401.png"
     },
     "1402": {
       "name": "아글라이아",
@@ -117,10 +337,30 @@
       "path": "site/assets/hsr/characters/1403.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1403.png"
     },
+    "1404": {
+      "name": "마이데이",
+      "path": "site/assets/hsr/characters/1404.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1404.png"
+    },
+    "1405": {
+      "name": "아낙사",
+      "path": "site/assets/hsr/characters/1405.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1405.png"
+    },
+    "1406": {
+      "name": "사이퍼",
+      "path": "site/assets/hsr/characters/1406.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1406.png"
+    },
     "1407": {
       "name": "카스토리스",
       "path": "site/assets/hsr/characters/1407.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1407.png"
+    },
+    "1408": {
+      "name": "파이논",
+      "path": "site/assets/hsr/characters/1408.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1408.png"
     },
     "1409": {
       "name": "히아킨",
@@ -132,15 +372,110 @@
       "path": "site/assets/hsr/characters/1410.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1410.png"
     },
+    "1412": {
+      "name": "케리드라",
+      "path": "site/assets/hsr/characters/1412.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1412.png"
+    },
+    "1413": {
+      "name": "에버나이트",
+      "path": "site/assets/hsr/characters/1413.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1413.png"
+    },
+    "1414": {
+      "name": "단항•등황",
+      "path": "site/assets/hsr/characters/1414.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1414.png"
+    },
+    "1415": {
+      "name": "키레네",
+      "path": "site/assets/hsr/characters/1415.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1415.png"
+    },
+    "1501": {
+      "name": "스파키",
+      "path": "site/assets/hsr/characters/1501.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1501.png"
+    },
     "1502": {
       "name": "효광",
       "path": "site/assets/hsr/characters/1502.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1502.png"
     },
+    "1503": {
+      "name": "펄",
+      "path": "site/assets/hsr/characters/1503.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1503.png"
+    },
+    "1504": {
+      "name": "애쉬베일",
+      "path": "site/assets/hsr/characters/1504.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1504.png"
+    },
     "1505": {
       "name": "에바네시아",
       "path": "site/assets/hsr/characters/1505.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1505.png"
+    },
+    "1506": {
+      "name": "은랑 LV.999",
+      "path": "site/assets/hsr/characters/1506.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1506.png"
+    },
+    "1507": {
+      "name": "천야•블레이드",
+      "path": "site/assets/hsr/characters/1507.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1507.png"
+    },
+    "1508": {
+      "name": "토오사카 린",
+      "path": "site/assets/hsr/characters/1508.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1508.png"
+    },
+    "1509": {
+      "name": "길가메시",
+      "path": "site/assets/hsr/characters/1509.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1509.png"
+    },
+    "1510": {
+      "name": "히메코•노바",
+      "path": "site/assets/hsr/characters/1510.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1510.png"
+    },
+    "1511": {
+      "name": "에이언즈★아하",
+      "path": "site/assets/hsr/characters/1511.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1511.png"
+    },
+    "1512": {
+      "name": "로빈•서머레토",
+      "path": "site/assets/hsr/characters/1512.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1512.png"
+    },
+    "1513": {
+      "name": "어벤츄린•웨이브",
+      "path": "site/assets/hsr/characters/1513.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/1513.png"
+    },
+    "8001": {
+      "name": "개척자(파멸)",
+      "path": "site/assets/hsr/characters/8001.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/8001.png"
+    },
+    "8002": {
+      "name": "개척자(파멸)",
+      "path": "site/assets/hsr/characters/8002.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/8002.png"
+    },
+    "8003": {
+      "name": "개척자(보존)",
+      "path": "site/assets/hsr/characters/8003.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/8003.png"
+    },
+    "8004": {
+      "name": "개척자(보존)",
+      "path": "site/assets/hsr/characters/8004.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/character/8004.png"
     },
     "8005": {
       "name": "개척자(화합)",
@@ -174,15 +509,130 @@
     }
   },
   "cones": {
+    "20000": {
+      "name": "화살촉",
+      "path": "site/assets/hsr/cones/20000.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20000.png"
+    },
+    "20001": {
+      "name": "풍작",
+      "path": "site/assets/hsr/cones/20001.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20001.png"
+    },
+    "20002": {
+      "name": "천경",
+      "path": "site/assets/hsr/cones/20002.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20002.png"
+    },
+    "20003": {
+      "name": "앰버",
+      "path": "site/assets/hsr/cones/20003.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20003.png"
+    },
+    "20004": {
+      "name": "그윽",
+      "path": "site/assets/hsr/cones/20004.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20004.png"
+    },
+    "20005": {
+      "name": "합창",
+      "path": "site/assets/hsr/cones/20005.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20005.png"
+    },
+    "20006": {
+      "name": "아카이브",
+      "path": "site/assets/hsr/cones/20006.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20006.png"
+    },
+    "20007": {
+      "name": "시위를 떠난 화살",
+      "path": "site/assets/hsr/cones/20007.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20007.png"
+    },
+    "20008": {
+      "name": "알찬 열매",
+      "path": "site/assets/hsr/cones/20008.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20008.png"
+    },
+    "20009": {
+      "name": "무너진 행복",
+      "path": "site/assets/hsr/cones/20009.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20009.png"
+    },
+    "20010": {
+      "name": "수비",
+      "path": "site/assets/hsr/cones/20010.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20010.png"
+    },
+    "20011": {
+      "name": "심연의 고리",
+      "path": "site/assets/hsr/cones/20011.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20011.png"
+    },
     "20012": {
       "name": "맞물린 톱니",
       "path": "site/assets/hsr/cones/20012.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20012.png"
     },
+    "20013": {
+      "name": "영험한 열쇠",
+      "path": "site/assets/hsr/cones/20013.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20013.png"
+    },
+    "20014": {
+      "name": "대립",
+      "path": "site/assets/hsr/cones/20014.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20014.png"
+    },
     "20015": {
       "name": "증식",
       "path": "site/assets/hsr/cones/20015.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20015.png"
+    },
+    "20016": {
+      "name": "전멸",
+      "path": "site/assets/hsr/cones/20016.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20016.png"
+    },
+    "20017": {
+      "name": "강토 개척",
+      "path": "site/assets/hsr/cones/20017.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20017.png"
+    },
+    "20018": {
+      "name": "숨은 그림자",
+      "path": "site/assets/hsr/cones/20018.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20018.png"
+    },
+    "20019": {
+      "name": "어울림",
+      "path": "site/assets/hsr/cones/20019.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20019.png"
+    },
+    "20020": {
+      "name": "식견",
+      "path": "site/assets/hsr/cones/20020.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20020.png"
+    },
+    "20021": {
+      "name": "불타는 그림자",
+      "path": "site/assets/hsr/cones/20021.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20021.png"
+    },
+    "20022": {
+      "name": "추억 회상",
+      "path": "site/assets/hsr/cones/20022.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20022.png"
+    },
+    "20023": {
+      "name": "비웃음",
+      "path": "site/assets/hsr/cones/20023.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20023.png"
+    },
+    "20024": {
+      "name": "눈물의 흔적",
+      "path": "site/assets/hsr/cones/20024.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/20024.png"
     },
     "21000": {
       "name": "수술 후의 대화",
@@ -194,10 +644,30 @@
       "path": "site/assets/hsr/cones/21001.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21001.png"
     },
+    "21002": {
+      "name": "여생의 첫날",
+      "path": "site/assets/hsr/cones/21002.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21002.png"
+    },
+    "21003": {
+      "name": "침묵만이",
+      "path": "site/assets/hsr/cones/21003.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21003.png"
+    },
     "21004": {
       "name": "기억 속 모습",
       "path": "site/assets/hsr/cones/21004.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21004.png"
+    },
+    "21005": {
+      "name": "두더지파가 환영해",
+      "path": "site/assets/hsr/cones/21005.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21005.png"
+    },
+    "21006": {
+      "name": "「나」의 탄생",
+      "path": "site/assets/hsr/cones/21006.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21006.png"
     },
     "21007": {
       "name": "같은 심정",
@@ -209,6 +679,31 @@
       "path": "site/assets/hsr/cones/21008.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21008.png"
     },
+    "21009": {
+      "name": "랜도의 선택",
+      "path": "site/assets/hsr/cones/21009.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21009.png"
+    },
+    "21010": {
+      "name": "논검",
+      "path": "site/assets/hsr/cones/21010.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21010.png"
+    },
+    "21011": {
+      "name": "행성과의 만남",
+      "path": "site/assets/hsr/cones/21011.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21011.png"
+    },
+    "21012": {
+      "name": "비밀 맹세",
+      "path": "site/assets/hsr/cones/21012.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21012.png"
+    },
+    "21013": {
+      "name": "세상을 진정시키지 마",
+      "path": "site/assets/hsr/cones/21013.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21013.png"
+    },
     "21014": {
       "name": "알맞은 타이밍",
       "path": "site/assets/hsr/cones/21014.png",
@@ -219,25 +714,195 @@
       "path": "site/assets/hsr/cones/21015.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21015.png"
     },
+    "21016": {
+      "name": "우주 시장 동향",
+      "path": "site/assets/hsr/cones/21016.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21016.png"
+    },
+    "21017": {
+      "name": "팔로우를 부탁해!",
+      "path": "site/assets/hsr/cones/21017.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21017.png"
+    },
     "21018": {
       "name": "댄스! 댄스! 댄스!",
       "path": "site/assets/hsr/cones/21018.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21018.png"
+    },
+    "21019": {
+      "name": "푸른 하늘 아래",
+      "path": "site/assets/hsr/cones/21019.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21019.png"
+    },
+    "21020": {
+      "name": "천재들의 휴식",
+      "path": "site/assets/hsr/cones/21020.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21020.png"
     },
     "21021": {
       "name": "등가교환",
       "path": "site/assets/hsr/cones/21021.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21021.png"
     },
+    "21022": {
+      "name": "페르마타",
+      "path": "site/assets/hsr/cones/21022.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21022.png"
+    },
+    "21023": {
+      "name": "우리는 와일드 파이어",
+      "path": "site/assets/hsr/cones/21023.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21023.png"
+    },
+    "21024": {
+      "name": "움트는 봄물",
+      "path": "site/assets/hsr/cones/21024.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21024.png"
+    },
+    "21025": {
+      "name": "과거와 미래",
+      "path": "site/assets/hsr/cones/21025.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21025.png"
+    },
+    "21026": {
+      "name": "멍! 산책 시간!",
+      "path": "site/assets/hsr/cones/21026.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21026.png"
+    },
+    "21027": {
+      "name": "느낌 있는 아침 식사 루틴",
+      "path": "site/assets/hsr/cones/21027.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21027.png"
+    },
+    "21028": {
+      "name": "따듯한 밤은 길지 않고",
+      "path": "site/assets/hsr/cones/21028.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21028.png"
+    },
+    "21029": {
+      "name": "훗날 기약",
+      "path": "site/assets/hsr/cones/21029.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21029.png"
+    },
+    "21030": {
+      "name": "이게 바로 나야!",
+      "path": "site/assets/hsr/cones/21030.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21030.png"
+    },
+    "21031": {
+      "name": "또다시 저승으로",
+      "path": "site/assets/hsr/cones/21031.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21031.png"
+    },
+    "21032": {
+      "name": "누월재운의 뜻",
+      "path": "site/assets/hsr/cones/21032.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21032.png"
+    },
+    "21033": {
+      "name": "도망칠 곳은 없다",
+      "path": "site/assets/hsr/cones/21033.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21033.png"
+    },
+    "21034": {
+      "name": "오늘도 평화로운 하루",
+      "path": "site/assets/hsr/cones/21034.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21034.png"
+    },
     "21035": {
       "name": "무엇이 진실인가",
       "path": "site/assets/hsr/cones/21035.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21035.png"
     },
+    "21036": {
+      "name": "좋은꿈 마을 대모험",
+      "path": "site/assets/hsr/cones/21036.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21036.png"
+    },
+    "21037": {
+      "name": "최후의 승자",
+      "path": "site/assets/hsr/cones/21037.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21037.png"
+    },
+    "21038": {
+      "name": "불의 먼 곳에서",
+      "path": "site/assets/hsr/cones/21038.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21038.png"
+    },
+    "21039": {
+      "name": "운명의 실을 엮다",
+      "path": "site/assets/hsr/cones/21039.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21039.png"
+    },
+    "21040": {
+      "name": "은하 함락의 날",
+      "path": "site/assets/hsr/cones/21040.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21040.png"
+    },
+    "21041": {
+      "name": "쇼타임",
+      "path": "site/assets/hsr/cones/21041.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21041.png"
+    },
     "21042": {
       "name": "마음에 새긴 약속",
       "path": "site/assets/hsr/cones/21042.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21042.png"
+    },
+    "21043": {
+      "name": "두 사람의 콘서트",
+      "path": "site/assets/hsr/cones/21043.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21043.png"
+    },
+    "21044": {
+      "name": "끝없는 춤",
+      "path": "site/assets/hsr/cones/21044.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21044.png"
+    },
+    "21045": {
+      "name": "조화가 침묵한 후",
+      "path": "site/assets/hsr/cones/21045.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21045.png"
+    },
+    "21046": {
+      "name": "피어나길 기다리는 꽃",
+      "path": "site/assets/hsr/cones/21046.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21046.png"
+    },
+    "21047": {
+      "name": "그림자처럼 뒤따르는 밤",
+      "path": "site/assets/hsr/cones/21047.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21047.png"
+    },
+    "21048": {
+      "name": "꿈의 몽타주",
+      "path": "site/assets/hsr/cones/21048.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21048.png"
+    },
+    "21050": {
+      "name": "찰나에 결정되는 승리",
+      "path": "site/assets/hsr/cones/21050.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21050.png"
+    },
+    "21051": {
+      "name": "천재들의 안부 인사",
+      "path": "site/assets/hsr/cones/21051.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21051.png"
+    },
+    "21052": {
+      "name": "땀은 많이, 눈물은 적게",
+      "path": "site/assets/hsr/cones/21052.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21052.png"
+    },
+    "21053": {
+      "name": "언제나 여정이 평탄하기를",
+      "path": "site/assets/hsr/cones/21053.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21053.png"
+    },
+    "21054": {
+      "name": "이야기의 다음 페이지",
+      "path": "site/assets/hsr/cones/21054.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21054.png"
     },
     "21055": {
       "name": "내일의 내일이 올 때까지",
@@ -249,40 +914,460 @@
       "path": "site/assets/hsr/cones/21056.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21056.png"
     },
+    "21057": {
+      "name": "꽃은 잊지 않는다",
+      "path": "site/assets/hsr/cones/21057.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21057.png"
+    },
+    "21058": {
+      "name": "과거의 핏자국",
+      "path": "site/assets/hsr/cones/21058.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21058.png"
+    },
+    "21060": {
+      "name": "밀 내음이 가득한 꿈",
+      "path": "site/assets/hsr/cones/21060.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21060.png"
+    },
+    "21061": {
+      "name": "휴일의 목욕탕 대모험",
+      "path": "site/assets/hsr/cones/21061.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21061.png"
+    },
+    "21062": {
+      "name": "그 종착지에서 다시 만나자",
+      "path": "site/assets/hsr/cones/21062.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21062.png"
+    },
+    "21064": {
+      "name": "슈룸 모험기",
+      "path": "site/assets/hsr/cones/21064.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21064.png"
+    },
+    "21065": {
+      "name": "오늘의 행운",
+      "path": "site/assets/hsr/cones/21065.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21065.png"
+    },
+    "21066": {
+      "name": "짧은 휴가",
+      "path": "site/assets/hsr/cones/21066.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/21066.png"
+    },
     "22000": {
       "name": "초보자 임무 시작 전",
       "path": "site/assets/hsr/cones/22000.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/22000.png"
+    },
+    "22001": {
+      "name": "저기, 나 여기 있어",
+      "path": "site/assets/hsr/cones/22001.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/22001.png"
+    },
+    "22002": {
+      "name": "내일을 위한 여정",
+      "path": "site/assets/hsr/cones/22002.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/22002.png"
+    },
+    "22003": {
+      "name": "인사록•음률 사냥",
+      "path": "site/assets/hsr/cones/22003.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/22003.png"
+    },
+    "22004": {
+      "name": "우주 대사업",
+      "path": "site/assets/hsr/cones/22004.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/22004.png"
+    },
+    "22005": {
+      "name": "영원한 미궁의 식사",
+      "path": "site/assets/hsr/cones/22005.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/22005.png"
+    },
+    "22006": {
+      "name": "핑크빛 내일을 향해",
+      "path": "site/assets/hsr/cones/22006.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/22006.png"
+    },
+    "22007": {
+      "name": "미래엔 우리가 함께할 거야",
+      "path": "site/assets/hsr/cones/22007.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/22007.png"
+    },
+    "22008": {
+      "name": "지평선의 끝을 향해",
+      "path": "site/assets/hsr/cones/22008.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/22008.png"
+    },
+    "22009": {
+      "name": "세상 끝에서 만나자!",
+      "path": "site/assets/hsr/cones/22009.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/22009.png"
+    },
+    "23000": {
+      "name": "은하철도의 밤",
+      "path": "site/assets/hsr/cones/23000.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23000.png"
+    },
+    "23001": {
+      "name": "야경 속에서",
+      "path": "site/assets/hsr/cones/23001.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23001.png"
+    },
+    "23002": {
+      "name": "대체할 수 없는 것",
+      "path": "site/assets/hsr/cones/23002.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23002.png"
+    },
+    "23003": {
+      "name": "아직 전투는 끝나지 않았다",
+      "path": "site/assets/hsr/cones/23003.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23003.png"
+    },
+    "23004": {
+      "name": "세계의 이름으로",
+      "path": "site/assets/hsr/cones/23004.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23004.png"
+    },
+    "23005": {
+      "name": "승리의 순간",
+      "path": "site/assets/hsr/cones/23005.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23005.png"
     },
     "23006": {
       "name": "필요한 건 기다림뿐",
       "path": "site/assets/hsr/cones/23006.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23006.png"
     },
+    "23007": {
+      "name": "계속 내리는 비",
+      "path": "site/assets/hsr/cones/23007.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23007.png"
+    },
+    "23008": {
+      "name": "관의 울림",
+      "path": "site/assets/hsr/cones/23008.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23008.png"
+    },
+    "23009": {
+      "name": "닿을 수 없는 저편",
+      "path": "site/assets/hsr/cones/23009.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23009.png"
+    },
+    "23010": {
+      "name": "동트기 전",
+      "path": "site/assets/hsr/cones/23010.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23010.png"
+    },
+    "23011": {
+      "name": "그녀는 두 눈을 감았네",
+      "path": "site/assets/hsr/cones/23011.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23011.png"
+    },
+    "23012": {
+      "name": "깊게 든 단잠",
+      "path": "site/assets/hsr/cones/23012.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23012.png"
+    },
+    "23013": {
+      "name": "세월은 흐를 뿐",
+      "path": "site/assets/hsr/cones/23013.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23013.png"
+    },
+    "23014": {
+      "name": "이 몸이 검이니",
+      "path": "site/assets/hsr/cones/23014.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23014.png"
+    },
+    "23015": {
+      "name": "태양보다 밝게 빛나는 것",
+      "path": "site/assets/hsr/cones/23015.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23015.png"
+    },
+    "23016": {
+      "name": "고민, 그리고 행복",
+      "path": "site/assets/hsr/cones/23016.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23016.png"
+    },
     "23017": {
       "name": "섬뜩한 밤",
       "path": "site/assets/hsr/cones/23017.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23017.png"
+    },
+    "23018": {
+      "name": "눈에 담긴 순간",
+      "path": "site/assets/hsr/cones/23018.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23018.png"
     },
     "23019": {
       "name": "거울 속 지난날의 나",
       "path": "site/assets/hsr/cones/23019.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23019.png"
     },
+    "23020": {
+      "name": "순수 사유의 세례",
+      "path": "site/assets/hsr/cones/23020.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23020.png"
+    },
+    "23021": {
+      "name": "속세에서의 유희",
+      "path": "site/assets/hsr/cones/23021.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23021.png"
+    },
+    "23022": {
+      "name": "시간의 기억에 대한 재구성",
+      "path": "site/assets/hsr/cones/23022.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23022.png"
+    },
+    "23023": {
+      "name": "언제나 불공평한 운명",
+      "path": "site/assets/hsr/cones/23023.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23023.png"
+    },
+    "23024": {
+      "name": "흘러가는 강가를 따라",
+      "path": "site/assets/hsr/cones/23024.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23024.png"
+    },
     "23025": {
       "name": "꿈은 어디로 돌아가야 하는가",
       "path": "site/assets/hsr/cones/23025.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23025.png"
+    },
+    "23026": {
+      "name": "찬란하게 빛나는 밤",
+      "path": "site/assets/hsr/cones/23026.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23026.png"
+    },
+    "23027": {
+      "name": "두 번째 생명을 향해",
+      "path": "site/assets/hsr/cones/23027.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23027.png"
+    },
+    "23028": {
+      "name": "값을 매길 수 없는 건 희망뿐",
+      "path": "site/assets/hsr/cones/23028.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23028.png"
+    },
+    "23029": {
+      "name": "그 무수한 봄날",
+      "path": "site/assets/hsr/cones/23029.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23029.png"
+    },
+    "23030": {
+      "name": "해 질 무렵 시작되는 춤",
+      "path": "site/assets/hsr/cones/23030.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23030.png"
+    },
+    "23031": {
+      "name": "정복하고 사냥하리",
+      "path": "site/assets/hsr/cones/23031.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23031.png"
+    },
+    "23032": {
+      "name": "오직 향만이 변함없이",
+      "path": "site/assets/hsr/cones/23032.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23032.png"
+    },
+    "23033": {
+      "name": "인법첩•요란 파마",
+      "path": "site/assets/hsr/cones/23033.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23033.png"
+    },
+    "23034": {
+      "name": "대지로 돌아온 비행",
+      "path": "site/assets/hsr/cones/23034.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23034.png"
+    },
+    "23035": {
+      "name": "먼 길 끝의 귀로",
+      "path": "site/assets/hsr/cones/23035.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23035.png"
+    },
+    "23036": {
+      "name": "시간을 황금으로 엮어",
+      "path": "site/assets/hsr/cones/23036.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23036.png"
+    },
+    "23037": {
+      "name": "추궁할 수 없는 곳을 향해",
+      "path": "site/assets/hsr/cones/23037.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23037.png"
+    },
+    "23038": {
+      "name": "시간이 한 송이 꽃이라면",
+      "path": "site/assets/hsr/cones/23038.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23038.png"
+    },
+    "23039": {
+      "name": "피의 불꽃이여, 앞길을 태워라",
+      "path": "site/assets/hsr/cones/23039.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23039.png"
+    },
+    "23040": {
+      "name": "이별이 더 아름답도록",
+      "path": "site/assets/hsr/cones/23040.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23040.png"
+    },
+    "23041": {
+      "name": "생명은 불태워야 하는 것",
+      "path": "site/assets/hsr/cones/23041.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23041.png"
+    },
+    "23042": {
+      "name": "무지개가 영원히 하늘에 머물길",
+      "path": "site/assets/hsr/cones/23042.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23042.png"
+    },
+    "23043": {
+      "name": "바람에 흩날리는 거짓말",
+      "path": "site/assets/hsr/cones/23043.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23043.png"
     },
     "23044": {
       "name": "이와 같이 타오르는 여명",
       "path": "site/assets/hsr/cones/23044.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23044.png"
     },
+    "23045": {
+      "name": "보답 없는 왕관",
+      "path": "site/assets/hsr/cones/23045.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23045.png"
+    },
+    "23046": {
+      "name": "이상이 불타는 지옥",
+      "path": "site/assets/hsr/cones/23046.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23046.png"
+    },
+    "23047": {
+      "name": "바다는 왜 노래하는가",
+      "path": "site/assets/hsr/cones/23047.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23047.png"
+    },
+    "23048": {
+      "name": "황금 피가 새긴 시대",
+      "path": "site/assets/hsr/cones/23048.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23048.png"
+    },
+    "23049": {
+      "name": "긴 밤의 별빛에게",
+      "path": "site/assets/hsr/cones/23049.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23049.png"
+    },
+    "23050": {
+      "name": "그녀의 불꽃을 잊지 말라",
+      "path": "site/assets/hsr/cones/23050.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23050.png"
+    },
+    "23051": {
+      "name": "끝없는 산과 강을 거치더라도",
+      "path": "site/assets/hsr/cones/23051.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23051.png"
+    },
+    "23052": {
+      "name": "이 순간처럼 영원한 사랑",
+      "path": "site/assets/hsr/cones/23052.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23052.png"
+    },
+    "23053": {
+      "name": "눈부신 파키의 세상",
+      "path": "site/assets/hsr/cones/23053.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23053.png"
+    },
+    "23054": {
+      "name": "그녀가 보기로 결심했을 때",
+      "path": "site/assets/hsr/cones/23054.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23054.png"
+    },
+    "23055": {
+      "name": "내일에 바치는 색채",
+      "path": "site/assets/hsr/cones/23055.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23055.png"
+    },
+    "23056": {
+      "name": "거짓말의 종막",
+      "path": "site/assets/hsr/cones/23056.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23056.png"
+    },
+    "23057": {
+      "name": "갤럭시 시티에 오신 것을 환영합니다",
+      "path": "site/assets/hsr/cones/23057.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23057.png"
+    },
+    "23058": {
+      "name": "다음 꽃피는 계절의 만남",
+      "path": "site/assets/hsr/cones/23058.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23058.png"
+    },
+    "23059": {
+      "name": "연옥을 불사른 새로운 몸",
+      "path": "site/assets/hsr/cones/23059.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23059.png"
+    },
+    "23060": {
+      "name": "별이 밤하늘을 밝힐 때",
+      "path": "site/assets/hsr/cones/23060.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23060.png"
+    },
+    "23061": {
+      "name": "고요히 빛나는 불티",
+      "path": "site/assets/hsr/cones/23061.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23061.png"
+    },
+    "23062": {
+      "name": "보이는 것이 곧 나",
+      "path": "site/assets/hsr/cones/23062.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23062.png"
+    },
+    "23063": {
+      "name": "그대는 나아가 노래하리니",
+      "path": "site/assets/hsr/cones/23063.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23063.png"
+    },
+    "23064": {
+      "name": "파도에 내던진 한여름",
+      "path": "site/assets/hsr/cones/23064.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23064.png"
+    },
+    "23065": {
+      "name": "「아하」가 처음 울리는 순간",
+      "path": "site/assets/hsr/cones/23065.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/23065.png"
+    },
     "24000": {
       "name": "어떤 에이언즈의 몰락",
       "path": "site/assets/hsr/cones/24000.png",
       "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/24000.png"
+    },
+    "24001": {
+      "name": "별바다 순항",
+      "path": "site/assets/hsr/cones/24001.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/24001.png"
+    },
+    "24002": {
+      "name": "기억의 소재",
+      "path": "site/assets/hsr/cones/24002.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/24002.png"
+    },
+    "24003": {
+      "name": "고독의 치유",
+      "path": "site/assets/hsr/cones/24003.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/24003.png"
+    },
+    "24004": {
+      "name": "멈추지 않는 연산",
+      "path": "site/assets/hsr/cones/24004.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/24004.png"
+    },
+    "24005": {
+      "name": "기억은 영원히 막을 내리지 않는다",
+      "path": "site/assets/hsr/cones/24005.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/24005.png"
+    },
+    "24006": {
+      "name": "넘치는 환락의 축복",
+      "path": "site/assets/hsr/cones/24006.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/image/light_cone_preview/24006.png"
     }
   },
   "relicSets": {
@@ -307,6 +1392,174 @@
         "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/101_3.png"
       }
     },
+    "102": {
+      "name": "들이삭과 동행하는 거너",
+      "pieces": {
+        "head": "site/assets/hsr/relics/102_0.png",
+        "hands": "site/assets/hsr/relics/102_1.png",
+        "body": "site/assets/hsr/relics/102_2.png",
+        "feet": "site/assets/hsr/relics/102_3.png"
+      },
+      "pieceNames": {
+        "head": "거너의 들이삭 페도라",
+        "hands": "거너의 거친 가죽장갑",
+        "body": "거너의 윈드헌터 망토",
+        "feet": "거너의 리벳 승마화"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/102_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/102_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/102_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/102_3.png"
+      }
+    },
+    "103": {
+      "name": "정토 교황의 팔라딘",
+      "pieces": {
+        "head": "site/assets/hsr/relics/103_0.png",
+        "hands": "site/assets/hsr/relics/103_1.png",
+        "body": "site/assets/hsr/relics/103_2.png",
+        "feet": "site/assets/hsr/relics/103_3.png"
+      },
+      "pieceNames": {
+        "head": "팔라딘의 용서 가면",
+        "hands": "팔라딘의 침묵 맹세 반지",
+        "body": "기사의 엄숙 갑옷",
+        "feet": "팔라딘의 질서 철장화"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/103_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/103_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/103_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/103_3.png"
+      }
+    },
+    "104": {
+      "name": "혹한 밀림의 사냥꾼",
+      "pieces": {
+        "head": "site/assets/hsr/relics/104_0.png",
+        "hands": "site/assets/hsr/relics/104_1.png",
+        "body": "site/assets/hsr/relics/104_2.png",
+        "feet": "site/assets/hsr/relics/104_3.png"
+      },
+      "pieceNames": {
+        "head": "설원 사냥꾼의 황신(荒神) 후드모자",
+        "hands": "설원 사냥꾼의 도마뱀 장갑",
+        "body": "설원 사냥꾼의 얼음 드래곤 망토",
+        "feet": "설원 사냥꾼의 벅스킨 부츠"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/104_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/104_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/104_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/104_3.png"
+      }
+    },
+    "105": {
+      "name": "스트리트 격투왕",
+      "pieces": {
+        "head": "site/assets/hsr/relics/105_0.png",
+        "hands": "site/assets/hsr/relics/105_1.png",
+        "body": "site/assets/hsr/relics/105_2.png",
+        "feet": "site/assets/hsr/relics/105_3.png"
+      },
+      "pieceNames": {
+        "head": "격투왕의 챔피언 헤드 기어",
+        "hands": "격투왕의 대포 글러브",
+        "body": "격투왕의 가슴 보호대",
+        "feet": "격투왕의 휘어진 스텝 부츠"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/105_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/105_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/105_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/105_3.png"
+      }
+    },
+    "106": {
+      "name": "눈보라에 맞서는 철위대",
+      "pieces": {
+        "head": "site/assets/hsr/relics/106_0.png",
+        "hands": "site/assets/hsr/relics/106_1.png",
+        "body": "site/assets/hsr/relics/106_2.png",
+        "feet": "site/assets/hsr/relics/106_3.png"
+      },
+      "pieceNames": {
+        "head": "철위대의 무쇠 복면 헬멧",
+        "hands": "철위대의 은비늘 손갑옷",
+        "body": "철위대의 구식 군복",
+        "feet": "철위대의 은 정강이 보호대"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/106_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/106_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/106_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/106_3.png"
+      }
+    },
+    "107": {
+      "name": "용암 단조의 화장(火匠)",
+      "pieces": {
+        "head": "site/assets/hsr/relics/107_0.png",
+        "hands": "site/assets/hsr/relics/107_1.png",
+        "body": "site/assets/hsr/relics/107_2.png",
+        "feet": "site/assets/hsr/relics/107_3.png"
+      },
+      "pieceNames": {
+        "head": "화장(火匠)의 흑요석 고글",
+        "hands": "화장(火匠)의 어화(御火) 반지",
+        "body": "화장(火匠)의 난연성 앞치마",
+        "feet": "화장(火匠)의 합금 의족"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/107_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/107_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/107_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/107_3.png"
+      }
+    },
+    "108": {
+      "name": "별처럼 빛나는 천재",
+      "pieces": {
+        "head": "site/assets/hsr/relics/108_0.png",
+        "hands": "site/assets/hsr/relics/108_1.png",
+        "body": "site/assets/hsr/relics/108_2.png",
+        "feet": "site/assets/hsr/relics/108_3.png"
+      },
+      "pieceNames": {
+        "head": "지니어스의 초원격 감지",
+        "hands": "지니어스의 주파수 변환 포착 장갑",
+        "body": "지니어스의 메타버스 딥 다이빙",
+        "feet": "지니어스의 중력 보행"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/108_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/108_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/108_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/108_3.png"
+      }
+    },
+    "109": {
+      "name": "뇌전을 울리는 밴드",
+      "pieces": {
+        "head": "site/assets/hsr/relics/109_0.png",
+        "hands": "site/assets/hsr/relics/109_1.png",
+        "body": "site/assets/hsr/relics/109_2.png",
+        "feet": "site/assets/hsr/relics/109_3.png"
+      },
+      "pieceNames": {
+        "head": "밴드의 편광 선글라스",
+        "hands": "밴드의 투어 팔찌",
+        "body": "밴드의 리벳 가죽 재킷",
+        "feet": "밴드의 리벳 숏부츠"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/109_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/109_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/109_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/109_3.png"
+      }
+    },
     "110": {
       "name": "밤낮의 경계를 나는 매",
       "pieces": {
@@ -326,6 +1579,69 @@
         "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/110_1.png",
         "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/110_2.png",
         "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/110_3.png"
+      }
+    },
+    "111": {
+      "name": "유성을 쫓는 괴도",
+      "pieces": {
+        "head": "site/assets/hsr/relics/111_0.png",
+        "hands": "site/assets/hsr/relics/111_1.png",
+        "body": "site/assets/hsr/relics/111_2.png",
+        "feet": "site/assets/hsr/relics/111_3.png"
+      },
+      "pieceNames": {
+        "head": "괴도의 천인 가면",
+        "hands": "괴도의 무늬 장갑",
+        "body": "괴도의 쇠갈고리",
+        "feet": "괴도의 유성 부츠"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/111_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/111_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/111_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/111_3.png"
+      }
+    },
+    "112": {
+      "name": "황무지의 도적, 황야인",
+      "pieces": {
+        "head": "site/assets/hsr/relics/112_0.png",
+        "hands": "site/assets/hsr/relics/112_1.png",
+        "body": "site/assets/hsr/relics/112_2.png",
+        "feet": "site/assets/hsr/relics/112_3.png"
+      },
+      "pieceNames": {
+        "head": "황야인의 호흡 마스크",
+        "hands": "황야인의 황무지 단자",
+        "body": "황야인의 수도사 로브",
+        "feet": "황야인의 동력 다리 갑옷"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/112_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/112_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/112_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/112_3.png"
+      }
+    },
+    "113": {
+      "name": "장수를 원하는 제자",
+      "pieces": {
+        "head": "site/assets/hsr/relics/113_0.png",
+        "hands": "site/assets/hsr/relics/113_1.png",
+        "body": "site/assets/hsr/relics/113_2.png",
+        "feet": "site/assets/hsr/relics/113_3.png"
+      },
+      "pieceNames": {
+        "head": "제자에게 빛을 가져다준 의안",
+        "hands": "제자의 기교 의수",
+        "body": "제자의 이슬받이 날개옷",
+        "feet": "제자의 천인 비단신"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/113_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/113_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/113_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/113_3.png"
       }
     },
     "114": {
@@ -349,6 +1665,27 @@
         "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/114_3.png"
       }
     },
+    "115": {
+      "name": "재와 뼈마저 불사르는 대공",
+      "pieces": {
+        "head": "site/assets/hsr/relics/115_0.png",
+        "hands": "site/assets/hsr/relics/115_1.png",
+        "body": "site/assets/hsr/relics/115_2.png",
+        "feet": "site/assets/hsr/relics/115_3.png"
+      },
+      "pieceNames": {
+        "head": "대공의 지옥불 면류관",
+        "hands": "대공의 화염 장갑",
+        "body": "대공의 은혜로운 로브",
+        "feet": "대공의 우아한 예복 장화"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/115_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/115_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/115_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/115_3.png"
+      }
+    },
     "116": {
       "name": "깊은 감옥에 수감된 죄수",
       "pieces": {
@@ -368,6 +1705,27 @@
         "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/116_1.png",
         "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/116_2.png",
         "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/116_3.png"
+      }
+    },
+    "117": {
+      "name": "사수에 잠수한 선구자",
+      "pieces": {
+        "head": "site/assets/hsr/relics/117_0.png",
+        "hands": "site/assets/hsr/relics/117_1.png",
+        "body": "site/assets/hsr/relics/117_2.png",
+        "feet": "site/assets/hsr/relics/117_3.png"
+      },
+      "pieceNames": {
+        "head": "선구자의 단열 헬멧",
+        "hands": "선구자의 허극 나침반",
+        "body": "선구자의 밀폐형 납 잠수복",
+        "feet": "선구자의 별에 정박하는 닻"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/117_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/117_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/117_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/117_3.png"
       }
     },
     "118": {
@@ -412,6 +1770,111 @@
         "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/119_3.png"
       }
     },
+    "120": {
+      "name": "바람과 구름을 가르는 용맹함",
+      "pieces": {
+        "head": "site/assets/hsr/relics/120_0.png",
+        "hands": "site/assets/hsr/relics/120_1.png",
+        "body": "site/assets/hsr/relics/120_2.png",
+        "feet": "site/assets/hsr/relics/120_3.png"
+      },
+      "pieceNames": {
+        "head": "용맹한 현효 면갑",
+        "hands": "용맹한 갈고리 완갑",
+        "body": "용맹한 날개깃 갑옷",
+        "feet": "용맹한 사냥 경갑"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/120_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/120_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/120_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/120_3.png"
+      }
+    },
+    "121": {
+      "name": "고행의 길에 다시 오른 사제",
+      "pieces": {
+        "head": "site/assets/hsr/relics/121_0.png",
+        "hands": "site/assets/hsr/relics/121_1.png",
+        "body": "site/assets/hsr/relics/121_2.png",
+        "feet": "site/assets/hsr/relics/121_3.png"
+      },
+      "pieceNames": {
+        "head": "사제의 음률 귀걸이",
+        "hands": "사제의 환영 장갑",
+        "body": "사제의 성직 예복",
+        "feet": "사제의 고행 단화"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/121_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/121_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/121_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/121_3.png"
+      }
+    },
+    "122": {
+      "name": "지식의 바다에 빠진 학자",
+      "pieces": {
+        "head": "site/assets/hsr/relics/122_0.png",
+        "hands": "site/assets/hsr/relics/122_1.png",
+        "body": "site/assets/hsr/relics/122_2.png",
+        "feet": "site/assets/hsr/relics/122_3.png"
+      },
+      "pieceNames": {
+        "head": "학자의 은테 모노클",
+        "hands": "학자의 보조 너클",
+        "body": "학자의 트위드 재킷",
+        "feet": "학자의 스웨이드 스노우 부츠"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/122_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/122_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/122_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/122_3.png"
+      }
+    },
+    "123": {
+      "name": "개선가를 울리는 영웅",
+      "pieces": {
+        "head": "site/assets/hsr/relics/123_0.png",
+        "hands": "site/assets/hsr/relics/123_1.png",
+        "body": "site/assets/hsr/relics/123_2.png",
+        "feet": "site/assets/hsr/relics/123_3.png"
+      },
+      "pieceNames": {
+        "head": "영웅의 우승자 월계관",
+        "hands": "영웅의 황금 완갑",
+        "body": "영웅의 용맹한 황금 갑옷",
+        "feet": "영웅의 불을 쫓는 정강이 보호대"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/123_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/123_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/123_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/123_3.png"
+      }
+    },
+    "124": {
+      "name": "망국을 애도하는 시인",
+      "pieces": {
+        "head": "site/assets/hsr/relics/124_0.png",
+        "hands": "site/assets/hsr/relics/124_1.png",
+        "body": "site/assets/hsr/relics/124_2.png",
+        "feet": "site/assets/hsr/relics/124_3.png"
+      },
+      "pieceNames": {
+        "head": "시인의 딜 화관",
+        "hands": "시인의 귀금속 팔찌",
+        "body": "시인의 별 장식 치마",
+        "feet": "시인의 은 징 신발"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/124_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/124_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/124_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/124_3.png"
+      }
+    },
     "125": {
       "name": "태양과 번개의 여전사",
       "pieces": {
@@ -433,6 +1896,210 @@
         "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/125_3.png"
       }
     },
+    "126": {
+      "name": "거친 파도를 헤치는 선장",
+      "pieces": {
+        "head": "site/assets/hsr/relics/126_0.png",
+        "hands": "site/assets/hsr/relics/126_1.png",
+        "body": "site/assets/hsr/relics/126_2.png",
+        "feet": "site/assets/hsr/relics/126_3.png"
+      },
+      "pieceNames": {
+        "head": "선장의 항해 모자",
+        "hands": "선장의 별빛 포획 아스트롤라베",
+        "body": "선장의 바람 망토",
+        "feet": "선장의 파도타기 부츠"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/126_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/126_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/126_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/126_3.png"
+      }
+    },
+    "127": {
+      "name": "천지를 재창조한 구세주",
+      "pieces": {
+        "head": "site/assets/hsr/relics/127_0.png",
+        "hands": "site/assets/hsr/relics/127_1.png",
+        "body": "site/assets/hsr/relics/127_2.png",
+        "feet": "site/assets/hsr/relics/127_3.png"
+      },
+      "pieceNames": {
+        "head": "구세주의 등정 후드",
+        "hands": "구세주의 보호 장갑",
+        "body": "구세주의 전승 전투복",
+        "feet": "구세주의 개간 부츠"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/127_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/127_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/127_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/127_3.png"
+      }
+    },
+    "128": {
+      "name": "별빛에 숨은 은둔자",
+      "pieces": {
+        "head": "site/assets/hsr/relics/128_0.png",
+        "hands": "site/assets/hsr/relics/128_1.png",
+        "body": "site/assets/hsr/relics/128_2.png",
+        "feet": "site/assets/hsr/relics/128_3.png"
+      },
+      "pieceNames": {
+        "head": "은둔자의 챙 넓은 페도라",
+        "hands": "은둔자의 단정한 손목시계",
+        "body": "은둔자의 카멜색 재킷",
+        "feet": "은둔자의 스웨이드 신발"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/128_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/128_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/128_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/128_3.png"
+      }
+    },
+    "129": {
+      "name": "빛나는 공훈의 마법 소녀",
+      "pieces": {
+        "head": "site/assets/hsr/relics/129_0.png",
+        "hands": "site/assets/hsr/relics/129_1.png",
+        "body": "site/assets/hsr/relics/129_2.png",
+        "feet": "site/assets/hsr/relics/129_3.png"
+      },
+      "pieceNames": {
+        "head": "마법 소녀의 빛나는 훈장",
+        "hands": "마법 소녀의 수호 장갑",
+        "body": "마법 소녀의 댄스 전투복",
+        "feet": "마법 소녀의 계약 롱부츠"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/129_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/129_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/129_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/129_3.png"
+      }
+    },
+    "130": {
+      "name": "천명에 응해 먼 길을 떠난 점술가",
+      "pieces": {
+        "head": "site/assets/hsr/relics/130_0.png",
+        "hands": "site/assets/hsr/relics/130_1.png",
+        "body": "site/assets/hsr/relics/130_2.png",
+        "feet": "site/assets/hsr/relics/130_3.png"
+      },
+      "pieceNames": {
+        "head": "점술가의 연산 옥조",
+        "hands": "점술가의 기계 의수",
+        "body": "점술가의 관천 성포",
+        "feet": "점술가의 등운화"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/130_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/130_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/130_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/130_3.png"
+      }
+    },
+    "131": {
+      "name": "별을 갈망하는 항법사 아집",
+      "pieces": {
+        "head": "site/assets/hsr/relics/131_0.png",
+        "hands": "site/assets/hsr/relics/131_1.png",
+        "body": "site/assets/hsr/relics/131_2.png",
+        "feet": "site/assets/hsr/relics/131_3.png"
+      },
+      "pieceNames": {
+        "head": "항법사의 심우주 망원경",
+        "hands": "항법사의 게임 주사위",
+        "body": "항법사의 성도 제복",
+        "feet": "항법사의 영원한 여정 부츠"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/131_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/131_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/131_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/131_3.png"
+      }
+    },
+    "132": {
+      "name": "신공을 탐구하는 명장",
+      "pieces": {
+        "head": "site/assets/hsr/relics/132_0.png",
+        "hands": "site/assets/hsr/relics/132_1.png",
+        "body": "site/assets/hsr/relics/132_2.png",
+        "feet": "site/assets/hsr/relics/132_3.png"
+      },
+      "pieceNames": {
+        "head": "명장의 화염 짐승 안면 보호구",
+        "hands": "명장의 단철 보호 장갑",
+        "body": "명장의 방염 장인복",
+        "feet": "명장의 무애 중장화"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/132_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/132_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/132_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/132_3.png"
+      }
+    },
+    "133": {
+      "name": "꿈같은 유희 속 별을 밝히는 연극인",
+      "pieces": {
+        "head": "site/assets/hsr/relics/133_0.png",
+        "hands": "site/assets/hsr/relics/133_1.png",
+        "body": "site/assets/hsr/relics/133_2.png",
+        "feet": "site/assets/hsr/relics/133_3.png"
+      },
+      "pieceNames": {
+        "head": "연극인의 슬피 우는 가면",
+        "hands": "연극인의 알록달록 접부채",
+        "body": "연극인의 우스꽝스러운 무대 의상",
+        "feet": "연극인의 조각달 무용화"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/133_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/133_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/133_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/133_3.png"
+      }
+    },
+    "134": {
+      "name": "금단의 열매를 삼킨 이단",
+      "pieces": {
+        "head": "site/assets/hsr/relics/134_0.png",
+        "hands": "site/assets/hsr/relics/134_1.png",
+        "body": "site/assets/hsr/relics/134_2.png",
+        "feet": "site/assets/hsr/relics/134_3.png"
+      },
+      "pieceNames": {
+        "head": "이단의 두부 장치",
+        "hands": "이단의 주사 장갑",
+        "body": "이단의 이성 구속복",
+        "feet": "이단의 허기 부츠"
+      },
+      "pieceSources": {
+        "head": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/134_0.png",
+        "hands": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/134_1.png",
+        "body": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/134_2.png",
+        "feet": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/134_3.png"
+      }
+    },
+    "301": {
+      "name": "우주 봉인 정거장",
+      "pieces": {
+        "sphere": "site/assets/hsr/relics/301_0.png",
+        "rope": "site/assets/hsr/relics/301_1.png"
+      },
+      "pieceNames": {
+        "sphere": "「헤르타」의 우주정거장",
+        "rope": "「헤르타」의 궤적"
+      },
+      "pieceSources": {
+        "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/301_0.png",
+        "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/301_1.png"
+      }
+    },
     "302": {
       "name": "불로인의 선주",
       "pieces": {
@@ -446,6 +2113,66 @@
       "pieceSources": {
         "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/302_0.png",
         "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/302_1.png"
+      }
+    },
+    "303": {
+      "name": "범은하 상사",
+      "pieces": {
+        "sphere": "site/assets/hsr/relics/303_0.png",
+        "rope": "site/assets/hsr/relics/303_1.png"
+      },
+      "pieceNames": {
+        "sphere": "컴퍼니의 거대 기관 본부",
+        "rope": "컴퍼니의 무역 항로"
+      },
+      "pieceSources": {
+        "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/303_0.png",
+        "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/303_1.png"
+      }
+    },
+    "304": {
+      "name": "축성가의 벨로보그",
+      "pieces": {
+        "sphere": "site/assets/hsr/relics/304_0.png",
+        "rope": "site/assets/hsr/relics/304_1.png"
+      },
+      "pieceNames": {
+        "sphere": "벨로보그 보존의 보루",
+        "rope": "벨로보그 철위대 방어선"
+      },
+      "pieceSources": {
+        "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/304_0.png",
+        "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/304_1.png"
+      }
+    },
+    "305": {
+      "name": "천체 차분기관",
+      "pieces": {
+        "sphere": "site/assets/hsr/relics/305_0.png",
+        "rope": "site/assets/hsr/relics/305_1.png"
+      },
+      "pieceNames": {
+        "sphere": "스크루별의 기계 태양",
+        "rope": "스크루별의 행성 고리"
+      },
+      "pieceSources": {
+        "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/305_0.png",
+        "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/305_1.png"
+      }
+    },
+    "306": {
+      "name": "회전을 멈춘 살소토",
+      "pieces": {
+        "sphere": "site/assets/hsr/relics/306_0.png",
+        "rope": "site/assets/hsr/relics/306_1.png"
+      },
+      "pieceNames": {
+        "sphere": "살소토의 움직이는 도시",
+        "rope": "살소토의 명암 경계선"
+      },
+      "pieceSources": {
+        "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/306_0.png",
+        "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/306_1.png"
       }
     },
     "307": {
@@ -478,6 +2205,21 @@
         "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/308_1.png"
       }
     },
+    "309": {
+      "name": "뭇별 경기장",
+      "pieces": {
+        "sphere": "site/assets/hsr/relics/309_0.png",
+        "rope": "site/assets/hsr/relics/309_1.png"
+      },
+      "pieceNames": {
+        "sphere": "타이키얀 레이저 구장",
+        "rope": "타이키얀 아크라이트 트랙"
+      },
+      "pieceSources": {
+        "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/309_0.png",
+        "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/309_1.png"
+      }
+    },
     "310": {
       "name": "부러진 용골",
       "pieces": {
@@ -491,6 +2233,81 @@
       "pieceSources": {
         "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/310_0.png",
         "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/310_1.png"
+      }
+    },
+    "311": {
+      "name": "창공 전선 그라모스",
+      "pieces": {
+        "sphere": "site/assets/hsr/relics/311_0.png",
+        "rope": "site/assets/hsr/relics/311_1.png"
+      },
+      "pieceNames": {
+        "sphere": "그라모스의 철기 군단",
+        "rope": "그라모스의 적막한 묘비"
+      },
+      "pieceSources": {
+        "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/311_0.png",
+        "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/311_1.png"
+      }
+    },
+    "312": {
+      "name": "꿈의 땅 페나코니",
+      "pieces": {
+        "sphere": "site/assets/hsr/relics/312_0.png",
+        "rope": "site/assets/hsr/relics/312_1.png"
+      },
+      "pieceNames": {
+        "sphere": "페나코니의 그랜드 호텔",
+        "rope": "페나코니의 꿈을 좇는 궤도"
+      },
+      "pieceSources": {
+        "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/312_0.png",
+        "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/312_1.png"
+      }
+    },
+    "313": {
+      "name": "주인 없는 황폐한 별 츠가냐",
+      "pieces": {
+        "sphere": "site/assets/hsr/relics/313_0.png",
+        "rope": "site/assets/hsr/relics/313_1.png"
+      },
+      "pieceNames": {
+        "sphere": "츠가냐의 지모신 침상",
+        "rope": "츠가냐의 윤회 매듭"
+      },
+      "pieceSources": {
+        "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/313_0.png",
+        "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/313_1.png"
+      }
+    },
+    "314": {
+      "name": "이즈모 현세와 타카마 신국",
+      "pieces": {
+        "sphere": "site/assets/hsr/relics/314_0.png",
+        "rope": "site/assets/hsr/relics/314_1.png"
+      },
+      "pieceNames": {
+        "sphere": "이즈모의 재앙신",
+        "rope": "이즈모의 종시일도"
+      },
+      "pieceSources": {
+        "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/314_0.png",
+        "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/314_1.png"
+      }
+    },
+    "315": {
+      "name": "질주하는 늑대의 도람 왕조",
+      "pieces": {
+        "sphere": "site/assets/hsr/relics/315_0.png",
+        "rope": "site/assets/hsr/relics/315_1.png"
+      },
+      "pieceNames": {
+        "sphere": "도람의 궁륭 금빛 장막",
+        "rope": "도람의 기계짐승 고삐"
+      },
+      "pieceSources": {
+        "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/315_0.png",
+        "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/315_1.png"
       }
     },
     "316": {
@@ -523,6 +2340,66 @@
         "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/317_1.png"
       }
     },
+    "318": {
+      "name": "기묘한 나나 낙원",
+      "pieces": {
+        "sphere": "site/assets/hsr/relics/318_0.png",
+        "rope": "site/assets/hsr/relics/318_1.png"
+      },
+      "pieceNames": {
+        "sphere": "나나 낙원의 중앙 광장",
+        "rope": "나나 낙원의 밈 케이블"
+      },
+      "pieceSources": {
+        "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/318_0.png",
+        "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/318_1.png"
+      }
+    },
+    "319": {
+      "name": "고요한 습골지",
+      "pieces": {
+        "sphere": "site/assets/hsr/relics/319_0.png",
+        "rope": "site/assets/hsr/relics/319_1.png"
+      },
+      "pieceNames": {
+        "sphere": "아이도니아의 무명 비석",
+        "rope": "아이도니아의 저승 뼈사슬"
+      },
+      "pieceSources": {
+        "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/319_0.png",
+        "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/319_1.png"
+      }
+    },
+    "320": {
+      "name": "사색하는 거목",
+      "pieces": {
+        "sphere": "site/assets/hsr/relics/320_0.png",
+        "rope": "site/assets/hsr/relics/320_1.png"
+      },
+      "pieceNames": {
+        "sphere": "깨달음의 나무 정원의 사색하는 거대한 가지",
+        "rope": "깨달음의 나무 정원의 지식을 잇는 잎사귀 길"
+      },
+      "pieceSources": {
+        "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/320_0.png",
+        "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/320_1.png"
+      }
+    },
+    "321": {
+      "name": "꿈을 엮는 요정의 낙원",
+      "pieces": {
+        "sphere": "site/assets/hsr/relics/321_0.png",
+        "rope": "site/assets/hsr/relics/321_1.png"
+      },
+      "pieceNames": {
+        "sphere": "비밀 미궁의 평온한 꿈 나무집",
+        "rope": "비밀 미궁의 소원 피리"
+      },
+      "pieceSources": {
+        "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/321_0.png",
+        "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/321_1.png"
+      }
+    },
     "322": {
       "name": "즐거움에 취한 바다의 일각",
       "pieces": {
@@ -536,6 +2413,111 @@
       "pieceSources": {
         "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/322_0.png",
         "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/322_1.png"
+      }
+    },
+    "323": {
+      "name": "영원의 땅 앰포리어스",
+      "pieces": {
+        "sphere": "site/assets/hsr/relics/323_0.png",
+        "rope": "site/assets/hsr/relics/323_1.png"
+      },
+      "pieceNames": {
+        "sphere": "앰포리어스의 서풍의 끝",
+        "rope": "앰포리어스의 영원한 시편"
+      },
+      "pieceSources": {
+        "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/323_0.png",
+        "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/323_1.png"
+      }
+    },
+    "324": {
+      "name": "텐고쿠@라이브스트리밍",
+      "pieces": {
+        "sphere": "site/assets/hsr/relics/324_0.png",
+        "rope": "site/assets/hsr/relics/324_1.png"
+      },
+      "pieceNames": {
+        "sphere": "라이브 스트리밍의 수많은 창",
+        "rope": "라이브 스트리밍의 끊김 없는 채팅"
+      },
+      "pieceSources": {
+        "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/324_0.png",
+        "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/324_1.png"
+      }
+    },
+    "325": {
+      "name": "0호 스테이지 펑크 로드",
+      "pieces": {
+        "sphere": "site/assets/hsr/relics/325_0.png",
+        "rope": "site/assets/hsr/relics/325_1.png"
+      },
+      "pieceNames": {
+        "sphere": "펑크 로드의 네온 시티",
+        "rope": "펑크 로드의 데이터 홍수"
+      },
+      "pieceSources": {
+        "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/325_0.png",
+        "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/325_1.png"
+      }
+    },
+    "326": {
+      "name": "천 개의 별이 모인 도시",
+      "pieces": {
+        "sphere": "site/assets/hsr/relics/326_0.png",
+        "rope": "site/assets/hsr/relics/326_1.png"
+      },
+      "pieceNames": {
+        "sphere": "아스트로폴리스 미디어 본부",
+        "rope": "아스트로폴리스 사원증"
+      },
+      "pieceSources": {
+        "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/326_0.png",
+        "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/326_1.png"
+      }
+    },
+    "327": {
+      "name": "추락한 별의 출항지",
+      "pieces": {
+        "sphere": "site/assets/hsr/relics/327_0.png",
+        "rope": "site/assets/hsr/relics/327_1.png"
+      },
+      "pieceNames": {
+        "sphere": "출항지의 좌초된 열차",
+        "rope": "출항지의 꿈이 깃든 은하 궤도"
+      },
+      "pieceSources": {
+        "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/327_0.png",
+        "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/327_1.png"
+      }
+    },
+    "328": {
+      "name": "우주 생명과학연구원",
+      "pieces": {
+        "sphere": "site/assets/hsr/relics/328_0.png",
+        "rope": "site/assets/hsr/relics/328_1.png"
+      },
+      "pieceNames": {
+        "sphere": "생명과학연구원의 중심 시냅스",
+        "rope": "생명과학연구원의 외곽 파이프라인"
+      },
+      "pieceSources": {
+        "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/328_0.png",
+        "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/328_1.png"
+      }
+    },
+    "329": {
+      "name": "신의 순간의 환락",
+      "pieces": {
+        "sphere": "site/assets/hsr/relics/329_0.png",
+        "rope": "site/assets/hsr/relics/329_1.png"
+      },
+      "pieceNames": {
+        "sphere": "순간의 환락의 영원한 무대",
+        "rope": "순간의 환락의 마술 도구"
+      },
+      "pieceSources": {
+        "sphere": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/329_0.png",
+        "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/329_1.png"
       }
     },
     "330": {
