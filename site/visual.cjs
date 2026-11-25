@@ -142,7 +142,7 @@ function createVisuals({ profiles, assets, docs, escape }) {
         <section class="visual-section" id="relics" data-choice-group><h2>추천 유물</h2><div class="filter-chips build-choices" role="group" aria-label="유물 세팅">${profile.relicBuilds.map((build, index) => `<button type="button" data-choice="relic-${index}" aria-controls="relic-${index}" aria-pressed="${index === 0}">${escape(build.name)}</button>`).join('')}</div>${relicPanels}</section>
         <section class="visual-section" id="targets">
           <h2>이 정도면 잘 키웠다</h2>
-          <p class="eyebrow">같은 파티·광추 기준의 육성 목표입니다. 조건은 [*]에서 확인하세요.</p>
+          <p class="eyebrow">동일 파티·광추 기준 · 조건 [*]</p>
           <table class="stat-tier-table">
             <caption class="sr-only">${escape(profile.name)} 추천 스탯·준종결·종결 비교</caption>
             <thead><tr><th scope="col">스탯</th><th scope="col">추천 스탯</th><th scope="col">준종결</th><th scope="col">종결</th></tr></thead>
