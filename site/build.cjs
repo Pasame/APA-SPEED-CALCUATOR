@@ -1,5 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
+const { createHash } = require('node:crypto');
 const { createVisuals } = require('./visual.cjs');
 
 const games = [
@@ -64,6 +65,8 @@ const escape = value => String(value).replace(/[&<>"']/g, character => ({
 }[character]));
 
 function buildArchive(root, art) {
+  const styleVersion = createHash('sha256').update(fs.readFileSync(path.join(root, 'site/styles.css'))).digest('hex').slice(0, 12);
+  const scriptVersion = createHash('sha256').update(fs.readFileSync(path.join(root, 'site/app.js'))).digest('hex').slice(0, 12);
   const docs = JSON.parse(fs.readFileSync(path.join(root, 'site/content.json'), 'utf8'));
   const profiles = JSON.parse(fs.readFileSync(path.join(root, 'site/profiles.json'), 'utf8'));
   const assets = JSON.parse(fs.readFileSync(path.join(root, 'site/assets-manifest.json'), 'utf8'));
@@ -188,8 +191,8 @@ function buildArchive(root, art) {
     <title>${escape(title)} · Fluffy Archive</title>
     <meta name="description" content="${escape(description)}">
     <link rel="icon" href="${prefix}site/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="${prefix}site/styles.css">${legacyScript}
-    <script src="${prefix}site/app.js" defer></script>
+    <link rel="stylesheet" href="${prefix}site/styles.css?v=${styleVersion}">${legacyScript}
+    <script src="${prefix}site/app.js?v=${scriptVersion}" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">본문으로 건너뛰기</a>
