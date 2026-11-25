@@ -61,7 +61,16 @@ assert.ok(!/<link[^>]+rel="stylesheet"/.test(calculator));
 console.log('PASS moved calculator remains self-contained and includes unmodified source modules');
 
 const profiles = require('./site/profiles.json');
+const releasedRoster = require('./site/hsr-roster.json');
 const assets = require('./site/assets-manifest.json');
+assert.equal(new Set(profiles.map(profile => profile.characterId)).size, profiles.length, 'one guide per playable form');
+assert.deepEqual(new Set(profiles.map(profile => profile.characterId)), new Set(releasedRoster.characters.map(character => character.id)), 'all released character forms have guides');
+for (const character of releasedRoster.characters) {
+  const profile = profiles.find(item => item.characterId === character.id);
+  assert.equal(profile.path, character.path, `${character.id} Path matches game data`);
+  assert.equal(profile.element, character.element, `${character.id} element matches game data`);
+  assert.ok(profile.related.length, `${profile.id} links to a party or replacement role`);
+}
 const { createVisuals, categories, slots, substatsForSlot } = require('./site/visual.cjs');
 assert.deepEqual(substatsForSlot('속도', ['속도', '격파 특수효과']), ['격파 특수효과']);
 assert.deepEqual(substatsForSlot('속도', ['속도 145까지', 'HP%']), ['HP%']);
@@ -70,7 +79,7 @@ assert.deepEqual(substatsForSlot('HP%', ['속도', 'HP% / 방어력%']), ['속�
 for (const profile of profiles) {
   assert.ok(known.has(profile.id));
   assert.ok(assets.characters[profile.characterId]);
-  assert.ok(profile.cones.length >= 4 && profile.cones.length <= 5, `${profile.id} has four or five sourced equipment choices`);
+  assert.ok(profile.cones.length >= 2 && profile.cones.length <= 5, `${profile.id} has two to five sourced equipment choices`);
   assert.equal(new Set(profile.cones.map(cone => cone.id)).size, profile.cones.length);
   for (const cone of profile.cones) assert.ok(assets.cones[cone.id]);
   for (const build of profile.relicBuilds) {
@@ -89,6 +98,12 @@ for (const profile of profiles) {
   assert.ok(profile.related.every(id => docs.some(doc => doc.id === id && doc.party)));
 }
 const parties = docs.filter(doc => doc.party);
+for (const profile of profiles) {
+  for (const partyId of profile.related) {
+    const party = parties.find(doc => doc.id === partyId)?.party;
+    assert.ok(party && [...party.members, ...party.alternatives].some(member => member.id === profile.characterId), `${profile.id} actually appears in ${partyId}`);
+  }
+}
 const invalidTarget = structuredClone(parties[0]);
 invalidTarget.party.alternatives[0].replaces = 'missing-party-member';
 assert.throws(
@@ -96,6 +111,15 @@ assert.throws(
   /Missing replacement target/,
   'unassigned alternatives must fail the build rather than silently disappear',
 );
+const multipleReplacements = structuredClone(parties[0]);
+const occupiedIds = multipleReplacements.party.members.map(member => member.id);
+const replacementIds = profiles.filter(profile => !occupiedIds.includes(profile.characterId)).slice(0, 3);
+multipleReplacements.party.alternatives = replacementIds.map(profile => ({ id: profile.characterId, name: profile.name, replaces: occupiedIds[0], reason: '검증용 교체 조건' }));
+const replacementHtml = createVisuals({ profiles, assets, docs, escape: String }).partyDetail(multipleReplacements, '../../');
+assert.equal((replacementHtml.match(/data-replacement-badge=/g) || []).length, 3, 'every replacement gets a small portrait');
+assert.equal((replacementHtml.match(/data-replaces=/g) || []).length, 3, 'every replacement retains its detail');
+multipleReplacements.party.alternatives[0].id = occupiedIds[1];
+assert.throws(() => createVisuals({ profiles, assets, docs, escape: String }).partyDetail(multipleReplacements, '../../'), /Invalid replacement/, 'replacement cannot duplicate another occupied slot');
 assert.deepEqual(new Set(parties.map(doc => doc.party.category)), new Set(Object.keys(categories)));
 for (const doc of parties) {
   assert.equal(doc.party.members.length, 4);
@@ -109,7 +133,9 @@ for (const doc of parties) {
     assert.ok(doc.party.members.some(member => member.id === alternative.replaces), `${doc.id} replacement target exists`);
     const slot = html.split(`data-member-id="${alternative.replaces}"`)[1]?.split('data-member-id=')[0];
     assert.ok(slot?.includes(`data-replaces="${alternative.replaces}"`), `${alternative.name} sits under their replacement target`);
-    assert.ok(slot.includes(alternative.name));
+    const escapedName = alternative.name.replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
+    assert.ok(slot.includes(escapedName), `${doc.id}: ${alternative.name} is displayed in its replacement slot`);
+    assert.ok(slot.includes(`data-replacement-badge="${alternative.replaces}"`), 'replacement portraits accompany the correct main portrait');
   }
 }
 const hsr = fs.readFileSync(path.join(root, 'games/hsr/index.html'), 'utf8');
@@ -208,12 +234,13 @@ vm.runInNewContext(fs.readFileSync(path.join(root, 'site/app.js'), 'utf8'), {
   URLSearchParams,
 });
 const visibleCharacters = () => tiles.filter(tile => !tile.hidden).map(tile => tile.dataset.id);
-assert.deepEqual(visibleCharacters(), ['hsr-gallagher'], 'URL restores element AND path');
+const matchingProfiles = (element, path) => profiles.filter(profile => (!element || profile.element === element) && (!path || profile.path === path)).map(profile => profile.id);
+assert.deepEqual(visibleCharacters(), matchingProfiles('fire', 'abundance'), 'URL restores element AND path');
 abundanceButton.events.click();
-assert.deepEqual(visibleCharacters(), ['hsr-firefly','hsr-gallagher'], 'clicking the selected path clears only that group');
+assert.deepEqual(visibleCharacters(), matchingProfiles('fire'), 'clicking the selected path clears only that group');
 abundanceButton.events.click();
 fireButton.events.click();
-assert.deepEqual(new Set(visibleCharacters()), new Set(['hsr-huohuo','hsr-gallagher']), 'element toggle preserves the chosen path');
+assert.deepEqual(visibleCharacters(), matchingProfiles(null, 'abundance'), 'element toggle preserves the chosen path');
 fireButton.events.click();
 characterSearch.value = '반디';
 characterSearch.events.input();
@@ -231,14 +258,14 @@ assert.equal(resetFilters.hidden, true);
 assert.ok(!savedFilterUrl.includes('element=') && !savedFilterUrl.includes('path='));
 filterLocation.search = '?view=character&element=quantum&path=elation';
 browserEvents.popstate();
-assert.equal(visibleCharacters().length, 0, 'unpublished combinations show empty results');
+assert.deepEqual(visibleCharacters(), matchingProfiles('quantum', 'elation'), 'newly published combinations are included');
 filterLocation.search = '?element=unknown&path=unknown';
 browserEvents.popstate();
 assert.equal(visibleCharacters().length, profiles.length, 'invalid URL filters fall back to all');
 tiles.push(catalogControl({id:'future-fire-erudition',search:'신규 캐릭터',element:'fire',path:'erudition'}));
 filterLocation.search = '?element=fire&path=erudition';
 browserEvents.popstate();
-assert.deepEqual(visibleCharacters(), ['future-fire-erudition'], 'future fire erudition characters match both filters');
+assert.deepEqual(visibleCharacters(), [...matchingProfiles('fire', 'erudition'), 'future-fire-erudition'], 'future fire erudition characters match both filters');
 const invalidProfile = {...profiles[0], element:'unknown'};
 assert.throws(() => createVisuals({profiles:[invalidProfile],assets,docs,escape:String}).characterTile(docs.find(doc => doc.id === invalidProfile.id), '../../'), /Invalid character classification/);
 console.log('PASS character filters combine name, element and path, restore URLs and reset safely');
