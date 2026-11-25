@@ -64,7 +64,6 @@
       "hsr-evanescia-elation",
       "hsr-silver-wolf-lv-999-team",
       "hsr-aventurine-waveflair-team",
-      "hsr-trailblazer-elation-team",
       "hsr-aventurine-waveflair-elation",
       "aha"
     ]
@@ -126,9 +125,6 @@
       }
     ],
     "related": [
-      "hsr-ashveil-team",
-      "hsr-evanescia-elation",
-      "hsr-silver-wolf-lv-999-team",
       "hsr-aventurine-waveflair-team",
       "hsr-aventurine-waveflair-elation",
       "aha"
@@ -202,7 +198,6 @@
       "hsr-evernight-team",
       "hsr-himeko-nova-team",
       "hsr-aventurine-waveflair-team",
-      "hsr-trailblazer-remembrance-team",
       "aha"
     ]
   },
@@ -263,9 +258,7 @@
       }
     ],
     "related": [
-      "hsr-evernight-team",
       "hsr-himeko-nova-team",
-      "hsr-trailblazer-remembrance-team",
       "aha"
     ]
   },
@@ -387,7 +380,7 @@
       }
     ],
     "related": [
-      "hsr-rin-tohsaka-team",
+      "hsr-archer-team",
       "aha"
     ]
   },
@@ -450,10 +443,9 @@
     "related": [
       "hsr-welt-team",
       "hsr-jing-yuan-team",
+      "hsr-feixiao-follow-up",
       "hsr-acheron-hypercarry",
-      "hsr-evernight-team",
-      "hsr-ashveil-team",
-      "hsr-blade-mortenax-team",
+      "hsr-evanescia-elation",
       "hsr-gilgamesh-team",
       "hsr-himeko-nova-team",
       "hsr-aventurine-waveflair-team",
@@ -517,10 +509,7 @@
       }
     ],
     "related": [
-      "hsr-sparxie-team",
-      "hsr-evanescia-elation",
       "hsr-silver-wolf-lv-999-team",
-      "hsr-trailblazer-elation-team",
       "aha"
     ]
   },
@@ -582,8 +571,6 @@
     ],
     "related": [
       "hsr-evanescia-elation",
-      "hsr-silver-wolf-lv-999-team",
-      "hsr-trailblazer-elation-team",
       "aha"
     ]
   },
@@ -645,11 +632,8 @@
     ],
     "related": [
       "hsr-seele-team",
-      "hsr-topaz-team",
       "hsr-feixiao-follow-up",
       "hsr-acheron-hypercarry",
-      "hsr-ashveil-team",
-      "hsr-blade-mortenax-team",
       "hsr-aventurine-waveflair-team",
       "aha"
     ]
@@ -714,7 +698,6 @@
       "hsr-sparxie-team",
       "hsr-evanescia-elation",
       "hsr-silver-wolf-lv-999-team",
-      "hsr-trailblazer-elation-team",
       "hsr-aventurine-waveflair-elation",
       "aha"
     ]
@@ -779,8 +762,6 @@
       "hsr-sparxie-team",
       "hsr-evanescia-elation",
       "hsr-silver-wolf-lv-999-team",
-      "hsr-aventurine-waveflair-team",
-      "hsr-trailblazer-elation-team",
       "hsr-aventurine-waveflair-elation",
       "aha"
     ]
@@ -843,9 +824,7 @@
     ],
     "related": [
       "hsr-sparxie-team",
-      "hsr-evanescia-elation",
       "hsr-silver-wolf-lv-999-team",
-      "hsr-trailblazer-elation-team",
       "aha"
     ]
   },
@@ -913,7 +892,7 @@
       "hsr-phainon-team",
       "hsr-hysilens-dot",
       "hsr-evernight-team",
-      "hsr-trailblazer-remembrance-team",
+      "hsr-evanescia-elation",
       "aha"
     ]
   },
@@ -983,17 +962,16 @@
       "hsr-jing-yuan-team",
       "hsr-feixiao-follow-up",
       "hsr-yunli-counter",
+      "hsr-acheron-hypercarry",
       "hsr-the-herta-erudition",
       "hsr-aglaea-remembrance",
       "hsr-anaxa-hypercarry",
       "hsr-phainon-team",
       "hsr-hysilens-dot",
-      "hsr-ashveil-team",
-      "hsr-blade-mortenax-team",
-      "hsr-rin-tohsaka-team",
       "hsr-gilgamesh-team",
       "hsr-himeko-nova-team",
       "hsr-aventurine-waveflair-team",
+      "hsr-aventurine-waveflair-elation",
       "aha"
     ]
   },
@@ -1056,7 +1034,6 @@
     "related": [
       "hsr-castorice-hp",
       "hsr-evernight-team",
-      "hsr-trailblazer-remembrance-team",
       "aha"
     ]
   },
@@ -1122,7 +1099,6 @@
       "hsr-seele-team",
       "hsr-anaxa-hypercarry",
       "hsr-phainon-team",
-      "hsr-rin-tohsaka-team",
       "hsr-himeko-nova-team",
       "aha"
     ]
@@ -1184,7 +1160,6 @@
       }
     ],
     "related": [
-      "hsr-sampo-team",
       "hsr-kafka-black-swan-dot",
       "hsr-hysilens-dot",
       "aha"
@@ -1253,9 +1228,8 @@
       "hsr-mydei-hp",
       "hsr-castorice-hp",
       "hsr-evernight-team",
-      "hsr-blade-mortenax-team",
-      "hsr-trailblazer-preservation-team",
-      "hsr-trailblazer-remembrance-team",
+      "hsr-silver-wolf-lv-999-team",
+      "hsr-aventurine-waveflair-elation",
       "aha"
     ]
   },
@@ -1317,7 +1291,6 @@
     ],
     "related": [
       "hsr-phainon-team",
-      "hsr-evernight-team",
       "aha"
     ]
   },
@@ -1383,7 +1356,6 @@
     "related": [
       "hsr-castorice-hp",
       "hsr-evernight-team",
-      "hsr-trailblazer-remembrance-team",
       "aha"
     ]
   },
@@ -1454,9 +1426,6 @@
       "hsr-castorice-hp",
       "hsr-phainon-team",
       "hsr-hysilens-dot",
-      "hsr-ashveil-team",
-      "hsr-blade-mortenax-team",
-      "hsr-trailblazer-preservation-team",
       "aha"
     ]
   },
@@ -1519,10 +1488,8 @@
       }
     ],
     "related": [
-      "hsr-serval-team",
       "hsr-the-herta-erudition",
       "hsr-anaxa-hypercarry",
-      "hsr-phainon-team",
       "aha"
     ]
   },
@@ -1586,7 +1553,6 @@
     ],
     "related": [
       "hsr-mydei-hp",
-      "hsr-castorice-hp",
       "aha"
     ]
   },
@@ -1650,12 +1616,12 @@
     ],
     "related": [
       "hsr-saber-team",
-      "hsr-serval-team",
       "hsr-blade-team",
       "hsr-jingliu-hp",
       "hsr-feixiao-follow-up",
       "hsr-yunli-counter",
       "hsr-argenti-ultimate",
+      "hsr-acheron-hypercarry",
       "hsr-jade-pure-fiction",
       "hsr-the-herta-erudition",
       "hsr-aglaea-remembrance",
@@ -1664,8 +1630,7 @@
       "hsr-castorice-hp",
       "hsr-phainon-team",
       "hsr-hysilens-dot",
-      "hsr-ashveil-team",
-      "hsr-blade-mortenax-team",
+      "hsr-evanescia-elation",
       "hsr-aventurine-waveflair-team",
       "aha"
     ]
@@ -1730,8 +1695,6 @@
     ],
     "related": [
       "hsr-aglaea-remembrance",
-      "hsr-evernight-team",
-      "hsr-trailblazer-remembrance-team",
       "aha"
     ]
   },
@@ -1794,10 +1757,8 @@
       }
     ],
     "related": [
-      "hsr-serval-team",
       "hsr-jade-pure-fiction",
       "hsr-the-herta-erudition",
-      "hsr-trailblazer-remembrance-team",
       "aha"
     ]
   },
@@ -1927,7 +1888,6 @@
     ],
     "related": [
       "hsr-rappa-break",
-      "hsr-trailblazer-harmony-team",
       "aha"
     ]
   },
@@ -1991,7 +1951,6 @@
     ],
     "related": [
       "hsr-boothill-duel",
-      "hsr-trailblazer-harmony-team",
       "aha"
     ]
   },
@@ -2054,8 +2013,6 @@
       }
     ],
     "related": [
-      "hsr-himeko-team",
-      "hsr-serval-team",
       "hsr-jade-pure-fiction",
       "hsr-the-herta-erudition",
       "aha"
@@ -2127,6 +2084,7 @@
       "hsr-yanqing-shield",
       "hsr-jingliu-hp",
       "hsr-imbibitor-lunae-skill-points",
+      "hsr-feixiao-follow-up",
       "hsr-yunli-counter",
       "hsr-argenti-ultimate",
       "hsr-misha-freeze",
@@ -2135,7 +2093,6 @@
       "hsr-mydei-hp",
       "hsr-anaxa-hypercarry",
       "hsr-phainon-team",
-      "hsr-ashveil-team",
       "hsr-gilgamesh-team",
       "hsr-himeko-nova-team",
       "aha"
@@ -2266,7 +2223,6 @@
     ],
     "related": [
       "hsr-firefly-super-break",
-      "hsr-trailblazer-harmony-team",
       "aha"
     ]
   },
@@ -2342,7 +2298,6 @@
       "hsr-aglaea-remembrance",
       "hsr-anaxa-hypercarry",
       "hsr-hysilens-dot",
-      "hsr-ashveil-team",
       "aha"
     ]
   },
@@ -2425,8 +2380,6 @@
     ],
     "related": [
       "hsr-acheron-hypercarry",
-      "hsr-blade-mortenax-team",
-      "hsr-trailblazer-preservation-team",
       "aha"
     ]
   },
@@ -2493,7 +2446,6 @@
       }
     ],
     "related": [
-      "hsr-sampo-team",
       "hsr-kafka-black-swan-dot",
       "hsr-hysilens-dot",
       "aha"
@@ -2574,7 +2526,6 @@
       "hsr-misha-freeze",
       "hsr-mydei-hp",
       "hsr-sparxie-team",
-      "hsr-rin-tohsaka-team",
       "hsr-trailblazer-destruction-team",
       "aha"
     ]
@@ -2638,7 +2589,6 @@
       }
     ],
     "related": [
-      "hsr-topaz-team",
       "hsr-dr-ratio-debuff",
       "aha"
     ]
@@ -2793,7 +2743,6 @@
       "hsr-castorice-hp",
       "hsr-phainon-team",
       "hsr-hysilens-dot",
-      "hsr-trailblazer-harmony-team",
       "aha"
     ],
     "art": "char-ruan",
@@ -2947,7 +2896,6 @@
       "hsr-dan-heng-team",
       "hsr-himeko-team",
       "hsr-archer-team",
-      "hsr-serval-team",
       "hsr-sampo-team",
       "hsr-hook-team",
       "hsr-qingque-team",
@@ -2962,9 +2910,9 @@
       "hsr-misha-freeze",
       "hsr-boothill-duel",
       "hsr-rappa-break",
+      "hsr-the-herta-erudition",
       "hsr-mydei-hp",
       "hsr-castorice-hp",
-      "hsr-trailblazer-harmony-team",
       "aha"
     ],
     "quickFacts": [
@@ -3051,7 +2999,6 @@
       "hsr-firefly-super-break",
       "hsr-boothill-duel",
       "hsr-rappa-break",
-      "hsr-trailblazer-harmony-team",
       "aha"
     ]
   },
@@ -3115,7 +3062,6 @@
       }
     ],
     "related": [
-      "hsr-topaz-team",
       "hsr-feixiao-follow-up",
       "aha"
     ]
@@ -3179,7 +3125,6 @@
       }
     ],
     "related": [
-      "hsr-topaz-team",
       "hsr-feixiao-follow-up",
       "hsr-dr-ratio-debuff",
       "aha"
@@ -3245,7 +3190,6 @@
     ],
     "related": [
       "hsr-himeko-team",
-      "hsr-serval-team",
       "hsr-hook-team",
       "hsr-topaz-team",
       "hsr-sushang-team",
@@ -3255,7 +3199,6 @@
       "hsr-boothill-duel",
       "hsr-rappa-break",
       "hsr-the-herta-erudition",
-      "hsr-trailblazer-harmony-team",
       "aha"
     ]
   },
@@ -3383,7 +3326,6 @@
     "related": [
       "hsr-topaz-team",
       "hsr-feixiao-follow-up",
-      "hsr-ashveil-team",
       "aha"
     ]
   },
@@ -3446,15 +3388,12 @@
       }
     ],
     "related": [
-      "hsr-sampo-team",
       "hsr-hook-team",
       "hsr-jing-yuan-team",
       "hsr-kafka-black-swan-dot",
       "hsr-dr-ratio-debuff",
       "hsr-acheron-hypercarry",
       "hsr-hysilens-dot",
-      "hsr-blade-mortenax-team",
-      "hsr-trailblazer-preservation-team",
       "aha"
     ]
   },
@@ -3526,7 +3465,6 @@
     ],
     "related": [
       "hsr-saber-team",
-      "hsr-serval-team",
       "hsr-clara-team",
       "hsr-sampo-team",
       "hsr-jing-yuan-team",
@@ -3536,12 +3474,16 @@
       "hsr-yunli-counter",
       "hsr-argenti-ultimate",
       "hsr-misha-freeze",
+      "hsr-the-herta-erudition",
       "hsr-aglaea-remembrance",
       "hsr-mydei-hp",
       "hsr-anaxa-hypercarry",
       "hsr-phainon-team",
       "hsr-hysilens-dot",
+      "hsr-sparxie-team",
       "hsr-evanescia-elation",
+      "hsr-silver-wolf-lv-999-team",
+      "hsr-aventurine-waveflair-elation",
       "aha"
     ],
     "art": "char-huohuo",
@@ -3959,7 +3901,6 @@
       }
     ],
     "related": [
-      "hsr-sampo-team",
       "hsr-hook-team",
       "hsr-kafka-black-swan-dot",
       "aha"
@@ -4840,9 +4781,9 @@
       "hsr-qingque-team",
       "hsr-jing-yuan-team",
       "hsr-yanqing-shield",
+      "hsr-acheron-hypercarry",
       "hsr-misha-freeze",
       "hsr-trailblazer-destruction-team",
-      "hsr-trailblazer-preservation-team",
       "aha"
     ],
     "sections": [
@@ -5002,7 +4943,7 @@
     "updated": "2026-11-25",
     "basis": "4.7 데이터 · Prydwen 장비 참고 · 자료실 편성 예시",
     "related": [
-      "hsr-serval-team",
+      "hsr-the-herta-erudition",
       "aha"
     ],
     "sections": [
@@ -5177,8 +5118,6 @@
     "basis": "4.7 데이터 · Prydwen 장비 참고 · 자료실 편성 예시",
     "related": [
       "hsr-archer-team",
-      "hsr-phainon-team",
-      "hsr-rin-tohsaka-team",
       "aha"
     ],
     "sections": [
@@ -5285,7 +5224,6 @@
     "basis": "4.7 데이터 · Prydwen 장비 참고 · 자료실 편성 예시",
     "related": [
       "hsr-himeko-team",
-      "hsr-serval-team",
       "hsr-jade-pure-fiction",
       "hsr-the-herta-erudition",
       "aha"
@@ -5343,7 +5281,6 @@
       "hsr-himeko-team",
       "hsr-arlan-team",
       "hsr-hook-team",
-      "hsr-silver-wolf-lv-999-team",
       "aha"
     ],
     "sections": [
@@ -5452,11 +5389,10 @@
       "hsr-seele-team",
       "hsr-qingque-team",
       "hsr-blade-team",
+      "hsr-feixiao-follow-up",
       "hsr-dr-ratio-debuff",
+      "hsr-acheron-hypercarry",
       "hsr-hysilens-dot",
-      "hsr-ashveil-team",
-      "hsr-blade-mortenax-team",
-      "hsr-trailblazer-preservation-team",
       "aha"
     ],
     "sections": [
@@ -5589,7 +5525,8 @@
     "basis": "4.7 데이터 · 4.2 정련된 새 빛 강화 · Prydwen 장비 참고",
     "related": [
       "hsr-welt-team",
-      "hsr-ashveil-team",
+      "hsr-feixiao-follow-up",
+      "hsr-evanescia-elation",
       "hsr-himeko-nova-team",
       "aha"
     ],
@@ -5855,7 +5792,6 @@
       "hsr-sparxie-team",
       "hsr-evanescia-elation",
       "hsr-silver-wolf-lv-999-team",
-      "hsr-trailblazer-elation-team",
       "hsr-aventurine-waveflair-elation",
       "aha"
     ]
@@ -5926,7 +5862,6 @@
       "hsr-evernight-team",
       "hsr-gilgamesh-team",
       "hsr-himeko-nova-team",
-      "hsr-trailblazer-remembrance-team",
       "aha"
     ]
   },
@@ -5991,7 +5926,6 @@
       "hsr-xueyi-karma",
       "hsr-firefly-super-break",
       "hsr-rappa-break",
-      "hsr-trailblazer-harmony-team",
       "aha"
     ]
   },
@@ -6052,7 +5986,7 @@
       }
     ],
     "related": [
-      "hsr-trailblazer-preservation-team",
+      "hsr-acheron-hypercarry",
       "aha"
     ]
   },
@@ -6360,8 +6294,6 @@
     "summary": "어공·브로냐가 단항의 공격 순서를 확보",
     "tags": [
       "단항",
-      "메인 딜러",
-      "감속",
       "브로냐",
       "어공",
       "나타샤",
@@ -6396,7 +6328,12 @@
       "hsr-dan-heng",
       "hsr-bronya",
       "hsr-yukong",
-      "hsr-natasha"
+      "hsr-natasha",
+      "hsr-tingyun",
+      "hsr-luocha",
+      "hsr-asta",
+      "hsr-sparkle",
+      "hsr-gallagher"
     ],
     "party": {
       "category": "hypercarry",
@@ -6465,7 +6402,10 @@
         "단항 전투 스킬 치명타로 감속",
         "아군 버프를 받고 감속 적에게 필살기"
       ],
-      "note": "필살기를 쓰기 전에 특성의 바람 저항 관통이 다른 공격에 소모되지 않도록 확인."
+      "note": "필살기를 쓰기 전에 특성의 바람 저항 관통이 다른 공격에 소모되지 않도록 확인.",
+      "coreMemberIds": [
+        "1002"
+      ]
     }
   },
   {
@@ -6475,17 +6415,14 @@
     "title": "히메코·헤르타 허구 이야기 파티",
     "summary": "화염 약점 적을 먼저 격파해 히메코 충전",
     "tags": [
+      "히메코 · 헤르타",
       "히메코",
-      "추가 공격",
-      "허구 이야기",
-      "약점 격파",
       "헤르타",
       "로빈",
       "갤러거",
       "아스타",
       "완·매",
       "망귀인",
-      "제이드",
       "영사"
     ],
     "updated": "2026-11-25",
@@ -6513,7 +6450,11 @@
       "hsr-himeko",
       "hsr-herta",
       "hsr-robin",
-      "hsr-gallagher"
+      "hsr-gallagher",
+      "hsr-asta",
+      "hsr-ruan-mei",
+      "hsr-tingyun-fugue",
+      "hsr-lingsha"
     ],
     "party": {
       "category": "followup",
@@ -6565,12 +6506,6 @@
           "reason": "망귀인의 가짜 강인성 격파로 추가 충전. 슈퍼 격파 비중 확대."
         },
         {
-          "id": "1314",
-          "name": "제이드",
-          "replaces": "1013",
-          "reason": "헤르타 대신 광역 추가 공격. 공격 기회가 많은 동료를 빚 수금업자로 지정."
-        },
-        {
           "id": "1222",
           "name": "영사",
           "replaces": "1301",
@@ -6582,7 +6517,11 @@
         "적 HP 50%선을 넘겨 헤르타 추격",
         "새 웨이브의 약점 적에게 연쇄"
       ],
-      "note": "화염·얼음 약점의 다수 적에서 활용. 충전과 HP 50% 발동 타이밍을 서로 잇습니다."
+      "note": "화염·얼음 약점의 다수 적에서 활용. 충전과 HP 50% 발동 타이밍을 서로 잇습니다.",
+      "coreMemberIds": [
+        "1003",
+        "1013"
+      ]
     }
   },
   {
@@ -6593,9 +6532,6 @@
     "summary": "페라와 웰트가 방어력 감소를 적용",
     "tags": [
       "웰트",
-      "정련된 새 빛",
-      "방어력 감소",
-      "행동 지연",
       "선데이",
       "페라",
       "어벤츄린",
@@ -6634,7 +6570,12 @@
       "hsr-welt",
       "hsr-sunday",
       "hsr-pela",
-      "hsr-aventurine"
+      "hsr-aventurine",
+      "hsr-yukong",
+      "hsr-tingyun",
+      "hsr-blade-mortenax",
+      "hsr-luocha",
+      "hsr-dan-heng-permansor-terrae"
     ],
     "party": {
       "category": "hypercarry",
@@ -6703,7 +6644,10 @@
         "선데이로 웰트 행동을 당겨 감속 대상 전투 스킬",
         "무중력 대상에 연속 공격해 행동을 지연"
       ],
-      "note": "웰트를 딜러로 육성한 경우. 적 지연 덕에 실드 강제 갱신이 줄어드는지 확인."
+      "note": "웰트를 딜러로 육성한 경우. 적 지연 덕에 실드 강제 갱신이 줄어드는지 확인.",
+      "coreMemberIds": [
+        "1004"
+      ]
     }
   },
   {
@@ -6714,8 +6658,6 @@
     "summary": "아를란 피격 전에 실드",
     "tags": [
       "아를란",
-      "HP 소모",
-      "메인 딜러",
       "게파드",
       "정운",
       "아스타",
@@ -6749,7 +6691,11 @@
       "hsr-arlan",
       "hsr-gepard",
       "hsr-tingyun",
-      "hsr-asta"
+      "hsr-asta",
+      "hsr-march-7th",
+      "hsr-dan-heng-permansor-terrae",
+      "hsr-aventurine",
+      "hsr-bronya"
     ],
     "party": {
       "category": "hp",
@@ -6812,7 +6758,10 @@
         "스킬 HP 소모로 특성 피해 강화",
         "정운 필살기로 아를란 필살기 지원"
       ],
-      "note": "아를란 회복보다 실드 갱신을 우선해 낮은 HP를 유지하는 편성."
+      "note": "아를란 회복보다 실드 갱신을 우선해 낮은 HP를 유지하는 편성.",
+      "coreMemberIds": [
+        "1008"
+      ]
     }
   },
   {
@@ -6823,9 +6772,6 @@
     "summary": "아군 필살기로 노심 공명 누적",
     "tags": [
       "세이버",
-      "메인 딜러",
-      "필살기",
-      "에너지",
       "선데이",
       "정운",
       "곽향",
@@ -6860,7 +6806,12 @@
       "hsr-saber",
       "hsr-sunday",
       "hsr-tingyun",
-      "hsr-huohuo"
+      "hsr-huohuo",
+      "hsr-bronya",
+      "hsr-robin-summeretto",
+      "hsr-tribbie",
+      "hsr-cerydra",
+      "hsr-luocha"
     ],
     "party": {
       "category": "hypercarry",
@@ -6929,7 +6880,10 @@
         "세이버가 공명을 활용해 에너지를 채우고 필살기",
         "강화 일반 공격으로 다음 필살기 준비"
       ],
-      "note": "에너지 넘침을 보존하는 추가 행적을 해금. 선데이보다 세이버가 먼저 행동하면 한 번 더 스킬을 쓸 수 있습니다."
+      "note": "에너지 넘침을 보존하는 추가 행적을 해금. 선데이보다 세이버가 먼저 행동하면 한 번 더 스킬을 쓸 수 있습니다.",
+      "coreMemberIds": [
+        "1014"
+      ]
     }
   },
   {
@@ -6940,9 +6894,6 @@
     "summary": "사이퍼와 나찰의 일반 공격으로 SP 확보",
     "tags": [
       "아처",
-      "메인 딜러",
-      "전투 스킬 포인트",
-      "추가 공격",
       "스파클",
       "사이퍼",
       "나찰",
@@ -6951,7 +6902,8 @@
       "케리드라",
       "링스",
       "갤러거",
-      "단항•등황"
+      "단항•등황",
+      "토오사카 린"
     ],
     "updated": "2026-11-25",
     "basis": "4.7 스킬 대조 · 자료실 편성 예시",
@@ -6972,13 +6924,28 @@
       {
         "label": "StarRailRes 4.7 · 편성에 사용한 스킬 효과",
         "url": "https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_skills.json"
+      },
+      {
+        "label": "Prydwen · 토오사카 린 빌드와 파티",
+        "url": "https://www.prydwen.gg/star-rail/characters/rin-tohsaka"
+      },
+      {
+        "label": "Prydwen · 단항•등황 빌드와 파티",
+        "url": "https://www.prydwen.gg/star-rail/characters/dan-heng-permansor-terrae"
       }
     ],
     "related": [
       "hsr-archer",
       "hsr-sparkle",
       "hsr-cipher",
-      "hsr-luocha"
+      "hsr-luocha",
+      "hsr-silver-wolf",
+      "hsr-pela",
+      "hsr-cerydra",
+      "hsr-lynx",
+      "hsr-gallagher",
+      "hsr-dan-heng-permansor-terrae",
+      "hsr-rin-tohsaka"
     ],
     "party": {
       "category": "hypercarry",
@@ -7000,7 +6967,7 @@
         {
           "id": "1406",
           "name": "사이퍼",
-          "role": "방어력 감소·취약",
+          "role": "취약·피해 기록",
           "guideId": "hsr-cipher"
         },
         {
@@ -7046,6 +7013,18 @@
           "name": "단항•등황",
           "replaces": "1203",
           "reason": "등황의 누적 실드와 용령 정화. 스킬 사용 시 아처를 전우 지정."
+        },
+        {
+          "id": "1508",
+          "name": "토오사카 린",
+          "replaces": "1406",
+          "reason": "린의 보석·연계 추가 공격 지원. 스파클로 SP 7pt 조건과 연속 스킬 비용 확보."
+        },
+        {
+          "id": "1412",
+          "name": "케리드라",
+          "replaces": "1306",
+          "reason": "사이퍼도 린으로 바꾸는 조합. 아처 스킬 복제 지원, 스파클 없이 SP 7pt 조건과 연속 스킬 비용 확보 필요."
         }
       ],
       "steps": [
@@ -7054,8 +7033,14 @@
         "아처 필살기로 충전 +2pt",
         "아군 공격에 아처가 추가 공격 → 충전 1pt 소모·SP 1pt 회복"
       ],
-      "note": "아처 승급 2단계 최대 SP +2pt로 전광 조건 충족. 스파클은 SP 상한과 회복을 추가 지원."
-    }
+      "note": "아처 승급 2단계 최대 SP +2pt로 전광 조건 충족. 스파클은 SP 상한과 회복을 추가 지원.",
+      "coreMemberIds": [
+        "1015"
+      ]
+    },
+    "aliases": [
+      "hsr-rin-tohsaka-team"
+    ]
   },
   {
     "id": "hsr-seele-team",
@@ -7065,9 +7050,6 @@
     "summary": "1번 제레의 양자 속성을 은랑 스킬로 우선 이식",
     "tags": [
       "제레",
-      "정련된 새 빛",
-      "메인 딜러",
-      "재현",
       "은랑",
       "스파클",
       "부현",
@@ -7107,7 +7089,13 @@
       "hsr-seele",
       "hsr-silver-wolf",
       "hsr-sparkle",
-      "hsr-fu-xuan"
+      "hsr-fu-xuan",
+      "hsr-lynx",
+      "hsr-dan-heng-permansor-terrae",
+      "hsr-pela",
+      "hsr-ashveil",
+      "hsr-cerydra",
+      "hsr-robin-summeretto"
     ],
     "party": {
       "category": "hypercarry",
@@ -7182,124 +7170,10 @@
         "작은 적을 처치해 제레의 증폭·보너스 턴 확보",
         "스파클이 제레 행동을 당기고 부현이 궁관진 유지"
       ],
-      "note": "SP 여유에 맞춰 제레를 당기고, 추격이 자동으로 들어갈 적의 HP를 확인합니다."
-    }
-  },
-  {
-    "id": "hsr-serval-team",
-    "game": "hsr",
-    "kind": "party",
-    "title": "서벌의 더 헤르타 해독 지원 파티",
-    "summary": "서벌이 열쇠와 회복효율 매듭으로 광역 필살기 준비",
-    "tags": [
-      "서벌",
-      "감전",
-      "필살기",
-      "허구 이야기",
-      "더 헤르타",
-      "트리비",
-      "곽향",
-      "헤르타",
-      "아낙사",
-      "제이드",
-      "갤러거",
-      "영사"
-    ],
-    "updated": "2026-11-25",
-    "basis": "4.7 스킬 대조 · 자료실 편성 예시",
-    "sections": [
-      {
-        "title": "편성 조건",
-        "paragraphs": [
-          "서벌의 광역 타격 지원을 위해 빠른 필살기 회전을 우선합니다."
-        ],
-        "bullets": []
-      }
-    ],
-    "sources": [
-      {
-        "label": "Prydwen · 장비와 운용",
-        "url": "https://www.prydwen.gg/star-rail/characters/serval"
-      },
-      {
-        "label": "StarRailRes 4.7 · 편성에 사용한 스킬 효과",
-        "url": "https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_skills.json"
-      }
-    ],
-    "related": [
-      "hsr-serval",
-      "hsr-the-herta",
-      "hsr-tribbie",
-      "hsr-huohuo"
-    ],
-    "party": {
-      "category": "hypercarry",
-      "lead": "더 헤르타 · 서벌",
-      "variant": "광역 해독 지원",
-      "members": [
-        {
-          "id": "1103",
-          "name": "서벌",
-          "role": "열쇠·필살기 해독 지원",
-          "guideId": "hsr-serval"
-        },
-        {
-          "id": "1401",
-          "name": "더 헤르타",
-          "role": "광역 해독 딜러",
-          "guideId": "hsr-the-herta"
-        },
-        {
-          "id": "1403",
-          "name": "트리비",
-          "role": "광역 지원·저항 관통",
-          "guideId": "hsr-tribbie"
-        },
-        {
-          "id": "1217",
-          "name": "곽향",
-          "role": "치유·에너지",
-          "guideId": "hsr-huohuo"
-        }
-      ],
-      "alternatives": [
-        {
-          "id": "1013",
-          "name": "헤르타",
-          "replaces": "1103",
-          "reason": "서벌 대신 얼음 약점 다수 적에서 체력선 추격."
-        },
-        {
-          "id": "1405",
-          "name": "아낙사",
-          "replaces": "1103",
-          "reason": "서벌 대신 지식 동료·약점 적용."
-        },
-        {
-          "id": "1314",
-          "name": "제이드",
-          "replaces": "1103",
-          "reason": "제이드 광역 추가 공격으로 다수 웨이브에서 해독을 쌓을 때."
-        },
-        {
-          "id": "1301",
-          "name": "갤러거",
-          "replaces": "1217",
-          "reason": "곽향 대신 평타 SP 수급. 팀 에너지 보조는 바뀌므로 필살기 주기 확인."
-        },
-        {
-          "id": "1222",
-          "name": "영사",
-          "replaces": "1217",
-          "reason": "영사로 광역 추가 타격·치유·정화."
-        }
-      ],
-      "steps": [
-        "서벌이 열쇠와 회복효율 매듭으로 광역 필살기 준비",
-        "적 다수 타격으로 더 헤르타 해독 지원",
-        "트리비의 광역 피해 지원 뒤 더 헤르타 강화 스킬"
-      ],
-      "note": "서벌의 광역 타격 지원을 위해 빠른 필살기 회전을 우선합니다."
+      "note": "SP 여유에 맞춰 제레를 당기고, 추격이 자동으로 들어갈 적의 HP를 확인합니다.",
+      "coreMemberIds": [
+        "1102"
+      ]
     }
   },
   {
@@ -7310,9 +7184,6 @@
     "summary": "링스 스킬로 클라라 피격 확률을 높임",
     "tags": [
       "클라라",
-      "반격",
-      "추가 공격",
-      "메인 딜러",
       "링스",
       "로빈",
       "토파즈&복순이",
@@ -7347,7 +7218,12 @@
       "hsr-clara",
       "hsr-lynx",
       "hsr-robin",
-      "hsr-topaz"
+      "hsr-topaz",
+      "hsr-tingyun",
+      "hsr-sparkle",
+      "hsr-huohuo",
+      "hsr-dan-heng-permansor-terrae",
+      "hsr-march-7th"
     ],
     "party": {
       "category": "followup",
@@ -7416,7 +7292,10 @@
         "토파즈로 주 대상 부채 증명 적용",
         "적에게 맞기 직전 클라라 필살기로 강화 반격 준비"
       ],
-      "note": "적 행동을 받아 반격하는 편성입니다. 아군 위치와 적 공격 범위를 확인합니다."
+      "note": "적 행동을 받아 반격하는 편성입니다. 아군 위치와 적 공격 범위를 확인합니다.",
+      "coreMemberIds": [
+        "1107"
+      ]
     }
   },
   {
@@ -7426,16 +7305,11 @@
     "title": "삼포·루카 지속 피해 기폭 파티",
     "summary": "삼포 풍화·루카 열상 먼저 적용",
     "tags": [
+      "삼포 · 루카",
       "삼포",
-      "풍화",
-      "지속 피해",
       "루카",
       "카프카",
       "곽향",
-      "계네빈",
-      "초구",
-      "블랙 스완",
-      "히실렌스",
       "갤러거"
     ],
     "updated": "2026-11-25",
@@ -7463,7 +7337,8 @@
       "hsr-sampo",
       "hsr-luka",
       "hsr-kafka",
-      "hsr-huohuo"
+      "hsr-huohuo",
+      "hsr-gallagher"
     ],
     "party": {
       "category": "dot",
@@ -7497,30 +7372,6 @@
       ],
       "alternatives": [
         {
-          "id": "1210",
-          "name": "계네빈",
-          "replaces": "1111",
-          "reason": "화염 약점일 때 루카 대신 연소와 받는 피해 증가."
-        },
-        {
-          "id": "1218",
-          "name": "초구",
-          "replaces": "1111",
-          "reason": "초구의 연소 판정과 적 받는 피해 증가 활용."
-        },
-        {
-          "id": "1307",
-          "name": "블랙 스완",
-          "replaces": "1108",
-          "reason": "삼포 대신 아르카나·방어력 감소."
-        },
-        {
-          "id": "1410",
-          "name": "히실렌스",
-          "replaces": "1108",
-          "reason": "히실렌스가 여러 속성의 지속 피해 부여. 동료 기폭과 연계."
-        },
-        {
           "id": "1301",
           "name": "갤러거",
           "replaces": "1217",
@@ -7532,7 +7383,11 @@
         "삼포 필살기로 지속 피해 취약",
         "카프카 공격으로 지속 피해 기폭"
       ],
-      "note": "삼포·루카의 효과 명중을 75%로 맞추면 강화 카프카 공격력 지원을 활용할 수 있습니다."
+      "note": "삼포·루카의 효과 명중을 75%로 맞추면 강화 카프카 공격력 지원을 활용할 수 있습니다.",
+      "coreMemberIds": [
+        "1108",
+        "1111"
+      ]
     }
   },
   {
@@ -7543,8 +7398,6 @@
     "summary": "아스타 스킬로 불 약점 적의 강인성 감소",
     "tags": [
       "후크",
-      "연소",
-      "메인 딜러",
       "아스타",
       "정운",
       "나타샤",
@@ -7579,7 +7432,12 @@
       "hsr-hook",
       "hsr-asta",
       "hsr-tingyun",
-      "hsr-natasha"
+      "hsr-natasha",
+      "hsr-guinaifen",
+      "hsr-jiaoqiu",
+      "hsr-bronya",
+      "hsr-gallagher",
+      "hsr-lingsha"
     ],
     "party": {
       "category": "hypercarry",
@@ -7648,7 +7506,10 @@
         "후크 스킬로 연소 부여",
         "정운 에너지와 후크 필살기를 이어 강화 확산 공격"
       ],
-      "note": "아스타가 행성 광추를 장착하면 후크의 화염 피해를 추가 지원합니다."
+      "note": "아스타가 행성 광추를 장착하면 후크의 화염 피해를 추가 지원합니다.",
+      "coreMemberIds": [
+        "1109"
+      ]
     }
   },
   {
@@ -7658,17 +7519,11 @@
     "title": "토파즈·비소 집중 추가 공격 파티",
     "summary": "토파즈로 주 대상에게 부채 증명",
     "tags": [
+      "비소 · 토파즈",
       "토파즈&복순이",
-      "추가 공격",
-      "단일 적",
-      "지원 딜러",
       "비소",
       "로빈",
       "어벤츄린",
-      "Mar. 7th · 수렵",
-      "맥택",
-      "Dr. 레이시오",
-      "애쉬베일",
       "단항•등황",
       "영사"
     ],
@@ -7697,7 +7552,9 @@
       "hsr-topaz",
       "hsr-feixiao",
       "hsr-robin",
-      "hsr-aventurine"
+      "hsr-aventurine",
+      "hsr-dan-heng-permansor-terrae",
+      "hsr-lingsha"
     ],
     "party": {
       "category": "followup",
@@ -7731,30 +7588,6 @@
       ],
       "alternatives": [
         {
-          "id": "1224",
-          "name": "Mar. 7th · 수렵",
-          "replaces": "1112",
-          "reason": "수렵 Mar. 7th로 비소를 사부 지정해 추가 타격."
-        },
-        {
-          "id": "1223",
-          "name": "맥택",
-          "replaces": "1112",
-          "reason": "맥택 표식 대상에게 추가 공격 집중."
-        },
-        {
-          "id": "1305",
-          "name": "Dr. 레이시오",
-          "replaces": "1220",
-          "reason": "허수 약점 적에 레이시오의 추가 공격. 디버프 3개 조건 확인."
-        },
-        {
-          "id": "1504",
-          "name": "애쉬베일",
-          "replaces": "1220",
-          "reason": "애쉬베일 미끼 표식에 공격을 집중해 복순이 행동 당김."
-        },
-        {
           "id": "1414",
           "name": "단항•등황",
           "replaces": "1304",
@@ -7772,7 +7605,11 @@
         "비소와 어벤츄린의 공격으로 회전",
         "로빈이 필살기로 아군 행동을 모아 집중 공격"
       ],
-      "note": "복순이와 비소가 같은 표식 적을 때릴 수 있게 적이 교체되면 부채 증명을 옮깁니다."
+      "note": "복순이와 비소가 같은 표식 적을 때릴 수 있게 적이 교체되면 부채 증명을 옮깁니다.",
+      "coreMemberIds": [
+        "1220",
+        "1112"
+      ]
     }
   },
   {
@@ -7783,9 +7620,6 @@
     "summary": "스파클 필살기와 유지력 평타로 SP 마련",
     "tags": [
       "청작",
-      "메인 딜러",
-      "전투 스킬 포인트",
-      "강화 일반 공격",
       "스파클",
       "은랑",
       "나찰",
@@ -7820,7 +7654,12 @@
       "hsr-qingque",
       "hsr-sparkle",
       "hsr-silver-wolf",
-      "hsr-luocha"
+      "hsr-luocha",
+      "hsr-fu-xuan",
+      "hsr-lynx",
+      "hsr-gallagher",
+      "hsr-pela",
+      "hsr-hanya"
     ],
     "party": {
       "category": "hypercarry",
@@ -7889,7 +7728,10 @@
         "은랑이 표식 적 방어력을 감소",
         "청작 스킬로 패를 맞춰 강화 평타"
       ],
-      "note": "필살기를 써서 같은 패 4장을 얻을 수 있습니다. 패가 맞춰지기 전까지 스킬에 필요한 SP를 남깁니다."
+      "note": "필살기를 써서 같은 패 4장을 얻을 수 있습니다. 패가 맞춰지기 전까지 스킬에 필요한 SP를 남깁니다.",
+      "coreMemberIds": [
+        "1201"
+      ]
     }
   },
   {
@@ -7900,10 +7742,6 @@
     "summary": "경원 스킬·필살기로 신군 공격 단수 누적",
     "tags": [
       "경원",
-      "추가 공격",
-      "신군",
-      "기연 성혼",
-      "EX 성혼",
       "선데이",
       "로빈•서머레토",
       "단항•등황",
@@ -7943,7 +7781,13 @@
       "hsr-jing-yuan",
       "hsr-sunday",
       "hsr-robin-summeretto",
-      "hsr-dan-heng-permansor-terrae"
+      "hsr-dan-heng-permansor-terrae",
+      "hsr-sparkle",
+      "hsr-blade-mortenax",
+      "hsr-tingyun",
+      "hsr-jiaoqiu",
+      "hsr-pela",
+      "hsr-huohuo"
     ],
     "party": {
       "category": "followup",
@@ -8018,7 +7862,10 @@
         "선데이로 경원과 신군 행동 조율",
         "EX가 활성화되어 있으면 30단 즉시 행동을 활용"
       ],
-      "note": "기연 성혼 보유 전 신군 상한은 10단입니다. 로빈•서머레토 필살기는 경원을 특별 게스트로 지정합니다."
+      "note": "기연 성혼 보유 전 신군 상한은 10단입니다. 로빈•서머레토 필살기는 경원을 특별 게스트로 지정합니다.",
+      "coreMemberIds": [
+        "1204"
+      ]
     }
   },
   {
@@ -8029,9 +7876,6 @@
     "summary": "블레이드 지옥변으로 HP 소모 시작",
     "tags": [
       "블레이드",
-      "HP 소모",
-      "추가 공격",
-      "정련된 새 빛",
       "브로냐",
       "트리비",
       "히아킨",
@@ -8070,7 +7914,12 @@
       "hsr-blade",
       "hsr-bronya",
       "hsr-tribbie",
-      "hsr-hyacine"
+      "hsr-hyacine",
+      "hsr-sunday",
+      "hsr-lynx",
+      "hsr-cipher",
+      "hsr-silver-wolf",
+      "hsr-ruan-mei"
     ],
     "party": {
       "category": "hp",
@@ -8139,7 +7988,10 @@
         "브로냐가 뒤에서 강화 평타 추가 행동 지원",
         "히아킨 치유로 생존과 누적 손실 HP 관리"
       ],
-      "note": "행동 전진·치명타·최대 HP·저항 관통을 활용합니다."
+      "note": "행동 전진·치명타·최대 HP·저항 관통을 활용합니다.",
+      "coreMemberIds": [
+        "1205"
+      ]
     }
   },
   {
@@ -8150,8 +8002,6 @@
     "summary": "완·매 스킬과 개척자 필살기로 격파 준비",
     "tags": [
       "소상",
-      "격파",
-      "물리 딜러",
       "개척자(화합)",
       "완·매",
       "갤러거",
@@ -8185,7 +8035,11 @@
       "hsr-sushang",
       "hsr-trailblazer-harmony",
       "hsr-ruan-mei",
-      "hsr-gallagher"
+      "hsr-gallagher",
+      "hsr-tingyun-fugue",
+      "hsr-lingsha",
+      "hsr-hanya",
+      "hsr-luka"
     ],
     "party": {
       "category": "break",
@@ -8248,7 +8102,10 @@
         "소상이 물리 약점을 격파",
         "격파 상태에서 스킬 → 필살기 → 스킬"
       ],
-      "note": "대상에게 물리 약점이 있을 때 활용. 1돌 스킬 포인트 반환은 이미 격파된 대상에 적용됩니다."
+      "note": "대상에게 물리 약점이 있을 때 활용. 1돌 스킬 포인트 반환은 이미 격파된 대상에 적용됩니다.",
+      "coreMemberIds": [
+        "1206"
+      ]
     }
   },
   {
@@ -8284,7 +8141,11 @@
       "hsr-yanqing",
       "hsr-sunday",
       "hsr-pela",
-      "hsr-aventurine"
+      "hsr-aventurine",
+      "hsr-bronya",
+      "hsr-sparkle",
+      "hsr-robin",
+      "hsr-gepard"
     ],
     "party": {
       "category": "hypercarry",
@@ -8347,7 +8208,10 @@
         "연경 스킬로 신검합일을 켭니다.",
         "적 방어력 감소를 확인한 뒤 필살기를 사용합니다."
       ],
-      "note": "신검합일은 연경이 피해를 받으면 풀립니다. 실드가 끊기는 웨이브 전환에 주의하세요."
+      "note": "신검합일은 연경이 피해를 받으면 풀립니다. 실드가 끊기는 웨이브 전환에 주의하세요.",
+      "coreMemberIds": [
+        "1209"
+      ]
     }
   },
   {
@@ -8388,7 +8252,12 @@
       "hsr-jingliu",
       "hsr-sunday",
       "hsr-tribbie",
-      "hsr-hyacine"
+      "hsr-hyacine",
+      "hsr-bronya",
+      "hsr-trailblazer-remembrance",
+      "hsr-ruan-mei",
+      "hsr-bailu",
+      "hsr-huohuo"
     ],
     "party": {
       "category": "hp",
@@ -8457,7 +8326,10 @@
         "전백에 진입한 뒤 강화 스킬을 사용합니다.",
         "회복과 필살기를 사용해 파티 HP와 삭망을 보충합니다."
       ],
-      "note": "4.7의 경류는 정련된 새 빛을 켠 HP 세팅 기준입니다."
+      "note": "4.7의 경류는 정련된 새 빛을 켠 HP 세팅 기준입니다.",
+      "coreMemberIds": [
+        "1212"
+      ]
     }
   },
   {
@@ -8469,12 +8341,11 @@
     "tags": [
       "단항·음월",
       "스파클",
-      "로빈·서머레토",
+      "로빈•서머레토",
       "곽향",
       "선데이",
       "한아",
-      "갤러거",
-      "로빈•서머레토"
+      "갤러거"
     ],
     "updated": "2026-11-25",
     "basis": "4.7 · 각 캐릭터의 장비·편성 분석과 행동 조건을 대조한 예시",
@@ -8497,7 +8368,10 @@
       "hsr-imbibitor-lunae",
       "hsr-sparkle",
       "hsr-robin-summeretto",
-      "hsr-huohuo"
+      "hsr-huohuo",
+      "hsr-sunday",
+      "hsr-hanya",
+      "hsr-gallagher"
     ],
     "party": {
       "category": "hypercarry",
@@ -8554,7 +8428,10 @@
         "스파클이 음월을 당기고 포인트를 보충합니다.",
         "3단 강화 일반 공격과 동료 스킬 소모로 기연 성혼을 발동합니다."
       ],
-      "note": "음월 성혼 2에서는 필살기 후 즉시 행동하므로 필살기 전 강화 일반 공격과 스파클 버프 잔여 턴을 확인하세요."
+      "note": "음월 성혼 2에서는 필살기 후 즉시 행동하므로 필살기 전 강화 일반 공격과 스파클 버프 잔여 턴을 확인하세요.",
+      "coreMemberIds": [
+        "1213"
+      ]
     }
   },
   {
@@ -8593,7 +8470,10 @@
       "hsr-xueyi",
       "hsr-tingyun-fugue",
       "hsr-ruan-mei",
-      "hsr-gallagher"
+      "hsr-gallagher",
+      "hsr-trailblazer-harmony",
+      "hsr-the-dahlia",
+      "hsr-lingsha"
     ],
     "party": {
       "category": "break",
@@ -8650,7 +8530,10 @@
         "아군 공격으로 강인성을 감소시켜 업보를 쌓습니다.",
         "약점이 다른 정예는 설의 필살기로 격파하세요."
       ],
-      "note": "설의 성혼 2는 추가 공격에서 약점 무시, 성혼 6은 업보 요구량 감소를 제공합니다."
+      "note": "설의 성혼 2는 추가 공격에서 약점 무시, 성혼 6은 업보 요구량 감소를 제공합니다.",
+      "coreMemberIds": [
+        "1214"
+      ]
     }
   },
   {
@@ -8660,6 +8543,7 @@
     "title": "카프카·블랙 스완 지속 피해 기폭 파티",
     "summary": "아르카나와 다른 지속 피해를 쌓아 카프카의 스킬·필살기로 발동합니다.",
     "tags": [
+      "카프카·블랙 스완",
       "카프카",
       "블랙 스완",
       "완·매",
@@ -8699,7 +8583,12 @@
       "hsr-kafka",
       "hsr-black-swan",
       "hsr-ruan-mei",
-      "hsr-huohuo"
+      "hsr-huohuo",
+      "hsr-hysilens",
+      "hsr-jiaoqiu",
+      "hsr-guinaifen",
+      "hsr-sampo",
+      "hsr-gallagher"
     ],
     "party": {
       "category": "dot",
@@ -8768,7 +8657,11 @@
         "완·매 결계나 발로를 켭니다.",
         "지속 피해가 붙은 적에게 카프카 스킬·필살기를 사용합니다."
       ],
-      "note": "강화 카프카의 공격력 지원은 동료의 효과 명중도 참조합니다. 블랙 스완·곽향은 정련된 새 빛 적용 기준입니다."
+      "note": "강화 카프카의 공격력 지원은 동료의 효과 명중도 참조합니다. 블랙 스완·곽향은 정련된 새 빛 적용 기준입니다.",
+      "coreMemberIds": [
+        "1005",
+        "1307"
+      ]
     }
   },
   {
@@ -8787,8 +8680,11 @@
       "Mar. 7th · 수렵",
       "사이퍼",
       "트리비",
-      "단항·등황",
-      "단항•등황"
+      "단항•등황",
+      "웰트",
+      "은랑",
+      "천야•블레이드",
+      "선데이"
     ],
     "updated": "2026-11-25",
     "basis": "4.7 · 각 캐릭터의 장비·편성 분석과 행동 조건을 대조한 예시",
@@ -8813,13 +8709,35 @@
       {
         "label": "Prydwen · 캐릭터 시너지와 파티 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/march-7th-swordmaster"
+      },
+      {
+        "label": "Prydwen · 애쉬베일 빌드와 파티",
+        "url": "https://www.prydwen.gg/star-rail/characters/ashveil"
+      },
+      {
+        "label": "StarRailRes 4.7 · 파티 연계 스킬",
+        "url": "https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_skills.json"
+      },
+      {
+        "label": "Prydwen · 단항•등황 빌드와 파티",
+        "url": "https://www.prydwen.gg/star-rail/characters/dan-heng-permansor-terrae"
       }
     ],
     "related": [
       "hsr-feixiao",
       "hsr-ashveil",
       "hsr-robin",
-      "hsr-aventurine"
+      "hsr-aventurine",
+      "hsr-topaz",
+      "hsr-moze",
+      "hsr-march-7th-swordmaster",
+      "hsr-cipher",
+      "hsr-tribbie",
+      "hsr-dan-heng-permansor-terrae",
+      "hsr-welt",
+      "hsr-silver-wolf",
+      "hsr-blade-mortenax",
+      "hsr-sunday"
     ],
     "party": {
       "category": "followup",
@@ -8887,6 +8805,30 @@
           "name": "단항•등황",
           "replaces": "1304",
           "reason": "실드와 호위 대상 공격력 지원이 필요할 때 비소를 지정합니다."
+        },
+        {
+          "id": "1004",
+          "name": "웰트",
+          "replaces": "1309",
+          "reason": "강화 웰트의 무중력·방어력 감소. 로빈의 전원 행동 당김 상실."
+        },
+        {
+          "id": "1006",
+          "name": "은랑",
+          "replaces": "1309",
+          "reason": "광역 방어력 감소·단일 약점 이식. 비소를 1번에 배치, 로빈의 전원 행동 당김 상실."
+        },
+        {
+          "id": "1507",
+          "name": "천야•블레이드",
+          "replaces": "1309",
+          "reason": "천야 결계·추가 스킬로 지원. 명함 추가 스킬은 추가 공격, 2돌은 동료 필살기 피해도 추가 공격으로 취급."
+        },
+        {
+          "id": "1313",
+          "name": "선데이",
+          "replaces": "1309",
+          "reason": "비소 단일 행동 지원. 용령 동시 행동까지 활용하려면 어벤츄린도 등황으로 바꾸고 비소를 전우로 지정."
         }
       ],
       "steps": [
@@ -8894,8 +8836,14 @@
         "동료들의 반복 공격으로 비황을 쌓습니다.",
         "로빈 협주와 디버프가 활성화된 정예에게 필살기를 사용합니다."
       ],
-      "note": "적을 계속 바꿔야 하는 전투에서는 맥택의 사냥감보다 비소를 사부로 지정한 수렵 Mar. 7th가 관리하기 쉽습니다."
-    }
+      "note": "적을 계속 바꿔야 하는 전투에서는 맥택의 사냥감보다 비소를 사부로 지정한 수렵 Mar. 7th가 관리하기 쉽습니다.",
+      "coreMemberIds": [
+        "1220"
+      ]
+    },
+    "aliases": [
+      "hsr-ashveil-team"
+    ]
   },
   {
     "id": "hsr-yunli-counter",
@@ -8910,9 +8858,8 @@
       "곽향",
       "정운",
       "트리비",
-      "단항·등황",
-      "링스",
-      "단항•등황"
+      "단항•등황",
+      "링스"
     ],
     "updated": "2026-11-25",
     "basis": "4.7 · 각 캐릭터의 장비·편성 분석과 행동 조건을 대조한 예시",
@@ -8935,7 +8882,11 @@
       "hsr-yunli",
       "hsr-sunday",
       "hsr-robin",
-      "hsr-huohuo"
+      "hsr-huohuo",
+      "hsr-tingyun",
+      "hsr-tribbie",
+      "hsr-dan-heng-permansor-terrae",
+      "hsr-lynx"
     ],
     "party": {
       "category": "followup",
@@ -8998,7 +8949,10 @@
         "적의 직접 공격 직전에 운리 필살기로 막기를 켭니다.",
         "적이 공격하면 간파·멸로 반격합니다."
       ],
-      "note": "필살기 직후 아군 턴을 끼워 넣으면 막기가 먼저 풀릴 수 있습니다."
+      "note": "필살기 직후 아군 턴을 끼워 넣으면 막기가 먼저 풀릴 수 있습니다.",
+      "coreMemberIds": [
+        "1221"
+      ]
     }
   },
   {
@@ -9038,7 +8992,11 @@
       "hsr-argenti",
       "hsr-sunday",
       "hsr-tribbie",
-      "hsr-huohuo"
+      "hsr-huohuo",
+      "hsr-tingyun",
+      "hsr-hanya",
+      "hsr-robin",
+      "hsr-gallagher"
     ],
     "party": {
       "category": "hypercarry",
@@ -9101,7 +9059,10 @@
         "선데이·곽향 필살기를 쓰고 에너지 초과를 피합니다.",
         "약한 적은 90, 정예 포함 웨이브는 180 필살기를 사용합니다."
       ],
-      "note": "허구 이야기에서는 새 적이 등장한 뒤 광역 공격을 사용할수록 특성 에너지를 얻기 쉽습니다."
+      "note": "허구 이야기에서는 새 적이 등장한 뒤 광역 공격을 사용할수록 특성 에너지를 얻기 쉽습니다.",
+      "coreMemberIds": [
+        "1302"
+      ]
     }
   },
   {
@@ -9142,7 +9103,12 @@
       "hsr-dr-ratio",
       "hsr-jiaoqiu",
       "hsr-robin",
-      "hsr-aventurine"
+      "hsr-aventurine",
+      "hsr-moze",
+      "hsr-topaz",
+      "hsr-silver-wolf",
+      "hsr-cipher",
+      "hsr-gallagher"
     ],
     "party": {
       "category": "followup",
@@ -9211,7 +9177,10 @@
         "레이시오 스킬을 사용해 추가 공격을 발동합니다.",
         "필살기 후 동료가 표적을 때려 추가 공격을 소비합니다."
       ],
-      "note": "적이 바뀌면 디버프 개수도 다시 확인하세요."
+      "note": "적이 바뀌면 디버프 개수도 다시 확인하세요.",
+      "coreMemberIds": [
+        "1305"
+      ]
     }
   },
   {
@@ -9222,17 +9191,20 @@
     "summary": "천야·블레이드 결계에서 꿈 조각을 쌓고, 아즈사카 표적 공격으로 기연 성혼을 발동합니다.",
     "tags": [
       "아케론",
-      "천야·블레이드",
+      "천야•블레이드",
       "애쉬베일",
       "히아킨",
       "초구",
       "사이퍼",
-      "로빈·서머레토",
+      "로빈•서머레토",
       "스파클",
       "어벤츄린",
       "갤러거",
-      "천야•블레이드",
-      "로빈•서머레토"
+      "은랑",
+      "트리비",
+      "페라",
+      "개척자(보존)",
+      "단항•등황"
     ],
     "updated": "2026-11-25",
     "basis": "4.7 · 각 캐릭터의 장비·편성 분석과 행동 조건을 대조한 예시",
@@ -9253,13 +9225,40 @@
       {
         "label": "Prydwen · 캐릭터 시너지와 파티 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/robin-summeretto"
+      },
+      {
+        "label": "Prydwen · 천야•블레이드 빌드와 파티",
+        "url": "https://www.prydwen.gg/star-rail/characters/blade-mortenax"
+      },
+      {
+        "label": "StarRailRes 4.7 · 파티 연계 스킬",
+        "url": "https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_skills.json"
+      },
+      {
+        "label": "Prydwen · 히아킨 빌드와 파티",
+        "url": "https://www.prydwen.gg/star-rail/characters/hyacine"
+      },
+      {
+        "label": "Prydwen · 개척자(보존) 빌드와 파티",
+        "url": "https://www.prydwen.gg/star-rail/characters/trailblazer-preservation"
       }
     ],
     "related": [
       "hsr-acheron",
       "hsr-blade-mortenax",
       "hsr-ashveil",
-      "hsr-hyacine"
+      "hsr-hyacine",
+      "hsr-jiaoqiu",
+      "hsr-cipher",
+      "hsr-robin-summeretto",
+      "hsr-sparkle",
+      "hsr-aventurine",
+      "hsr-gallagher",
+      "hsr-silver-wolf",
+      "hsr-tribbie",
+      "hsr-pela",
+      "hsr-trailblazer-preservation",
+      "hsr-dan-heng-permansor-terrae"
     ],
     "party": {
       "category": "hypercarry",
@@ -9327,6 +9326,36 @@
           "name": "갤러거",
           "replaces": "1409",
           "reason": "생존을 감당할 수 있고 만취·강화 공격 디버프 및 포인트가 필요할 때."
+        },
+        {
+          "id": "1006",
+          "name": "은랑",
+          "replaces": "1504",
+          "reason": "공허 동료 둘로 나락 최고 배율 유지. 은랑의 광역 방어력 감소·단일 약점 이식."
+        },
+        {
+          "id": "1403",
+          "name": "트리비",
+          "replaces": "1504",
+          "reason": "다수 적의 저항 관통·취약. 아케론 2돌 또는 명함 나락 배율 손실을 감수하는 편성."
+        },
+        {
+          "id": "1106",
+          "name": "페라",
+          "replaces": "1507",
+          "reason": "광역 방어력 감소·SP 수급. 천야 결계 상실, 명함 나락 최고 배율은 다른 슬롯에도 공허 필요."
+        },
+        {
+          "id": "8004",
+          "name": "개척자(보존)",
+          "replaces": "1409",
+          "reason": "우주 시장 동향 장착+피격 연소·도발 디버프. 치유가 없어 짧은 전투용, 초구와 같은 적 행동의 꿈 조각 중복 가산 불가."
+        },
+        {
+          "id": "1414",
+          "name": "단항•등황",
+          "replaces": "1409",
+          "reason": "실드·해제가 필요할 때. 히아킨의 광역 회복 상실, 천야 HP 소모 이후 회복 유지 가능 여부 확인."
         }
       ],
       "steps": [
@@ -9334,8 +9363,15 @@
         "동료가 아즈사카가 걸린 적을 공격해 기연 성혼을 발동합니다.",
         "꿈 조각 9pt에서 아즈사카가 많은 적을 중심으로 필살기를 사용합니다."
       ],
-      "note": "명함·공허 한 명 편성은 나락 배율 일부를 포기하고 추가 공격 횟수를 활용하는 조합입니다. 공허 두 명 또는 아케론 성혼 2에서는 최고 배율을 적용합니다."
-    }
+      "note": "명함·공허 한 명 편성은 나락 배율 일부를 포기하고 추가 공격 횟수를 활용하는 조합입니다. 공허 두 명 또는 아케론 성혼 2에서는 최고 배율을 적용합니다.",
+      "coreMemberIds": [
+        "1308"
+      ]
+    },
+    "aliases": [
+      "hsr-blade-mortenax-team",
+      "hsr-trailblazer-preservation-team"
+    ]
   },
   {
     "id": "hsr-firefly-super-break",
@@ -9371,13 +9407,24 @@
       {
         "label": "Prydwen · 캐릭터 시너지와 파티 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/lingsha"
+      },
+      {
+        "label": "Prydwen · 개척자(화합) 빌드와 파티",
+        "url": "https://www.prydwen.gg/star-rail/characters/trailblazer-harmony"
+      },
+      {
+        "label": "StarRailRes 4.7 · 파티 연계 스킬",
+        "url": "https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_skills.json"
       }
     ],
     "related": [
       "hsr-firefly",
       "hsr-the-dahlia",
       "hsr-tingyun-fugue",
-      "hsr-lingsha"
+      "hsr-lingsha",
+      "hsr-ruan-mei",
+      "hsr-trailblazer-harmony",
+      "hsr-gallagher"
     ],
     "party": {
       "category": "break",
@@ -9420,7 +9467,7 @@
           "id": "8006",
           "name": "개척자(화합)",
           "replaces": "1225",
-          "reason": "보유하지 않은 망귀인 대신 화합 개척자 필살기로 슈퍼 격파를 더할 때."
+          "reason": "화합 개척자의 필살기를 먼저 켜고 격파 후 슈퍼 격파. 달리아도 완·매로 바꾸면 미격파 대상 지원은 사라짐."
         },
         {
           "id": "1303",
@@ -9440,8 +9487,14 @@
         "반디의 필살기로 완전연소에 들어갑니다.",
         "강화 스킬로 적에게 약점을 부여한 뒤 강인성을 깎고 슈퍼 격파를 반복합니다."
       ],
-      "note": "장신구와 속도 버프는 완전연소 중 실제 속도로 계산하세요. 시계공 4세트와 수용소의 동일 효과는 중첩되지 않습니다."
-    }
+      "note": "장신구와 속도 버프는 완전연소 중 실제 속도로 계산하세요. 시계공 4세트와 수용소의 동일 효과는 중첩되지 않습니다.",
+      "coreMemberIds": [
+        "1310"
+      ]
+    },
+    "aliases": [
+      "hsr-trailblazer-harmony-team"
+    ]
   },
   {
     "id": "hsr-misha-freeze",
@@ -9479,7 +9532,10 @@
       "hsr-misha",
       "hsr-sparkle",
       "hsr-pela",
-      "hsr-gallagher"
+      "hsr-gallagher",
+      "hsr-sunday",
+      "hsr-tingyun",
+      "hsr-huohuo"
     ],
     "party": {
       "category": "hypercarry",
@@ -9536,7 +9592,10 @@
         "적 방어력 감소를 갱신합니다.",
         "정예 단독에서 필살기를 써 타격을 집중시킵니다."
       ],
-      "note": "미샤 성혼 2의 방어력 감소와 페라의 효과를 함께 활용할 수 있습니다."
+      "note": "미샤 성혼 2의 방어력 감소와 페라의 효과를 함께 활용할 수 있습니다.",
+      "coreMemberIds": [
+        "1312"
+      ]
     }
   },
   {
@@ -9576,7 +9635,11 @@
       "hsr-jade",
       "hsr-herta",
       "hsr-tribbie",
-      "hsr-lingsha"
+      "hsr-lingsha",
+      "hsr-the-herta",
+      "hsr-blade",
+      "hsr-robin",
+      "hsr-aventurine"
     ],
     "party": {
       "category": "followup",
@@ -9639,7 +9702,10 @@
         "수금업자 공격과 제이드 추가 공격을 이어갑니다.",
         "다음 광역 추가 공격 전에 필살기로 강화합니다."
       ],
-      "note": "수금업자의 HP 소모는 치유로 복구하세요."
+      "note": "수금업자의 HP 소모는 치유로 복구하세요.",
+      "coreMemberIds": [
+        "1314"
+      ]
     }
   },
   {
@@ -9679,7 +9745,11 @@
       "hsr-boothill",
       "hsr-tingyun-fugue",
       "hsr-sunday",
-      "hsr-gallagher"
+      "hsr-gallagher",
+      "hsr-the-dahlia",
+      "hsr-ruan-mei",
+      "hsr-bronya",
+      "hsr-lingsha"
     ],
     "party": {
       "category": "break",
@@ -9742,7 +9812,10 @@
         "포켓 어드벤티지 3스택에 도달하면 필살기로 보스에 물리 약점을 부여합니다.",
         "격파된 보스에 강화 일반 공격을 반복합니다."
       ],
-      "note": "선데이 턴을 부트힐 바로 뒤에 배치하면 대치가 끝나기 전 공격 횟수를 늘릴 수 있습니다."
+      "note": "선데이 턴을 부트힐 바로 뒤에 배치하면 대치가 끝나기 전 공격 횟수를 늘릴 수 있습니다.",
+      "coreMemberIds": [
+        "1315"
+      ]
     }
   },
   {
@@ -9781,7 +9854,10 @@
       "hsr-rappa",
       "hsr-the-dahlia",
       "hsr-tingyun-fugue",
-      "hsr-lingsha"
+      "hsr-lingsha",
+      "hsr-trailblazer-harmony",
+      "hsr-ruan-mei",
+      "hsr-gallagher"
     ],
     "party": {
       "category": "break",
@@ -9838,7 +9914,10 @@
         "필살기로 결인에 진입합니다.",
         "잔여 강인성이 높은 적을 주 대상으로 잡고 주변 적을 함께 격파합니다."
       ],
-      "note": "적 수가 적으면 충전 횟수가 줄어듭니다. 목표 적뿐 아니라 인접한 적의 약점도 확인하세요."
+      "note": "적 수가 적으면 충전 횟수가 줄어듭니다. 목표 적뿐 아니라 인접한 적의 약점도 확인하세요.",
+      "coreMemberIds": [
+        "1317"
+      ]
     }
   },
   {
@@ -9851,14 +9930,16 @@
       "더 헤르타",
       "아낙사",
       "트리비",
-      "단항·등황",
+      "단항•등황",
       "제이드",
       "헤르타",
       "아젠티",
       "개척자(기억)",
       "로빈",
       "영사",
-      "단항•등황"
+      "서벌",
+      "곽향",
+      "갤러거"
     ],
     "updated": "2026-11-25",
     "basis": "4.7 · 각 캐릭터의 장비·편성 분석과 행동 조건을 대조한 예시",
@@ -9879,13 +9960,30 @@
       {
         "label": "Prydwen · 캐릭터 시너지와 파티 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/tribbie"
+      },
+      {
+        "label": "Prydwen · 장비와 운용",
+        "url": "https://www.prydwen.gg/star-rail/characters/serval"
+      },
+      {
+        "label": "StarRailRes 4.7 · 편성에 사용한 스킬 효과",
+        "url": "https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_skills.json"
       }
     ],
     "related": [
       "hsr-the-herta",
       "hsr-anaxa",
       "hsr-tribbie",
-      "hsr-dan-heng-permansor-terrae"
+      "hsr-dan-heng-permansor-terrae",
+      "hsr-jade",
+      "hsr-herta",
+      "hsr-argenti",
+      "hsr-trailblazer-remembrance",
+      "hsr-robin",
+      "hsr-lingsha",
+      "hsr-serval",
+      "hsr-huohuo",
+      "hsr-gallagher"
     ],
     "party": {
       "category": "hypercarry",
@@ -9953,6 +10051,24 @@
           "name": "영사",
           "replaces": "1414",
           "reason": "동료 치유와 해제가 필요할 때 부원의 광역 공격으로 해독을 돕습니다."
+        },
+        {
+          "id": "1103",
+          "name": "서벌",
+          "replaces": "1405",
+          "reason": "열쇠·에너지 회복효율 세팅. 다수 적에게 필살기를 자주 사용해 해독·에너지 지원."
+        },
+        {
+          "id": "1217",
+          "name": "곽향",
+          "replaces": "1414",
+          "reason": "치유·해제와 에너지 회복. 실드 대신 회복으로 생존 유지."
+        },
+        {
+          "id": "1301",
+          "name": "갤러거",
+          "replaces": "1414",
+          "reason": "만취 치유·일반 공격 SP 수급. 용령 광역 해독 지원 상실, 더 헤르타 필살기 주기 확인."
         }
       ],
       "steps": [
@@ -9960,8 +10076,14 @@
         "해독이 높은 적에 더 헤르타의 강화 스킬을 맞춥니다.",
         "필살기와 새 적 유입 시점을 맞춰 다음 해독을 쌓습니다."
       ],
-      "note": "아낙사·제이드 등 지식 슬롯을 다른 운명의 길로 바꾸면 더 헤르타의 이중 지식 행적이 빠집니다."
-    }
+      "note": "아낙사·제이드 등 지식 슬롯을 다른 운명의 길로 바꾸면 더 헤르타의 이중 지식 행적이 빠집니다.",
+      "coreMemberIds": [
+        "1401"
+      ]
+    },
+    "aliases": [
+      "hsr-serval-team"
+    ]
   },
   {
     "id": "hsr-aglaea-remembrance",
@@ -9972,14 +10094,12 @@
     "tags": [
       "아글라이아",
       "선데이",
-      "로빈·서머레토",
+      "로빈•서머레토",
       "곽향",
       "트리비",
       "로빈",
       "개척자(기억)",
       "키레네",
-      "단항·등황",
-      "로빈•서머레토",
       "단항•등황"
     ],
     "updated": "2026-11-25",
@@ -10003,7 +10123,12 @@
       "hsr-aglaea",
       "hsr-sunday",
       "hsr-robin-summeretto",
-      "hsr-huohuo"
+      "hsr-huohuo",
+      "hsr-tribbie",
+      "hsr-robin",
+      "hsr-trailblazer-remembrance",
+      "hsr-cyrene",
+      "hsr-dan-heng-permansor-terrae"
     ],
     "party": {
       "category": "remembrance",
@@ -10072,7 +10197,10 @@
         "선데이가 본체와 의상공의 행동을 함께 당깁니다.",
         "곽향 필살기와 연계 공격으로 다음 아글라이아 필살기를 준비합니다."
       ],
-      "note": "아글라이아 성혼 1과 전광 여부에 따라 에너지·속도 세팅이 달라집니다."
+      "note": "아글라이아 성혼 1과 전광 여부에 따라 에너지·속도 세팅이 달라집니다.",
+      "coreMemberIds": [
+        "1402"
+      ]
     }
   },
   {
@@ -10113,7 +10241,12 @@
       "hsr-mydei",
       "hsr-sunday",
       "hsr-tribbie",
-      "hsr-hyacine"
+      "hsr-hyacine",
+      "hsr-sparkle",
+      "hsr-cyrene",
+      "hsr-trailblazer-remembrance",
+      "hsr-huohuo",
+      "hsr-gallagher"
     ],
     "party": {
       "category": "hp",
@@ -10182,7 +10315,10 @@
         "HP 회복과 행동 당김으로 강화 스킬을 이어갑니다.",
         "필살기 표식으로 다음 자동 공격의 목표를 정합니다."
       ],
-      "note": "마이데이의 강화 공격은 자동으로 발동하므로 표식을 붙이는 시점을 조절하세요."
+      "note": "마이데이의 강화 공격은 자동으로 발동하므로 표식을 붙이는 시점을 조절하세요.",
+      "coreMemberIds": [
+        "1404"
+      ]
     }
   },
   {
@@ -10195,12 +10331,11 @@
       "아낙사",
       "선데이",
       "케리드라",
-      "단항·등황",
+      "단항•등황",
       "로빈",
       "트리비",
       "키레네",
-      "곽향",
-      "단항•등황"
+      "곽향"
     ],
     "updated": "2026-11-25",
     "basis": "4.7 · 각 캐릭터의 장비·편성 분석과 행동 조건을 대조한 예시",
@@ -10219,7 +10354,11 @@
       "hsr-anaxa",
       "hsr-sunday",
       "hsr-cerydra",
-      "hsr-dan-heng-permansor-terrae"
+      "hsr-dan-heng-permansor-terrae",
+      "hsr-robin",
+      "hsr-tribbie",
+      "hsr-cyrene",
+      "hsr-huohuo"
     ],
     "party": {
       "category": "hypercarry",
@@ -10282,7 +10421,10 @@
         "필살기로 약점 수를 채우고 연속 전투 스킬을 사용합니다.",
         "선데이가 다시 당기고 케리드라의 지원 효과를 강화 스킬에 맞춥니다."
       ],
-      "note": "지식 동료를 추가하면 단독 지식의 개인 치명타 피해 대신 이중 지식 팀 피해 효과로 바뀝니다."
+      "note": "지식 동료를 추가하면 단독 지식의 개인 치명타 피해 대신 이중 지식 팀 피해 효과로 바뀝니다.",
+      "coreMemberIds": [
+        "1405"
+      ]
     }
   },
   {
@@ -10302,8 +10444,6 @@
       "완·매",
       "갤러거",
       "나찰",
-      "기억 정령",
-      "마이데이",
       "로빈•서머레토"
     ],
     "updated": "2026-11-25",
@@ -10337,13 +10477,24 @@
       {
         "label": "Prydwen · 히아킨 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/hyacine"
+      },
+      {
+        "label": "Prydwen · 개척자(기억) 빌드와 파티",
+        "url": "https://www.prydwen.gg/star-rail/characters/trailblazer-remembrance"
       }
     ],
     "related": [
       "hsr-castorice",
       "hsr-evernight",
       "hsr-cyrene",
-      "hsr-hyacine"
+      "hsr-hyacine",
+      "hsr-trailblazer-remembrance",
+      "hsr-tribbie",
+      "hsr-cipher",
+      "hsr-ruan-mei",
+      "hsr-gallagher",
+      "hsr-luocha",
+      "hsr-robin-summeretto"
     ],
     "party": {
       "category": "hp",
@@ -10413,12 +10564,6 @@
           "reason": "잦은 공격으로 결계 치유를 발동할 수 있고 최대 HP 보너스보다 회복이 우선일 때."
         },
         {
-          "id": "1404",
-          "name": "마이데이",
-          "replaces": "1407",
-          "reason": "마이데이 개별 지원으로 킹슬레이어 발동을 돕는 편성."
-        },
-        {
           "id": "1512",
           "name": "로빈•서머레토",
           "replaces": "1415",
@@ -10428,7 +10573,7 @@
           "id": "8008",
           "name": "개척자(기억)",
           "replaces": "1415",
-          "reason": "밈의 확정 피해·행동 당김 사용."
+          "reason": "카스토리스 행동 전 미미의 응원으로 확정 피해·행동 지원. 키레네 첫 필살기 활성화·황금의 후예 강화 상실."
         }
       ],
       "steps": [
@@ -10436,8 +10581,14 @@
         "히아킨의 회복으로 꽃술을 채운 뒤 용을 소환합니다.",
         "용의 숨결과 퇴장 피해를 이어서 사용합니다."
       ],
-      "note": "습골지는 안정적인 HP·치명타 세팅, 요정의 낙원은 여러 기억 정령이 필드에 남는 동안 피해를 늘립니다."
-    }
+      "note": "습골지는 안정적인 HP·치명타 세팅, 요정의 낙원은 여러 기억 정령이 필드에 남는 동안 피해를 늘립니다.",
+      "coreMemberIds": [
+        "1407"
+      ]
+    },
+    "aliases": [
+      "hsr-trailblazer-remembrance-team"
+    ]
   },
   {
     "id": "hsr-phainon-team",
@@ -10446,7 +10597,6 @@
     "title": "파이논 변신 집중 파티",
     "summary": "불씨 12pt → 카오스라나 보너스 턴 8회와 물리 약점 부여",
     "tags": [
-      "집중 지원",
       "파이논",
       "케리드라",
       "선데이",
@@ -10459,9 +10609,7 @@
       "완·매",
       "트리비",
       "사이퍼",
-      "로빈•서머레토",
-      "아낙사",
-      "아처"
+      "로빈•서머레토"
     ],
     "updated": "2026-11-25",
     "basis": "4.7 게임 데이터 · 파이논 빌드와 시너지",
@@ -10490,21 +10638,22 @@
       {
         "label": "Prydwen · 단항•등황 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/dan-heng-permansor-terrae"
-      },
-      {
-        "label": "Prydwen · 케리드라 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/cerydra"
-      },
-      {
-        "label": "Prydwen · 단항•등황 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/dan-heng-permansor-terrae"
       }
     ],
     "related": [
       "hsr-phainon",
       "hsr-cerydra",
       "hsr-sunday",
-      "hsr-dan-heng-permansor-terrae"
+      "hsr-dan-heng-permansor-terrae",
+      "hsr-cyrene",
+      "hsr-bronya",
+      "hsr-tingyun",
+      "hsr-trailblazer-remembrance",
+      "hsr-huohuo",
+      "hsr-ruan-mei",
+      "hsr-tribbie",
+      "hsr-cipher",
+      "hsr-robin-summeretto"
     ],
     "party": {
       "category": "hypercarry",
@@ -10592,21 +10741,12 @@
           "name": "로빈•서머레토",
           "replaces": "1414",
           "reason": "생존 여유가 있을 때 변신 중 Fever 카운트다운 일시 제거. 1돌 효과는 퇴장 중 적용되지 않는다."
-        },
-        {
-          "id": "1405",
-          "name": "아낙사",
-          "replaces": "1408",
-          "reason": "한 턴에 스킬을 두 번 사용해 충전을 빠르게 확보."
-        },
-        {
-          "id": "1015",
-          "name": "아처",
-          "replaces": "1408",
-          "reason": "SP를 모아 연속 스킬을 사용하는 편성에서 군공 사용."
         }
       ],
-      "note": "전투 스킬 → 필살기·특성·일반 공격. 추가 행적은 승급 2 → 4 → 6단계 순으로."
+      "note": "전투 스킬 → 필살기·특성·일반 공격. 추가 행적은 승급 2 → 4 → 6단계 순으로.",
+      "coreMemberIds": [
+        "1408"
+      ]
     }
   },
   {
@@ -10616,7 +10756,6 @@
     "title": "히실렌스 지속 피해 파티",
     "summary": "다종 지속 피해 부여 → 결계 피해와 카프카 기폭",
     "tags": [
-      "지속 피해",
       "히실렌스",
       "카프카",
       "블랙 스완",
@@ -10664,7 +10803,16 @@
       "hsr-hysilens",
       "hsr-kafka",
       "hsr-black-swan",
-      "hsr-huohuo"
+      "hsr-huohuo",
+      "hsr-cyrene",
+      "hsr-jiaoqiu",
+      "hsr-sampo",
+      "hsr-robin",
+      "hsr-ruan-mei",
+      "hsr-cipher",
+      "hsr-tribbie",
+      "hsr-silver-wolf",
+      "hsr-dan-heng-permansor-terrae"
     ],
     "party": {
       "category": "dot",
@@ -10754,7 +10902,10 @@
           "reason": "실드·공격력 지원. 적 피해가 큰 구간."
         }
       ],
-      "note": "연회의 거품 해금 뒤 필살기로 대상의 기존 지속 피해를 즉시 기폭한다."
+      "note": "연회의 거품 해금 뒤 필살기로 대상의 기존 지속 피해를 즉시 기폭한다.",
+      "coreMemberIds": [
+        "1410"
+      ]
     }
   },
   {
@@ -10764,17 +10915,12 @@
     "title": "에버나이트 긴 밤 집중 파티",
     "summary": "기억 물질 → 긴 밤의 광역 피해 · 기억 정령 치피 지원",
     "tags": [
-      "기억 정령",
       "에버나이트",
       "키레네",
       "로빈•서머레토",
       "히아킨",
       "개척자(기억)",
-      "카스토리스",
-      "아글라이아",
-      "히메코•노바",
-      "천야•블레이드",
-      "파이논"
+      "카스토리스"
     ],
     "updated": "2026-11-25",
     "basis": "4.7 게임 데이터 · 에버나이트 빌드와 시너지",
@@ -10807,25 +10953,15 @@
       {
         "label": "Prydwen · 히아킨 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/hyacine"
-      },
-      {
-        "label": "Prydwen · 키레네 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/cyrene"
-      },
-      {
-        "label": "Prydwen · 로빈•서머레토 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/robin-summeretto"
-      },
-      {
-        "label": "Prydwen · 히아킨 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/hyacine"
       }
     ],
     "related": [
       "hsr-evernight",
       "hsr-cyrene",
       "hsr-robin-summeretto",
-      "hsr-hyacine"
+      "hsr-hyacine",
+      "hsr-trailblazer-remembrance",
+      "hsr-castorice"
     ],
     "party": {
       "category": "remembrance",
@@ -10873,43 +11009,16 @@
           "reason": "HP 소모 듀오 운영. 긴 밤이 카스토리스 필살기 충전을 보조."
         },
         {
-          "id": "1407",
-          "name": "카스토리스",
-          "replaces": "1413",
-          "reason": "카스토리스 중심 HP 소모 기억 팀."
-        },
-        {
-          "id": "1402",
-          "name": "아글라이아",
-          "replaces": "1413",
-          "reason": "아글라이아 에너지와 행동 당김을 사용하는 팀."
-        },
-        {
-          "id": "1510",
-          "name": "히메코•노바",
-          "replaces": "1413",
-          "reason": "히메코 필살기 지원. 후예·기억 반응과 팀 조합을 조정."
-        },
-        {
-          "id": "1507",
-          "name": "천야•블레이드",
-          "replaces": "1413",
-          "reason": "빠른 결계 공격과 추가 스킬로 무대 열기 확보."
-        },
-        {
-          "id": "1408",
-          "name": "파이논",
-          "replaces": "1413",
-          "reason": "변신 중 Fever 카운트다운 제거. 로빈 퇴장 중 1돌 기록은 별도."
-        },
-        {
           "id": "8008",
           "name": "개척자(기억)",
           "replaces": "1415",
           "reason": "밈의 행동 당김을 활용할 때 특별 게스트 제한과 순서를 확인."
         }
       ],
-      "note": "필살기·기억 정령 스킬·전투 스킬 → 특성·정령 특성. 승급 2와 4단계 먼저."
+      "note": "필살기·기억 정령 스킬·전투 스킬 → 특성·정령 특성. 승급 2와 4단계 먼저.",
+      "coreMemberIds": [
+        "1413"
+      ]
     }
   },
   {
@@ -10919,14 +11028,13 @@
     "title": "스파키 SP 소비 파티",
     "summary": "상호작용 함정 → 킬링 포인트로 SP 상쇄 · 강화 일반 공격",
     "tags": [
-      "환락",
       "스파키",
-      "에이언즈★아하",
       "효광",
+      "에이언즈★아하",
       "펄",
-      "스파클",
       "개척자(환락)",
-      "은랑 LV.999"
+      "스파클",
+      "곽향"
     ],
     "updated": "2026-11-25",
     "basis": "4.7 게임 데이터 · 스파키 빌드와 시너지",
@@ -10961,23 +11069,30 @@
         "url": "https://www.prydwen.gg/star-rail/characters/pearl"
       },
       {
-        "label": "Prydwen · 에이언즈★아하 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/aha"
+        "label": "Prydwen · 개척자(환락) 빌드와 파티",
+        "url": "https://www.prydwen.gg/star-rail/characters/trailblazer-elation"
       },
       {
-        "label": "Prydwen · 효광 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/yao-guang"
+        "label": "Icy Veins · 스파키·스파클 및 곽향 지원",
+        "url": "https://www.icy-veins.com/honkai-star-rail/sparxie-best-teams"
       },
       {
-        "label": "Prydwen · 펄 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/pearl"
+        "label": "Guoba Certified · 4.7 스파키 메인 효광 권장",
+        "url": "https://hsrtierlist.net/creator-team-guides/guoba-aha-build-teams"
+      },
+      {
+        "label": "StarGuide · 환락 개척자·스파클 대체 편성",
+        "url": "https://starguide.gg/character/sparxie"
       }
     ],
     "related": [
       "hsr-sparxie",
-      "hsr-aha",
       "hsr-yao-guang",
-      "hsr-pearl"
+      "hsr-aha",
+      "hsr-pearl",
+      "hsr-trailblazer-elation",
+      "hsr-sparkle",
+      "hsr-huohuo"
     ],
     "party": {
       "category": "elation",
@@ -10990,16 +11105,16 @@
           "guideId": "hsr-sparxie"
         },
         {
-          "id": "1511",
-          "name": "에이언즈★아하",
-          "role": "승격·사도",
-          "guideId": "hsr-aha"
-        },
-        {
           "id": "1502",
           "name": "효광",
           "role": "웃음 즉시 집계",
           "guideId": "hsr-yao-guang"
+        },
+        {
+          "id": "1511",
+          "name": "에이언즈★아하",
+          "role": "승격·사도",
+          "guideId": "hsr-aha"
         },
         {
           "id": "1503",
@@ -11013,166 +11128,50 @@
       ],
       "alternatives": [
         {
-          "id": "1306",
-          "name": "스파클",
+          "id": "8010",
           "replaces": "1502",
-          "reason": "SP 상한과 회복으로 스파키 강화 공격을 지원."
+          "name": "개척자(환락)",
+          "reason": "4환락·아하 승격 유지. 스파키의 환락 스킬을 즉시 발동해 킬링 포인트 보조. 효광의 추가 아하 타임·저항 관통 상실."
+        },
+        {
+          "id": "1306",
+          "replaces": "1502",
+          "name": "스파클",
+          "reason": "전투 스킬 포인트 상한·회복과 행동 게이지 지원. 3환락이라 펄의 보너스 턴이 사라지고 효광의 추가 아하 타임을 잃는다."
         },
         {
           "id": "8010",
-          "name": "개척자(환락)",
           "replaces": "1511",
-          "reason": "단일 지원과 환락 스킬 발동으로 입문 편성."
+          "name": "개척자(환락)",
+          "reason": "4환락 유지. 즉시 환락 스킬과 치명타 피해 지원. 아하 승격의 스킬 배율 증가·팀 방어력 무시 상실."
         },
         {
-          "id": "1506",
-          "name": "은랑 LV.999",
-          "replaces": "1502",
-          "reason": "은랑을 주 딜러로 전환할 때. 스파키는 SP 소비와 보급상자 촉발 담당."
+          "id": "1306",
+          "replaces": "1511",
+          "name": "스파클",
+          "reason": "전투 스킬 포인트와 행동 게이지 지원. 3환락으로 펄 보너스 턴과 스파키의 승격 효과를 잃는다."
+        },
+        {
+          "id": "1217",
+          "replaces": "1503",
+          "name": "곽향",
+          "reason": "치유·해제와 팀 에너지 회복으로 효광·스파키 필살기 지원. 3환락이며 펄 저본 보너스 턴 상실."
+        },
+        {
+          "id": "1306",
+          "replaces": "1503",
+          "name": "스파클",
+          "reason": "무생존 단기전. 스킬 포인트 수급·행동 게이지를 더하고 효광과 아하 유지. 펄의 치유·보너스 턴 상실."
         }
       ],
-      "note": "환락 스킬·특성 우선. 승급 4단계 환락 캐릭터 수에 따른 필살기 자원과 6단계 치피를 해금."
-    }
-  },
-  {
-    "id": "hsr-ashveil-team",
-    "game": "hsr",
-    "kind": "party",
-    "title": "애쉬베일 미끼 연타 파티",
-    "summary": "미끼 → 적 전체 방어력 감소 · 아군 공격에 연동하는 추가 공격",
-    "tags": [
-      "추가 공격",
-      "비소",
-      "애쉬베일",
-      "로빈",
-      "단항•등황",
-      "어벤츄린•웨이브",
-      "천야•블레이드",
-      "트리비",
-      "웰트",
-      "사이퍼",
-      "은랑",
-      "선데이"
-    ],
-    "updated": "2026-11-25",
-    "basis": "4.7 게임 데이터 · 애쉬베일 빌드와 시너지",
-    "sections": [
-      {
-        "title": "편성 조건과 시작 순서",
-        "paragraphs": [
-          "내구 높은 대상을 미끼로 지정. 아군이 미끼를 때리면 추가 공격과 탐닉을 확보하고 필살기로 강화 발동."
-        ],
-        "bullets": []
-      }
-    ],
-    "sources": [
-      {
-        "label": "Prydwen · 애쉬베일 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/ashveil"
-      },
-      {
-        "label": "StarRailRes 4.7 · 파티 연계 스킬",
-        "url": "https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_skills.json"
-      },
-      {
-        "label": "Prydwen · 단항•등황 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/dan-heng-permansor-terrae"
-      },
-      {
-        "label": "Prydwen · 단항•등황 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/dan-heng-permansor-terrae"
-      }
-    ],
-    "related": [
-      "hsr-feixiao",
-      "hsr-ashveil",
-      "hsr-robin",
-      "hsr-dan-heng-permansor-terrae"
-    ],
-    "party": {
-      "category": "followup",
-      "lead": "비소",
-      "members": [
-        {
-          "id": "1220",
-          "name": "비소",
-          "role": "추가 공격 딜러",
-          "guideId": "hsr-feixiao"
-        },
-        {
-          "id": "1504",
-          "name": "애쉬베일",
-          "role": "미끼·방어력 감소",
-          "guideId": "hsr-ashveil"
-        },
-        {
-          "id": "1309",
-          "name": "로빈",
-          "role": "팀 행동 당김",
-          "guideId": "hsr-robin"
-        },
-        {
-          "id": "1414",
-          "name": "단항•등황",
-          "role": "실드·추가 공격",
-          "guideId": "hsr-dan-heng-permansor-terrae"
-        }
-      ],
-      "steps": [
-        "내구 높은 대상을 미끼로 지정. 아군이 미끼를 때리면 추가 공격과 탐닉을 확보하고 필살기로 강화 발동."
-      ],
-      "alternatives": [
-        {
-          "id": "1513",
-          "name": "어벤츄린•웨이브",
-          "replaces": "1220",
-          "reason": "웨이브 추가 공격을 활용. 환락 지원 배치도 검토."
-        },
-        {
-          "id": "1507",
-          "name": "천야•블레이드",
-          "replaces": "1309",
-          "reason": "결계 디버프와 추가 스킬. 추가 공격 전환은 천야 2돌."
-        },
-        {
-          "id": "1403",
-          "name": "트리비",
-          "replaces": "1309",
-          "reason": "다수 대상 추가 공격과 저항 관통."
-        },
-        {
-          "id": "1004",
-          "name": "웰트",
-          "replaces": "1309",
-          "reason": "추가 공격을 지원하는 강화 효과 세팅."
-        },
-        {
-          "id": "1406",
-          "name": "사이퍼",
-          "replaces": "1309",
-          "reason": "받는 피해·확정 피해 지원."
-        },
-        {
-          "id": "1006",
-          "name": "은랑",
-          "replaces": "1309",
-          "reason": "정련된 새 빛 기준 필살기 광역 방어력 감소·스킬 단일 약점 이식."
-        },
-        {
-          "id": "1406",
-          "name": "사이퍼",
-          "replaces": "1504",
-          "reason": "받는 피해 증가와 확정 피해로 지원."
-        },
-        {
-          "id": "1313",
-          "name": "선데이",
-          "replaces": "1309",
-          "reason": "전우를 지정해 선데이 소환물 대상 강화 조건을 충족."
-        }
-      ],
-      "note": "전투 스킬 → 특성·필살기 → 일반 공격. 승급 2단계 탐닉 및 6단계 팀 추가 공격 치피."
-    }
+      "note": "환락 스킬·특성 우선. 승급 4단계 환락 캐릭터 수에 따른 필살기 자원과 6단계 치피를 해금.",
+      "coreMemberIds": [
+        "1501"
+      ]
+    },
+    "aliases": [
+      "hsr-trailblazer-elation-team"
+    ]
   },
   {
     "id": "hsr-evanescia-elation",
@@ -11181,16 +11180,16 @@
     "title": "에바네시아 환락 파티",
     "summary": "에너지 ↔ 훌륭한 솜씨 상호 수급 · 여우 선생님 추가 공격",
     "tags": [
-      "환락",
       "에바네시아",
       "효광",
       "에이언즈★아하",
       "펄",
       "개척자(환락)",
       "곽향",
-      "은랑 LV.999",
-      "스파키",
-      "어벤츄린•웨이브"
+      "키레네",
+      "트리비",
+      "천야•블레이드",
+      "웰트"
     ],
     "updated": "2026-11-25",
     "basis": "4.7 게임 데이터 · 에바네시아 빌드와 시너지",
@@ -11233,23 +11232,41 @@
         "url": "https://www.hoyolab.com/article/47394097"
       },
       {
-        "label": "Prydwen · 효광 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/yao-guang"
+        "label": "StarRailRes 4.7 · 한국어 성혼 효과",
+        "url": "https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_ranks.json"
       },
       {
-        "label": "Prydwen · 에이언즈★아하 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/aha"
+        "label": "Guoba Certified · 4.7 효광의 환락 개척자 대체",
+        "url": "https://www.youtube.com/watch?v=tRbp8PsSym8&t=1238s"
       },
       {
-        "label": "Prydwen · 펄 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/pearl"
+        "label": "Prydwen · 키레네 첫 필살기와 추억",
+        "url": "https://www.prydwen.gg/star-rail/characters/cyrene"
+      },
+      {
+        "label": "AetherSages · 4.7 키레네 편성 고투자 시연",
+        "url": "https://www.youtube.com/watch?v=Lx8T-7huBYQ&t=229s"
+      },
+      {
+        "label": "StarGuide · 트리비와 천야•블레이드 무생존 편성",
+        "url": "https://starguide.gg/character/evanescia"
+      },
+      {
+        "label": "Prydwen · 강화 웰트의 무중력과 성혼 효과",
+        "url": "https://www.prydwen.gg/star-rail/characters/welt"
       }
     ],
     "related": [
       "hsr-evanescia",
       "hsr-yao-guang",
       "hsr-aha",
-      "hsr-pearl"
+      "hsr-pearl",
+      "hsr-trailblazer-elation",
+      "hsr-huohuo",
+      "hsr-cyrene",
+      "hsr-tribbie",
+      "hsr-blade-mortenax",
+      "hsr-welt"
     ],
     "party": {
       "category": "elation",
@@ -11281,47 +11298,58 @@
         }
       ],
       "steps": [
-        "효광 아하 타임과 펄 저본으로 환락 자원을 공급. 에너지가 차면 필살기. 아하 승격 중에는 초과 에너지도 활용."
+        "효광 결계를 유지하고, 아하는 에바네시아를 사도로 지정.",
+        "아하의 환락만상 동안 에바네시아 필살기를 사용해 승격 효과 활용.",
+        "에바네시아 필살기 뒤 환락 스킬로 초과 에너지를 쌓아 다음 필살기 연결."
       ],
       "alternatives": [
         {
           "id": "8010",
+          "replaces": "1502",
           "name": "개척자(환락)",
-          "replaces": "1511",
-          "reason": "단일 환락 지원과 즉시 환락 스킬."
-        },
-        {
-          "id": "1217",
-          "name": "곽향",
-          "replaces": "1503",
-          "reason": "팀 에너지 회복형 대안. 4환락 조건은 풀린다."
-        },
-        {
-          "id": "1506",
-          "name": "은랑 LV.999",
-          "replaces": "1505",
-          "reason": "아하 명함 승격 상한 360, 2돌 999. 히든 스코어 120pt당 보너스 턴은 은랑 2돌부터."
-        },
-        {
-          "id": "1501",
-          "name": "스파키",
-          "replaces": "1505",
-          "reason": "명함 승격 환락 스킬 피해 50% 증소. 아하 2돌에서 승격 피해 배율 강화."
-        },
-        {
-          "id": "1513",
-          "name": "어벤츄린•웨이브",
-          "replaces": "1505",
-          "reason": "웨이브로 교체해 열의 소모 중심. 추가 공격형은 환락 동료를 아하만 남길 때 승격 행적 발동."
+          "reason": "4환락과 아하 승격 유지. 치명타 피해·즉시 환락 스킬 지원, 효광의 추가 아하 타임·저항 관통 상실."
         },
         {
           "id": "8010",
+          "replaces": "1511",
           "name": "개척자(환락)",
-          "replaces": "1505",
-          "reason": "개척자 딜러 세팅. 아하를 필살기 대상으로 지정해 두 환락 스킬 연계."
+          "reason": "4환락 유지. 에바네시아에게 즉시 환락 스킬·치명타 피해 지원, 승격의 초과 에너지·필살기 강화 상실."
+        },
+        {
+          "id": "1217",
+          "replaces": "1503",
+          "name": "곽향",
+          "reason": "치유·해제와 팀 에너지 회복. 3환락이 되어 펄의 저본 보너스 턴·환락 자원 공급 상실."
+        },
+        {
+          "id": "1415",
+          "replaces": "1503",
+          "name": "키레네",
+          "reason": "전담 생존 없는 단기전·고투자 사례. 첫 필살기로 에바네시아 연속 필살기 지원. 추억 예열 필요, 펄의 치유·피해 상쇄 상실."
+        },
+        {
+          "id": "1403",
+          "replaces": "1503",
+          "name": "트리비",
+          "reason": "무생존 단기전. 저항 관통·취약, 1돌 확정 피해. 3환락으로 펄의 치유·저본 보너스 턴 상실."
+        },
+        {
+          "id": "1507",
+          "replaces": "1503",
+          "name": "천야•블레이드",
+          "reason": "무생존 단기전. 전신살화로 적 방어력 감소·받는 피해 증가. 3환락으로 펄의 치유·저본 보너스 턴 상실."
+        },
+        {
+          "id": "1004",
+          "replaces": "1503",
+          "name": "웰트",
+          "reason": "강화 활성화·4돌 권장. 감속·행동 지연과 방어력 감소, 4돌 무중력 적 저항 감소. 3환락으로 펄의 치유 상실."
         }
       ],
-      "note": "필살기 에너지 240pt. 아하 명함 승격은 초과 에너지 60pt·방어력 무시 10%, 2돌 승격은 240pt·24%. 절묘한 솜씨 누적 480pt마다 다음 필살기 피해 배율은 각각 기존의 175%/250%."
+      "note": "교체는 아래 슬롯별 조건 기준. 키레네 등 공격 지원으로 펄을 빼면 전담 생존 없이 끝낼 수 있는 전투에서만 사용.",
+      "coreMemberIds": [
+        "1505"
+      ]
     }
   },
   {
@@ -11331,16 +11359,14 @@
     "title": "은랑 LV.999 변신 보급상자 파티",
     "summary": "히든 스코어 60pt → 무적 플레이어 · SP 소모로 보급상자",
     "tags": [
-      "환락",
       "은랑 LV.999",
       "효광",
       "에이언즈★아하",
       "펄",
       "스파키",
       "개척자(환락)",
-      "아스타",
-      "에바네시아",
-      "어벤츄린•웨이브"
+      "곽향",
+      "히아킨"
     ],
     "updated": "2026-11-25",
     "basis": "4.7 게임 데이터 · 은랑 LV.999 빌드와 시너지",
@@ -11375,23 +11401,27 @@
         "url": "https://www.prydwen.gg/star-rail/characters/pearl"
       },
       {
-        "label": "Prydwen · 효광 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/yao-guang"
+        "label": "Guoba Certified · 4.7 효광 대신 스파키·개척자",
+        "url": "https://hsrtierlist.net/creator-team-guides/guoba-aha-build-teams"
       },
       {
-        "label": "Prydwen · 에이언즈★아하 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/aha"
+        "label": "StarGuide · 은랑 LV.999 지원·생존 대체 편성",
+        "url": "https://starguide.gg/character/silver-wolf-lv999"
       },
       {
-        "label": "Prydwen · 펄 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/pearl"
+        "label": "Icy Veins · 4.7 은랑 LV.999 파티 시너지",
+        "url": "https://www.icy-veins.com/honkai-star-rail/silver-wolf-lv-999-best-teams"
       }
     ],
     "related": [
       "hsr-silver-wolf-lv-999",
       "hsr-yao-guang",
       "hsr-aha",
-      "hsr-pearl"
+      "hsr-pearl",
+      "hsr-sparxie",
+      "hsr-trailblazer-elation",
+      "hsr-huohuo",
+      "hsr-hyacine"
     ],
     "party": {
       "category": "elation",
@@ -11428,254 +11458,51 @@
       "alternatives": [
         {
           "id": "1501",
-          "name": "스파키",
           "replaces": "1502",
-          "reason": "스파키의 연속 SP 소비로 보급상자를 촉발."
+          "name": "스파키",
+          "reason": "은랑 메인·스파키 서브딜. 연속 스킬 포인트 소비로 웃음·보급상자 공급, 4환락·아하 승격 유지. 효광 추가 아하 타임 상실."
         },
         {
           "id": "8010",
+          "replaces": "1502",
           "name": "개척자(환락)",
-          "replaces": "1511",
-          "reason": "개척자로 단일 환락 지원과 웃음 공급."
+          "reason": "4환락·아하 승격 유지. 은랑의 환락 스킬과 히든 스코어 공급을 지원. 효광의 추가 아하 타임·저항 관통 상실."
         },
         {
-          "id": "1009",
-          "name": "아스타",
-          "replaces": "1502",
-          "reason": "환락 지원 부족 시 팀 속도 보조. 4환락 조건을 점검."
+          "id": "8010",
+          "replaces": "1511",
+          "name": "개척자(환락)",
+          "reason": "4환락 유지. 은랑에 치명타 피해·즉시 환락 스킬 지원. 승격의 히든 스코어 상한 확대·추가 수급 상실."
         },
         {
           "id": "1501",
+          "replaces": "1511",
           "name": "스파키",
-          "replaces": "1506",
-          "reason": "스파키 주 딜러와 SP 소비 편성. 아하 승격 활용."
+          "reason": "4환락과 효광의 추가 아하 타임 유지. 은랑 결계에서 웃음·보급상자 공급. 아하 승격의 히든 스코어 강화 상실."
         },
         {
-          "id": "1505",
-          "name": "에바네시아",
-          "replaces": "1506",
-          "reason": "에바네시아 필살기형 환락 딜러."
-        },
-        {
-          "id": "1513",
-          "name": "어벤츄린•웨이브",
-          "replaces": "1506",
-          "reason": "웨이브의 추가 공격·환락 스킬 중심 편성."
-        }
-      ],
-      "note": "아하 명함 승격 시 히든 스코어 360pt, 2돌 승격 시 999pt. 보너스 턴은 은랑 자체 2돌과 스코어 120pt 기준."
-    }
-  },
-  {
-    "id": "hsr-blade-mortenax-team",
-    "game": "hsr",
-    "kind": "party",
-    "title": "천야 결계와 아케론 필살기 파티",
-    "summary": "전신살화 결계 · 아군 공격의 충전 → 추가 전투 스킬",
-    "tags": [
-      "집중 지원",
-      "아케론",
-      "천야•블레이드",
-      "사이퍼",
-      "히아킨",
-      "초구",
-      "은랑",
-      "트리비",
-      "애쉬베일",
-      "단항•등황"
-    ],
-    "updated": "2026-11-25",
-    "basis": "4.7 게임 데이터 · 천야•블레이드 빌드와 시너지",
-    "sections": [
-      {
-        "title": "편성 조건과 시작 순서",
-        "paragraphs": [
-          "필살기로 결계. 적이 없거나 HP가 위험할 때 스킬을 아낀다. 아군 공격으로 충전 9pt가 차면 추가 스킬."
-        ],
-        "bullets": []
-      }
-    ],
-    "sources": [
-      {
-        "label": "Prydwen · 천야•블레이드 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/blade-mortenax"
-      },
-      {
-        "label": "StarRailRes 4.7 · 파티 연계 스킬",
-        "url": "https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_skills.json"
-      },
-      {
-        "label": "Prydwen · 히아킨 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/hyacine"
-      },
-      {
-        "label": "Prydwen · 히아킨 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/hyacine"
-      }
-    ],
-    "related": [
-      "hsr-acheron",
-      "hsr-blade-mortenax",
-      "hsr-cipher",
-      "hsr-hyacine"
-    ],
-    "party": {
-      "category": "hypercarry",
-      "lead": "아케론",
-      "members": [
-        {
-          "id": "1308",
-          "name": "아케론",
-          "role": "필살기 딜러",
-          "guideId": "hsr-acheron"
-        },
-        {
-          "id": "1507",
-          "name": "천야•블레이드",
-          "role": "결계·추가 스킬",
-          "guideId": "hsr-blade-mortenax"
-        },
-        {
-          "id": "1406",
-          "name": "사이퍼",
-          "role": "디버프 증폭",
-          "guideId": "hsr-cipher"
+          "id": "1217",
+          "replaces": "1503",
+          "name": "곽향",
+          "reason": "치유·해제와 효광 등 에너지형 동료의 필살기 지원. 3환락이며 은랑은 히든 스코어로 필살기를 충전한다."
         },
         {
           "id": "1409",
+          "replaces": "1503",
           "name": "히아킨",
-          "role": "HP·회복",
-          "guideId": "hsr-hyacine"
+          "reason": "생존이 필요할 때 파티 치유로 교체. 3환락이며 펄의 저본 보너스 턴·히든 스코어 수급 상실."
+        },
+        {
+          "id": "1501",
+          "replaces": "1503",
+          "name": "스파키",
+          "reason": "무생존 단기전. 은랑 메인·스파키 서브딜로 웃음과 보급상자 수급. 4환락·승격 유지, 펄 치유·저본 상실."
         }
       ],
-      "steps": [
-        "필살기로 결계. 적이 없거나 HP가 위험할 때 스킬을 아낀다. 아군 공격으로 충전 9pt가 차면 추가 스킬."
-      ],
-      "alternatives": [
-        {
-          "id": "1218",
-          "name": "초구",
-          "replaces": "1406",
-          "reason": "받는 피해 증가와 적 행동 시 디버프 확보."
-        },
-        {
-          "id": "1006",
-          "name": "은랑",
-          "replaces": "1406",
-          "reason": "방어력 감소와 단일 약점 지원."
-        },
-        {
-          "id": "1403",
-          "name": "트리비",
-          "replaces": "1406",
-          "reason": "아케론 2돌 등 공허 인원 조건이 느슨할 때 저항 관통 지원."
-        },
-        {
-          "id": "1504",
-          "name": "애쉬베일",
-          "replaces": "1406",
-          "reason": "천야 2돌 필살기 분류 전환으로 추가 공격 연계를 활용할 때."
-        },
-        {
-          "id": "1414",
-          "name": "단항•등황",
-          "replaces": "1409",
-          "reason": "실드 우선 편성. 천야의 HP 소모 회복이 필요한지 확인."
-        }
-      ],
-      "note": "필살기 → 전투 스킬·특성 → 일반 공격. 승급 2단계 에너지 보존과 4단계 결계 피격 충전."
-    }
-  },
-  {
-    "id": "hsr-rin-tohsaka-team",
-    "game": "hsr",
-    "kind": "party",
-    "title": "린·아처 보석 연계 파티",
-    "summary": "SP 소모·회복 → 보석 에너지 · 아처 연계 추가 공격",
-    "tags": [
-      "집중 지원",
-      "아처",
-      "토오사카 린",
-      "스파클",
-      "단항•등황",
-      "케리드라"
-    ],
-    "updated": "2026-11-25",
-    "basis": "4.7 게임 데이터 · 토오사카 린 빌드와 시너지",
-    "sections": [
-      {
-        "title": "편성 조건과 시작 순서",
-        "paragraphs": [
-          "보석 15pt 또는 SP 7pt에서 강화 스킬. 아처와 함께면 아처의 연속 스킬 조건을 살리고 필살기로 SP를 되돌린다."
-        ],
-        "bullets": []
-      }
-    ],
-    "sources": [
-      {
-        "label": "Prydwen · 토오사카 린 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/rin-tohsaka"
-      },
-      {
-        "label": "StarRailRes 4.7 · 파티 연계 스킬",
-        "url": "https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_skills.json"
-      },
-      {
-        "label": "Prydwen · 단항•등황 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/dan-heng-permansor-terrae"
-      },
-      {
-        "label": "Prydwen · 단항•등황 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/dan-heng-permansor-terrae"
-      }
-    ],
-    "related": [
-      "hsr-archer",
-      "hsr-rin-tohsaka",
-      "hsr-sparkle",
-      "hsr-dan-heng-permansor-terrae"
-    ],
-    "party": {
-      "category": "hypercarry",
-      "lead": "아처",
-      "members": [
-        {
-          "id": "1015",
-          "name": "아처",
-          "role": "연속 전투 스킬",
-          "guideId": "hsr-archer"
-        },
-        {
-          "id": "1508",
-          "name": "토오사카 린",
-          "role": "보석·SP 회복",
-          "guideId": "hsr-rin-tohsaka"
-        },
-        {
-          "id": "1306",
-          "name": "스파클",
-          "role": "SP 상한·행동 당김",
-          "guideId": "hsr-sparkle"
-        },
-        {
-          "id": "1414",
-          "name": "단항•등황",
-          "role": "실드·SP 수급",
-          "guideId": "hsr-dan-heng-permansor-terrae"
-        }
-      ],
-      "steps": [
-        "보석 15pt 또는 SP 7pt에서 강화 스킬. 아처와 함께면 아처의 연속 스킬 조건을 살리고 필살기로 SP를 되돌린다."
-      ],
-      "alternatives": [
-        {
-          "id": "1412",
-          "name": "케리드라",
-          "replaces": "1306",
-          "reason": "SP 상황을 관리할 수 있을 때 복제 스킬로 지원."
-        }
-      ],
-      "note": "특성 → 필살기 → 전투 스킬 → 일반 공격. 승급 2단계 SP 상한과 아처 지원 먼저."
+      "note": "아하 명함 승격 시 히든 스코어 360pt, 2돌 승격 시 999pt. 보너스 턴은 은랑 자체 2돌과 스코어 120pt 기준.",
+      "coreMemberIds": [
+        "1506"
+      ]
     }
   },
   {
@@ -11685,7 +11512,6 @@
     "title": "길가메시·세이버 연계 파티",
     "summary": "아군 필살기로 흥미·에너지 확보 · 세이버와 연계 추가 공격",
     "tags": [
-      "집중 지원",
       "길가메시",
       "세이버",
       "천야•블레이드",
@@ -11720,21 +11546,15 @@
       {
         "label": "Prydwen · 단항•등황 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/dan-heng-permansor-terrae"
-      },
-      {
-        "label": "Prydwen · 천야•블레이드 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/blade-mortenax"
-      },
-      {
-        "label": "Prydwen · 단항•등황 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/dan-heng-permansor-terrae"
       }
     ],
     "related": [
       "hsr-gilgamesh",
       "hsr-saber",
       "hsr-blade-mortenax",
-      "hsr-dan-heng-permansor-terrae"
+      "hsr-dan-heng-permansor-terrae",
+      "hsr-trailblazer-remembrance",
+      "hsr-sunday"
     ],
     "party": {
       "category": "hypercarry",
@@ -11782,7 +11602,11 @@
           "reason": "세이버 필살기 에너지와 행동 순환에 집중."
         }
       ],
-      "note": "특성 → 필살기 → 스킬 → 일반 공격. 승급 6단계 최대 에너지 보너스와 2단계 아군 필살기 연계 우선."
+      "note": "특성 → 필살기 → 스킬 → 일반 공격. 승급 6단계 최대 에너지 보너스와 2단계 아군 필살기 연계 우선.",
+      "coreMemberIds": [
+        "1509",
+        "1014"
+      ]
     }
   },
   {
@@ -11792,7 +11616,6 @@
     "title": "히메코•노바 판결 동행 파티",
     "summary": "동행 프로토콜 지원 스킬 · 코어 동력으로 궤도 섬멸 펄스",
     "tags": [
-      "집중 지원",
       "히메코•노바",
       "웰트",
       "개척자(기억)",
@@ -11829,21 +11652,17 @@
       {
         "label": "Prydwen · 단항•등황 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/dan-heng-permansor-terrae"
-      },
-      {
-        "label": "Prydwen · 개척자(기억) 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/trailblazer-remembrance"
-      },
-      {
-        "label": "Prydwen · 단항•등황 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/dan-heng-permansor-terrae"
       }
     ],
     "related": [
       "hsr-himeko-nova",
       "hsr-welt",
       "hsr-trailblazer-remembrance",
-      "hsr-dan-heng-permansor-terrae"
+      "hsr-dan-heng-permansor-terrae",
+      "hsr-blade-mortenax",
+      "hsr-cerydra",
+      "hsr-sunday",
+      "hsr-robin-summeretto"
     ],
     "party": {
       "category": "hypercarry",
@@ -11903,25 +11722,26 @@
           "reason": "특별 게스트 행동 당김·에너지와 Fever를 활용."
         }
       ],
-      "note": "특성 → 필살기 → 전투 스킬 → 일반 공격. 승급 2단계 자기 지원 스킬, 4단계 동행 보너스 턴 우선."
+      "note": "특성 → 필살기 → 전투 스킬 → 일반 공격. 승급 2단계 자기 지원 스킬, 4단계 동행 보너스 턴 우선.",
+      "coreMemberIds": [
+        "1510"
+      ]
     }
   },
   {
     "id": "hsr-aventurine-waveflair-team",
     "game": "hsr",
     "kind": "party",
-    "title": "웨이브 추가 공격·환락 승격 파티",
+    "title": "웨이브 추가 공격 파티",
     "summary": "동료 공격 → 열의 · 열의 소비로 추가 타격 환락 스킬",
     "tags": [
-      "추가 공격",
       "어벤츄린•웨이브",
       "애쉬베일",
       "에이언즈★아하",
       "단항•등황",
       "천야•블레이드",
       "트리비",
-      "로빈•서머레토",
-      "효광"
+      "로빈•서머레토"
     ],
     "updated": "2026-11-25",
     "basis": "4.7 게임 데이터 · 어벤츄린•웨이브 빌드와 시너지",
@@ -11954,25 +11774,16 @@
       {
         "label": "Prydwen · 단항•등황 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/dan-heng-permansor-terrae"
-      },
-      {
-        "label": "Prydwen · 애쉬베일 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/ashveil"
-      },
-      {
-        "label": "Prydwen · 에이언즈★아하 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/aha"
-      },
-      {
-        "label": "Prydwen · 단항•등황 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/dan-heng-permansor-terrae"
       }
     ],
     "related": [
       "hsr-aventurine-waveflair",
       "hsr-ashveil",
       "hsr-aha",
-      "hsr-dan-heng-permansor-terrae"
+      "hsr-dan-heng-permansor-terrae",
+      "hsr-blade-mortenax",
+      "hsr-tribbie",
+      "hsr-robin-summeretto"
     ],
     "party": {
       "category": "followup",
@@ -12023,16 +11834,13 @@
           "id": "1512",
           "name": "로빈•서머레토",
           "replaces": "1511",
-          "reason": "추가 공격형 행동·에너지 지원으로 전환. 아하 승격이 빠져 환락 행적 분기도 달라진다."
-        },
-        {
-          "id": "1502",
-          "name": "효광",
-          "replaces": "1504",
-          "reason": "환락 4인으로 바꾸려면 실드 자리도 펄로 변경. 혼합형에서는 웃음 지원."
+          "reason": "웨이브 단독 환락으로 추가 공격 판정 유지. 아하 승격·승격 중 팀 속도 지원은 사라지고 단독 환락 분기 적용."
         }
       ],
-      "note": "웨이브 단독 환락이면 동료 공격 시 그 아하 타임 동안 아하 속도 +25pt. 아하가 유일한 환락 동료이고 승격 중이면 두 행적이 활성화되며, 아하 명함/2돌에 따라 팀 속도 +15%/+25%."
+      "note": "웨이브 단독 환락이면 동료 공격 시 그 아하 타임 동안 아하 속도 +25pt. 아하가 유일한 환락 동료이고 승격 중이면 두 행적이 활성화되며, 아하 명함/2돌에 따라 팀 속도 +15%/+25%.",
+      "coreMemberIds": [
+        "1513"
+      ]
     }
   },
   {
@@ -12042,7 +11850,6 @@
     "title": "파멸 개척자 초반 물리 파티",
     "summary": "물리 약점 격파로 특성 공격력 · 필살기 단일/확산 분기",
     "tags": [
-      "집중 지원",
       "개척자(파멸)",
       "정운",
       "페라",
@@ -12076,7 +11883,10 @@
       "hsr-trailblazer-destruction",
       "hsr-tingyun",
       "hsr-pela",
-      "hsr-natasha"
+      "hsr-natasha",
+      "hsr-bronya",
+      "hsr-sparkle",
+      "hsr-lynx"
     ],
     "party": {
       "category": "hypercarry",
@@ -12130,461 +11940,10 @@
           "reason": "회복과 해제가 필요한 콘텐츠."
         }
       ],
-      "note": "전투 스킬 → 필살기 → 특성 → 일반 공격. 승급 6단계 스킬 피해 먼저."
-    }
-  },
-  {
-    "id": "hsr-trailblazer-preservation-team",
-    "game": "hsr",
-    "kind": "party",
-    "title": "보존 개척자 도발 디버프 파티",
-    "summary": "도발로 단일 공격 유도 · 행동마다 팀 실드 갱신",
-    "tags": [
-      "집중 지원",
-      "아케론",
-      "페라",
-      "초구",
-      "개척자(보존)",
-      "은랑",
-      "사이퍼",
-      "히아킨"
-    ],
-    "updated": "2026-11-25",
-    "basis": "4.7 게임 데이터 · 개척자(보존) 빌드와 시너지",
-    "sections": [
-      {
-        "title": "편성 조건과 시작 순서",
-        "paragraphs": [
-          "돌진·단일 표적 보스 공격 전에 도발. 일반 공격으로 SP·실드 갱신, 위험할 때 필살기로 실드 재적용."
-        ],
-        "bullets": []
-      }
-    ],
-    "sources": [
-      {
-        "label": "Prydwen · 개척자(보존) 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/trailblazer-preservation"
-      },
-      {
-        "label": "StarRailRes 4.7 · 파티 연계 스킬",
-        "url": "https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_skills.json"
-      }
-    ],
-    "related": [
-      "hsr-acheron",
-      "hsr-pela",
-      "hsr-jiaoqiu",
-      "hsr-trailblazer-preservation"
-    ],
-    "party": {
-      "category": "hypercarry",
-      "lead": "아케론",
-      "members": [
-        {
-          "id": "1308",
-          "name": "아케론",
-          "role": "디버프 기반 필살기",
-          "guideId": "hsr-acheron"
-        },
-        {
-          "id": "1106",
-          "name": "페라",
-          "role": "방어력 감소",
-          "guideId": "hsr-pela"
-        },
-        {
-          "id": "1218",
-          "name": "초구",
-          "role": "받는 피해 증가",
-          "guideId": "hsr-jiaoqiu"
-        },
-        {
-          "id": "8004",
-          "name": "개척자(보존)",
-          "role": "도발·피격 연소 광추",
-          "guideId": "hsr-trailblazer-preservation"
-        }
-      ],
-      "steps": [
-        "돌진·단일 표적 보스 공격 전에 도발. 일반 공격으로 SP·실드 갱신, 위험할 때 필살기로 실드 재적용."
-      ],
-      "alternatives": [
-        {
-          "id": "1006",
-          "name": "은랑",
-          "replaces": "1218",
-          "reason": "정련된 새 빛 기준 광역 방어력 감소·단일 약점 이식."
-        },
-        {
-          "id": "1406",
-          "name": "사이퍼",
-          "replaces": "1218",
-          "reason": "받는 피해 증가·확정 피해."
-        },
-        {
-          "id": "1409",
-          "name": "히아킨",
-          "replaces": "8004",
-          "reason": "적 광역 피해가 강해 도발 탱킹이 어려울 때 회복으로 변경."
-        }
-      ],
-      "note": "「우주 시장 동향」을 장착한 개척자가 적에게 피격되면 연소 부여를 시도한다. 도발로 피격을 유도하고 적 효과 저항을 확인."
-    }
-  },
-  {
-    "id": "hsr-trailblazer-harmony-team",
-    "game": "hsr",
-    "kind": "party",
-    "title": "화합 개척자 슈퍼 격파 파티",
-    "summary": "댄스 파트너 부여 → 약점 격파 적 공격으로 슈퍼 격파",
-    "tags": [
-      "격파",
-      "반디",
-      "개척자(화합)",
-      "완•매",
-      "갤러거",
-      "완·매",
-      "부트힐",
-      "라파",
-      "영사",
-      "망귀인"
-    ],
-    "updated": "2026-11-25",
-    "basis": "4.7 게임 데이터 · 개척자(화합) 빌드와 시너지",
-    "sections": [
-      {
-        "title": "편성 조건과 시작 순서",
-        "paragraphs": [
-          "격파 전에 필살기로 댄스 파트너 부여. 허수 약점인 적은 바운스 스킬로 강인성 감소. 격파 이후 딜러 공격 연결."
-        ],
-        "bullets": []
-      }
-    ],
-    "sources": [
-      {
-        "label": "Prydwen · 개척자(화합) 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/trailblazer-harmony"
-      },
-      {
-        "label": "StarRailRes 4.7 · 파티 연계 스킬",
-        "url": "https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_skills.json"
-      }
-    ],
-    "related": [
-      "hsr-firefly",
-      "hsr-trailblazer-harmony",
-      "hsr-ruan-mei",
-      "hsr-gallagher"
-    ],
-    "party": {
-      "category": "break",
-      "lead": "반디",
-      "members": [
-        {
-          "id": "1310",
-          "name": "반디",
-          "role": "화염 약점·강인성",
-          "guideId": "hsr-firefly"
-        },
-        {
-          "id": "8006",
-          "name": "개척자(화합)",
-          "role": "슈퍼 격파",
-          "guideId": "hsr-trailblazer-harmony"
-        },
-        {
-          "id": "1303",
-          "name": "완·매",
-          "role": "격파 효율",
-          "guideId": "hsr-ruan-mei"
-        },
-        {
-          "id": "1301",
-          "name": "갤러거",
-          "role": "회복·격파",
-          "guideId": "hsr-gallagher"
-        }
-      ],
-      "steps": [
-        "격파 전에 필살기로 댄스 파트너 부여. 허수 약점인 적은 바운스 스킬로 강인성 감소. 격파 이후 딜러 공격 연결."
-      ],
-      "alternatives": [
-        {
-          "id": "1315",
-          "name": "부트힐",
-          "replaces": "1310",
-          "reason": "물리 단일 강인성 공격. 약점 부여와 속도 조건 조정."
-        },
-        {
-          "id": "1317",
-          "name": "라파",
-          "replaces": "1310",
-          "reason": "허수 광역 격파. 허수 약점 적 우선."
-        },
-        {
-          "id": "1222",
-          "name": "영사",
-          "replaces": "1301",
-          "reason": "광역 회복·강인성 공격."
-        },
-        {
-          "id": "1225",
-          "name": "망귀인",
-          "replaces": "1303",
-          "reason": "추가 격파 게이지가 중요한 편성."
-        }
-      ],
-      "note": "필살기 → 특성 → 전투 스킬 → 일반 공격. 승급 2단계 적 수에 따른 슈퍼 격파 배율과 6단계 행동 지연."
-    }
-  },
-  {
-    "id": "hsr-trailblazer-remembrance-team",
-    "game": "hsr",
-    "kind": "party",
-    "title": "기억 개척자 미미 집중 파티",
-    "summary": "미미 충전 → 동료 즉시 행동 · 미미의 응원 확정 피해",
-    "tags": [
-      "기억 정령",
-      "카스토리스",
-      "개척자(기억)",
-      "에버나이트",
-      "히아킨",
-      "키레네",
-      "로빈•서머레토",
-      "더 헤르타",
-      "아글라이아",
-      "히메코•노바"
-    ],
-    "updated": "2026-11-25",
-    "basis": "4.7 게임 데이터 · 개척자(기억) 빌드와 시너지",
-    "sections": [
-      {
-        "title": "편성 조건과 시작 순서",
-        "paragraphs": [
-          "전투 스킬로 미미를 소환하고 아군 에너지 획득으로 충전. 미미의 응원을 주 딜러 행동 전에 사용."
-        ],
-        "bullets": []
-      }
-    ],
-    "sources": [
-      {
-        "label": "Prydwen · 개척자(기억) 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/trailblazer-remembrance"
-      },
-      {
-        "label": "StarRailRes 4.7 · 파티 연계 스킬",
-        "url": "https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_skills.json"
-      },
-      {
-        "label": "Prydwen · 에버나이트 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/evernight"
-      },
-      {
-        "label": "Prydwen · 히아킨 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/hyacine"
-      },
-      {
-        "label": "Prydwen · 에버나이트 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/evernight"
-      },
-      {
-        "label": "Prydwen · 히아킨 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/hyacine"
-      }
-    ],
-    "related": [
-      "hsr-castorice",
-      "hsr-trailblazer-remembrance",
-      "hsr-evernight",
-      "hsr-hyacine"
-    ],
-    "party": {
-      "category": "remembrance",
-      "lead": "카스토리스",
-      "members": [
-        {
-          "id": "1407",
-          "name": "카스토리스",
-          "role": "HP 정령 딜러",
-          "guideId": "hsr-castorice"
-        },
-        {
-          "id": "8008",
-          "name": "개척자(기억)",
-          "role": "미미·확정 피해",
-          "guideId": "hsr-trailblazer-remembrance"
-        },
-        {
-          "id": "1413",
-          "name": "에버나이트",
-          "role": "정령 치피",
-          "guideId": "hsr-evernight"
-        },
-        {
-          "id": "1409",
-          "name": "히아킨",
-          "role": "HP 회복",
-          "guideId": "hsr-hyacine"
-        }
-      ],
-      "steps": [
-        "전투 스킬로 미미를 소환하고 아군 에너지 획득으로 충전. 미미의 응원을 주 딜러 행동 전에 사용."
-      ],
-      "alternatives": [
-        {
-          "id": "1415",
-          "name": "키레네",
-          "replaces": "1413",
-          "reason": "후예 고유 지원과 기억 정령 충전."
-        },
-        {
-          "id": "1512",
-          "name": "로빈•서머레토",
-          "replaces": "1413",
-          "reason": "Fever와 특별 게스트 지원. 게스트의 아군 행동 당김 제한 확인."
-        },
-        {
-          "id": "1401",
-          "name": "더 헤르타",
-          "replaces": "1407",
-          "reason": "더 헤르타 필살기·미미 지원형. 정령 지원 자리는 지식 동료와 조율."
-        },
-        {
-          "id": "1402",
-          "name": "아글라이아",
-          "replaces": "1407",
-          "reason": "아글라이아 소환물과 미미 집중 지원."
-        },
-        {
-          "id": "1510",
-          "name": "히메코•노바",
-          "replaces": "1407",
-          "reason": "히메코•노바 개척 동행 조건을 쓸 때."
-        }
-      ],
-      "note": "기억 정령 스킬 → 기억 정령 특성 → 특성 → 필살기·전투 스킬·일반 공격. 승급 2단계 최초 충전 우선."
-    }
-  },
-  {
-    "id": "hsr-trailblazer-elation-team",
-    "game": "hsr",
-    "kind": "party",
-    "title": "개척자 환락 스킬 지원 파티",
-    "summary": "필살기 단일 치피·제어 해제 → 대상 환락 스킬 즉시 발동",
-    "tags": [
-      "환락",
-      "스파키",
-      "효광",
-      "개척자(환락)",
-      "펄",
-      "은랑 LV.999",
-      "에바네시아",
-      "에이언즈★아하"
-    ],
-    "updated": "2026-11-25",
-    "basis": "4.7 게임 데이터 · 개척자(환락) 빌드와 시너지",
-    "sections": [
-      {
-        "title": "편성 조건과 시작 순서",
-        "paragraphs": [
-          "일반 공격으로 SP, 필요하면 스킬로 훌륭한 솜씨. 필살기는 환락 딜러에 사용해 즉시 환락 스킬을 발동한다."
-        ],
-        "bullets": []
-      }
-    ],
-    "sources": [
-      {
-        "label": "Prydwen · 개척자(환락) 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/trailblazer-elation"
-      },
-      {
-        "label": "StarRailRes 4.7 · 파티 연계 스킬",
-        "url": "https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_skills.json"
-      },
-      {
-        "label": "Prydwen · 스파키 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/sparxie"
-      },
-      {
-        "label": "Prydwen · 효광 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/yao-guang"
-      },
-      {
-        "label": "Prydwen · 펄 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/pearl"
-      },
-      {
-        "label": "Prydwen · 스파키 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/sparxie"
-      },
-      {
-        "label": "Prydwen · 효광 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/yao-guang"
-      },
-      {
-        "label": "Prydwen · 펄 빌드와 파티",
-        "url": "https://www.prydwen.gg/star-rail/characters/pearl"
-      }
-    ],
-    "related": [
-      "hsr-sparxie",
-      "hsr-yao-guang",
-      "hsr-trailblazer-elation",
-      "hsr-pearl"
-    ],
-    "party": {
-      "category": "elation",
-      "lead": "스파키",
-      "members": [
-        {
-          "id": "1501",
-          "name": "스파키",
-          "role": "강화 평타 딜러",
-          "guideId": "hsr-sparxie"
-        },
-        {
-          "id": "1502",
-          "name": "효광",
-          "role": "개척자 웃음 지원",
-          "guideId": "hsr-yao-guang"
-        },
-        {
-          "id": "8010",
-          "name": "개척자(환락)",
-          "role": "필살기 환락 스킬",
-          "guideId": "hsr-trailblazer-elation"
-        },
-        {
-          "id": "1503",
-          "name": "펄",
-          "role": "저본·회복",
-          "guideId": "hsr-pearl"
-        }
-      ],
-      "steps": [
-        "일반 공격으로 SP, 필요하면 스킬로 훌륭한 솜씨. 필살기는 환락 딜러에 사용해 즉시 환락 스킬을 발동한다."
-      ],
-      "alternatives": [
-        {
-          "id": "1506",
-          "name": "은랑 LV.999",
-          "replaces": "1501",
-          "reason": "은랑에게 즉시 환락 스킬과 웃음을 제공."
-        },
-        {
-          "id": "1505",
-          "name": "에바네시아",
-          "replaces": "1501",
-          "reason": "에바네시아 필살기 회전 보조."
-        },
-        {
-          "id": "1511",
-          "name": "에이언즈★아하",
-          "replaces": "1502",
-          "reason": "승격형 개척자 딜러로 변경. 개척자 필살기를 아하에게 지정해 스킬 연계."
-        }
-      ],
-      "note": "필살기 → 환락 스킬·특성 → 일반 공격·전투 스킬. 승급 6단계 자원 획득과 4단계 필살기 SP 회복."
+      "note": "전투 스킬 → 필살기 → 특성 → 일반 공격. 승급 6단계 스킬 피해 먼저.",
+      "coreMemberIds": [
+        "8002"
+      ]
     }
   },
   {
@@ -12594,12 +11953,14 @@
     "title": "어벤츄린•웨이브 4환락 파티",
     "summary": "효광·아하 타임에서 환락 스킬을 반복하고, 펄의 미학의 저본으로 보너스 턴 확보",
     "tags": [
-      "환락",
       "어벤츄린•웨이브",
       "효광",
       "에이언즈★아하",
       "펄",
-      "개척자(환락)"
+      "개척자(환락)",
+      "곽향",
+      "히아킨",
+      "단항•등황"
     ],
     "updated": "2026-11-25",
     "basis": "Prydwen · 웨이브 4환락 편성과 아하 승격",
@@ -12628,13 +11989,25 @@
       {
         "label": "StarRailRes 4.7 · 환락 승격 행적",
         "url": "https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_skills.json"
+      },
+      {
+        "label": "StarGuide · 웨이브의 환락 개척자·곽향·히아킨 편성",
+        "url": "https://starguide.gg/character/aventurine-waveflair"
+      },
+      {
+        "label": "All Things How · 웨이브 환락 하이퍼캐리와 실드 대안",
+        "url": "https://allthings.how/best-aventurine-waveflair-teams-in-honkai-star-rail/"
       }
     ],
     "related": [
       "hsr-aventurine-waveflair",
       "hsr-yao-guang",
       "hsr-aha",
-      "hsr-pearl"
+      "hsr-pearl",
+      "hsr-trailblazer-elation",
+      "hsr-huohuo",
+      "hsr-hyacine",
+      "hsr-dan-heng-permansor-terrae"
     ],
     "party": {
       "category": "elation",
@@ -12673,12 +12046,39 @@
       "alternatives": [
         {
           "id": "8010",
-          "name": "개척자(환락)",
           "replaces": "1502",
-          "reason": "환락 4인 유지. 웨이브에게 즉시 환락 스킬을 주고, 아하가 승격을 유지."
+          "name": "개척자(환락)",
+          "reason": "4환락·승격과 펄 보너스 턴 유지. 웨이브에 즉시 환락 스킬·치명타 피해 지원. 효광 추가 아하 타임 상실."
+        },
+        {
+          "id": "8010",
+          "replaces": "1511",
+          "name": "개척자(환락)",
+          "reason": "4환락과 효광의 추가 아하 타임 유지. 웨이브에 즉시 환락 스킬 지원, 아하의 승격·확정 피해 합산 상실."
+        },
+        {
+          "id": "1217",
+          "replaces": "1503",
+          "name": "곽향",
+          "reason": "치유·해제와 팀 에너지 회복으로 효광과 웨이브의 필살기 지원. 3환락이며 펄 저본 보너스 턴 상실."
+        },
+        {
+          "id": "1409",
+          "replaces": "1503",
+          "name": "히아킨",
+          "reason": "팀 치유와 이카의 잦은 공격으로 열의 수급 지원. 3환락이며 펄 저본 보너스 턴 상실."
+        },
+        {
+          "id": "1414",
+          "replaces": "1503",
+          "name": "단항•등황",
+          "reason": "실드·해제와 용령 공격으로 생존과 열의 수급 지원. 3환락이며 펄 저본 보너스 턴 상실."
         }
       ],
-      "note": "환락 4인 조건으로 웨이브에게 미학의 저본 보너스 턴을 준다. 웨이브의 자체 환락도와 웃음 획득을 중심으로 운용."
+      "note": "환락 4인 조건으로 웨이브에게 미학의 저본 보너스 턴을 준다. 웨이브의 자체 환락도와 웃음 획득을 중심으로 운용.",
+      "coreMemberIds": [
+        "1513"
+      ]
     }
   }
 ]

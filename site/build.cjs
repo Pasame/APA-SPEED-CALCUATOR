@@ -70,13 +70,20 @@ function buildArchive(root, art) {
   const docs = JSON.parse(fs.readFileSync(path.join(root, 'site/content.json'), 'utf8'));
   const profiles = JSON.parse(fs.readFileSync(path.join(root, 'site/profiles.json'), 'utf8'));
   const assets = JSON.parse(fs.readFileSync(path.join(root, 'site/assets-manifest.json'), 'utf8'));
-  const visual = createVisuals({ profiles, assets, docs, escape });
+  const partyGroups = JSON.parse(fs.readFileSync(path.join(root, 'site/party-groups.json'), 'utf8'));
+  const visual = createVisuals({ profiles, assets, docs, escape, partyGroups });
   const ids = new Set();
+  const partyKeys = new Set();
   for (const doc of docs) {
     if (!/^[a-z0-9-]+$/.test(doc.id) || ids.has(doc.id)) {
       throw new Error(`문서 ID를 확인해 주세요: ${doc.id}`);
     }
     ids.add(doc.id);
+    if (doc.party) {
+      const key = `${doc.game}:${doc.party.category}:${[...(doc.party.coreMemberIds || [])].sort().join(',')}`;
+      if (partyKeys.has(key)) throw new Error(`Duplicate party core: ${doc.id}`);
+      partyKeys.add(key);
+    }
 
     if (
       !games.some(game => game.id === doc.game) ||
@@ -96,6 +103,39 @@ function buildArchive(root, art) {
     }
   }
 
+  const aliases = new Set();
+  for (const doc of docs) {
+    for (const alias of doc.aliases || []) {
+      if (!/^[a-z0-9-]+$/.test(alias) || ids.has(alias) || aliases.has(alias)) {
+        throw new Error(`Invalid guide alias: ${alias}`);
+      }
+      aliases.add(alias);
+    }
+  }
+
+  const groupedParties = new Map();
+  const groupDocs = partyGroups.map(group => {
+    if (!/^[a-z0-9-]+$/.test(group.id) || ids.has(group.id) || aliases.has(group.id) || !group.variants?.length) {
+      throw new Error(`Invalid party group: ${group.id}`);
+    }
+    ids.add(group.id);
+    const variants = group.variants.map(id => {
+      const doc = docs.find(item => item.id === id);
+      if (!doc?.party || doc.party.category !== group.category || groupedParties.has(id)) {
+        throw new Error(`Invalid party variant: ${id}`);
+      }
+      groupedParties.set(id, group);
+      return doc;
+    });
+    return {
+      id: group.id, game: 'hsr', kind: 'party', title: group.title,
+      summary: '메인 딜러를 선택하면 운영과 대체 후보가 함께 바뀝니다.',
+      tags: variants.flatMap(doc => [doc.party.lead, ...(doc.tags || [])]),
+      party: { category: group.category, lead: group.title },
+      partyGroup: group,
+    };
+  });
+
   const calculator = {
     id: 'aha',
     game: 'hsr',
@@ -106,7 +146,7 @@ function buildArchive(root, art) {
     href: 'tools/aha/index.html',
     art: 'char-aeon',
   };
-  const entries = [...docs, calculator];
+  const entries = [...docs.filter(doc => !groupedParties.has(doc.id)), ...groupDocs, calculator];
   const hrefFor = doc => doc.href || `guides/${doc.id}/index.html`;
   const badge = game => `<span class="game-symbol ${game.color}" aria-hidden="true">${game.icon}</span>`;
   const imageFor = (doc, prefix) => {
@@ -229,6 +269,16 @@ function buildArchive(root, art) {
     fs.writeFileSync(destination, html);
   }
 
+  function writeRedirect(id, destination, doc) {
+    const html = layout({
+      title: doc.title,
+      description: doc.summary,
+      prefix: '../../',
+      body: `<a class="button" href="${escape(destination)}">${escape(doc.title)} →</a>`,
+    }).replace('</head>', `    <meta http-equiv="refresh" content="0;url=${escape(destination)}">\n    <link rel="canonical" href="${escape(destination)}">\n  </head>`);
+    write(`guides/${id}/index.html`, html);
+  }
+
   const gameCards = games.map(game => `
     <a class="game-card ${game.color}" href="games/${game.id}/index.html">
       ${badge(game)}
@@ -330,6 +380,11 @@ function buildArchive(root, art) {
   }
 
   for (const doc of docs) {
+    const group = groupedParties.get(doc.id);
+    if (group) {
+      writeRedirect(doc.id, `../${group.id}/index.html?party=${doc.id}`, doc);
+      continue;
+    }
     if (profiles.some(profile => profile.id === doc.id) || doc.party) {
       write(`guides/${doc.id}/index.html`, layout({
         title: doc.title,
@@ -409,6 +464,23 @@ function buildArchive(root, art) {
             <a class="text-link" href="../../games/${doc.game}/index.html">${game.name} 자료 더 보기 →</a>
           </aside>
         </div>${relatedSection}`,
+    }));
+  }
+
+  for (const doc of docs) {
+    for (const alias of doc.aliases || []) {
+      const group = groupedParties.get(doc.id);
+      const destination = group ? `../${group.id}/index.html?party=${doc.id}` : `../${doc.id}/index.html`;
+      writeRedirect(alias, destination, doc);
+    }
+  }
+
+  for (const group of partyGroups) {
+    write(`guides/${group.id}/index.html`, layout({
+      title: group.title,
+      description: '메인 딜러별 운영법과 지원 캐릭터의 대체 후보를 확인하세요.',
+      prefix: '../../',
+      body: visual.partyGroupDetail(group, '../../'),
     }));
   }
 

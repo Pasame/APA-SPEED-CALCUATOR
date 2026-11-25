@@ -251,15 +251,23 @@ main { max-width: 1160px; margin: auto; padding: 36px 32px 64px; }
 .facet-options img { width: 24px; height: 24px; object-fit: contain; background: #453c46; padding: 2px; border-radius: 50%; }
 .facet-options button[aria-pressed="true"] { background: var(--pink); border-color: var(--accent); color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); font-weight: 700; }
 .facet-options button[aria-pressed="true"] span { text-decoration: underline; text-underline-offset: 4px; }
-.character-results { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 64px; }
-.character-results .result-count { margin: 0; }
+.character-results { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; min-height: 64px; padding: 8px 0; }
+.character-results .result-count { margin: 0 auto 0 0; }
 .character-results button { padding: 8px 12px; border-radius: 14px; background: var(--soft); color: var(--text); font-size: .875rem; }
+.character-sort { display: inline-flex; align-items: center; gap: 8px; max-width: 100%; color: var(--muted); font-size: .875rem; }
+.character-sort span { flex-shrink: 0; }
+.character-sort select { padding: 8px 12px; border: 1px solid var(--field-border); border-radius: 14px; background: var(--surface); color: var(--text); }
 .character-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(112px, 1fr)); gap: 14px; }
 .character-tile { padding: 14px 10px; border: 1px solid var(--line); border-radius: 24px; background: var(--surface); display: grid; justify-items: center; gap: 10px; font-weight: 650; text-align: center; }
 .character-tile img { width: 100px; height: 100px; object-fit: contain; border-radius: 50%; background: var(--soft); }
 .character-tile:hover, .party-tile:hover { border-color: var(--accent); background: var(--pink); }
 .party-categories { padding-bottom: 20px; }
 .party-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.party-lead-choices { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; max-width: 700px; margin-bottom: 24px; }
+.party-lead-choice { display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 0; padding: 12px 8px; border: 2px solid var(--line); border-radius: 24px; background: var(--surface); color: var(--text); }
+.party-lead-choice img { display: block; width: 80px; height: 80px; max-width: 100%; object-fit: contain; border-radius: 50%; background: var(--soft); }
+.party-lead-choice[aria-pressed="true"] { border-color: var(--accent); background: var(--pink); }
+.party-lead-choice span { overflow-wrap: anywhere; line-height: 1.5; }
 .party-tile { display: grid; gap: 8px; padding: 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 24px; }
 .party-tile>span { color: var(--muted); font-size: .875rem; display: flex; justify-content: space-between; }
 .party-faces { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; margin-bottom: 6px; }
@@ -356,6 +364,9 @@ main { max-width: 1160px; margin: auto; padding: 36px 32px 64px; }
   .cone-choice img { height: 130px; }
 }
 @media (max-width: 600px) {
+  .party-lead-choices { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .party-lead-choice { flex-direction: row; text-align: left; padding: 10px; font-size: 14px; }
+  .party-lead-choice img { width: 44px; height: 44px; flex: 0 0 44px; }
   .stat-tier-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
   .stat-tier-table, .stat-tier-table tbody { display: block; }
   .stat-tier-table tbody tr { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-bottom: 14px; padding: 12px; border-radius: 18px; background: var(--soft); gap: 8px; }
@@ -395,6 +406,7 @@ main { max-width: 1160px; margin: auto; padding: 36px 32px 64px; }
   .investment-note { padding: 16px; }
 }
 @media (max-width: 360px) {
+  .party-lead-choice { flex-direction: column; text-align: center; }
   .character-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cone-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .target-grid { grid-template-columns: minmax(0, 1fr); }
