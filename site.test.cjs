@@ -20,6 +20,10 @@ const pages = ['index.html', 'search/index.html', ...games.map(game => `games/${
 for (const page of pages) {
   const html = fs.readFileSync(path.join(root, page), 'utf8');
   assert.ok(html.includes('lang="ko"'));
+  for (const asset of ['styles.css', 'app.js']) {
+    const version = require('node:crypto').createHash('sha256').update(fs.readFileSync(path.join(root, 'site', asset))).digest('hex').slice(0, 12);
+    assert.ok(html.includes(`site/${asset}?v=${version}`), `${page} loads the matching ${asset} version`);
+  }
   for (const [, link] of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
     if (/^(https?:|data:|#)/.test(link)) continue;
     const relative = link.split(/[?#]/)[0];
