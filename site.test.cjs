@@ -58,7 +58,7 @@ console.log('PASS moved calculator remains self-contained and includes unmodifie
 
 const profiles = require('./site/profiles.json');
 const assets = require('./site/assets-manifest.json');
-const { categories, slots, substatsForSlot } = require('./site/visual.cjs');
+const { createVisuals, categories, slots, substatsForSlot } = require('./site/visual.cjs');
 assert.deepEqual(substatsForSlot('속도', ['속도', '격파 특수효과']), ['격파 특수효과']);
 assert.deepEqual(substatsForSlot('속도', ['속도 145까지', 'HP%']), ['HP%']);
 assert.deepEqual(substatsForSlot('에너지 회복효율 / 격파 특수효과', ['속도', '격파 특수효과']), ['속도', '격파 특수효과 (주옵션 제외)']);
@@ -66,8 +66,8 @@ assert.deepEqual(substatsForSlot('HP%', ['속도', 'HP% / 방어력%']), ['속�
 for (const profile of profiles) {
   assert.ok(known.has(profile.id));
   assert.ok(assets.characters[profile.characterId]);
-  assert.equal(profile.cones.length, 5, `${profile.id} has five equipment choices`);
-  assert.equal(new Set(profile.cones.map(cone => cone.id)).size, 5);
+  assert.ok(profile.cones.length >= 4 && profile.cones.length <= 5, `${profile.id} has four or five sourced equipment choices`);
+  assert.equal(new Set(profile.cones.map(cone => cone.id)).size, profile.cones.length);
   for (const cone of profile.cones) assert.ok(assets.cones[cone.id]);
   for (const build of profile.relicBuilds) {
     assert.equal(build.cavernSets.reduce((sum, set) => sum + set.pieces, 0), 4);
@@ -85,6 +85,13 @@ for (const profile of profiles) {
   assert.ok(profile.related.every(id => docs.some(doc => doc.id === id && doc.party)));
 }
 const parties = docs.filter(doc => doc.party);
+const invalidTarget = structuredClone(parties[0]);
+invalidTarget.party.alternatives[0].replaces = 'missing-party-member';
+assert.throws(
+  () => createVisuals({ profiles, assets, docs, escape: String }).partyDetail(invalidTarget, '../../'),
+  /Missing replacement target/,
+  'unassigned alternatives must fail the build rather than silently disappear',
+);
 assert.deepEqual(new Set(parties.map(doc => doc.party.category)), new Set(Object.keys(categories)));
 for (const doc of parties) {
   assert.equal(doc.party.members.length, 4);
@@ -92,6 +99,13 @@ for (const doc of parties) {
   for (const member of [...doc.party.members, ...doc.party.alternatives]) {
     if (member.id) assert.ok(assets.characters[member.id], `portrait ${member.id} exists`);
     if (member.guideId) assert.ok(known.has(member.guideId));
+  }
+  const html = fs.readFileSync(path.join(root, `guides/${doc.id}/index.html`), 'utf8');
+  for (const alternative of doc.party.alternatives) {
+    assert.ok(doc.party.members.some(member => member.id === alternative.replaces), `${doc.id} replacement target exists`);
+    const slot = html.split(`data-member-id="${alternative.replaces}"`)[1]?.split('data-member-id=')[0];
+    assert.ok(slot?.includes(`data-replaces="${alternative.replaces}"`), `${alternative.name} sits under their replacement target`);
+    assert.ok(slot.includes(alternative.name));
   }
 }
 const hsr = fs.readFileSync(path.join(root, 'games/hsr/index.html'), 'utf8');

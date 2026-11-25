@@ -262,7 +262,7 @@ main { max-width: 1160px; margin: auto; padding: 36px 32px 64px; }
 .visual-article { max-width: 100%; }
 .visual-section { margin-top: 22px; padding: 28px; border: 1px solid var(--line); border-radius: 28px; background: var(--surface); }
 .visual-section>h2 { margin-bottom: 22px; }
-.cone-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.cone-grid { display: grid; grid-template-columns: repeat(var(--cone-columns, 5), minmax(0, 1fr)); gap: 12px; }
 .cone-choice { padding: 14px 10px; border: 2px solid transparent; border-radius: 20px; background: var(--soft); display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
 .cone-choice img { width: 100%; max-width: 140px; height: 164px; object-fit: contain; }
 .cone-choice>span { font-weight: 650; line-height: 1.5; }
@@ -306,10 +306,14 @@ main { max-width: 1160px; margin: auto; padding: 36px 32px 64px; }
 .rotation-steps { padding-left: 25px; }
 .rotation-steps li { padding: 8px 0 8px 8px; }
 .rotation-steps li::marker { color: var(--accent); font-weight: 700; }
-.alternative-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.alternative-member { display: flex; align-items: center; gap: 14px; }
-.alternative-member img { width: 76px; height: 76px; flex-shrink: 0; background: var(--soft); border-radius: 50%; object-fit: contain; }
-.alternative-member p { font-size: .875rem; color: var(--muted); }
+.roster-slot { min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+.slot-alternatives { border-top: 2px solid var(--line); padding: 12px 10px 0; }
+.replacement-label { font-size: .875rem; color: var(--muted); text-align: center; margin-bottom: 10px; }
+.slot-alternatives ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.replacement-character { display: grid; justify-items: center; gap: 6px; text-align: center; }
+.replacement-character img { width: 68px; height: 68px; border-radius: 50%; background: var(--soft); object-fit: contain; }
+.slot-alternatives details { margin-top: 6px; font-size: .875rem; }
+.slot-alternatives .text-link { font-size: .875rem; min-height: 44px; display: flex; align-items: center; justify-content: center; }
 @media (max-width: 900px) {
   .relic-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .target-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -342,7 +346,6 @@ main { max-width: 1160px; margin: auto; padding: 36px 32px 64px; }
   .roster-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .roster-member { padding: 14px 10px; }
   .roster-member img { width: 100px; height: 100px; }
-  .alternative-grid { grid-template-columns: minmax(0, 1fr); }
   .investment-note { padding: 16px; }
 }
 @media (max-width: 360px) {
