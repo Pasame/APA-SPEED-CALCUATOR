@@ -106,7 +106,12 @@ function buildArchive(root, art) {
   const entries = [...docs, calculator];
   const hrefFor = doc => doc.href || `guides/${doc.id}/index.html`;
   const badge = game => `<span class="game-symbol ${game.color}" aria-hidden="true">${game.icon}</span>`;
-  const imageFor = doc => {
+  const imageFor = (doc, prefix) => {
+    const profile = profiles.find(item => item.id === doc.id);
+    if (profile) {
+      const portrait = assets.characters[profile.characterId];
+      return `<img class="doc-avatar" src="${prefix}${portrait.path}" alt="" width="64" height="64" loading="lazy">`;
+    }
     const key = doc.art || ({
       'huohuo': 'char-huohuo',
       'ruan-mei': 'char-ruan',
@@ -150,7 +155,7 @@ function buildArchive(root, art) {
     return `
       <a class="doc-card" href="${prefix}${hrefFor(doc)}"${searchAttributes}>
         <div class="doc-top">
-          <span class="eyebrow">${escape(game.name)} · ${kinds[doc.kind]}</span>${imageFor(doc)}
+          <span class="eyebrow">${escape(game.name)} · ${kinds[doc.kind]}</span>${imageFor(doc, prefix)}
         </div>
         <h3>${escape(doc.title)}</h3>
         <p>${escape(doc.summary)}</p>

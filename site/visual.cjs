@@ -114,7 +114,11 @@ function createVisuals({ profiles, assets, docs, escape }) {
       <header class="profile-header">${image('characters', profile.characterId, prefix, 'profile-portrait')}<div><p class="eyebrow">캐릭터 육성</p><h1>${escape(profile.name)}</h1><p>${escape(profile.role)}</p></div></header>
       <nav class="profile-nav" aria-label="육성 항목"><a href="#cones">광추</a><a href="#relics">유물</a><a href="#targets">이잘키</a><a href="#eidolons">성혼</a><a href="#parties">추천 파티</a></nav>
       <article class="visual-article">
-        <section class="visual-section" id="cones" data-choice-group><h2>추천 광추</h2><div class="cone-grid">${coneButtons}</div>${conePanels}</section>
+        <section class="visual-section" id="cones" data-choice-group>
+          <h2>추천 광추</h2>
+          <div class="cone-grid" style="--cone-columns:${profile.cones.length}">${coneButtons}</div>
+          ${conePanels}
+        </section>
         <section class="visual-section" id="relics" data-choice-group><h2>추천 유물</h2><div class="filter-chips build-choices" role="group" aria-label="유물 세팅">${profile.relicBuilds.map((build, index) => `<button type="button" data-choice="relic-${index}" aria-controls="relic-${index}" aria-pressed="${index === 0}">${escape(build.name)}</button>`).join('')}</div>${relicPanels}</section>
         <section class="visual-section" id="targets"><h2>이 정도면 잘 키웠다</h2><div class="target-grid">${profile.targetStats.map(stat => `<div><span>${escape(stat.label)}</span><strong>${escape(stat.value)}</strong><p>${escape(stat.condition)}</p></div>`).join('')}</div><details class="equipment-reason"><summary>목표 스탯을 볼 때</summary><p>${escape(profile.targetNote)}</p></details></section>
         <section class="visual-section" id="eidolons"><h2>성혼과 추천 돌파</h2><p class="investment-note">${escape(profile.eidolonAdvice)}</p><div class="eidolon-list">${profile.eidolons.map(eidolon => `<details><summary><span class="eidolon-number">${eidolon.level}</span><span>${escape(eidolon.short)}</span>${eidolon.recommended ? '<span class="recommend-tag">추천</span>' : ''}</summary><p>${escape(eidolon.detail)}</p></details>`).join('')}</div></section>
@@ -130,11 +134,30 @@ function createVisuals({ profiles, assets, docs, escape }) {
 
   function partyDetail(doc, prefix) {
     const party = doc.party;
+    for (const alternative of party.alternatives || []) {
+      if (!party.members.some(member => member.id === alternative.replaces)) {
+        throw new Error(`Missing replacement target: ${doc.id}/${alternative.name}`);
+      }
+    }
     const roster = party.members.map(member => {
       const content = `${image('characters', member.id, prefix)}<strong>${escape(member.name)}</strong><span>${escape(member.role)}</span>`;
-      return member.guideId ? `<a class="roster-member" href="${prefix}guides/${member.guideId}/index.html">${content}<small>육성 보기 →</small></a>` : `<div class="roster-member">${content}</div>`;
+      const card = member.guideId
+        ? `<a class="roster-member" href="${prefix}guides/${member.guideId}/index.html">${content}<small>육성 보기 →</small></a>`
+        : `<div class="roster-member">${content}</div>`;
+      const alternatives = (party.alternatives || []).filter(alternative => alternative.replaces === member.id);
+      const alternativesHtml = alternatives.length ? `
+        <div class="slot-alternatives">
+          <p class="replacement-label">${escape(member.name)} 대체</p>
+          <ul>${alternatives.map(alternative => {
+            const profile = profiles.find(item => item.characterId === alternative.id);
+            return `<li data-replaces="${member.id}">
+              <div class="replacement-character">${image('characters', alternative.id, prefix)}<strong>${escape(alternative.name)}</strong></div>
+              <details><summary>교체할 때 확인</summary><p>${escape(alternative.reason)}</p></details>${profile ? `<a class="text-link" href="${prefix}guides/${profile.id}/index.html">육성 보기 →</a>` : ''}
+            </li>`;
+          }).join('')}</ul>
+        </div>` : '';
+      return `<div class="roster-slot" data-member-id="${member.id}">${card}${alternativesHtml}</div>`;
     }).join('');
-    const alternates = (party.alternatives || []).map(member => `<div class="alternative-member">${member.id ? image('characters', member.id, prefix) : ''}<div><strong>${escape(member.name)}</strong><p>${escape(member.reason)}</p></div></div>`).join('');
     return `<a class="back-link" href="${prefix}games/hsr/index.html?view=party&category=${party.category}">← ${categories[party.category]} 파티</a>
       <header class="party-header"><p class="eyebrow">${categories[party.category]}</p><h1>${escape(party.lead)}</h1><p>${escape(doc.summary)}</p></header>
       <article class="visual-article">
@@ -147,7 +170,6 @@ function createVisuals({ profiles, assets, docs, escape }) {
           <ol class="rotation-steps">${party.steps.map(step => `<li>${escape(step)}</li>`).join('')}</ol>
           <details class="equipment-reason"><summary>편성과 운영 자세히</summary>${detailedSections(doc.sections)}</details>
         </section>
-        ${alternates ? `<section class="visual-section"><h2>대체 멤버</h2><div class="alternative-grid">${alternates}</div></section>` : ''}
         ${sources(doc)}
       </article>`;
   }
