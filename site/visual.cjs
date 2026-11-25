@@ -1,3 +1,4 @@
+const characterFilters = require('./character-filters.json');
 const categories = {
   dot: '지속 피해',
   followup: '추가 공격',
@@ -33,7 +34,11 @@ function createVisuals({ profiles, assets, docs, escape }) {
   function characterTile(doc, prefix) {
     const profile = profiles.find(item => item.id === doc.id);
     if (!profile) throw new Error(`Missing character profile: ${doc.id}`);
-    return `<a class="character-tile" href="${prefix}guides/${doc.id}/index.html" data-character data-search="${escape([profile.name, ...(doc.tags || [])].join(' '))}">
+    const filters = characterFilters[doc.game];
+    if (filters && (!Object.hasOwn(filters.elements, profile.element) || !Object.hasOwn(filters.paths, profile.path))) {
+      throw new Error(`Invalid character classification: ${doc.id}`);
+    }
+    return `<a class="character-tile" href="${prefix}guides/${doc.id}/index.html" data-character data-search="${escape([profile.name, ...(doc.tags || [])].join(' '))}" data-element="${escape(profile.element || '')}" data-path="${escape(profile.path || '')}">
       ${image('characters', profile.characterId, prefix)}<span>${escape(profile.name)}</span>
     </a>`;
   }
@@ -56,10 +61,20 @@ function createVisuals({ profiles, assets, docs, escape }) {
         const entries = ownDocs.filter(doc => doc.kind === kind);
         let content;
         if (kind === 'character') {
+          const filters = characterFilters[entries[0].game];
+          const filterControls = filters ? `<div class="character-filters">
+              <fieldset class="character-facet"><legend>속성</legend><div class="facet-options">
+                ${Object.entries(filters.elements).map(([key, name]) => `<button type="button" data-character-element="${key}" aria-pressed="false">${image('filters', 'element-' + key, prefix)}<span>${name}</span></button>`).join('')}
+              </div></fieldset>
+              <fieldset class="character-facet"><legend>운명의 길</legend><div class="facet-options">
+                ${Object.entries(filters.paths).map(([key, name]) => `<button type="button" data-character-path="${key}" aria-pressed="false">${image('filters', 'path-' + key, prefix)}<span>${name}</span></button>`).join('')}
+              </div></fieldset>
+            </div>` : '';
           content = `<div class="search-box character-search"><label class="sr-only" for="character-query">캐릭터 검색</label><span aria-hidden="true">⌕</span><input id="character-query" type="search" placeholder="캐릭터 이름 검색" maxlength="80" data-character-query></div>
-            <p class="result-count" role="status" data-character-count>${entries.length}명</p>
+            ${filterControls}
+            <div class="character-results"><p class="result-count" role="status" data-character-count>${entries.length}명</p><button type="button" data-character-clear hidden>조건 초기화</button></div>
             <div class="character-grid">${entries.map(doc => characterTile(doc, prefix)).join('')}</div>
-            <p class="empty-state" data-character-empty hidden>찾는 캐릭터가 없어요. 이름을 다시 확인해 주세요.</p>`;
+            <p class="empty-state" data-character-empty hidden>이 조건에 맞는 육성 가이드가 없어요. 검색어나 필터를 바꿔 주세요.</p>`;
         } else if (kind === 'party') {
           content = `<div class="filter-chips party-categories" role="group" aria-label="파티 유형">${partyCategories.map(([key, name], index) => `<button type="button" data-category="${key}" aria-pressed="${index === 0}">${name}</button>`).join('')}</div>
             <div class="section-heading"><h2 data-party-heading>메인 딜러 선택</h2><p class="eyebrow">얼굴을 누르면 편성과 운영을 볼 수 있어요.</p></div>
@@ -90,6 +105,11 @@ function createVisuals({ profiles, assets, docs, escape }) {
 
   function characterDetail(doc, prefix) {
     const profile = profiles.find(item => item.id === doc.id);
+    for (const stat of profile.targetStats) {
+      if ([stat.value, stat.nearFinal, stat.final, stat.condition].some(value => typeof value !== 'string' || !value.trim())) {
+        throw new Error(`Missing stat tier or footnote: ${doc.id}/${stat.label}`);
+      }
+    }
     const coneButtons = profile.cones.map((cone, index) => `<button class="cone-choice" type="button" data-choice="cone-${index}" aria-controls="cone-${index}" aria-pressed="${index === 0}">
       ${image('cones', cone.id, prefix)}<span>${escape(cone.name)}</span><small>${escape(cone.tag)}</small></button>`).join('');
     const conePanels = profile.cones.map((cone, index) => `<div class="equipment-description" id="cone-${index}" data-choice-panel${index ? ' hidden' : ''}>
@@ -120,7 +140,31 @@ function createVisuals({ profiles, assets, docs, escape }) {
           ${conePanels}
         </section>
         <section class="visual-section" id="relics" data-choice-group><h2>추천 유물</h2><div class="filter-chips build-choices" role="group" aria-label="유물 세팅">${profile.relicBuilds.map((build, index) => `<button type="button" data-choice="relic-${index}" aria-controls="relic-${index}" aria-pressed="${index === 0}">${escape(build.name)}</button>`).join('')}</div>${relicPanels}</section>
-        <section class="visual-section" id="targets"><h2>이 정도면 잘 키웠다</h2><div class="target-grid">${profile.targetStats.map(stat => `<div><span>${escape(stat.label)}</span><strong>${escape(stat.value)}</strong><p>${escape(stat.condition)}</p></div>`).join('')}</div><details class="equipment-reason"><summary>목표 스탯을 볼 때</summary><p>${escape(profile.targetNote)}</p></details></section>
+        <section class="visual-section" id="targets">
+          <h2>이 정도면 잘 키웠다</h2>
+          <p class="eyebrow">같은 파티·광추 기준의 육성 목표입니다. 조건은 [*]에서 확인하세요.</p>
+          <table class="stat-tier-table">
+            <caption class="sr-only">${escape(profile.name)} 추천 스탯·준종결·종결 비교</caption>
+            <thead><tr><th scope="col">스탯</th><th scope="col">추천 스탯</th><th scope="col">준종결</th><th scope="col">종결</th></tr></thead>
+            <tbody>${profile.targetStats.map((stat, index) => `
+              <tr id="stat-row-${index + 1}">
+                <th scope="row">${escape(stat.label)}
+                  <span class="stat-note" data-stat-note>
+                    <a class="stat-note-link" href="#stat-note-${index + 1}" aria-label="${escape(stat.label)} 조건 각주 ${index + 1}" aria-describedby="stat-tooltip-${index + 1}">[*]</a>
+                    <span class="stat-tooltip" id="stat-tooltip-${index + 1}" role="tooltip">${escape(stat.condition)}</span>
+                  </span>
+                </th>
+                <td data-tier="추천 스탯">${escape(stat.value)}</td>
+                <td data-tier="준종결">${escape(stat.nearFinal)}</td>
+                <td data-tier="종결">${escape(stat.final)}</td>
+              </tr>`).join('')}</tbody>
+          </table>
+          <details class="equipment-reason"><summary>육성 단계의 기준</summary><p>${escape(profile.targetNote)}</p></details>
+          <div class="stat-footnotes">
+            <h3>스탯 조건과 각주</h3>
+            <ol>${profile.targetStats.map((stat, index) => `<li id="stat-note-${index + 1}" tabindex="-1"><strong>${escape(stat.label)}</strong> ${escape(stat.condition)} <a href="#stat-row-${index + 1}" aria-label="${escape(stat.label)} 스탯으로 돌아가기">↑</a></li>`).join('')}</ol>
+          </div>
+        </section>
         <section class="visual-section" id="eidolons"><h2>성혼과 추천 돌파</h2><p class="investment-note">${escape(profile.eidolonAdvice)}</p><div class="eidolon-list">${profile.eidolons.map(eidolon => `<details><summary><span class="eidolon-number">${eidolon.level}</span><span>${escape(eidolon.short)}</span>${eidolon.recommended ? '<span class="recommend-tag">추천</span>' : ''}</summary><p>${escape(eidolon.detail)}</p></details>`).join('')}</div></section>
         <section class="visual-section" id="parties"><h2>추천 파티</h2><div class="party-grid">${relatedParties.map(party => partyTile(party, prefix)).join('')}</div></section>
         <details class="article-sources">

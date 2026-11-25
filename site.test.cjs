@@ -121,6 +121,12 @@ for (const profile of profiles) {
   assert.ok(page.includes('기본 운영과 행적'));
   assert.ok(page.includes('tools/aha/index.html'));
   assert.ok(!page.includes('undefined'));
+  for (const [index, stat] of profile.targetStats.entries()) {
+    for (const field of ['value', 'nearFinal', 'final', 'condition']) assert.ok(stat[field]?.trim());
+    assert.ok(page.includes(`href="#stat-note-${index + 1}"`));
+    assert.ok(page.includes(`id="stat-note-${index + 1}"`));
+    assert.ok(page.includes(`aria-describedby="stat-tooltip-${index + 1}"`));
+  }
 }
 console.log('PASS visual guides have real equipment pieces, complete stats, linked parties and no all-category tab');
 
@@ -142,7 +148,7 @@ function choiceGroup(ids) {
 const cones = choiceGroup(['cone-0', 'cone-1']);
 const relics = choiceGroup(['relic-0', 'relic-1']);
 vm.runInNewContext(fs.readFileSync(path.join(root, 'site/app.js'), 'utf8'), {
-  document: { querySelectorAll() { return [cones, relics]; }, querySelector() { return null; } },
+  document: { querySelectorAll(selector) { return selector === '[data-choice-group]' ? [cones, relics] : []; }, querySelector() { return null; } },
 });
 cones.buttons[1].click();
 assert.deepEqual(cones.panels.map(panel => panel.hidden), [true, false]);
@@ -153,3 +159,103 @@ cones.buttons[0].click();
 assert.deepEqual(relics.panels.map(panel => panel.hidden), [true, false]);
 assert.deepEqual(cones.panels.map(panel => panel.hidden), [false, true]);
 console.log('PASS equipment choices work without a catalog and keep cone/relic selections independent');
+
+function catalogControl(dataset = {}) {
+  return {
+    dataset, value: '', hidden: false, events: {}, attributes: {},
+    addEventListener(name, callback) { this.events[name] = callback; },
+    setAttribute(name, value) { this.attributes[name] = value; },
+    focus() { this.focused = true; },
+  };
+}
+const filterData = require('./site/character-filters.json').hsr;
+const characterSearch = catalogControl();
+const elementFilters = Object.keys(filterData.elements).map(characterElement => catalogControl({characterElement}));
+const pathFilters = Object.keys(filterData.paths).map(characterPath => catalogControl({characterPath}));
+const fireButton = elementFilters.find(button => button.dataset.characterElement === 'fire');
+const abundanceButton = pathFilters.find(button => button.dataset.characterPath === 'abundance');
+const resetFilters = catalogControl();
+const resultCount = {};
+const emptyResults = {};
+const tiles = profiles.map(profile => catalogControl({ search: profile.name, element: profile.element, path: profile.path, id: profile.id }));
+const viewButtons = ['character','party'].map(view => catalogControl({view}));
+const viewPanels = ['character','party'].map(viewPanel => catalogControl({viewPanel}));
+const fields = {
+  '[data-character-query]': characterSearch,
+  '[data-character-clear]': resetFilters,
+  '[data-character-count]': resultCount,
+  '[data-character-empty]': emptyResults,
+};
+const catalog = {
+  dataset: {defaultKind:'character'},
+  querySelector(selector) { return fields[selector] || null; },
+  querySelectorAll(selector) {
+    return ({'[data-view]':viewButtons, '[data-view-panel]':viewPanels, '[data-character]':tiles, '[data-character-element]':elementFilters, '[data-character-path]':pathFilters})[selector] || [];
+  },
+};
+const filterLocation = {pathname:'/games/hsr/index.html',search:'?view=character&element=fire&path=abundance'};
+const browserEvents = {};
+let savedFilterUrl;
+vm.runInNewContext(fs.readFileSync(path.join(root, 'site/app.js'), 'utf8'), {
+  document: {querySelectorAll() { return []; },querySelector(selector) { return selector === '[data-game-catalog]' ? catalog : null; }},
+  location: filterLocation,
+  history: {replaceState(state, title, url) { savedFilterUrl = url; }},
+  window: {addEventListener(name, callback) { browserEvents[name] = callback; }},
+  URLSearchParams,
+});
+const visibleCharacters = () => tiles.filter(tile => !tile.hidden).map(tile => tile.dataset.id);
+assert.deepEqual(visibleCharacters(), ['hsr-gallagher'], 'URL restores element AND path');
+abundanceButton.events.click();
+assert.deepEqual(visibleCharacters(), ['hsr-firefly','hsr-gallagher'], 'clicking the selected path clears only that group');
+abundanceButton.events.click();
+fireButton.events.click();
+assert.deepEqual(new Set(visibleCharacters()), new Set(['hsr-huohuo','hsr-gallagher']), 'element toggle preserves the chosen path');
+fireButton.events.click();
+characterSearch.value = '반디';
+characterSearch.events.input();
+assert.deepEqual(visibleCharacters(), [], 'name search also applies to both filters');
+assert.equal(emptyResults.hidden, false);
+assert.equal(resultCount.textContent, '0명');
+assert.ok(savedFilterUrl.includes('element=fire') && savedFilterUrl.includes('path=abundance'));
+viewButtons[1].events.click();
+viewButtons[0].events.click();
+assert.equal(fireButton.attributes['aria-pressed'], 'true', 'switching categories keeps character filters');
+resetFilters.events.click();
+assert.equal(visibleCharacters().length, profiles.length);
+assert.equal(characterSearch.focused, true);
+assert.equal(resetFilters.hidden, true);
+assert.ok(!savedFilterUrl.includes('element=') && !savedFilterUrl.includes('path='));
+filterLocation.search = '?view=character&element=quantum&path=elation';
+browserEvents.popstate();
+assert.equal(visibleCharacters().length, 0, 'unpublished combinations show empty results');
+filterLocation.search = '?element=unknown&path=unknown';
+browserEvents.popstate();
+assert.equal(visibleCharacters().length, profiles.length, 'invalid URL filters fall back to all');
+tiles.push(catalogControl({id:'future-fire-erudition',search:'신규 캐릭터',element:'fire',path:'erudition'}));
+filterLocation.search = '?element=fire&path=erudition';
+browserEvents.popstate();
+assert.deepEqual(visibleCharacters(), ['future-fire-erudition'], 'future fire erudition characters match both filters');
+const invalidProfile = {...profiles[0], element:'unknown'};
+assert.throws(() => createVisuals({profiles:[invalidProfile],assets,docs,escape:String}).characterTile(docs.find(doc => doc.id === invalidProfile.id), '../../'), /Invalid character classification/);
+console.log('PASS character filters combine name, element and path, restore URLs and reset safely');
+
+const note = catalogControl();
+const noteDocumentEvents = {};
+vm.runInNewContext(fs.readFileSync(path.join(root, 'site/app.js'), 'utf8'), {
+  document: {
+    querySelectorAll(selector) { return selector === '[data-stat-note]' ? [note] : []; },
+    querySelector() { return null; },
+    addEventListener(name, callback) { noteDocumentEvents[name] = callback; },
+  },
+});
+note.events.pointerenter();
+noteDocumentEvents.keydown({key:'Escape', target:{tagName:'INPUT'}});
+assert.equal(note.dataset.dismissed, 'true', 'Escape dismisses hover tooltips even when another element has focus');
+note.events.focusin();
+noteDocumentEvents.keydown({key:'Escape'});
+assert.equal(note.dataset.dismissed, 'true');
+note.events.focusin();
+assert.equal(note.dataset.dismissed, undefined);
+for (const key of Object.keys(filterData.elements)) assert.ok(assets.filters['element-' + key]);
+for (const key of Object.keys(filterData.paths)) assert.ok(assets.filters['path-' + key]);
+console.log('PASS stat tiers have linked footnotes and dismissible keyboard tooltips; all filter icons exist');

@@ -1,4 +1,16 @@
 (() => {
+  const statNotes = [...document.querySelectorAll('[data-stat-note]')];
+  if (statNotes.length) {
+    document.addEventListener('keydown', event => {
+      if (event.key !== 'Escape') return;
+      for (const note of statNotes) note.dataset.dismissed = 'true';
+    });
+  }
+  for (const note of statNotes) {
+    for (const event of ['pointerenter', 'pointerleave', 'focusin', 'focusout']) {
+      note.addEventListener(event, () => { delete note.dataset.dismissed; });
+    }
+  }
   for (const group of document.querySelectorAll('[data-choice-group]')) {
     const buttons = [...group.querySelectorAll('[data-choice]')];
     const panels = [...group.querySelectorAll('[data-choice-panel]')];
@@ -16,29 +28,42 @@
     const parties = [...gameCatalog.querySelectorAll('[data-party]')];
     const characters = [...gameCatalog.querySelectorAll('[data-character]')];
     const search = gameCatalog.querySelector('[data-character-query]');
+    const elementButtons = [...gameCatalog.querySelectorAll('[data-character-element]')];
+    const pathButtons = [...gameCatalog.querySelectorAll('[data-character-path]')];
+    const clear = gameCatalog.querySelector('[data-character-clear]');
     const normalizeName = text => text.normalize('NFKC').toLocaleLowerCase('ko').replace(/[\s·•・]/g, '');
     let view = gameCatalog.dataset.defaultKind;
     let category = categories[0]?.dataset.category;
+    let selectedElement = '';
+    let selectedPath = '';
 
     function renderCatalog(writeLocation = false) {
       for (const button of views) button.setAttribute('aria-pressed', String(button.dataset.view === view));
       for (const panel of panels) panel.hidden = panel.dataset.viewPanel !== view;
       for (const button of categories) button.setAttribute('aria-pressed', String(button.dataset.category === category));
       for (const party of parties) party.hidden = party.dataset.party !== category;
+      for (const button of elementButtons) button.setAttribute('aria-pressed', String(button.dataset.characterElement === selectedElement));
+      for (const button of pathButtons) button.setAttribute('aria-pressed', String(button.dataset.characterPath === selectedPath));
       let count = 0;
       for (const character of characters) {
-        character.hidden = !normalizeName(character.dataset.search).includes(normalizeName(search.value));
+        const matchesName = normalizeName(character.dataset.search).includes(normalizeName(search.value));
+        const matchesElement = !selectedElement || character.dataset.element === selectedElement;
+        const matchesPath = !selectedPath || character.dataset.path === selectedPath;
+        character.hidden = !(matchesName && matchesElement && matchesPath);
         if (!character.hidden) count++;
       }
       if (search) {
         gameCatalog.querySelector('[data-character-count]').textContent = `${count}명`;
         gameCatalog.querySelector('[data-character-empty]').hidden = count !== 0;
+        clear.hidden = !search.value.trim() && !selectedElement && !selectedPath;
       }
       if (writeLocation) {
         const params = new URLSearchParams();
         params.set('view', view);
         if (view === 'party' && category) params.set('category', category);
         if (search?.value.trim()) params.set('q', search.value.trim());
+        if (selectedElement) params.set('element', selectedElement);
+        if (selectedPath) params.set('path', selectedPath);
         try { history.replaceState(null, '', location.pathname + '?' + params.toString()); } catch { /* Local files may restrict history. */ }
       }
     }
@@ -48,11 +73,28 @@
       view = views.some(button => button.dataset.view === params.get('view')) ? params.get('view') : gameCatalog.dataset.defaultKind;
       category = categories.some(button => button.dataset.category === params.get('category')) ? params.get('category') : categories[0]?.dataset.category;
       if (search) search.value = (params.get('q') || '').slice(0, 80);
+      selectedElement = elementButtons.some(button => button.dataset.characterElement === params.get('element')) ? params.get('element') : '';
+      selectedPath = pathButtons.some(button => button.dataset.characterPath === params.get('path')) ? params.get('path') : '';
       renderCatalog();
     }
     for (const button of views) button.addEventListener('click', () => { view = button.dataset.view; renderCatalog(true); });
     for (const button of categories) button.addEventListener('click', () => { category = button.dataset.category; renderCatalog(true); });
     search?.addEventListener('input', () => renderCatalog(true));
+    for (const button of elementButtons) button.addEventListener('click', () => {
+      selectedElement = selectedElement === button.dataset.characterElement ? '' : button.dataset.characterElement;
+      renderCatalog(true);
+    });
+    for (const button of pathButtons) button.addEventListener('click', () => {
+      selectedPath = selectedPath === button.dataset.characterPath ? '' : button.dataset.characterPath;
+      renderCatalog(true);
+    });
+    clear?.addEventListener('click', () => {
+      search.value = '';
+      selectedElement = '';
+      selectedPath = '';
+      renderCatalog(true);
+      search.focus();
+    });
     window.addEventListener('popstate', readCatalogLocation);
     readCatalogLocation();
   }
