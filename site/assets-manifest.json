@@ -553,5 +553,87 @@
         "rope": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/relic/330_1.png"
       }
     }
+  },
+  "filters": {
+    "element-physical": {
+      "name": "물리",
+      "path": "site/assets/hsr/filters/element-physical.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/element/Physical.png"
+    },
+    "element-fire": {
+      "name": "화염",
+      "path": "site/assets/hsr/filters/element-fire.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/element/Fire.png"
+    },
+    "element-ice": {
+      "name": "얼음",
+      "path": "site/assets/hsr/filters/element-ice.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/element/Ice.png"
+    },
+    "element-lightning": {
+      "name": "번개",
+      "path": "site/assets/hsr/filters/element-lightning.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/element/Thunder.png"
+    },
+    "element-wind": {
+      "name": "바람",
+      "path": "site/assets/hsr/filters/element-wind.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/element/Wind.png"
+    },
+    "element-quantum": {
+      "name": "양자",
+      "path": "site/assets/hsr/filters/element-quantum.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/element/Quantum.png"
+    },
+    "element-imaginary": {
+      "name": "허수",
+      "path": "site/assets/hsr/filters/element-imaginary.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/element/Imaginary.png"
+    },
+    "path-destruction": {
+      "name": "파멸",
+      "path": "site/assets/hsr/filters/path-destruction.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/path/Destruction.png"
+    },
+    "path-hunt": {
+      "name": "수렵",
+      "path": "site/assets/hsr/filters/path-hunt.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/path/Hunt.png"
+    },
+    "path-erudition": {
+      "name": "지식",
+      "path": "site/assets/hsr/filters/path-erudition.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/path/Erudition.png"
+    },
+    "path-harmony": {
+      "name": "화합",
+      "path": "site/assets/hsr/filters/path-harmony.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/path/Harmony.png"
+    },
+    "path-nihility": {
+      "name": "공허",
+      "path": "site/assets/hsr/filters/path-nihility.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/path/Nihility.png"
+    },
+    "path-preservation": {
+      "name": "보존",
+      "path": "site/assets/hsr/filters/path-preservation.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/path/Preservation.png"
+    },
+    "path-abundance": {
+      "name": "풍요",
+      "path": "site/assets/hsr/filters/path-abundance.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/path/Abundance.png"
+    },
+    "path-remembrance": {
+      "name": "기억",
+      "path": "site/assets/hsr/filters/path-remembrance.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/path/Remembrance.png"
+    },
+    "path-elation": {
+      "name": "환락",
+      "path": "site/assets/hsr/filters/path-elation.png",
+      "source": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/path/Elation.png"
+    }
   }
 }

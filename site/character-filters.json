@@ -1,0 +1,24 @@
+{
+  "hsr": {
+    "elements": {
+      "physical": "물리",
+      "fire": "화염",
+      "ice": "얼음",
+      "lightning": "번개",
+      "wind": "바람",
+      "quantum": "양자",
+      "imaginary": "허수"
+    },
+    "paths": {
+      "destruction": "파멸",
+      "hunt": "수렵",
+      "erudition": "지식",
+      "harmony": "화합",
+      "nihility": "공허",
+      "preservation": "보존",
+      "abundance": "풍요",
+      "remembrance": "기억",
+      "elation": "환락"
+    }
+  }
+}
