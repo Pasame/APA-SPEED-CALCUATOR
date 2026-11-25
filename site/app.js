@@ -14,10 +14,28 @@
   for (const group of document.querySelectorAll('[data-choice-group]')) {
     const buttons = [...group.querySelectorAll('[data-choice]')];
     const panels = [...group.querySelectorAll('[data-choice-panel]')];
-    for (const button of buttons) button.addEventListener('click', () => {
+    const isPartyGroup = group.dataset?.partyGroup !== undefined;
+
+    function showChoice(button) {
       for (const item of buttons) item.setAttribute('aria-pressed', String(item === button));
       for (const panel of panels) panel.hidden = panel.id !== button.dataset.choice;
+    }
+    function readPartyLocation() {
+      const party = new URLSearchParams(location.search).get('party');
+      const selected = buttons.find(button => button.dataset.choice === `party-${party}`) || buttons[0];
+      if (selected) showChoice(selected);
+    }
+    for (const button of buttons) button.addEventListener('click', () => {
+      showChoice(button);
+      if (!isPartyGroup) return;
+      const params = new URLSearchParams(location.search);
+      params.set('party', button.dataset.choice.slice('party-'.length));
+      try { history.replaceState(null, '', location.pathname + '?' + params.toString() + location.hash); } catch { /* Local files may restrict history. */ }
     });
+    if (isPartyGroup) {
+      window.addEventListener('popstate', readPartyLocation);
+      readPartyLocation();
+    }
   }
 
   const gameCatalog = document.querySelector('[data-game-catalog]');
@@ -28,14 +46,30 @@
     const parties = [...gameCatalog.querySelectorAll('[data-party]')];
     const characters = [...gameCatalog.querySelectorAll('[data-character]')];
     const search = gameCatalog.querySelector('[data-character-query]');
+    const characterGrid = gameCatalog.querySelector('[data-character-grid]');
+    const sort = gameCatalog.querySelector('[data-character-sort]');
     const elementButtons = [...gameCatalog.querySelectorAll('[data-character-element]')];
     const pathButtons = [...gameCatalog.querySelectorAll('[data-character-path]')];
     const clear = gameCatalog.querySelector('[data-character-clear]');
     const normalizeName = text => text.normalize('NFKC').toLocaleLowerCase('ko').replace(/[\s·•・]/g, '');
+    const byName = new Intl.Collator('ko').compare;
+    const nameOrder = (left, right) => byName(left.dataset.name, right.dataset.name);
+    const releaseOrder = (left, right, direction) => (
+      direction * left.dataset.releaseDate.localeCompare(right.dataset.releaseDate) || nameOrder(left, right)
+    );
+    const characterOrders = {
+      'release-desc': (left, right) => releaseOrder(left, right, -1),
+      'release-asc': (left, right) => releaseOrder(left, right, 1),
+      'name-asc': nameOrder,
+      'name-desc': (left, right) => nameOrder(right, left),
+    };
+    const defaultSort = 'release-desc';
     let view = gameCatalog.dataset.defaultKind;
     let category = categories[0]?.dataset.category;
     let selectedElement = '';
     let selectedPath = '';
+    let selectedSort = defaultSort;
+    let renderedSort = defaultSort;
 
     function renderCatalog(writeLocation = false) {
       for (const button of views) button.setAttribute('aria-pressed', String(button.dataset.view === view));
@@ -44,9 +78,17 @@
       for (const party of parties) party.hidden = party.dataset.party !== category;
       for (const button of elementButtons) button.setAttribute('aria-pressed', String(button.dataset.characterElement === selectedElement));
       for (const button of pathButtons) button.setAttribute('aria-pressed', String(button.dataset.characterPath === selectedPath));
+      if (sort) {
+        sort.value = selectedSort;
+        if (selectedSort !== renderedSort) {
+          characterGrid.append(...[...characters].sort(characterOrders[selectedSort]));
+          renderedSort = selectedSort;
+        }
+      }
       let count = 0;
+      const query = normalizeName(search?.value || '');
       for (const character of characters) {
-        const matchesName = normalizeName(character.dataset.search).includes(normalizeName(search.value));
+        const matchesName = normalizeName(character.dataset.search).includes(query);
         const matchesElement = !selectedElement || character.dataset.element === selectedElement;
         const matchesPath = !selectedPath || character.dataset.path === selectedPath;
         character.hidden = !(matchesName && matchesElement && matchesPath);
@@ -64,6 +106,7 @@
         if (search?.value.trim()) params.set('q', search.value.trim());
         if (selectedElement) params.set('element', selectedElement);
         if (selectedPath) params.set('path', selectedPath);
+        if (sort && selectedSort !== defaultSort) params.set('sort', selectedSort);
         try { history.replaceState(null, '', location.pathname + '?' + params.toString()); } catch { /* Local files may restrict history. */ }
       }
     }
@@ -75,11 +118,17 @@
       if (search) search.value = (params.get('q') || '').slice(0, 80);
       selectedElement = elementButtons.some(button => button.dataset.characterElement === params.get('element')) ? params.get('element') : '';
       selectedPath = pathButtons.some(button => button.dataset.characterPath === params.get('path')) ? params.get('path') : '';
+      const requestedSort = params.get('sort');
+      selectedSort = Object.hasOwn(characterOrders, requestedSort) ? requestedSort : defaultSort;
       renderCatalog();
     }
     for (const button of views) button.addEventListener('click', () => { view = button.dataset.view; renderCatalog(true); });
     for (const button of categories) button.addEventListener('click', () => { category = button.dataset.category; renderCatalog(true); });
     search?.addEventListener('input', () => renderCatalog(true));
+    sort?.addEventListener('change', () => {
+      selectedSort = sort.value;
+      renderCatalog(true);
+    });
     for (const button of elementButtons) button.addEventListener('click', () => {
       selectedElement = selectedElement === button.dataset.characterElement ? '' : button.dataset.characterElement;
       renderCatalog(true);

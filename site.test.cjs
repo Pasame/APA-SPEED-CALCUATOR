@@ -10,13 +10,15 @@ const result = buildArchive(root, art);
 assert.equal(result.games, 5);
 assert.ok(result.documents >= 9, 'initial published guides exist');
 const docs = require('./site/content.json');
-const known = new Set([...docs.map(doc => doc.id), 'aha']);
+const partyGroups = require('./site/party-groups.json');
+const groupForParty = new Map(partyGroups.flatMap(group => group.variants.map(id => [id, group])));
+const known = new Set([...docs.map(doc => doc.id), ...partyGroups.map(group => group.id), 'aha']);
 for (const doc of docs) {
   for (const related of doc.related || []) assert.ok(known.has(related), `${doc.id} has valid related document ${related}`);
 }
 console.log('PASS archive content has unique IDs, valid related documents and five games');
 
-const pages = ['index.html', 'search/index.html', ...games.map(game => `games/${game.id}/index.html`), ...docs.map(doc => `guides/${doc.id}/index.html`)];
+const pages = ['index.html', 'search/index.html', ...games.map(game => `games/${game.id}/index.html`), ...docs.map(doc => `guides/${doc.id}/index.html`), ...partyGroups.map(group => `guides/${group.id}/index.html`)];
 for (const page of pages) {
   const html = fs.readFileSync(path.join(root, page), 'utf8');
   assert.ok(html.includes('lang="ko"'));
@@ -113,13 +115,20 @@ assert.throws(
 );
 const multipleReplacements = structuredClone(parties[0]);
 const occupiedIds = multipleReplacements.party.members.map(member => member.id);
+const replaceableId = occupiedIds.find(id => !multipleReplacements.party.coreMemberIds.includes(id));
 const replacementIds = profiles.filter(profile => !occupiedIds.includes(profile.characterId)).slice(0, 3);
-multipleReplacements.party.alternatives = replacementIds.map(profile => ({ id: profile.characterId, name: profile.name, replaces: occupiedIds[0], reason: '검증용 교체 조건' }));
+multipleReplacements.party.alternatives = replacementIds.map(profile => ({ id: profile.characterId, name: profile.name, replaces: replaceableId, reason: '검증용 교체 조건' }));
 const replacementHtml = createVisuals({ profiles, assets, docs, escape: String }).partyDetail(multipleReplacements, '../../');
 assert.equal((replacementHtml.match(/data-replacement-badge=/g) || []).length, 3, 'every replacement gets a small portrait');
 assert.equal((replacementHtml.match(/data-replaces=/g) || []).length, 3, 'every replacement retains its detail');
 multipleReplacements.party.alternatives[0].id = occupiedIds[1];
 assert.throws(() => createVisuals({ profiles, assets, docs, escape: String }).partyDetail(multipleReplacements, '../../'), /Invalid replacement/, 'replacement cannot duplicate another occupied slot');
+const invalidCoreReplacement = structuredClone(parties.find(doc => doc.id === 'hsr-evanescia-elation'));
+invalidCoreReplacement.party.alternatives = [{ id: '1506', name: '은랑 LV.999', replaces: '1505', reason: '다른 메인 딜러' }];
+assert.throws(() => createVisuals({ profiles, assets, docs, escape: String }).partyDetail(invalidCoreReplacement, '../../'), /Cannot replace party core/, 'an Evanescia party cannot replace Evanescia');
+assert.equal(parties.filter(doc => doc.party.lead === '스파키').length, 1, 'Sparxie has one canonical party guide');
+const partyIdentities = parties.map(doc => `${doc.party.category}:${[...doc.party.coreMemberIds].sort().join(',')}`);
+assert.equal(new Set(partyIdentities).size, parties.length, 'same core and category are not duplicated');
 assert.deepEqual(new Set(parties.map(doc => doc.party.category)), new Set(Object.keys(categories)));
 for (const doc of parties) {
   assert.equal(doc.party.members.length, 4);
@@ -128,8 +137,11 @@ for (const doc of parties) {
     if (member.id) assert.ok(assets.characters[member.id], `portrait ${member.id} exists`);
     if (member.guideId) assert.ok(known.has(member.guideId));
   }
-  const html = fs.readFileSync(path.join(root, `guides/${doc.id}/index.html`), 'utf8');
+  const group = groupForParty.get(doc.id);
+  const pageHtml = fs.readFileSync(path.join(root, `guides/${group?.id || doc.id}/index.html`), 'utf8');
+  const html = group ? pageHtml.split(`id="party-${doc.id}"`)[1].split('data-choice-panel')[1].split('<div id="party-')[0] : pageHtml;
   for (const alternative of doc.party.alternatives) {
+    assert.ok(!doc.party.coreMemberIds.includes(alternative.replaces), `${doc.id}: fixed damage dealers are not replaced`);
     assert.ok(doc.party.members.some(member => member.id === alternative.replaces), `${doc.id} replacement target exists`);
     const slot = html.split(`data-member-id="${alternative.replaces}"`)[1]?.split('data-member-id=')[0];
     assert.ok(slot?.includes(`data-replaces="${alternative.replaces}"`), `${alternative.name} sits under their replacement target`);
@@ -137,8 +149,32 @@ for (const doc of parties) {
     assert.ok(slot.includes(escapedName), `${doc.id}: ${alternative.name} is displayed in its replacement slot`);
     assert.ok(slot.includes(`data-replacement-badge="${alternative.replaces}"`), 'replacement portraits accompany the correct main portrait');
   }
+  for (const alias of doc.aliases || []) {
+    assert.ok(!known.has(alias), 'merged parties are not searchable duplicate guides');
+    const redirect = fs.readFileSync(path.join(root, `guides/${alias}/index.html`), 'utf8');
+    const destination = group ? `../${group.id}/index.html?party=${doc.id}` : `../${doc.id}/index.html`;
+    assert.ok(redirect.includes(`content="0;url=${destination}"`), 'old party links redirect to the canonical guide');
+    assert.ok(redirect.includes(`href="${destination}"`), 'redirect has a usable fallback link');
+  }
 }
 const hsr = fs.readFileSync(path.join(root, 'games/hsr/index.html'), 'utf8');
+for (const group of partyGroups) {
+  assert.equal((hsr.match(new RegExp(`href="../../guides/${group.id}/index.html"`, 'g')) || []).length, 1, 'one catalog card per party group');
+  const groupPage = fs.readFileSync(path.join(root, `guides/${group.id}/index.html`), 'utf8');
+  assert.equal((groupPage.match(/data-choice="party-/g) || []).length, group.variants.length, 'every damage dealer has a selector');
+  for (const id of group.variants) {
+    assert.ok(!hsr.includes(`href="../../guides/${id}/index.html"`), 'group variants are not duplicate catalog cards');
+    const variant = parties.find(doc => doc.id === id);
+    assert.deepEqual(new Set(variant.party.members.filter(member => !variant.party.coreMemberIds.includes(member.id)).map(member => member.id)), new Set(['1502', '1511', '1503']));
+    assert.ok(groupPage.includes(`id="party-${id}"`));
+    const redirect = fs.readFileSync(path.join(root, `guides/${id}/index.html`), 'utf8');
+    assert.ok(redirect.includes(`?party=${id}`), 'old variant links preserve the selected dealer');
+  }
+}
+const evaAlternatives = parties.find(doc => doc.id === 'hsr-evanescia-elation').party.alternatives;
+assert.ok(evaAlternatives.some(item => item.id === '8010' && item.replaces === '1502'), 'Trailblazer can replace Yao Guang for Evanescia');
+assert.ok(evaAlternatives.some(item => item.id === '8010' && item.replaces === '1511'), 'Trailblazer can replace Aha for Evanescia');
+assert.ok(evaAlternatives.some(item => item.id === '1415' && item.replaces === '1503' && item.reason.includes('생존')), 'Cyrene replacement states the sustain tradeoff');
 assert.ok(!/>전체<\/button>/.test(hsr));
 assert.ok(hsr.includes('data-character-query'));
 assert.equal((hsr.match(/data-character data-search/g) || []).length, profiles.length);

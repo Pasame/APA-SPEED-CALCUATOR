@@ -1,4 +1,5 @@
 const characterFilters = require('./character-filters.json');
+const releaseDates = require('./hsr-release-order.json').dates;
 const categories = {
   dot: '지속 피해',
   followup: '추가 공격',
@@ -24,7 +25,9 @@ function substatsForSlot(mainStat, substats) {
   });
 }
 
-function createVisuals({ profiles, assets, docs, escape }) {
+function createVisuals({ profiles, assets, docs, escape, partyGroups = [] }) {
+  const groupForParty = new Map(partyGroups.flatMap(group => group.variants.map(id => [id, group])));
+  const byName = new Intl.Collator('ko').compare;
   function image(group, id, prefix, className = '', alt = '') {
     const asset = assets[group][id];
     if (!asset) throw new Error(`Missing ${group} image: ${id}`);
@@ -38,13 +41,27 @@ function createVisuals({ profiles, assets, docs, escape }) {
     if (filters && (!Object.hasOwn(filters.elements, profile.element) || !Object.hasOwn(filters.paths, profile.path))) {
       throw new Error(`Invalid character classification: ${doc.id}`);
     }
-    return `<a class="character-tile" href="${prefix}guides/${doc.id}/index.html" data-character data-search="${escape([profile.name, ...(doc.tags || [])].join(' '))}" data-element="${escape(profile.element || '')}" data-path="${escape(profile.path || '')}">
+    const releaseDate = releaseDates[profile.characterId];
+    if (doc.game === 'hsr' && !/^\d{4}-\d{2}-\d{2}$/.test(releaseDate || '')) throw new Error(`Missing release date: ${profile.id}`);
+    return `<a class="character-tile" href="${prefix}guides/${doc.id}/index.html" data-character data-search="${escape([profile.name, ...(doc.tags || [])].join(' '))}" data-name="${escape(profile.name)}" data-release-date="${escape(releaseDate || '')}" data-element="${escape(profile.element || '')}" data-path="${escape(profile.path || '')}">
       ${image('characters', profile.characterId, prefix)}<span>${escape(profile.name)}</span>
     </a>`;
   }
 
   function partyTile(doc, prefix) {
-    return `<a class="party-tile" href="${prefix}guides/${doc.id}/index.html" data-party="${doc.party.category}">
+    if (doc.partyGroup) {
+      const leaders = doc.partyGroup.variants.map(id => {
+        const variant = docs.find(item => item.id === id);
+        return variant.party.members.find(member => member.id === variant.party.coreMemberIds[0]);
+      });
+      return `<a class="party-tile" href="${prefix}guides/${doc.id}/index.html" data-party="${doc.party.category}">
+        <div class="party-faces">${leaders.map(member => image('characters', member.id, prefix, 'member-face', member.name)).join('')}</div>
+        <strong>${escape(doc.title)}</strong><span>효광 · 아하 · 펄 <span aria-hidden="true">→</span></span>
+      </a>`;
+    }
+    const group = groupForParty.get(doc.id);
+    const destination = group ? `${group.id}/index.html?party=${doc.id}` : `${doc.id}/index.html`;
+    return `<a class="party-tile" href="${prefix}guides/${destination}" data-party="${doc.party.category}">
       <div class="party-faces">${doc.party.members.map(member => partyPortrait(member, doc.party.alternatives || [], prefix)).join('')}</div>
       <strong>${escape(doc.party.lead)}</strong><span>${escape(doc.party.variant || '메인 딜러 편성')} <span aria-hidden="true">→</span></span>
     </a>`;
@@ -73,6 +90,12 @@ function createVisuals({ profiles, assets, docs, escape }) {
         const entries = ownDocs.filter(doc => doc.kind === kind);
         let content;
         if (kind === 'character') {
+          const profileFor = new Map(profiles.map(profile => [profile.id, profile]));
+          entries.sort((left, right) => {
+            const a = profileFor.get(left.id);
+            const b = profileFor.get(right.id);
+            return (releaseDates[b.characterId] || '').localeCompare(releaseDates[a.characterId] || '') || byName(a.name, b.name);
+          });
           const filters = characterFilters[entries[0].game];
           const filterControls = filters ? `<div class="character-filters">
               <fieldset class="character-facet"><legend>속성</legend><div class="facet-options">
@@ -84,8 +107,12 @@ function createVisuals({ profiles, assets, docs, escape }) {
             </div>` : '';
           content = `<div class="search-box character-search"><label class="sr-only" for="character-query">캐릭터 검색</label><span aria-hidden="true">⌕</span><input id="character-query" type="search" placeholder="캐릭터 이름 검색" maxlength="80" data-character-query></div>
             ${filterControls}
-            <div class="character-results"><p class="result-count" role="status" data-character-count>${entries.length}명</p><button type="button" data-character-clear hidden>조건 초기화</button></div>
-            <div class="character-grid">${entries.map(doc => characterTile(doc, prefix)).join('')}</div>
+            <div class="character-results"><p class="result-count" role="status" data-character-count>${entries.length}명</p>
+              <label class="character-sort"><span>정렬</span><select data-character-sort>
+                <option value="release-desc">출시순 (최신 먼저)</option><option value="release-asc">출시순 (오래된 먼저)</option>
+                <option value="name-asc">가나다순 (오름차순)</option><option value="name-desc">가나다순 (내림차순)</option>
+              </select></label><button type="button" data-character-clear hidden>조건 초기화</button></div>
+            <div class="character-grid" data-character-grid>${entries.map(doc => characterTile(doc, prefix)).join('')}</div>
             <p class="empty-state" data-character-empty hidden>이 조건에 맞는 육성 가이드가 없어요. 검색어나 필터를 바꿔 주세요.</p>`;
         } else if (kind === 'party') {
           content = `<div class="filter-chips party-categories" role="group" aria-label="파티 유형">${partyCategories.map(([key, name], index) => `<button type="button" data-category="${key}" aria-pressed="${index === 0}">${name}</button>`).join('')}</div>
@@ -197,10 +224,17 @@ function createVisuals({ profiles, assets, docs, escape }) {
     if (party.members.filter(member => Number(member.id) >= 8000).length > 1) {
       throw new Error(`Duplicate Trailblazer: ${doc.id}`);
     }
+    const coreIds = new Set(party.coreMemberIds);
+    if (!coreIds.size || coreIds.size !== party.coreMemberIds.length || [...coreIds].some(id => !memberIds.has(id))) {
+      throw new Error(`Invalid party core: ${doc.id}`);
+    }
     const replacementPairs = new Set();
     for (const alternative of party.alternatives || []) {
       if (!memberIds.has(alternative.replaces)) {
         throw new Error(`Missing replacement target: ${doc.id}/${alternative.name}`);
+      }
+      if (coreIds.has(alternative.replaces)) {
+        throw new Error(`Cannot replace party core: ${doc.id}/${alternative.name}`);
       }
       const pair = `${alternative.replaces}:${alternative.id}`;
       if (memberIds.has(alternative.id) || replacementPairs.has(pair) || !alternative.reason?.trim()) {
@@ -230,8 +264,10 @@ function createVisuals({ profiles, assets, docs, escape }) {
         </div>` : '';
       return `<div class="roster-slot" data-member-id="${member.id}">${card}${alternativesHtml}</div>`;
     }).join('');
-    return `<a class="back-link" href="${prefix}games/hsr/index.html?view=party&category=${party.category}">← ${categories[party.category]} 파티</a>
-      <header class="party-header"><p class="eyebrow">${categories[party.category]}</p><h1>${escape(party.lead)}</h1><p>${escape(doc.summary)}</p></header>
+    const grouped = groupForParty.has(doc.id);
+    const heading = grouped ? `<h2>${escape(party.lead)}</h2>` : `<h1>${escape(party.lead)}</h1>`;
+    return `${grouped ? '' : `<a class="back-link" href="${prefix}games/hsr/index.html?view=party&category=${party.category}">← ${categories[party.category]} 파티</a>`}
+      <header class="party-header">${heading}<p>${escape(doc.summary)}</p></header>
       <article class="visual-article">
         <section class="visual-section">
           <h2>추천 편성</h2><div class="roster-grid">${roster}</div>
@@ -245,7 +281,20 @@ function createVisuals({ profiles, assets, docs, escape }) {
         ${sources(doc)}
       </article>`;
   }
-  return { characterTile, partyTile, gameCatalog, characterDetail, partyDetail };
+  function partyGroupDetail(group, prefix) {
+    const variants = group.variants.map(id => docs.find(doc => doc.id === id));
+    const buttons = variants.map((doc, index) => {
+      const member = doc.party.members.find(item => item.id === doc.party.coreMemberIds[0]);
+      return `<button type="button" class="party-lead-choice" data-choice="party-${doc.id}" aria-controls="party-${doc.id}" aria-pressed="${index === 0}">${image('characters', member.id, prefix)}<span>${escape(doc.party.lead)}</span></button>`;
+    }).join('');
+    const panels = variants.map((doc, index) => `<div id="party-${doc.id}" data-choice-panel${index ? ' hidden' : ''}>${partyDetail(doc, prefix)}</div>`).join('');
+    return `<a class="back-link" href="${prefix}games/hsr/index.html?view=party&category=${group.category}">← ${categories[group.category]} 파티</a>
+      <header class="party-header"><h1>${escape(group.title)}</h1><p>효광 · 아하 · 펄 기본 편성</p></header>
+      <section data-choice-group data-party-group aria-label="메인 딜러별 파티">
+        <div class="party-lead-choices" role="group" aria-label="메인 딜러 선택">${buttons}</div>${panels}
+      </section>`;
+  }
+  return { characterTile, partyTile, gameCatalog, characterDetail, partyDetail, partyGroupDetail };
 }
 
 module.exports = { createVisuals, categories, slots, substatsForSlot };
