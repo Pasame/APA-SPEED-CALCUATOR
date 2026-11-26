@@ -8,6 +8,7 @@
 - `state.js`: 계산기 설정 저장·공유. 저장 키 `aha-calculator-v3`를 유지합니다.
 - `app.html`, `app.js`, `art.json`: 계산기 화면·동작·인라인 이미지.
 - `site/content.json`: 문서 본문, 검색 키워드, 확인일, 참고 범위, 출처와 관련 문서 ID.
+- `site/profiles.json`: 캐릭터 장비와 `targetBuilds`별 스탯·조건·출처. `site/visual.cjs`가 세팅 선택, 유물과 스탯 표를 생성합니다.
 - `site/build.cjs`: 홈, 게임별 자료, 가이드, 검색 화면 생성. 외부 라이브러리를 사용하지 않습니다.
 - `site/styles.css`, `site/app.js`: 공통 디자인과 검색·필터.
 - `build.js`: 위 원본으로 루트 `index.html`, 게임·가이드·검색 페이지와 독립 계산기 `tools/aha/index.html`을 생성합니다. 기존 Canvas 출력도 유지합니다.
@@ -25,6 +26,8 @@ npm start
 로컬 기본 주소는 `http://127.0.0.1:8767/`이며 `AHA_PORT`로 포트를 바꿀 수 있습니다. `/fluffy-archive/` 접두 경로도 지원해 Pages 상대경로를 확인할 수 있습니다.
 
 `npm test`는 기존 계산 86개·상태 13개 테스트와 사이트 회귀 검증을 실행합니다. 사이트 검증은 문서/관련 ID, 상대 링크와 자산, 구형 공유 링크의 최초 진입·해시 변경 전달, 계산기 단일 HTML의 소스 포함 여부를 확인합니다. 먼저 빌드해야 합니다.
+
+`site.stat-calculations.test.cjs`는 자체 산정한 준종결의 조건·각주를 검사하고, 행동 횟수 목표를 기존 엔진에 독립적으로 입력해 검산합니다. 필살기 에너지를 자동 계산하지 않으므로 수동 이벤트 조건을 명시합니다.
 
 기존 `ui.qa.test.cjs`는 설치된 Playwright로 계산기 화면을 검증합니다. `NODE_PATH`와 필요시 `PLAYWRIGHT_CHROME_PATH`를 설정하고 `node ui.qa.test.cjs`를 실행하세요. `QA_SCREENSHOTS_DIR`로 캡처 경로를 지정할 수 있습니다. 이 테스트의 대상 경로만 새 계산기 위치로 바꿨으며 기대값은 유지했습니다.
 

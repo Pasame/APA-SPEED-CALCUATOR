@@ -30,6 +30,33 @@
       note.addEventListener(event, () => { delete note.dataset.active; });
     }
   }
+  const buildButtons = [...document.querySelectorAll('[data-build-choice]')];
+  if (buildButtons.length) {
+    const buildPanels = [...document.querySelectorAll('[data-build-panel]')];
+    function showBuild(id) {
+      const selected = buildButtons.find(button => button.dataset.buildChoice === id) || buildButtons[0];
+      for (const button of buildButtons) button.setAttribute('aria-pressed', String(button.dataset.buildChoice === selected.dataset.buildChoice));
+      for (const panel of buildPanels) panel.hidden = panel.dataset.buildPanel !== selected.dataset.buildChoice;
+      for (const note of statNotes) delete note.dataset.active;
+      return selected.dataset.buildChoice;
+    }
+    function readBuildLocation() {
+      const linked = buildButtons.find(button => location.hash.startsWith(`#build-${button.dataset.buildChoice}-stat-`));
+      const requested = linked?.dataset.buildChoice || new URLSearchParams(location.search).get('build');
+      const selected = buildButtons.find(button => button.dataset.buildChoice === requested) || buildButtons[0];
+      if (selected.getAttribute('aria-pressed') !== 'true') showBuild(selected.dataset.buildChoice);
+    }
+    for (const button of buildButtons) button.addEventListener('click', () => {
+      const id = showBuild(button.dataset.buildChoice);
+      const params = new URLSearchParams(location.search);
+      params.set('build', id);
+      const hash = location.hash.startsWith('#build-') ? '#targets' : location.hash;
+      try { history.replaceState(null, '', location.pathname + '?' + params.toString() + hash); } catch { /* Offline files may restrict history. */ }
+    });
+    window.addEventListener('popstate', readBuildLocation);
+    window.addEventListener('hashchange', readBuildLocation);
+    readBuildLocation();
+  }
   for (const group of document.querySelectorAll('[data-choice-group]')) {
     const buttons = [...group.querySelectorAll('[data-choice]')];
     const panels = [...group.querySelectorAll('[data-choice-panel]')];

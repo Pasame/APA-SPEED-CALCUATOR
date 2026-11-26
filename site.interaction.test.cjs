@@ -23,12 +23,13 @@ function control(dataset = {}) {
   return {
     dataset, attributes, events, value: '',
     setAttribute(name, value) { attributes[name] = value; },
+    getAttribute(name) { return attributes[name] ?? null; },
     addEventListener(name, callback) { events[name] = callback; },
     focus() { this.focused = true; },
   };
 }
 
-function runPage({ query, hash = '', catalog = null, groups = [] }) {
+function runPage({ query, hash = '', catalog = null, groups = [], buildButtons = [], buildPanels = [], statNotes = [] }) {
   const location = { pathname: '/example/index.html', search: query, hash };
   const events = {};
   let currentUrl;
@@ -44,15 +45,27 @@ function runPage({ query, hash = '', catalog = null, groups = [] }) {
     },
     window: { addEventListener(name, callback) { events[name] = callback; } },
     document: {
+      addEventListener() {},
       querySelector(selector) { return selector === '[data-game-catalog]' ? catalog : null; },
-      querySelectorAll(selector) { return selector === '[data-choice-group]' ? groups : []; },
+      querySelectorAll(selector) {
+        if (selector === '[data-choice-group]') return groups;
+        if (selector === '[data-build-choice]') return buildButtons;
+        if (selector === '[data-build-panel]') return buildPanels;
+        if (selector === '[data-stat-note]') return statNotes;
+        return [];
+      },
     },
   });
   return {
     url: () => currentUrl,
     navigate(search) {
       location.search = search;
+      location.hash = '';
       events.popstate();
+    },
+    followHash(hash) {
+      location.hash = hash;
+      events.hashchange();
     },
   };
 }
@@ -164,3 +177,28 @@ partyPage.navigate('?party=unknown');
 assert.deepEqual(parties.panels.map(panel => panel.hidden), [false, true, true, true]);
 
 console.log('PASS 94 release dates, four character sort options, intersecting filters, and party choice URL behavior');
+
+const buildButtons = ['slow', 'fast', 'slow', 'fast'].map(buildChoice => control({ buildChoice }));
+const buildPanels = ['slow', 'fast', 'slow', 'fast'].map(buildPanel => ({ dataset: { buildPanel } }));
+const independentCones = choiceGroup(['cone-0', 'cone-1']);
+const buildNote = control();
+const buildPage = runPage({ query: '?source=guide&build=fast', hash: '#targets', buildButtons, buildPanels, groups: [independentCones], statNotes: [buildNote] });
+assert.deepEqual(buildPanels.map(panel => panel.hidden), [true, false, true, false], 'equipment and stat panels restore the same build');
+assert.deepEqual(buildButtons.map(button => button.attributes['aria-pressed']), ['false', 'true', 'false', 'true']);
+independentCones.buttons[1].events.click();
+buildButtons[2].events.click();
+assert.deepEqual(buildPanels.map(panel => panel.hidden), [false, true, false, true], 'either selector updates both sections');
+assert.equal(buildPage.url().searchParams.get('build'), 'slow');
+assert.equal(buildPage.url().searchParams.get('source'), 'guide');
+assert.deepEqual(independentCones.panels.map(panel => panel.hidden), [true, false], 'build selection does not overwrite light cone choices');
+buildPage.followHash('#build-fast-stat-note-1');
+assert.deepEqual(buildPanels.map(panel => panel.hidden), [true, false, true, false], 'linked footnotes reveal the matching build');
+buildNote.dataset.active = 'true';
+buildPage.followHash('#build-fast-stat-ref-1');
+assert.equal(buildNote.dataset.active, 'true', 'returning to the same build preserves the focused tooltip');
+buildButtons[0].events.click();
+assert.equal(buildNote.dataset.active, undefined, 'switching builds closes the old tooltip');
+assert.equal(buildPage.url().hash, '#targets', 'switching builds cannot leave a hidden footnote as the hash target');
+buildPage.navigate('?build=unknown');
+assert.deepEqual(buildPanels.map(panel => panel.hidden), [false, true, false, true], 'unknown builds fall back safely');
+console.log('PASS build selectors synchronize equipment and stats, preserve cones, and restore linked footnotes');
