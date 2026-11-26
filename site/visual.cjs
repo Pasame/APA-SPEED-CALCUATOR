@@ -142,35 +142,52 @@ function createVisuals({ profiles, assets, docs, escape, partyGroups = [] }) {
     }).join('');
   }
 
-  function characterDetail(doc, prefix) {
-    const profile = profiles.find(item => item.id === doc.id);
-    for (const stat of profile.targetStats) {
+  function statTable(profile, build, idPrefix = '') {
+    for (const stat of build.targetStats) {
       if ([stat.value, stat.nearFinal, stat.final].some(value => typeof value !== 'string' || !value.trim())) {
-        throw new Error(`Missing stat tier: ${doc.id}/${stat.label}`);
+        throw new Error(`Missing stat tier: ${profile.id}/${stat.label}`);
       }
     }
     const statNotes = [];
     function statNote(text, label) {
       if (!text) return '';
       const number = statNotes.length + 1;
-      statNotes.push({ number, text, label, target: `stat-ref-${number}` });
-      return `<span class="stat-note" data-stat-note><a class="stat-note-link" id="stat-ref-${number}" href="#stat-note-${number}" aria-label="${escape(label)} 각주 ${number}" aria-describedby="stat-tooltip-${number}"><sup>[${number}]</sup></a><span class="stat-tooltip" id="stat-tooltip-${number}" role="tooltip">${escape(text)}</span></span>`;
+      statNotes.push({ number, text, label, target: `${idPrefix}stat-ref-${number}` });
+      return `<span class="stat-note" data-stat-note><a class="stat-note-link" id="${idPrefix}stat-ref-${number}" href="#${idPrefix}stat-note-${number}" aria-label="${escape(label)} 각주 ${number}" aria-describedby="${idPrefix}stat-tooltip-${number}"><sup>[${number}]</sup></a><span class="stat-tooltip" id="${idPrefix}stat-tooltip-${number}" role="tooltip">${escape(text)}</span></span>`;
     }
     const tiers = [['value', '추천 스탯'], ['nearFinal', '준종결'], ['final', '종결']];
-    const statRows = profile.targetStats.map((stat, index) => {
-      const rowId = `stat-row-${index + 1}`;
+    const statRows = build.targetStats.map((stat, index) => {
+      const rowId = `${idPrefix}stat-row-${index + 1}`;
       const label = `<th scope="row" id="${rowId}-label">${escape(stat.label)}${statNote(stat.condition, stat.label)}</th>`;
       const cells = tiers.map(([key, title]) => {
         const cellId = `${rowId}-${key}`;
-        return `<td id="${cellId}" data-tier="${title}">${escape(stat[key])}${statNote(stat.notes?.[key], `${stat.label} · ${title}`)}</td>`;
+        const derived = stat.calculated?.includes(key) ? '<small class="calculated-stat">자체 계산</small>' : '';
+        return `<td id="${cellId}" data-tier="${title}">${escape(stat[key])}${statNote(stat.notes?.[key], `${stat.label} · ${title}`)}${derived}</td>`;
       }).join('');
       return `<tr id="${rowId}">${label}${cells}</tr>`;
     }).join('');
+    return `${build.summary ? `<p class="build-summary">${escape(build.summary)}</p>` : ''}
+      <table class="stat-tier-table">
+        <caption class="sr-only">${escape(profile.name)} ${escape(build.name || '')} 추천 스탯·준종결·종결 비교</caption>
+        <thead><tr><th scope="col">스탯</th><th scope="col">추천 스탯</th><th scope="col">준종결</th><th scope="col">종결</th></tr></thead>
+        <tbody>${statRows}</tbody>
+      </table>
+      <details class="equipment-reason"><summary>세팅 기준·출처</summary><p>${escape(build.targetNote)}</p>${(build.sources || []).length ? `<ul>${build.sources.map(source => `<li><a href="${escape(source.url)}" target="_blank" rel="noopener noreferrer">${escape(source.label)} ↗</a></li>`).join('')}</ul>` : ''}</details>
+${statNotes.length ? `      <div class="stat-footnotes"><h3>스탯 조건과 각주</h3><ol>${statNotes.map(note => `<li id="${idPrefix}stat-note-${note.number}" tabindex="-1"><strong>${escape(note.label)}</strong> ${escape(note.text)} <a href="#${note.target}" aria-label="${escape(note.label)} 스탯으로 돌아가기">↑</a></li>`).join('')}</ol></div>` : ''}`;
+  }
+
+  function characterDetail(doc, prefix) {
+    const profile = profiles.find(item => item.id === doc.id);
+    const builds = profile.targetBuilds;
+    if (builds && (!builds.length || new Set(builds.map(build => build.id)).size !== builds.length || builds.some(build => !/^[a-z0-9-]+$/.test(build.id)))) {
+      throw new Error(`Invalid target builds: ${doc.id}`);
+    }
+    const buildChoices = section => builds.length > 1 ? `<div class="filter-chips build-choices" role="group" aria-label="${section === 'relic' ? '유물' : '스탯'} 육성 세팅">${builds.map((build, index) => `<button type="button" data-build-choice="${build.id}" aria-controls="build-relic-${build.id} build-target-${build.id}" aria-pressed="${index === 0}">${escape(build.name)}</button>`).join('')}</div>` : '';
     const coneButtons = profile.cones.map((cone, index) => `<button class="cone-choice" type="button" data-choice="cone-${index}" aria-controls="cone-${index}" aria-pressed="${index === 0}">
       ${image('cones', cone.id, prefix)}<span>${escape(cone.name)}</span><small>${escape(cone.tag)}</small></button>`).join('');
     const conePanels = profile.cones.map((cone, index) => `<div class="equipment-description" id="cone-${index}" data-choice-panel${index ? ' hidden' : ''}>
       <h3>${escape(cone.name)}</h3><p>${escape(cone.short)}</p><details><summary>효과 자세히</summary><p>${escape(cone.detail)}</p></details></div>`).join('');
-    const relicPanels = profile.relicBuilds.map((build, index) => {
+    function relicContents(build) {
       const cavern = build.cavernSets.flatMap(set => Array(set.pieces).fill(set.id));
       const pieces = Object.keys(slots).map((slot, slotIndex) => {
         const setId = slotIndex < 4 ? cavern[slotIndex] : build.planarSet;
@@ -180,11 +197,19 @@ function createVisuals({ profiles, assets, docs, escape, partyGroups = [] }) {
         return `<li class="relic-piece"><span class="eyebrow">${slots[slot]}</span><img src="${prefix}${set.pieces[slot]}" alt="${escape(set.name)} · ${slots[slot]}" width="128" height="128" loading="lazy">
           <span class="eyebrow">주옵션</span><strong>${escape(build.mainStats[slot])}</strong><span class="relic-substats"><span class="stat-label">부옵션</span>${escape(substats.join(' · '))}</span></li>`;
       }).join('');
-      return `<div id="relic-${index}" data-choice-panel${index ? ' hidden' : ''}>
-        <p class="set-names">${build.cavernSets.map(set => `${escape(assets.relicSets[set.id].name)} ${set.pieces}`).join(' + ')} · ${escape(assets.relicSets[build.planarSet].name)} 2</p>
-        <ul class="relic-grid">${pieces}</ul><details class="equipment-reason"><summary>이 조합을 추천하는 이유</summary><p>${escape(build.reason)}</p></details>
-      </div>`;
-    }).join('');
+      return `<p class="set-names">${build.cavernSets.map(set => `${escape(assets.relicSets[set.id].name)} ${set.pieces}`).join(' + ')} · ${escape(assets.relicSets[build.planarSet].name)} 2</p>
+        <ul class="relic-grid">${pieces}</ul><details class="equipment-reason"><summary>이 조합을 추천하는 이유</summary><p>${escape(build.reason)}</p></details>`;
+    }
+    const relicSection = builds
+      ? `<section class="visual-section" id="relics"><h2>추천 유물</h2>${buildChoices('relic')}${builds.map((build, index) => {
+        const relic = build.relicBuild || profile.relicBuilds.find(item => item.id === build.relicBuildId);
+        if (!relic) throw new Error(`Missing build equipment: ${doc.id}/${build.id}`);
+        return `<div id="build-relic-${build.id}" data-build-panel="${build.id}"${index ? ' hidden' : ''}>${relicContents(relic)}</div>`;
+      }).join('')}</section>`
+      : `<section class="visual-section" id="relics" data-choice-group><h2>추천 유물</h2><div class="filter-chips build-choices" role="group" aria-label="유물 세팅">${profile.relicBuilds.map((build, index) => `<button type="button" data-choice="relic-${index}" aria-controls="relic-${index}" aria-pressed="${index === 0}">${escape(build.name)}</button>`).join('')}</div>${profile.relicBuilds.map((build, index) => `<div id="relic-${index}" data-choice-panel${index ? ' hidden' : ''}>${relicContents(build)}</div>`).join('')}</section>`;
+    const targetPanels = builds
+      ? `${buildChoices('target')}${builds.map((build, index) => `<div id="build-target-${build.id}" data-build-panel="${build.id}"${index ? ' hidden' : ''}>${statTable(profile, build, `build-${build.id}-`)}</div>`).join('')}`
+      : statTable(profile, profile);
     const relatedParties = docs.filter(item => item.party && (profile.related.includes(item.id) || item.party.members.some(member => member.guideId === doc.id)));
     return `<a class="back-link" href="${prefix}games/hsr/index.html?view=character">← 캐릭터 육성</a>
       <header class="profile-header">${image('characters', profile.characterId, prefix, 'profile-portrait')}<div><p class="eyebrow">캐릭터 육성</p><h1>${escape(profile.name)}</h1><p>${escape(profile.role)}</p></div></header>
@@ -195,20 +220,11 @@ function createVisuals({ profiles, assets, docs, escape, partyGroups = [] }) {
           <div class="cone-grid" style="--cone-columns:${profile.cones.length}">${coneButtons}</div>
           ${conePanels}
         </section>
-        <section class="visual-section" id="relics" data-choice-group><h2>추천 유물</h2><div class="filter-chips build-choices" role="group" aria-label="유물 세팅">${profile.relicBuilds.map((build, index) => `<button type="button" data-choice="relic-${index}" aria-controls="relic-${index}" aria-pressed="${index === 0}">${escape(build.name)}</button>`).join('')}</div>${relicPanels}</section>
+        ${relicSection}
         <section class="visual-section" id="targets">
           <h2>이 정도면 잘 키웠다</h2>
-          <p class="eyebrow">세팅에 따른 목표값 · —는 출처에 별도 기준 없음</p>
-          <table class="stat-tier-table">
-            <caption class="sr-only">${escape(profile.name)} 추천 스탯·준종결·종결 비교</caption>
-            <thead><tr><th scope="col">스탯</th><th scope="col">추천 스탯</th><th scope="col">준종결</th><th scope="col">종결</th></tr></thead>
-            <tbody>${statRows}</tbody>
-          </table>
-          <details class="equipment-reason"><summary>육성 단계의 기준</summary><p>${escape(profile.targetNote)}</p></details>
-${statNotes.length ? `          <div class="stat-footnotes">
-            <h3>스탯 조건과 각주</h3>
-            <ol>${statNotes.map(note => `<li id="stat-note-${note.number}" tabindex="-1"><strong>${escape(note.label)}</strong> ${escape(note.text)} <a href="#${note.target}" aria-label="${escape(note.label)} 스탯으로 돌아가기">↑</a></li>`).join('')}</ol>
-          </div>` : ''}
+          <p class="eyebrow">선택한 세팅 기준 · —는 확인된 수치 없음</p>
+${targetPanels}
         </section>
         <section class="visual-section" id="eidolons"><h2>성혼과 추천 돌파</h2><p class="investment-note">${escape(profile.eidolonAdvice)}</p><div class="eidolon-list">${profile.eidolons.map(eidolon => `<details><summary><span class="eidolon-number">${eidolon.level}</span><span>${escape(eidolon.short)}</span>${eidolon.recommended ? '<span class="recommend-tag">추천</span>' : ''}</summary><p>${escape(eidolon.detail)}</p></details>`).join('')}</div></section>
         <section class="visual-section" id="parties"><h2>추천 파티</h2><div class="party-grid">${relatedParties.map(party => partyTile(party, prefix)).join('')}</div></section>

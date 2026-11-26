@@ -308,6 +308,9 @@ main { max-width: 1160px; margin: auto; padding: 36px 32px 64px; }
 .relic-substats { display: block; border-top: 1px solid var(--line); margin-top: 10px; padding-top: 10px; color: var(--muted); font-size: .875rem; line-height: 1.5; width: 100%; }
 .stat-label { display: block; color: var(--text); font-weight: 600; margin-bottom: 5px; }
 .equipment-reason { margin-top: 18px; border-top: 1px solid var(--line); }
+.build-summary { margin: 16px 0 0; color: var(--muted); font-size: .875rem; line-height: 1.5; }
+.calculated-stat { display: block; margin-top: 4px; color: var(--muted); font-size: .875rem; font-weight: 400; }
+.build-choices button { white-space: normal; text-align: left; }
 .target-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
 .target-grid>div { padding: 20px; background: var(--soft); border-radius: 20px; }
 .target-grid strong { display: block; color: var(--accent); font-size: 1.4rem; line-height: 1.5; margin: 6px 0; }

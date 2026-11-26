@@ -84,7 +84,8 @@ for (const profile of profiles) {
   assert.ok(profile.cones.length >= 2 && profile.cones.length <= 5, `${profile.id} has two to five sourced equipment choices`);
   assert.equal(new Set(profile.cones.map(cone => cone.id)).size, profile.cones.length);
   for (const cone of profile.cones) assert.ok(assets.cones[cone.id]);
-  for (const build of profile.relicBuilds) {
+  const allRelicBuilds = [...profile.relicBuilds, ...(profile.targetBuilds || []).map(build => build.relicBuild).filter(Boolean)];
+  for (const build of allRelicBuilds) {
     assert.equal(build.cavernSets.reduce((sum, set) => sum + set.pieces, 0), 4);
     const cavern = build.cavernSets.flatMap(set => Array(set.pieces).fill(set.id));
     const pieces = Object.keys(slots).map((slot, index) => {
@@ -187,30 +188,38 @@ for (const profile of profiles) {
   assert.ok(page.includes('기본 운영과 행적'));
   assert.ok(page.includes('tools/aha/index.html'));
   assert.ok(!page.includes('undefined'));
-  let noteCount = 0;
-  for (const [index, stat] of profile.targetStats.entries()) {
-    for (const field of ['value', 'nearFinal', 'final']) assert.ok(stat[field]?.trim());
-    for (const [key, text] of [['label', stat.condition], ...['value', 'nearFinal', 'final'].map(key => [key, stat.notes?.[key]])]) {
-      const cellId = `stat-row-${index + 1}-${key}`;
-      const cell = page.match(new RegExp(`<t[hd][^>]*id="${cellId}"[^>]*>([\\s\\S]*?)</t[hd]>`))[1];
-      assert.equal(cell.includes('data-stat-note'), Boolean(text), `${profile.id}/${cellId} only has a note when needed`);
-      if (!text) continue;
-      noteCount++;
-      assert.ok(cell.includes(`<sup>[${noteCount}]</sup>`));
-      assert.ok(cell.includes(`href="#stat-note-${noteCount}"`));
-      assert.ok(page.includes(`id="stat-note-${noteCount}"`));
-      assert.ok(cell.includes(`aria-describedby="stat-tooltip-${noteCount}"`));
-      assert.ok(cell.includes(`id="stat-ref-${noteCount}"`));
-      assert.ok(page.includes(`href="#stat-ref-${noteCount}"`), 'footnote returns focus to its exact numbered link');
+  let totalNotes = 0;
+  for (const build of profile.targetBuilds || [profile]) {
+    const idPrefix = profile.targetBuilds ? `build-${build.id}-` : '';
+    let noteCount = 0;
+    for (const [index, stat] of build.targetStats.entries()) {
+      for (const field of ['value', 'nearFinal', 'final']) assert.ok(stat[field]?.trim());
+      for (const [key, text] of [['label', stat.condition], ...['value', 'nearFinal', 'final'].map(key => [key, stat.notes?.[key]])]) {
+        const cellId = `${idPrefix}stat-row-${index + 1}-${key}`;
+        const cell = page.match(new RegExp(`<t[hd][^>]*id="${cellId}"[^>]*>([\\s\\S]*?)</t[hd]>`))[1];
+        assert.equal(cell.includes('data-stat-note'), Boolean(text), `${profile.id}/${cellId} only has a note when needed`);
+        if (!text) continue;
+        noteCount++;
+        assert.ok(cell.includes(`<sup>[${noteCount}]</sup>`));
+        assert.ok(cell.includes(`href="#${idPrefix}stat-note-${noteCount}"`));
+        assert.ok(page.includes(`id="${idPrefix}stat-note-${noteCount}"`));
+        assert.ok(cell.includes(`aria-describedby="${idPrefix}stat-tooltip-${noteCount}"`));
+        assert.ok(cell.includes(`id="${idPrefix}stat-ref-${noteCount}"`));
+        assert.ok(page.includes(`href="#${idPrefix}stat-ref-${noteCount}"`), 'footnote returns focus to its exact numbered link');
+      }
     }
+    totalNotes += noteCount;
   }
-  assert.equal((page.match(/data-stat-note/g) || []).length, noteCount);
-  assert.equal(page.includes('class="stat-footnotes"'), noteCount > 0);
+  assert.equal((page.match(/data-stat-note/g) || []).length, totalNotes);
+  assert.equal(page.includes('class="stat-footnotes"'), totalNotes > 0);
+  const ids = [...page.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
+  assert.equal(new Set(ids).size, ids.length, `${profile.id} has unique IDs across build panels`);
 }
 console.log('PASS visual guides have real equipment pieces, complete stats, linked parties and no all-category tab');
 
 const noteFixture = {
   ...profiles[0],
+  targetBuilds: undefined,
   targetStats: [
     { label: '속도', value: '134', nearFinal: '—', final: '160', condition: '동일 파티 기준', notes: { final: '특정 행동 순서 조건' } },
     { label: '공격력', value: '3000', nearFinal: '—', final: '—' },
@@ -225,6 +234,28 @@ assert.match(fixturePage, /id="stat-row-1-value"[^>]*>134<\/td>/);
 assert.ok(fixturePage.includes('href="#stat-ref-2"'), 'value-specific footnote returns to the value link');
 assert.ok(!fixturePage.includes('[*]'), 'numbered superscripts replace large generic markers');
 console.log('PASS optional footnotes attach to the exact value or common stat label');
+
+const buildFixture = {
+  ...noteFixture,
+  targetBuilds: ['slow', 'fast'].map(id => ({
+    id, name: id, summary: `${id} 세팅`,
+    relicBuildId: noteFixture.relicBuilds[0].id,
+    targetStats: [{ label: '속도', value: '134', nearFinal: '143', final: '160', calculated: ['nearFinal'], notes: { nearFinal: '자체 계산: 첫 350AV에 자연 5행동.' } }],
+    targetNote: '버프와 행동 당김 없는 기준', sources: [],
+  })),
+};
+const buildsHtml = createVisuals({ profiles: [buildFixture], assets, docs, escape: String })
+  .characterDetail(docs.find(doc => doc.id === buildFixture.id), '../../');
+for (const id of ['slow', 'fast']) {
+  assert.equal((buildsHtml.match(new RegExp(`data-build-choice="${id}"`, 'g')) || []).length, 2, 'equipment and stat sections each have a selector');
+  assert.equal((buildsHtml.match(new RegExp(`data-build-panel="${id}"`, 'g')) || []).length, 2);
+  assert.ok(buildsHtml.includes(`id="build-${id}-stat-note-1"`));
+  assert.ok(buildsHtml.includes(`href="#build-${id}-stat-ref-1"`));
+}
+assert.equal((buildsHtml.match(/class="calculated-stat"/g) || []).length, 2, 'calculated targets are visibly distinguished');
+assert.throws(() => createVisuals({ profiles: [{ ...buildFixture, targetBuilds: [buildFixture.targetBuilds[0], buildFixture.targetBuilds[0]] }], assets, docs, escape: String })
+  .characterDetail(docs.find(doc => doc.id === buildFixture.id), '../../'), /Invalid target builds/);
+console.log('PASS build panels keep equipment and footnotes unique and label calculated thresholds');
 
 // Detail pages do not have a catalog. Their equipment controls must still work,
 // and changing one group must not change another group's selection.
