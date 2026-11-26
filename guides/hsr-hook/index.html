@@ -7,8 +7,8 @@
     <title>후크 육성 가이드 · Fluffy Archive</title>
     <meta name="description" content="연소 부여 후 강화 전투 스킬로 확산 공격">
     <link rel="icon" href="../../site/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../../site/styles.css?v=66fc99a5f38d">
-    <script src="../../site/app.js?v=7d5b6a16e75f" defer></script>
+    <link rel="stylesheet" href="../../site/styles.css?v=4f2943b78c62">
+    <script src="../../site/app.js?v=c57924744f5a" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -36,10 +36,14 @@
         <section class="visual-section" id="cones" data-choice-group>
           <h2>추천 광추</h2>
           <div class="cone-grid" style="--cone-columns:4"><button class="cone-choice" type="button" data-choice="cone-0" aria-controls="cone-0" aria-pressed="true">
-      <img class="" src="../../site/assets/hsr/cones/24000.png" alt="" loading="lazy" width="256" height="256"><span>어떤 에이언즈의 몰락</span><small>헤르타 상점 · 5중첩</small></button><button class="cone-choice" type="button" data-choice="cone-1" aria-controls="cone-1" aria-pressed="false">
-      <img class="" src="../../site/assets/hsr/cones/21026.png" alt="" loading="lazy" width="256" height="256"><span>멍! 산책 시간!</span><small>연소 적 피해 · 5중첩</small></button><button class="cone-choice" type="button" data-choice="cone-2" aria-controls="cone-2" aria-pressed="false">
-      <img class="" src="../../site/assets/hsr/cones/21012.png" alt="" loading="lazy" width="256" height="256"><span>비밀 맹세</span><small>피해 증가 · 5중첩</small></button><button class="cone-choice" type="button" data-choice="cone-3" aria-controls="cone-3" aria-pressed="false">
-      <img class="" src="../../site/assets/hsr/cones/21058.png" alt="" loading="lazy" width="256" height="256"><span>과거의 핏자국</span><small>스킬·필살기 · 5중첩</small></button></div>
+        <img class="" src="../../site/assets/hsr/cones/24000.png" alt="" loading="lazy" width="256" height="256"><span>어떤 에이언즈의 몰락</span>
+        <small class="cone-rating"><span class="cone-stars" role="img" aria-label="5성">★★★★★</span> · 5재</small></button><button class="cone-choice" type="button" data-choice="cone-1" aria-controls="cone-1" aria-pressed="false">
+        <img class="" src="../../site/assets/hsr/cones/21026.png" alt="" loading="lazy" width="256" height="256"><span>멍! 산책 시간!</span>
+        <small class="cone-rating"><span class="cone-stars" role="img" aria-label="4성">★★★★</span> · 5재</small></button><button class="cone-choice" type="button" data-choice="cone-2" aria-controls="cone-2" aria-pressed="false">
+        <img class="" src="../../site/assets/hsr/cones/21012.png" alt="" loading="lazy" width="256" height="256"><span>비밀 맹세</span>
+        <small class="cone-rating"><span class="cone-stars" role="img" aria-label="4성">★★★★</span> · 5재</small></button><button class="cone-choice" type="button" data-choice="cone-3" aria-controls="cone-3" aria-pressed="false">
+        <img class="" src="../../site/assets/hsr/cones/21058.png" alt="" loading="lazy" width="256" height="256"><span>과거의 핏자국</span>
+        <small class="cone-rating"><span class="cone-stars" role="img" aria-label="4성">★★★★</span> · 5재</small></button></div>
           <div class="equipment-description" id="cone-0" data-choice-panel>
       <h3>어떤 에이언즈의 몰락</h3><p>공격마다 공격력 +16%</p><details><summary>효과 자세히</summary><p>4스택 최대 +64%. 자신이 약점 격파 시 피해 +24% 2턴.</p></details></div><div class="equipment-description" id="cone-1" data-choice-panel hidden>
       <h3>멍! 산책 시간!</h3><p>공격력 +20% · 연소·열상 적 피해 +32%</p><details><summary>효과 자세히</summary><p>피해 증가는 연소 또는 열상 상태의 적에게 적용. 지속 피해 포함.</p></details></div><div class="equipment-description" id="cone-2" data-choice-panel hidden>
@@ -64,14 +68,16 @@
         <section class="visual-section" id="targets">
           <h2>이 정도면 잘 키웠다</h2>
           <p class="eyebrow">선택한 세팅 기준 · —는 확인된 수치 없음</p>
-<div class="filter-chips build-choices" role="group" aria-label="스탯 육성 세팅"><button type="button" data-build-choice="hook-pioneer" aria-controls="build-relic-hook-pioneer build-target-hook-pioneer" aria-pressed="true">선구자 · 그라모스</button><button type="button" data-build-choice="hook-scholar" aria-controls="build-relic-hook-scholar build-target-hook-scholar" aria-pressed="false">학자 · 뭇별</button></div><div id="build-target-hook-pioneer" data-build-panel="hook-pioneer"><p class="build-summary">연소와 동료 디버프를 유지해 선구자 효과를 활용합니다.</p>
+<div class="filter-chips build-choices" role="group" aria-label="스탯 육성 세팅"><button type="button" data-build-choice="hook-pioneer" aria-controls="build-relic-hook-pioneer build-target-hook-pioneer" aria-pressed="true">선구자 · 그라모스</button><button type="button" data-build-choice="hook-scholar" aria-controls="build-relic-hook-scholar build-target-hook-scholar" aria-pressed="false">학자 · 뭇별</button></div><div id="build-target-hook-pioneer" data-build-panel="hook-pioneer"><ul class="build-conditions" aria-label="세팅 조건"><li>속도 전투 중</li></ul>
+      <p class="build-summary">연소와 동료 디버프를 유지해 선구자 효과를 활용합니다.</p>
       <table class="stat-tier-table">
         <caption class="sr-only">후크 선구자 · 그라모스 추천 스탯·준종결·종결 비교</caption>
         <thead><tr><th scope="col">스탯</th><th scope="col">추천 스탯</th><th scope="col">준종결</th><th scope="col">종결</th></tr></thead>
         <tbody><tr id="build-hook-pioneer-stat-row-1"><th scope="row" id="build-hook-pioneer-stat-row-1-label">공격력</th><td id="build-hook-pioneer-stat-row-1-value" data-tier="추천 스탯">—</td><td id="build-hook-pioneer-stat-row-1-nearFinal" data-tier="준종결">—</td><td id="build-hook-pioneer-stat-row-1-final" data-tier="종결">3000</td></tr><tr id="build-hook-pioneer-stat-row-2"><th scope="row" id="build-hook-pioneer-stat-row-2-label">속도</th><td id="build-hook-pioneer-stat-row-2-value" data-tier="추천 스탯">전투 135 또는 160<span class="stat-note" data-stat-note><a class="stat-note-link" id="build-hook-pioneer-stat-ref-1" href="#build-hook-pioneer-stat-note-1" aria-label="속도 · 추천 스탯 각주 1" aria-describedby="build-hook-pioneer-stat-tooltip-1"><sup>[1]</sup></a><span class="stat-tooltip" id="build-hook-pioneer-stat-tooltip-1" role="tooltip">그라모스 발동 조건.</span></span></td><td id="build-hook-pioneer-stat-row-2-nearFinal" data-tier="준종결">—</td><td id="build-hook-pioneer-stat-row-2-final" data-tier="종결">—</td></tr><tr id="build-hook-pioneer-stat-row-3"><th scope="row" id="build-hook-pioneer-stat-row-3-label">치명타 확률</th><td id="build-hook-pioneer-stat-row-3-value" data-tier="추천 스탯">—</td><td id="build-hook-pioneer-stat-row-3-nearFinal" data-tier="준종결">—</td><td id="build-hook-pioneer-stat-row-3-final" data-tier="종결">70%</td></tr><tr id="build-hook-pioneer-stat-row-4"><th scope="row" id="build-hook-pioneer-stat-row-4-label">치명타 피해</th><td id="build-hook-pioneer-stat-row-4-value" data-tier="추천 스탯">—</td><td id="build-hook-pioneer-stat-row-4-nearFinal" data-tier="준종결">—</td><td id="build-hook-pioneer-stat-row-4-final" data-tier="종결">140%</td></tr></tbody>
       </table>
       <details class="equipment-reason"><summary>세팅 기준·출처</summary><p>RIRA 공략의 저자 종결 목표입니다. 공개 가이드에서 이 세팅의 준종결 수치를 확인하지 못했습니다.</p><ul><li><a href="https://riragamehub.com/gallery/hsr/character/hook/guide" target="_blank" rel="noopener noreferrer">RIRA ARCHIVE · 목표 육성 수치 ↗</a></li></ul></details>
-      <div class="stat-footnotes"><h3>스탯 조건과 각주</h3><ol><li id="build-hook-pioneer-stat-note-1" tabindex="-1"><strong>속도 · 추천 스탯</strong> 그라모스 발동 조건. <a href="#build-hook-pioneer-stat-ref-1" aria-label="속도 · 추천 스탯 스탯으로 돌아가기">↑</a></li></ol></div></div><div id="build-target-hook-scholar" data-build-panel="hook-scholar" hidden><p class="build-summary">필살기 후 전투 스킬을 강화하는 구성입니다.</p>
+      <div class="stat-footnotes"><h3>스탯 조건과 각주</h3><ol><li id="build-hook-pioneer-stat-note-1" tabindex="-1"><strong>속도 · 추천 스탯</strong> 그라모스 발동 조건. <a href="#build-hook-pioneer-stat-ref-1" aria-label="속도 · 추천 스탯 스탯으로 돌아가기">↑</a></li></ol></div></div><div id="build-target-hook-scholar" data-build-panel="hook-scholar" hidden>
+      <p class="build-summary">필살기 후 전투 스킬을 강화하는 구성입니다.</p>
       <table class="stat-tier-table">
         <caption class="sr-only">후크 학자 · 뭇별 추천 스탯·준종결·종결 비교</caption>
         <thead><tr><th scope="col">스탯</th><th scope="col">추천 스탯</th><th scope="col">준종결</th><th scope="col">종결</th></tr></thead>
@@ -81,7 +87,7 @@
 </div>
         </section>
         <section class="visual-section" id="eidolons"><h2>성혼과 추천 돌파</h2><p class="investment-note">4돌 연소 전파 · 6돌 연소 적 피해 +20%.</p><div class="eidolon-list"><details><summary><span class="eidolon-number">1</span><span>강화 전투 스킬 피해 +20%</span></summary><p>건강한 수면 사이클</p></details><details><summary><span class="eidolon-number">2</span><span>스킬이 적용하는 연소 +1턴</span></summary><p>건강한 식습관</p></details><details><summary><span class="eidolon-number">3</span><span>전투 스킬 +2 · 일반 공격 +1</span></summary><p>스킬·일반 공격 레벨 상한 각각 15·10.</p></details><details><summary><span class="eidolon-number">4</span><span>특성 발동 → 인접 적 연소</span><span class="recommend-tag">추천</span></summary><p>기본 확률 100%로 스킬과 같은 연소 부여.</p></details><details><summary><span class="eidolon-number">5</span><span>필살기·특성 +2</span></summary><p>필살기·특성 레벨 상한 각각 15.</p></details><details><summary><span class="eidolon-number">6</span><span>연소 적에게 본인 피해 +20%</span><span class="recommend-tag">추천</span></summary><p>항시 악에 맞설 준비</p></details></div></section>
-        <section class="visual-section" id="parties"><h2>추천 파티</h2><div class="party-grid"><a class="party-tile" href="../../guides/hsr-hook-team/index.html" data-party="hypercarry">
+        <section class="visual-section" id="parties"><h2>추천 파티</h2><div class="party-grid"><a class="party-tile" href="../../guides/hsr-hook-team/index.html" data-party="hypercarry" data-party-search="후크 연소·화염 피해 파티 후크 후크 아스타 정운 나타샤">
       <div class="party-faces"><span class="party-portrait"><img class="member-face" src="../../site/assets/hsr/characters/1109.png" alt="후크" loading="lazy" width="256" height="256"></span><span class="party-portrait"><img class="member-face" src="../../site/assets/hsr/characters/1009.png" alt="아스타" loading="lazy" width="256" height="256"></span><span class="party-portrait"><img class="member-face" src="../../site/assets/hsr/characters/1202.png" alt="정운" loading="lazy" width="256" height="256"><span class="portrait-options"><span title="정운 대체: 계네빈" data-replacement-badge="1202"><img class="alternative-face" src="../../site/assets/hsr/characters/1210.png" alt="정운 대체: 계네빈" loading="lazy" width="256" height="256"></span><span title="정운 대체: 초구" data-replacement-badge="1202"><img class="alternative-face" src="../../site/assets/hsr/characters/1218.png" alt="정운 대체: 초구" loading="lazy" width="256" height="256"></span><span title="정운 대체: 브로냐" data-replacement-badge="1202"><img class="alternative-face" src="../../site/assets/hsr/characters/1101.png" alt="정운 대체: 브로냐" loading="lazy" width="256" height="256"></span></span></span><span class="party-portrait"><img class="member-face" src="../../site/assets/hsr/characters/1105.png" alt="나타샤" loading="lazy" width="256" height="256"><span class="portrait-options"><span title="나타샤 대체: 갤러거" data-replacement-badge="1105"><img class="alternative-face" src="../../site/assets/hsr/characters/1301.png" alt="나타샤 대체: 갤러거" loading="lazy" width="256" height="256"></span><span title="나타샤 대체: 영사" data-replacement-badge="1105"><img class="alternative-face" src="../../site/assets/hsr/characters/1222.png" alt="나타샤 대체: 영사" loading="lazy" width="256" height="256"></span></span></span></div>
       <strong>후크</strong><span>보유 캐릭터 활용 <span aria-hidden="true">→</span></span>
     </a></div></section>

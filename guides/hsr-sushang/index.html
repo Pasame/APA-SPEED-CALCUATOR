@@ -7,8 +7,8 @@
     <title>소상 육성 가이드 · Fluffy Archive</title>
     <meta name="description" content="물리 약점 격파 적에게 검세 · 필살기 후 즉시 행동">
     <link rel="icon" href="../../site/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../../site/styles.css?v=66fc99a5f38d">
-    <script src="../../site/app.js?v=7d5b6a16e75f" defer></script>
+    <link rel="stylesheet" href="../../site/styles.css?v=4f2943b78c62">
+    <script src="../../site/app.js?v=c57924744f5a" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -36,10 +36,14 @@
         <section class="visual-section" id="cones" data-choice-group>
           <h2>추천 광추</h2>
           <div class="cone-grid" style="--cone-columns:4"><button class="cone-choice" type="button" data-choice="cone-0" aria-controls="cone-0" aria-pressed="true">
-      <img class="" src="../../site/assets/hsr/cones/23027.png" alt="" loading="lazy" width="256" height="256"><span>두 번째 생명을 향해</span><small>격파 특화 · 1중첩</small></button><button class="cone-choice" type="button" data-choice="cone-1" aria-controls="cone-1" aria-pressed="false">
-      <img class="" src="../../site/assets/hsr/cones/21010.png" alt="" loading="lazy" width="256" height="256"><span>논검</span><small>단일 적 연속 타격 · 5중첩</small></button><button class="cone-choice" type="button" data-choice="cone-2" aria-controls="cone-2" aria-pressed="false">
-      <img class="" src="../../site/assets/hsr/cones/24001.png" alt="" loading="lazy" width="256" height="256"><span>별바다 순항</span><small>헤르타 상점 · 5중첩</small></button><button class="cone-choice" type="button" data-choice="cone-3" aria-controls="cone-3" aria-pressed="false">
-      <img class="" src="../../site/assets/hsr/cones/21003.png" alt="" loading="lazy" width="256" height="256"><span>침묵만이</span><small>적 2기 이하 · 5중첩</small></button></div>
+        <img class="" src="../../site/assets/hsr/cones/23027.png" alt="" loading="lazy" width="256" height="256"><span>두 번째 생명을 향해</span><small class="cone-owner">(대체) 부트힐 광추</small>
+        <small class="cone-rating"><span class="cone-stars" role="img" aria-label="5성">★★★★★</span></small></button><button class="cone-choice" type="button" data-choice="cone-1" aria-controls="cone-1" aria-pressed="false">
+        <img class="" src="../../site/assets/hsr/cones/21010.png" alt="" loading="lazy" width="256" height="256"><span>논검</span>
+        <small class="cone-rating"><span class="cone-stars" role="img" aria-label="4성">★★★★</span> · 5재</small></button><button class="cone-choice" type="button" data-choice="cone-2" aria-controls="cone-2" aria-pressed="false">
+        <img class="" src="../../site/assets/hsr/cones/24001.png" alt="" loading="lazy" width="256" height="256"><span>별바다 순항</span>
+        <small class="cone-rating"><span class="cone-stars" role="img" aria-label="5성">★★★★★</span> · 5재</small></button><button class="cone-choice" type="button" data-choice="cone-3" aria-controls="cone-3" aria-pressed="false">
+        <img class="" src="../../site/assets/hsr/cones/21003.png" alt="" loading="lazy" width="256" height="256"><span>침묵만이</span>
+        <small class="cone-rating"><span class="cone-stars" role="img" aria-label="4성">★★★★</span> · 5재</small></button></div>
           <div class="equipment-description" id="cone-0" data-choice-panel>
       <h3>두 번째 생명을 향해</h3><p>격특 +60% · 격파 방어력 무시 20%</p><details><summary>효과 자세히</summary><p>전투 격특 150% 이상 → 속도 +12%.</p></details></div><div class="equipment-description" id="cone-1" data-choice-panel hidden>
       <h3>논검</h3><p>같은 적 명중당 피해 +16%</p><details><summary>효과 자세히</summary><p>최대 5스택 +80%. 공격 대상을 바꾸면 초기화.</p></details></div><div class="equipment-description" id="cone-2" data-choice-panel hidden>
@@ -64,14 +68,16 @@
         <section class="visual-section" id="targets">
           <h2>이 정도면 잘 키웠다</h2>
           <p class="eyebrow">선택한 세팅 기준 · —는 확인된 수치 없음</p>
-<div class="filter-chips build-choices" role="group" aria-label="스탯 육성 세팅"><button type="button" data-build-choice="crit" aria-controls="build-relic-crit build-target-crit" aria-pressed="true">치명타 · 물리 딜러</button><button type="button" data-build-choice="break" aria-controls="build-relic-break build-target-break" aria-pressed="false">물리 격파</button></div><div id="build-target-crit" data-build-panel="crit"><p class="build-summary">공격력과 치명타를 높이는 4.7 시트 기준입니다.</p>
+<div class="filter-chips build-choices" role="group" aria-label="스탯 육성 세팅"><button type="button" data-build-choice="crit" aria-controls="build-relic-crit build-target-crit" aria-pressed="true">치명타 · 물리 딜러</button><button type="button" data-build-choice="break" aria-controls="build-relic-break build-target-break" aria-pressed="false">물리 격파</button></div><div id="build-target-crit" data-build-panel="crit">
+      <p class="build-summary">공격력과 치명타를 높이는 4.7 시트 기준입니다.</p>
       <table class="stat-tier-table">
         <caption class="sr-only">소상 치명타 · 물리 딜러 추천 스탯·준종결·종결 비교</caption>
         <thead><tr><th scope="col">스탯</th><th scope="col">추천 스탯</th><th scope="col">준종결</th><th scope="col">종결</th></tr></thead>
         <tbody><tr id="build-crit-stat-row-1"><th scope="row" id="build-crit-stat-row-1-label">공격력</th><td id="build-crit-stat-row-1-value" data-tier="추천 스탯">3000</td><td id="build-crit-stat-row-1-nearFinal" data-tier="준종결">—</td><td id="build-crit-stat-row-1-final" data-tier="종결">—</td></tr><tr id="build-crit-stat-row-2"><th scope="row" id="build-crit-stat-row-2-label">치명타 확률</th><td id="build-crit-stat-row-2-value" data-tier="추천 스탯">80%</td><td id="build-crit-stat-row-2-nearFinal" data-tier="준종결">—</td><td id="build-crit-stat-row-2-final" data-tier="종결">—</td></tr><tr id="build-crit-stat-row-3"><th scope="row" id="build-crit-stat-row-3-label">치명타 피해</th><td id="build-crit-stat-row-3-value" data-tier="추천 스탯">120%</td><td id="build-crit-stat-row-3-nearFinal" data-tier="준종결">—</td><td id="build-crit-stat-row-3-final" data-tier="종결">—</td></tr></tbody>
       </table>
       <details class="equipment-reason"><summary>세팅 기준·출처</summary><p>확인한 자료에 독립적인 준종결 수치가 없습니다.</p><ul><li><a href="https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&amp;range=A182:P185" target="_blank" rel="noopener noreferrer">붕스 세팅정리 · 세팅 (2026-11-27 확인) ↗</a></li><li><a href="https://foreverhan.tistory.com/1991" target="_blank" rel="noopener noreferrer">영원한 주말 · 소상 세팅 가이드 ↗</a></li></ul></details>
-</div><div id="build-target-break" data-build-panel="break" hidden><p class="build-summary">물리 약점 격파 피해가 중요한 조합에서 교체합니다.</p>
+</div><div id="build-target-break" data-build-panel="break" hidden><ul class="build-conditions" aria-label="세팅 조건"><li>물리 약점 적</li></ul>
+      <p class="build-summary">물리 약점 격파 피해가 중요한 조합에서 교체합니다.</p>
       <table class="stat-tier-table">
         <caption class="sr-only">소상 물리 격파 추천 스탯·준종결·종결 비교</caption>
         <thead><tr><th scope="col">스탯</th><th scope="col">추천 스탯</th><th scope="col">준종결</th><th scope="col">종결</th></tr></thead>
@@ -81,7 +87,7 @@
       <div class="stat-footnotes"><h3>스탯 조건과 각주</h3><ol><li id="build-break-stat-note-1" tabindex="-1"><strong>속도 · 추천 스탯</strong> 후반 권장 기준. 기본 속도·143·160도 행동 지원에 따라 가능. <a href="#build-break-stat-ref-1" aria-label="속도 · 추천 스탯 스탯으로 돌아가기">↑</a></li><li id="build-break-stat-note-2" tabindex="-1"><strong>격파 특수효과 · 추천 스탯</strong> Prydwen은 유물에 따라 0~120%+ 범위를 제시합니다. <a href="#build-break-stat-ref-2" aria-label="격파 특수효과 · 추천 스탯 스탯으로 돌아가기">↑</a></li></ol></div></div>
         </section>
         <section class="visual-section" id="eidolons"><h2>성혼과 추천 돌파</h2><p class="investment-note">1돌 격파 적 스킬 포인트 반환 · 4돌 격특 +40%.</p><div class="eidolon-list"><details><summary><span class="eidolon-number">1</span><span>격파된 적에 스킬 → SP +1pt</span><span class="recommend-tag">추천</span></summary><p>여유만만</p></details><details><summary><span class="eidolon-number">2</span><span>검세 발동 → 받는 피해 −20%</span></summary><p>1턴.</p></details><details><summary><span class="eidolon-number">3</span><span>필살기·특성 +2</span></summary><p>필살기·특성 레벨 상한 각각 15.</p></details><details><summary><span class="eidolon-number">4</span><span>격파 특수효과 +40%</span><span class="recommend-tag">추천</span></summary><p>넓은 아량</p></details><details><summary><span class="eidolon-number">5</span><span>전투 스킬 +2 · 일반 공격 +1</span></summary><p>스킬·일반 공격 레벨 상한 각각 15·10.</p></details><details><summary><span class="eidolon-number">6</span><span>특성 가속 최대 2스택</span></summary><p>전투 시작 시 가속 1스택 제공.</p></details></div></section>
-        <section class="visual-section" id="parties"><h2>추천 파티</h2><div class="party-grid"><a class="party-tile" href="../../guides/hsr-sushang-team/index.html" data-party="break">
+        <section class="visual-section" id="parties"><h2>추천 파티</h2><div class="party-grid"><a class="party-tile" href="../../guides/hsr-sushang-team/index.html" data-party="break" data-party-search="소상 물리 격파 파티 소상 소상 개척자(화합) 완·매 갤러거">
       <div class="party-faces"><span class="party-portrait"><img class="member-face" src="../../site/assets/hsr/characters/1206.png" alt="소상" loading="lazy" width="256" height="256"></span><span class="party-portrait"><img class="member-face" src="../../site/assets/hsr/characters/8006.png" alt="개척자(화합)" loading="lazy" width="256" height="256"><span class="portrait-options"><span title="개척자(화합) 대체: 망귀인" data-replacement-badge="8006"><img class="alternative-face" src="../../site/assets/hsr/characters/1225.png" alt="개척자(화합) 대체: 망귀인" loading="lazy" width="256" height="256"></span></span></span><span class="party-portrait"><img class="member-face" src="../../site/assets/hsr/characters/1303.png" alt="완·매" loading="lazy" width="256" height="256"><span class="portrait-options"><span title="완·매 대체: 한아" data-replacement-badge="1303"><img class="alternative-face" src="../../site/assets/hsr/characters/1215.png" alt="완·매 대체: 한아" loading="lazy" width="256" height="256"></span><span title="완·매 대체: 루카" data-replacement-badge="1303"><img class="alternative-face" src="../../site/assets/hsr/characters/1111.png" alt="완·매 대체: 루카" loading="lazy" width="256" height="256"></span></span></span><span class="party-portrait"><img class="member-face" src="../../site/assets/hsr/characters/1301.png" alt="갤러거" loading="lazy" width="256" height="256"><span class="portrait-options"><span title="갤러거 대체: 영사" data-replacement-badge="1301"><img class="alternative-face" src="../../site/assets/hsr/characters/1222.png" alt="갤러거 대체: 영사" loading="lazy" width="256" height="256"></span></span></span></div>
       <strong>소상</strong><span>물리 약점 격파 <span aria-hidden="true">→</span></span>
     </a></div></section>

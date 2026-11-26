@@ -65,6 +65,19 @@ console.log('PASS moved calculator remains self-contained and includes unmodifie
 const profiles = require('./site/profiles.json');
 const releasedRoster = require('./site/hsr-roster.json');
 const assets = require('./site/assets-manifest.json');
+const conditionTags = require('./site/build-conditions.json');
+const coneLabels = require('./site/cone-labels.json').cones;
+for (const [profileId, builds] of Object.entries(conditionTags)) {
+  const profile = profiles.find(item => item.id === profileId);
+  assert.ok(profile, `condition profile ${profileId} exists`);
+  for (const [buildId, tags] of Object.entries(builds)) {
+    assert.ok(profile.targetBuilds.some(build => build.id === buildId));
+    assert.ok(tags.length > 0 && tags.length <= 4 && tags.every(tag => tag.trim()));
+    assert.equal(new Set(tags).size, tags.length);
+  }
+}
+assert.equal(coneLabels['23044'].owner, '파이논');
+assert.equal(coneLabels['24000'].owner, undefined, 'Herta shop cones are not character signatures');
 assert.equal(new Set(profiles.map(profile => profile.characterId)).size, profiles.length, 'one guide per playable form');
 assert.deepEqual(new Set(profiles.map(profile => profile.characterId)), new Set(releasedRoster.characters.map(character => character.id)), 'all released character forms have guides');
 for (const character of releasedRoster.characters) {
@@ -84,6 +97,7 @@ for (const profile of profiles) {
   assert.ok(profile.cones.length >= 2 && profile.cones.length <= 5, `${profile.id} has two to five sourced equipment choices`);
   assert.equal(new Set(profile.cones.map(cone => cone.id)).size, profile.cones.length);
   for (const cone of profile.cones) assert.ok(assets.cones[cone.id]);
+  for (const cone of profile.cones) assert.ok([3, 4, 5].includes(coneLabels[cone.id]?.rarity));
   const allRelicBuilds = [...profile.relicBuilds, ...(profile.targetBuilds || []).map(build => build.relicBuild).filter(Boolean)];
   for (const build of allRelicBuilds) {
     assert.equal(build.cavernSets.reduce((sum, set) => sum + set.pieces, 0), 4);
@@ -195,8 +209,18 @@ for (const profile of profiles) {
   assert.ok(page.includes('기본 운영과 행적'));
   assert.ok(page.includes('tools/aha/index.html'));
   assert.ok(!page.includes('undefined'));
+  const coneSection = page.split('id="cones"')[1].split('<section')[0];
+  for (const [index, cone] of profile.cones.entries()) {
+    const choice = coneSection.match(new RegExp(`<button[^>]+data-choice="cone-${index}"[^>]*>([\\s\\S]*?)</button>`))[1];
+    const metadata = coneLabels[cone.id];
+    assert.ok(choice.includes('★'.repeat(metadata.rarity)));
+    if (metadata.owner === '파이논' && profile.name !== '파이논') assert.ok(choice.includes('(대체) 파이논 광추'));
+    if (metadata.rarity === 5) assert.ok(!choice.includes('1재') && !choice.includes('1중첩'));
+  }
   let totalNotes = 0;
   for (const build of profile.targetBuilds || [profile]) {
+    const panel = page.split(`id="build-target-${build.id}"`)[1]?.split('data-build-panel')[1];
+    for (const tag of conditionTags[profile.id]?.[build.id] || []) assert.ok(panel.includes(tag), `${profile.id}/${build.id} exposes its setup condition`);
     const idPrefix = profile.targetBuilds ? `build-${build.id}-` : '';
     let noteCount = 0;
     for (const [index, stat] of build.targetStats.entries()) {

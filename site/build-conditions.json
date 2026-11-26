@@ -1,0 +1,331 @@
+{
+  "hsr-aha": {
+    "elation-standard": ["전투·비전투 혼합"]
+  },
+  "hsr-aventurine-waveflair": {
+    "elation-dps": ["종결 명함·전광"],
+    "defensive-orb": ["치확 전투 중"]
+  },
+  "hsr-robin-summeretto": {
+    "fast-support": ["기억·환락 편성", "로빈 공격력이 딜러보다 높음"]
+  },
+  "hsr-himeko-nova": {
+    "verdict": ["종결 명함·전광", "선데이·등황 편성"],
+    "eradication": ["웰트·Mar. 7th 등 편성"]
+  },
+  "hsr-gilgamesh": {
+    "saber-linked": ["종결 명함·전광", "세이버 편성"]
+  },
+  "hsr-rin-tohsaka": {
+    "archer-linked": ["아처 편성", "스파클 전광 치확 참고"],
+    "archer-support": ["아처·스파클 편성", "스파클 댄댄댄"],
+    "hypercarry": ["종결 명함·전광", "추천 치피 전투 전"]
+  },
+  "hsr-blade-mortenax": {
+    "sub-dps": ["전광", "종결 명함"],
+    "cipher-cone": ["사이퍼 전광"]
+  },
+  "hsr-silver-wolf-lv-999": {
+    "signature-high-speed": ["전광", "효광 전광 치확 참고"],
+    "signature-speed-210": ["명함·전광"]
+  },
+  "hsr-evanescia": {
+    "aha-speed": ["아하 타임 직전", "효광 전광 치확 참고"],
+    "speed-134": ["종결 명함·전광"],
+    "low-speed-signature": ["전광", "치확 전투 전"],
+    "low-speed-alt": ["대체 광추", "치확 전투 전"]
+  },
+  "hsr-ashveil": {
+    "followup-dps": ["종결 명함·전광"],
+    "waveflair-support": ["웨이브 편성"]
+  },
+  "hsr-pearl": {
+    "eagle-rotation": ["전광"]
+  },
+  "hsr-yao-guang": {
+    "signature-diviner": ["명함·전광", "치확 전투 전"],
+    "e2-diviner": ["2돌·전광"],
+    "alt-diviner": ["명함·대체 광추"]
+  },
+  "hsr-sparxie": {
+    "attack-carry": ["공격력 전투 중", "효광 전광 치확 참고"],
+    "yao-tuned-carry": ["효광 속도 200"],
+    "speed-148-carry": ["명함·전광"],
+    "punchline-support": ["은랑·아하·펄 편성", "파티 전원 2돌"]
+  },
+  "hsr-cyrene": {
+    "fast-support": ["종결 명함·전광"],
+    "non-remembrance": ["비기억 편성"]
+  },
+  "hsr-dan-heng-permansor-terrae": {
+    "signature-shield": ["전광"],
+    "alt-shield": ["대체 광추"],
+    "dot-shield": ["카프카 편성", "우주 시장 동향"]
+  },
+  "hsr-evernight": {
+    "main-dps-hp": ["2돌 이상 권장"],
+    "main-dps-ice": ["명함·전광"]
+  },
+  "hsr-cerydra": {
+    "phainon-support": ["파이논 편성"],
+    "fast-support": ["속도 전투 전"]
+  },
+  "hsr-hysilens": {
+    "attack-boots-signature": ["전광", "종결 명함", "준종결 공격력 전투 중"],
+    "speed-boots-signature": ["전광", "종결 명함", "카프카 속도 조율", "준종결 공격력 전투 중"],
+    "attack-boots-alt": ["대체 광추"]
+  },
+  "hsr-hyacine": {
+    "warrior-tree": ["종결 명함·전광", "준종결 첫 행동 치유", "준종결 외부 행동 지원 없음"]
+  },
+  "hsr-phainon": {
+    "physical-orb": ["종결 명함·전광"],
+    "action-advance": ["선데이·브로냐 편성"]
+  },
+  "hsr-castorice": {
+    "poet-hp-orb-general": ["전투 전", "시인 치확 적용 전"],
+    "poet-quantum-orb": ["히아킨 1돌 이상"],
+    "poet-high-crit": ["명함·전광"],
+    "deliverer-remembrance": ["4기억·전원 2돌"]
+  },
+  "hsr-cipher": {
+    "signature-debuffer": ["전광"],
+    "pearls-debuffer": ["땀방울", "속도 전투 중"],
+    "quantum-damage": ["명함·전광"]
+  },
+  "hsr-anaxa": {
+    "bounce-dps": ["종결 명함·전광", "선데이 치확 참고"]
+  },
+  "hsr-mydei": {
+    "disciple": ["선데이 치확 참고"],
+    "scholar": ["명함·전광"]
+  },
+  "hsr-tribbie": {
+    "eagle-two-ults": ["댄댄댄 5중첩", "필살기 2회"],
+    "eagle-one-ult": ["댄댄댄 5중첩", "필살기 1회"]
+  },
+  "hsr-aglaea": {
+    "sunday-fast": ["종결 명함·전광", "선데이 속도 134", "키레네 미편성"],
+    "cyrene-low-speed": ["키레네 편성"]
+  },
+  "hsr-the-herta": {
+    "speed-scholar": ["종결 명함·전광"],
+    "e2-attack-boots": ["2돌 이상", "행동 지원"]
+  },
+  "hsr-the-dahlia": {
+    "iron-cavalry": ["종결 명함·전광", "화염 약점 적"],
+    "pearls-support": ["땀방울"]
+  },
+  "hsr-rappa": {
+    "signature-break": ["종결 명함·전광", "준종결 공격력 전투 중"],
+    "energy-rotation": ["대체 광추", "공격력 전투 중"]
+  },
+  "hsr-boothill": {
+    "dahlia-three-actions": ["전광", "종결 명함", "추천 달리아 편성", "추천 1라운드 3행동"]
+  },
+  "hsr-jade": {
+    "quantum-fua": ["종결 명함·전광"],
+    "pure-fiction": ["허구 이야기"]
+  },
+  "hsr-sunday": {
+    "sync": ["전광 또는 브로냐 광추", "딜러 직후"],
+    "eagle-fast": ["댄댄댄"]
+  },
+  "hsr-firefly": {
+    "dahlia-reenter": ["달리아 편성"],
+    "sheet-final": ["명함·전광"]
+  },
+  "hsr-robin": {
+    "sheet-auto": ["1돌 이하", "자동 전투", "딜러 속도 134"],
+    "follow-up": ["토파즈·어벤츄린·레이시오 편성"]
+  },
+  "hsr-acheron": {
+    "e0-pioneer": ["명함·전광"],
+    "e2-pioneer": ["2돌·전광"],
+    "novaflare-eagle": ["기연 성혼", "파티 전원 매", "명함", "전광 또는 끝없는 춤 5중첩"]
+  },
+  "hsr-black-swan": {
+    "sheet-final": ["명함·전광"]
+  },
+  "hsr-sparkle": {
+    "eagle-ddd": ["댄댄댄 5중첩", "3행동"],
+    "eagle-signature": ["1돌·전광"]
+  },
+  "hsr-dr-ratio": {
+    "sheet-final": ["명함·전광"]
+  },
+  "hsr-ruan-mei": {
+    "break-focus": ["격파 파티", "속도 바커공 기준", "6돌 미만 저속 권장"],
+    "dmg-support": ["속도 바커공 기준", "6돌 미만 저속 권장", "격특 추가 능력 적용 전"],
+    "guide-speed-tune": ["딜러 속도 조율"]
+  },
+  "hsr-argenti": {
+    "aoe-final": ["명함·전광"],
+    "herta-charge": ["더 헤르타 편성"]
+  },
+  "hsr-gallagher": {
+    "break-team": ["격파 파티"]
+  },
+  "hsr-tingyun-fugue": {
+    "break-two-plus-two": ["격특 전투 중"],
+    "main": ["종결 명함·전광", "준종결 행동 당김·지연 없음"]
+  },
+  "hsr-march-7th-swordmaster": {
+    "nova-support": ["히메코·노바 편성"],
+    "break-dahlia": ["달리아 필수"]
+  },
+  "hsr-lingsha": {
+    "break-main": ["격파 파티", "격특 전투 중"],
+    "eagle-wave": ["다수 적"],
+    "guide-ddd": ["파티원 댄댄댄 5중첩"]
+  },
+  "hsr-yunli": {
+    "main": ["종결 명함·전광"]
+  },
+  "hsr-feixiao": {
+    "eagle": ["명함·전광"]
+  },
+  "hsr-jiaoqiu": {
+    "acheron-eagle": ["아케론 편성", "적 효과 저항 40%"],
+    "other": ["아케론 미편성"]
+  },
+  "hsr-xueyi": {
+    "break": ["격파 파티"]
+  },
+  "hsr-imbibitor-lunae": {
+    "main": ["선데이 치확 참고", "스파클 전광 치확 참고"],
+    "arena-final": ["명함·전광"]
+  },
+  "hsr-jingliu": {
+    "sunday-hp-orb": ["선데이 편성"],
+    "ice-orb": ["선데이 편성별 치확"]
+  },
+  "hsr-guinaifen": {
+    "e0": ["명함"],
+    "e1": ["1돌 이상"]
+  },
+  "hsr-yukong": {
+    "main": ["파티 속도 조율"]
+  },
+  "hsr-sushang": {
+    "break": ["물리 약점 적"]
+  },
+  "hsr-blade": {
+    "e0": ["종결 명함·전광", "추천 치확 선데이 기준"],
+    "e2": ["2돌", "선데이·브로냐 속도 조율"]
+  },
+  "hsr-jing-yuan": {
+    "sheet-follow-up": ["추천 치확 선데이 참고"],
+    "atk-orb": ["선데이 치확 참고"],
+    "sunday-minus-one": ["선데이 편성", "전투·비전투 혼합"]
+  },
+  "hsr-tingyun": {
+    "tingyun-single": ["공격력 6돌 기준"],
+    "tingyun-team": ["공격력 6돌 기준"],
+    "tingyun-eagle": ["댄댄댄 5중첩"]
+  },
+  "hsr-qingque": {
+    "qingque-poet": ["속도 전투 전", "시인 치확 적용 전"]
+  },
+  "hsr-topaz": {
+    "topaz-duke-duran": ["추가 공격 파티"],
+    "topaz-pioneer": ["디버프 유지"],
+    "topaz-duke-banan": ["종결 명함·전광"]
+  },
+  "hsr-luka": {
+    "luka-break": ["속도 전투 중"],
+    "luka-thief": ["속도 전투 중"]
+  },
+  "hsr-hook": {
+    "hook-pioneer": ["속도 전투 중"]
+  },
+  "hsr-clara": {
+    "clara-poet": ["속도 전투 전"],
+    "clara-e1-skill": ["1돌", "혼돈 첫 라운드 2행동"]
+  },
+  "hsr-pela": {
+    "pela-acheron": ["아케론 편성", "땀방울"],
+    "pela-ice": ["4돌", "얼음 딜러 편성"],
+    "pela-sub-dps": ["아케론 미편성"]
+  },
+  "hsr-gepard": {
+    "gepard-freeze": ["1돌"]
+  },
+  "hsr-serval": {
+    "serval-damage": ["속도 전투 중"],
+    "serval-battery": ["더 헤르타 편성"]
+  },
+  "hsr-seele": {
+    "seele-night-sunday": ["전광", "선데이 편성", "속도 전투 전"],
+    "seele-night-other": ["전광", "선데이 미편성", "속도 전투 전"],
+    "seele-hell-sparkle": ["스파클 편성", "이상이 불타는 지옥"],
+    "seele-cruising": ["대체 광추"],
+    "seele-signature-e0": ["명함·전광"]
+  },
+  "hsr-bronya": {
+    "bronya-minus-one": ["전광", "딜러 직후"],
+    "bronya-minus-one-keel": ["딜러 직후"],
+    "bronya-eagle-ddd": ["댄댄댄 5중첩", "준종결 스킬 2회 후 필살기", "준종결 속도 변화 없음"]
+  },
+  "hsr-archer": {
+    "archer-sparkle": ["종결 명함·전광", "스파클 편성"],
+    "archer-genius": ["치확 파티 버프 적용 후"],
+    "archer-sunday": ["선데이 편성", "스파클 미편성"]
+  },
+  "hsr-saber": {
+    "saber-scholar-lab": ["종결 명함·전광"],
+    "saber-gilgamesh": ["길가메시·선데이 편성", "전투·비전투 혼합"]
+  },
+  "hsr-herta": {
+    "herta-follow-up": ["허구 이야기", "2돌 치확 별도"],
+    "herta-izumo": ["지식 동료 편성"]
+  },
+  "hsr-asta": {
+    "asta-fire": ["화염 딜러 편성"]
+  },
+  "hsr-arlan": {
+    "arlan-disciple": ["준종결 속도 전투 중"]
+  },
+  "hsr-silver-wolf": {
+    "silver-wolf-eagle": ["정련된 새 빛"]
+  },
+  "hsr-kafka": {
+    "kafka-eagle-tutorial": ["초보자 임무"],
+    "kafka-eagle-signature": ["종결 명함·전광"],
+    "kafka-prisoner-dot": ["4돌 이상 권장", "전광", "공격력 전투 중"]
+  },
+  "hsr-welt": {
+    "welt-eagle": ["정련된 새 빛"],
+    "welt-bounce": ["치확 6돌·선데이 기준"]
+  },
+  "hsr-himeko": {
+    "himeko-fiction": ["허구 이야기", "종결 명함·전광"],
+    "himeko-team-fua": ["추가 공격 파티"],
+    "himeko-super-break": ["조화가 침묵한 후", "준종결 격특 전투 중"]
+  },
+  "hsr-dan-heng": {
+    "dan-heng-glamoth": ["파티 가속", "준종결 속도 전투 중"]
+  },
+  "hsr-trailblazer-elation": {
+    "trailblazer-elation-theatre": ["공격력 전투 중", "효광 전광 치확 참고"],
+    "trailblazer-elation-diviner": ["전투·비전투 혼합"],
+    "trailblazer-elation-eagle": ["공격력 전투 중", "준종결 1라운드 3행동"],
+    "trailblazer-elation-eagle-lushaka": ["전투 전"]
+  },
+  "hsr-trailblazer-remembrance": {
+    "trailblazer-remembrance-castorice": ["카스토리스 편성"],
+    "trailblazer-remembrance-vonwacq": ["혼돈 첫 라운드 3행동"]
+  },
+  "hsr-trailblazer-harmony": {
+    "trailblazer-harmony-watchmaker": ["준종결 전투 진입 속도", "격특 필살기 버프 제외"],
+    "trailblazer-harmony-lantern": ["화염 약점 적", "격특 필살기 버프 제외"],
+    "trailblazer-harmony-talia": ["속도 전투 중"]
+  },
+  "hsr-trailblazer-preservation": {
+    "trailblazer-preservation-team": ["전투 중"]
+  },
+  "hsr-trailblazer-destruction": {
+    "trailblazer-destruction-scholar": ["준종결 치확 전투 중"],
+    "trailblazer-destruction-glamoth": ["준종결 속도 전투 중"]
+  }
+}
