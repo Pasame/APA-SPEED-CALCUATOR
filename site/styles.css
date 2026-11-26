@@ -291,6 +291,10 @@ main { max-width: 1160px; margin: auto; padding: 36px 32px 64px; }
 .cone-choice img { width: 100%; max-width: 140px; height: 164px; object-fit: contain; }
 .cone-choice>span { font-weight: 650; line-height: 1.5; }
 .cone-choice small { font-size: .875rem; color: var(--muted); margin-top: auto; }
+.cone-choice .cone-owner { margin-top: 0; }
+.cone-stars { color: var(--accent); letter-spacing: 1px; }
+.build-conditions { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 16px 0; }
+.build-conditions li { padding: 6px 12px; border-radius: 999px; background: var(--soft); color: var(--text); font-size: .875rem; line-height: 1.5; }
 .cone-choice[aria-pressed="true"] { border-color: var(--accent); background: var(--pink); }
 .equipment-description { margin-top: 20px; padding: 20px; border-radius: 20px; background: var(--soft); }
 .equipment-description>p { margin-top: 5px; }
@@ -350,6 +354,7 @@ main { max-width: 1160px; margin: auto; padding: 36px 32px 64px; }
 .roster-member { display: flex; flex-direction: column; gap: 8px; align-items: center; text-align: center; background: var(--soft); border-radius: 24px; padding: 16px; }
 .roster-member img { width: 140px; height: 140px; object-fit: contain; }
 .roster-member .party-portrait { --badge-size: 34px; width: 140px; }
+.roster-member .portrait-options { max-width: 100%; }
 .roster-member .alternative-face { display: block; width: 34px; height: 34px; border: 2px solid var(--surface); border-radius: 50%; background: var(--soft); }
 .roster-member span, .roster-member small { font-size: .875rem; color: var(--muted); line-height: 1.5; }
 .roster-member small { color: var(--accent); margin-top: auto; }
@@ -363,6 +368,17 @@ main { max-width: 1160px; margin: auto; padding: 36px 32px 64px; }
 .slot-alternatives ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
 .replacement-character { display: grid; justify-items: center; gap: 6px; text-align: center; }
 .replacement-character img { width: 68px; height: 68px; border-radius: 50%; background: var(--soft); object-fit: contain; }
+.party-search { margin-bottom: 16px; }
+.party-results { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 12px 0; }
+.replacement-character { width: 100%; padding: 10px; border: 2px solid transparent; border-radius: 20px; background: var(--soft); }
+.replacement-character[aria-pressed="true"] { border-color: var(--accent); background: var(--pink); }
+[data-party-option][aria-disabled="true"] { opacity: .5; cursor: not-allowed; }
+.restore-member { width: 100%; margin-bottom: 12px; font-size: .875rem; }
+.restore-member, [data-party-reset], [data-party-clear] { padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+.restore-member[aria-pressed="true"] { color: var(--muted); }
+.replacement-badge { display: flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; border: 0; padding: 0; border-radius: 50%; background: transparent; }
+.replacement-operation { list-style: none; padding: 0; display: grid; gap: 16px; }
+.replacement-operation p { margin-top: 6px; }
 .slot-alternatives details { margin-top: 6px; font-size: .875rem; }
 .slot-alternatives .text-link { font-size: .875rem; min-height: 44px; display: flex; align-items: center; justify-content: center; }
 @media (max-width: 900px) {

@@ -9,6 +9,8 @@
 - `app.html`, `app.js`, `art.json`: 계산기 화면·동작·인라인 이미지.
 - `site/content.json`: 문서 본문, 검색 키워드, 확인일, 참고 범위, 출처와 관련 문서 ID.
 - `site/profiles.json`: 캐릭터 장비와 `targetBuilds`별 스탯·조건·출처. `site/visual.cjs`가 세팅 선택, 유물과 스탯 표를 생성합니다.
+- `site/build-conditions.json`: 출처에서 확인된 세팅 조건 태그. 특정 열이나 스탯에만 적용되는 조건은 태그에도 범위를 표시합니다.
+- `site/cone-labels.json`: 광추 희귀도와 전용 캐릭터 대응. 일반 광추와 헤르타 상점 광추에는 전용 캐릭터를 붙이지 않습니다.
 - `site/build.cjs`: 홈, 게임별 자료, 가이드, 검색 화면 생성. 외부 라이브러리를 사용하지 않습니다.
 - `site/styles.css`, `site/app.js`: 공통 디자인과 검색·필터.
 - `build.js`: 위 원본으로 루트 `index.html`, 게임·가이드·검색 페이지와 독립 계산기 `tools/aha/index.html`을 생성합니다. 기존 Canvas 출력도 유지합니다.

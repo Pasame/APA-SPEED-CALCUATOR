@@ -1,5 +1,7 @@
 const characterFilters = require('./character-filters.json');
 const releaseDates = require('./hsr-release-order.json').dates;
+const buildConditions = require('./build-conditions.json');
+const coneLabels = require('./cone-labels.json').cones;
 const categories = {
   dot: '지속 피해',
   followup: '추가 공격',
@@ -64,30 +66,40 @@ function createVisuals({ profiles, assets, docs, escape, partyGroups = [] }) {
   }
 
   function partyTile(doc, prefix) {
+    const searchableParties = doc.partyGroup
+      ? doc.partyGroup.variants.map(id => docs.find(item => item.id === id))
+      : [doc];
+    const searchText = [doc.title, ...searchableParties.flatMap(item => [item.party.lead, ...item.party.members.map(member => member.name)])].join(' ');
     if (doc.partyGroup) {
+      const searchVariants = searchableParties.map(item => ({
+        search: [doc.title, item.party.lead, ...item.party.members.map(member => member.name)].join(' '),
+        href: `${prefix}guides/${doc.id}/index.html?party=${item.id}`,
+      }));
       const leaders = doc.partyGroup.variants.map(id => {
         const variant = docs.find(item => item.id === id);
         return variant.party.members.find(member => member.id === variant.party.coreMemberIds[0]);
       });
-      return `<a class="party-tile" href="${prefix}guides/${doc.id}/index.html" data-party="${doc.party.category}">
+      return `<a class="party-tile" href="${prefix}guides/${doc.id}/index.html" data-party="${doc.party.category}" data-party-search="${escape(searchText)}" data-party-variants="${escape(JSON.stringify(searchVariants))}">
         <div class="party-faces">${leaders.map(member => image('characters', member.id, prefix, 'member-face', member.name)).join('')}</div>
         <strong>${escape(doc.title)}</strong><span>효광 · 아하 · 펄 <span aria-hidden="true">→</span></span>
       </a>`;
     }
     const group = groupForParty.get(doc.id);
     const destination = group ? `${group.id}/index.html?party=${doc.id}` : `${doc.id}/index.html`;
-    return `<a class="party-tile" href="${prefix}guides/${destination}" data-party="${doc.party.category}">
+    return `<a class="party-tile" href="${prefix}guides/${destination}" data-party="${doc.party.category}" data-party-search="${escape(searchText)}">
       <div class="party-faces">${doc.party.members.map(member => partyPortrait(member, doc.party.alternatives || [], prefix)).join('')}</div>
       <strong>${escape(doc.party.lead)}</strong><span>${escape(doc.party.variant || '메인 딜러 편성')} <span aria-hidden="true">→</span></span>
     </a>`;
   }
 
-  function partyPortrait(member, alternatives, prefix) {
+  function partyPortrait(member, alternatives, prefix, slotId = '') {
     const replacements = alternatives.filter(candidate => candidate.replaces === member.id);
     const badges = replacements.map(candidate => {
       const label = `${member.name} 대체: ${candidate.name}`;
       const portrait = image('characters', candidate.id, prefix, 'alternative-face', label);
-      return `<span title="${escape(label)}" data-replacement-badge="${member.id}">${portrait}</span>`;
+      return slotId
+        ? `<button type="button" class="replacement-badge" title="${escape(label)}" aria-label="${escape(label)} 선택" data-party-option="${candidate.id}" data-slot="${slotId}" aria-pressed="false" data-replacement-badge="${member.id}">${portrait}</button>`
+        : `<span title="${escape(label)}" data-replacement-badge="${member.id}">${portrait}</span>`;
     }).join('');
     const options = badges ? `<span class="portrait-options">${badges}</span>` : '';
     const portrait = image('characters', member.id, prefix, 'member-face', member.name);
@@ -130,9 +142,12 @@ function createVisuals({ profiles, assets, docs, escape, partyGroups = [] }) {
             <div class="character-grid" data-character-grid>${entries.map(doc => characterTile(doc, prefix)).join('')}</div>
             <p class="empty-state" data-character-empty hidden>이 조건에 맞는 육성 가이드가 없어요. 검색어나 필터를 바꿔 주세요.</p>`;
         } else if (kind === 'party') {
-          content = `<div class="filter-chips party-categories" role="group" aria-label="파티 유형">${partyCategories.map(([key, name], index) => `<button type="button" data-category="${key}" aria-pressed="${index === 0}">${name}</button>`).join('')}</div>
+          content = `<div class="search-box party-search"><label class="sr-only" for="party-query">파티·편성 캐릭터 검색</label><span aria-hidden="true">⌕</span><input id="party-query" type="search" placeholder="파티·편성 캐릭터 검색" maxlength="80" data-party-query></div>
+            <div class="filter-chips party-categories" role="group" aria-label="파티 유형">${partyCategories.map(([key, name], index) => `<button type="button" data-category="${key}" aria-pressed="${index === 0}">${name}</button>`).join('')}</div>
             <div class="section-heading"><h2 data-party-heading>메인 딜러 선택</h2><p class="eyebrow">최신 딜러순 · 작은 얼굴은 대체 후보</p></div>
-            <div class="party-grid">${parties.map(doc => partyTile(doc, prefix)).join('')}</div>`;
+            <div class="party-results"><p class="result-count" role="status" data-party-count></p><button type="button" data-party-clear hidden>검색 지우기</button></div>
+            <div class="party-grid">${parties.map(doc => partyTile(doc, prefix)).join('')}</div>
+            <p class="empty-state" data-party-empty hidden>이 유형에 맞는 파티가 없습니다. 다른 유형을 고르거나 검색어를 바꿔 주세요.</p>`;
         } else {
           content = `<div class="doc-grid">${entries.map(doc => card(doc, prefix)).join('')}</div>`;
         }
@@ -181,7 +196,9 @@ function createVisuals({ profiles, assets, docs, escape, partyGroups = [] }) {
       }).join('');
       return `<tr id="${rowId}">${label}${cells}</tr>`;
     }).join('');
-    return `${build.summary ? `<p class="build-summary">${escape(build.summary)}</p>` : ''}
+    const conditions = buildConditions[profile.id]?.[build.id] || [];
+    return `${conditions.length ? `<ul class="build-conditions" aria-label="세팅 조건">${conditions.map(condition => `<li>${escape(condition)}</li>`).join('')}</ul>` : ''}
+${build.summary ? `      <p class="build-summary">${escape(build.summary)}</p>` : ''}
       <table class="stat-tier-table">
         <caption class="sr-only">${escape(profile.name)} ${escape(build.name || '')} 추천 스탯·준종결·종결 비교</caption>
         <thead><tr><th scope="col">스탯</th><th scope="col">추천 스탯</th><th scope="col">준종결</th><th scope="col">종결</th></tr></thead>
@@ -198,8 +215,17 @@ ${statNotes.length ? `      <div class="stat-footnotes"><h3>스탯 조건과 각
       throw new Error(`Invalid target builds: ${doc.id}`);
     }
     const buildChoices = section => builds.length > 1 ? `<div class="filter-chips build-choices" role="group" aria-label="${section === 'relic' ? '유물' : '스탯'} 육성 세팅">${builds.map((build, index) => `<button type="button" data-build-choice="${build.id}" aria-controls="build-relic-${build.id} build-target-${build.id}" aria-pressed="${index === 0}">${escape(build.name)}</button>`).join('')}</div>` : '';
-    const coneButtons = profile.cones.map((cone, index) => `<button class="cone-choice" type="button" data-choice="cone-${index}" aria-controls="cone-${index}" aria-pressed="${index === 0}">
-      ${image('cones', cone.id, prefix)}<span>${escape(cone.name)}</span><small>${escape(cone.tag)}</small></button>`).join('');
+    const coneButtons = profile.cones.map((cone, index) => {
+      const metadata = coneLabels[cone.id];
+      if (![3, 4, 5].includes(metadata?.rarity)) throw new Error(`Missing cone rarity: ${cone.id}`);
+      const owner = metadata.owner;
+      const label = owner ? `${owner === profile.name ? '(전광)' : '(대체)'} ${owner} 광추` : '';
+      const refinement = cone.tag.match(/([1-5])\s*(?:중첩|재)/)?.[1];
+      const refinementLabel = refinement && !(metadata.rarity === 5 && refinement === '1') ? `${refinement}재` : '';
+      return `<button class="cone-choice" type="button" data-choice="cone-${index}" aria-controls="cone-${index}" aria-pressed="${index === 0}">
+        ${image('cones', cone.id, prefix)}<span>${escape(cone.name)}</span>${label ? `<small class="cone-owner">${escape(label)}</small>` : ''}
+        <small class="cone-rating"><span class="cone-stars" role="img" aria-label="${metadata.rarity}성">${'★'.repeat(metadata.rarity)}</span>${refinementLabel ? ` · ${refinementLabel}` : ''}</small></button>`;
+    }).join('');
     const conePanels = profile.cones.map((cone, index) => `<div class="equipment-description" id="cone-${index}" data-choice-panel${index ? ' hidden' : ''}>
       <h3>${escape(cone.name)}</h3><p>${escape(cone.short)}</p><details><summary>효과 자세히</summary><p>${escape(cone.detail)}</p></details></div>`).join('');
     function relicContents(build) {
@@ -283,37 +309,50 @@ ${targetPanels}
       replacementPairs.add(pair);
     }
     const roster = party.members.map(member => {
-      const content = `${partyPortrait(member, party.alternatives || [], prefix)}<strong>${escape(member.name)}</strong><span>${escape(member.role)}</span>`;
-      const card = member.guideId
-        ? `<a class="roster-member" href="${prefix}guides/${member.guideId}/index.html">${content}<small>육성 보기 →</small></a>`
-        : `<div class="roster-member">${content}</div>`;
       const alternatives = (party.alternatives || []).filter(alternative => alternative.replaces === member.id);
+      const card = `<div class="roster-member" data-member-preview="${member.id}">
+        ${partyPortrait(member, alternatives, prefix, member.id)}<strong>${escape(member.name)}</strong><span>${escape(member.role)}</span>
+        ${member.guideId ? `<a class="text-link" href="${prefix}guides/${member.guideId}/index.html">육성 보기 →</a>` : ''}
+        ${coreIds.has(member.id) ? '<small>메인 고정</small>' : ''}</div>`;
+      const previewCards = alternatives.map(alternative => {
+        const profile = profiles.find(item => item.characterId === alternative.id);
+        return `<div class="roster-member" data-member-preview="${alternative.id}" hidden>
+          ${image('characters', alternative.id, prefix, 'member-face', alternative.name)}<strong>${escape(alternative.name)}</strong><span>${escape(member.name)} 대체</span>
+          ${profile ? `<a class="text-link" href="${prefix}guides/${profile.id}/index.html">육성 보기 →</a>` : ''}</div>`;
+      }).join('');
       const alternativesHtml = alternatives.length ? `
         <div class="slot-alternatives">
           <p class="replacement-label">${escape(member.name)} 대체</p>
+          <button type="button" class="restore-member" data-party-option="${member.id}" data-slot="${member.id}" aria-pressed="true">${escape(member.name)}로 복원</button>
           <ul>${alternatives.map(alternative => {
             const profile = profiles.find(item => item.characterId === alternative.id);
             return `<li data-replaces="${member.id}">
-              <div class="replacement-character">${image('characters', alternative.id, prefix)}<strong>${escape(alternative.name)}</strong></div>
+              <button type="button" class="replacement-character" data-party-option="${alternative.id}" data-slot="${member.id}" aria-pressed="false" aria-label="${escape(member.name)} 대신 ${escape(alternative.name)} 선택">${image('characters', alternative.id, prefix)}<strong>${escape(alternative.name)}</strong></button>
               <details><summary>교체할 때 확인</summary><p>${escape(alternative.reason)}</p></details>${profile ? `<a class="text-link" href="${prefix}guides/${profile.id}/index.html">육성 보기 →</a>` : ''}
             </li>`;
           }).join('')}</ul>
         </div>` : '';
-      return `<div class="roster-slot" data-member-id="${member.id}">${card}${alternativesHtml}</div>`;
+      return `<div class="roster-slot" data-member-id="${member.id}">${card}${previewCards}${alternativesHtml}</div>`;
     }).join('');
+    const previewData = JSON.stringify({ members: party.members, alternatives: party.alternatives || [], coreMemberIds: party.coreMemberIds }).replace(/</g, '\\u003c');
     const grouped = groupForParty.has(doc.id);
     const heading = grouped ? `<h2>${escape(party.lead)}</h2>` : `<h1>${escape(party.lead)}</h1>`;
     return `${grouped ? '' : `<a class="back-link" href="${prefix}games/hsr/index.html?view=party&category=${party.category}">← ${categories[party.category]} 파티</a>`}
-      <header class="party-header">${heading}<p>${escape(doc.summary)}</p></header>
-      <article class="visual-article">
+      <article class="visual-article" data-party-preview="${doc.id}">
+        <script type="application/json" data-preview-data>${previewData}</script>
+        <header class="party-header">${heading}<p data-base-summary>${escape(doc.summary)}</p></header>
         <section class="visual-section">
-          <h2>추천 편성</h2><div class="roster-grid">${roster}</div>
-          <p class="party-note">${escape(party.note)}</p>
+          <div class="section-heading"><h2>추천 편성</h2><button type="button" data-party-reset hidden>기본 편성</button></div>
+          <p class="party-note" data-preview-status role="status">대체 얼굴을 누르면 편성이 바뀝니다.</p>
+          <div class="roster-grid">${roster}</div>
+          <p class="party-note" data-base-note>${escape(party.note)}</p>
         </section>
         <section class="visual-section">
-          <h2>이렇게 운영하세요</h2>
-          <ol class="rotation-steps">${party.steps.map(step => `<li>${escape(step)}</li>`).join('')}</ol>${doc.sections.length ? `
+          <h2 data-operation-heading>이렇게 운영하세요</h2>
+          <div data-preview-operation hidden><p class="party-note" data-preview-scope></p><ul class="replacement-operation"></ul></div>
+          <div data-base-operation><ol class="rotation-steps">${party.steps.map(step => `<li>${escape(step)}</li>`).join('')}</ol>${doc.sections.length ? `
           <details class="equipment-reason"><summary>편성과 운영 자세히</summary>${detailedSections(doc.sections)}</details>` : ''}
+          </div>
         </section>
         ${sources(doc)}
       </article>`;

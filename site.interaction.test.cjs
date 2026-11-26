@@ -24,12 +24,14 @@ function control(dataset = {}) {
     dataset, attributes, events, value: '',
     setAttribute(name, value) { attributes[name] = value; },
     getAttribute(name) { return attributes[name] ?? null; },
+    removeAttribute(name) { delete attributes[name]; },
+    closest() { return null; },
     addEventListener(name, callback) { events[name] = callback; },
     focus() { this.focused = true; },
   };
 }
 
-function runPage({ query, hash = '', catalog = null, groups = [], buildButtons = [], buildPanels = [], statNotes = [] }) {
+function runPage({ query, hash = '', catalog = null, groups = [], buildButtons = [], buildPanels = [], statNotes = [], previews = [] }) {
   const location = { pathname: '/example/index.html', search: query, hash };
   const events = {};
   let currentUrl;
@@ -46,12 +48,14 @@ function runPage({ query, hash = '', catalog = null, groups = [], buildButtons =
     window: { addEventListener(name, callback) { events[name] = callback; } },
     document: {
       addEventListener() {},
+      createElement() { return { children: [], append(...children) { this.children.push(...children); } }; },
       querySelector(selector) { return selector === '[data-game-catalog]' ? catalog : null; },
       querySelectorAll(selector) {
         if (selector === '[data-choice-group]') return groups;
         if (selector === '[data-build-choice]') return buildButtons;
         if (selector === '[data-build-panel]') return buildPanels;
         if (selector === '[data-stat-note]') return statNotes;
+        if (selector === '[data-party-preview]') return previews;
         return [];
       },
     },
@@ -202,3 +206,98 @@ assert.equal(buildPage.url().hash, '#targets', 'switching builds cannot leave a 
 buildPage.navigate('?build=unknown');
 assert.deepEqual(buildPanels.map(panel => panel.hidden), [false, true, false, true], 'unknown builds fall back safely');
 console.log('PASS build selectors synchronize equipment and stats, preserve cones, and restore linked footnotes');
+
+const partyQuery = control();
+const partyClear = control();
+const partyCount = {};
+const partyEmpty = {};
+const partyTiles = [
+  control({ party: 'dot', partySearch: '히실렌스 카프카 블랙 스완 곽향' }),
+  control({ party: 'elation', partySearch: '환락 하이퍼캐리 에바네시아 은랑 LV.999 스파키 웨이브 효광 아하 펄', partyVariants: JSON.stringify([
+    { search: '환락 하이퍼캐리 에바네시아 효광 아하 펄', href: '/party?party=eva' },
+    { search: '환락 하이퍼캐리 스파키 효광 아하 펄', href: '/party?party=sparxie' },
+  ]) }),
+];
+const partyCategories = ['dot', 'elation'].map(category => control({ category }));
+const partyCatalog = {
+  dataset: { defaultKind: 'party' },
+  querySelector(selector) { return ({ '[data-party-query]': partyQuery, '[data-party-clear]': partyClear, '[data-party-count]': partyCount, '[data-party-empty]': partyEmpty })[selector]; },
+  querySelectorAll(selector) { return ({ '[data-view]': [control({ view: 'party' })], '[data-category]': partyCategories, '[data-party]': partyTiles })[selector] || []; },
+};
+const searchPartyPage = runPage({ catalog: partyCatalog, query: '?view=party&category=elation&pq=효광%20펄' });
+assert.deepEqual(partyTiles.map(tile => tile.hidden), [true, false], 'party name and multiple member terms combine with category');
+partyQuery.value = '곽향';
+partyQuery.events.input();
+assert.equal(partyEmpty.hidden, false);
+partyCategories[0].events.click();
+assert.deepEqual(partyTiles.map(tile => tile.hidden), [false, true]);
+assert.equal(searchPartyPage.url().searchParams.get('pq'), '곽향');
+partyClear.events.click();
+assert.equal(partyQuery.value, '');
+assert.equal(partyQuery.focused, true);
+assert.equal(partyCount.textContent, '1개 파티');
+partyCategories[1].events.click();
+partyQuery.value = '에바네시아 스파키';
+partyQuery.events.input();
+assert.equal(partyEmpty.hidden, false, 'grouped dealers do not create a nonexistent combined party');
+partyQuery.value = '스파키';
+partyQuery.events.input();
+assert.equal(partyTiles[1].getAttribute('href'), '/party?party=sparxie', 'matching grouped dealer opens directly');
+console.log('PASS party search restores its URL and combines member names with category without changing sort order');
+
+function previewFixture(data) {
+  const buttons = [];
+  const slots = data.members.map(member => {
+    const candidates = data.alternatives.filter(item => item.replaces === member.id);
+    const cards = [member, ...candidates].map(item => ({ dataset: { memberPreview: item.id }, hidden: item.id !== member.id }));
+    for (const candidate of [member, ...candidates]) buttons.push(control({ slot: member.id, partyOption: candidate.id }));
+    return { dataset: { memberId: member.id }, cards, querySelectorAll() { return cards; } };
+  });
+  const operations = { children: [], replaceChildren() { this.children = []; }, append(child) { this.children.push(child); } };
+  const fields = {
+    '[data-preview-data]': { textContent: JSON.stringify(data) },
+    '[data-preview-status]': control(), '[data-party-reset]': control(),
+    '[data-preview-operation]': { querySelector: () => operations },
+    '[data-base-note]': {}, '[data-base-operation]': {}, '[data-operation-heading]': {}, '[data-base-summary]': {}, '[data-preview-scope]': {},
+    '.roster-member:not([hidden]) a': control(),
+  };
+  return {
+    fields, slots, buttons, operations,
+    querySelector(selector) { return fields[selector]; },
+    querySelectorAll(selector) { return selector === '[data-member-id]' ? slots : buttons; },
+    pick(slot, id) { buttons.find(button => button.dataset.slot === slot && button.dataset.partyOption === id).events.click(); },
+    selected() { return slots.map(slot => slot.cards.find(card => !card.hidden).dataset.memberPreview); },
+  };
+}
+const partyData = require('./site/content.json').find(doc => doc.id === 'hsr-evanescia-elation').party;
+const preview = previewFixture(partyData);
+const otherPreview = previewFixture(partyData);
+runPage({ query: '', previews: [preview, otherPreview] });
+preview.pick('1502', '8010');
+assert.deepEqual(preview.selected(), ['1505', '8010', '1511', '1503']);
+assert.equal(preview.fields['[data-base-operation]'].hidden, true, 'original rotation does not describe a replaced character');
+assert.match(preview.operations.children[0].children[1].textContent, /효광의 추가 아하 타임/);
+preview.pick('1511', '8010');
+assert.deepEqual(preview.selected(), ['1505', '8010', '1511', '1503'], 'duplicate characters are rejected');
+assert.match(preview.fields['[data-preview-status]'].textContent, /이미/);
+preview.pick('1503', '1415');
+assert.equal(preview.operations.children.length, 2);
+assert.match(preview.fields['[data-preview-scope]'].textContent, /조합 전체의 운영은 미검증/);
+assert.equal(preview.fields['[data-base-summary]'].hidden, true, 'original party summary is not presented as the changed setup');
+assert.match(preview.operations.children[1].children[1].textContent, /생존 없는 단기전/);
+assert.deepEqual(otherPreview.selected(), partyData.members.map(member => member.id), 'dealer variants own independent preview choices');
+preview.fields['[data-party-reset]'].events.click();
+assert.deepEqual(preview.selected(), partyData.members.map(member => member.id));
+assert.equal(preview.fields['[data-base-operation]'].hidden, false);
+
+const trailblazerData = structuredClone(partyData);
+trailblazerData.alternatives.push({ id: '8008', replaces: '1511', name: '개척자(기억)', reason: '테스트용 다른 운명' });
+trailblazerData.alternatives.push({ id: '1004', replaces: '1505', name: '웰트', reason: '테스트용 메인 교체' });
+const restrictedPreview = previewFixture(trailblazerData);
+runPage({ query: '', previews: [restrictedPreview] });
+restrictedPreview.pick('1502', '8010');
+restrictedPreview.pick('1511', '8008');
+assert.match(restrictedPreview.fields['[data-preview-status]'].textContent, /개척자는 한 명/);
+restrictedPreview.pick('1505', '1004');
+assert.equal(restrictedPreview.selected()[0], '1505', 'core damage dealers remain fixed even for an invalid option');
+console.log('PASS replacement previews update four-member portraits and conditions, prevent duplicates, isolate variants and reset');

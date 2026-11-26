@@ -7,8 +7,8 @@
     <title>소상 물리 격파 파티 · Fluffy Archive</title>
     <meta name="description" content="완·매 스킬과 개척자 필살기로 격파 준비">
     <link rel="icon" href="../../site/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../../site/styles.css?v=66fc99a5f38d">
-    <script src="../../site/app.js?v=7d5b6a16e75f" defer></script>
+    <link rel="stylesheet" href="../../site/styles.css?v=4f2943b78c62">
+    <script src="../../site/app.js?v=c57924744f5a" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -30,40 +30,68 @@
       </div>
     </header>
     <main id="main" tabindex="-1"><a class="back-link" href="../../games/hsr/index.html?view=party&category=break">← 격파 파티</a>
-      <header class="party-header"><h1>소상</h1><p>완·매 스킬과 개척자 필살기로 격파 준비</p></header>
-      <article class="visual-article">
+      <article class="visual-article" data-party-preview="hsr-sushang-team">
+        <script type="application/json" data-preview-data>{"members":[{"id":"1206","name":"소상","role":"격파·재행동","guideId":"hsr-sushang"},{"id":"8006","name":"개척자(화합)","role":"슈퍼 격파 부여","guideId":"hsr-trailblazer-harmony"},{"id":"1303","name":"완·매","role":"약점 격파 효율·저항 관통","guideId":"hsr-ruan-mei"},{"id":"1301","name":"갤러거","role":"만취 치유·포인트 수급","guideId":"hsr-gallagher"}],"alternatives":[{"id":"1225","name":"망귀인","replaces":"8006","reason":"화합 개척자 대신 망귀인으로 강인성 지원과 슈퍼 격파."},{"id":"1222","name":"영사","replaces":"1301","reason":"갤러거 대신 광역 치유·화염 격파 보조."},{"id":"1215","name":"한아","replaces":"1303","reason":"한아의 스킬 포인트와 속도 지원. 약점 격파 효율 지원은 완·매 추천."},{"id":"1111","name":"루카","replaces":"1303","reason":"물리 약점 보스에 루카의 열상 기폭과 강인성 감소 추가."}],"coreMemberIds":["1206"]}</script>
+        <header class="party-header"><h1>소상</h1><p data-base-summary>완·매 스킬과 개척자 필살기로 격파 준비</p></header>
         <section class="visual-section">
-          <h2>추천 편성</h2><div class="roster-grid"><div class="roster-slot" data-member-id="1206"><a class="roster-member" href="../../guides/hsr-sushang/index.html"><span class="party-portrait"><img class="member-face" src="../../site/assets/hsr/characters/1206.png" alt="소상" loading="lazy" width="256" height="256"></span><strong>소상</strong><span>격파·재행동</span><small>육성 보기 →</small></a></div><div class="roster-slot" data-member-id="8006"><a class="roster-member" href="../../guides/hsr-trailblazer-harmony/index.html"><span class="party-portrait"><img class="member-face" src="../../site/assets/hsr/characters/8006.png" alt="개척자(화합)" loading="lazy" width="256" height="256"><span class="portrait-options"><span title="개척자(화합) 대체: 망귀인" data-replacement-badge="8006"><img class="alternative-face" src="../../site/assets/hsr/characters/1225.png" alt="개척자(화합) 대체: 망귀인" loading="lazy" width="256" height="256"></span></span></span><strong>개척자(화합)</strong><span>슈퍼 격파 부여</span><small>육성 보기 →</small></a>
+          <div class="section-heading"><h2>추천 편성</h2><button type="button" data-party-reset hidden>기본 편성</button></div>
+          <p class="party-note" data-preview-status role="status">대체 얼굴을 누르면 편성이 바뀝니다.</p>
+          <div class="roster-grid"><div class="roster-slot" data-member-id="1206"><div class="roster-member" data-member-preview="1206">
+        <span class="party-portrait"><img class="member-face" src="../../site/assets/hsr/characters/1206.png" alt="소상" loading="lazy" width="256" height="256"></span><strong>소상</strong><span>격파·재행동</span>
+        <a class="text-link" href="../../guides/hsr-sushang/index.html">육성 보기 →</a>
+        <small>메인 고정</small></div></div><div class="roster-slot" data-member-id="8006"><div class="roster-member" data-member-preview="8006">
+        <span class="party-portrait"><img class="member-face" src="../../site/assets/hsr/characters/8006.png" alt="개척자(화합)" loading="lazy" width="256" height="256"><span class="portrait-options"><button type="button" class="replacement-badge" title="개척자(화합) 대체: 망귀인" aria-label="개척자(화합) 대체: 망귀인 선택" data-party-option="1225" data-slot="8006" aria-pressed="false" data-replacement-badge="8006"><img class="alternative-face" src="../../site/assets/hsr/characters/1225.png" alt="개척자(화합) 대체: 망귀인" loading="lazy" width="256" height="256"></button></span></span><strong>개척자(화합)</strong><span>슈퍼 격파 부여</span>
+        <a class="text-link" href="../../guides/hsr-trailblazer-harmony/index.html">육성 보기 →</a>
+        </div><div class="roster-member" data-member-preview="1225" hidden>
+          <img class="member-face" src="../../site/assets/hsr/characters/1225.png" alt="망귀인" loading="lazy" width="256" height="256"><strong>망귀인</strong><span>개척자(화합) 대체</span>
+          <a class="text-link" href="../../guides/hsr-tingyun-fugue/index.html">육성 보기 →</a></div>
         <div class="slot-alternatives">
           <p class="replacement-label">개척자(화합) 대체</p>
+          <button type="button" class="restore-member" data-party-option="8006" data-slot="8006" aria-pressed="true">개척자(화합)로 복원</button>
           <ul><li data-replaces="8006">
-              <div class="replacement-character"><img class="" src="../../site/assets/hsr/characters/1225.png" alt="" loading="lazy" width="256" height="256"><strong>망귀인</strong></div>
+              <button type="button" class="replacement-character" data-party-option="1225" data-slot="8006" aria-pressed="false" aria-label="개척자(화합) 대신 망귀인 선택"><img class="" src="../../site/assets/hsr/characters/1225.png" alt="" loading="lazy" width="256" height="256"><strong>망귀인</strong></button>
               <details><summary>교체할 때 확인</summary><p>화합 개척자 대신 망귀인으로 강인성 지원과 슈퍼 격파.</p></details><a class="text-link" href="../../guides/hsr-tingyun-fugue/index.html">육성 보기 →</a>
             </li></ul>
-        </div></div><div class="roster-slot" data-member-id="1303"><a class="roster-member" href="../../guides/hsr-ruan-mei/index.html"><span class="party-portrait"><img class="member-face" src="../../site/assets/hsr/characters/1303.png" alt="완·매" loading="lazy" width="256" height="256"><span class="portrait-options"><span title="완·매 대체: 한아" data-replacement-badge="1303"><img class="alternative-face" src="../../site/assets/hsr/characters/1215.png" alt="완·매 대체: 한아" loading="lazy" width="256" height="256"></span><span title="완·매 대체: 루카" data-replacement-badge="1303"><img class="alternative-face" src="../../site/assets/hsr/characters/1111.png" alt="완·매 대체: 루카" loading="lazy" width="256" height="256"></span></span></span><strong>완·매</strong><span>약점 격파 효율·저항 관통</span><small>육성 보기 →</small></a>
+        </div></div><div class="roster-slot" data-member-id="1303"><div class="roster-member" data-member-preview="1303">
+        <span class="party-portrait"><img class="member-face" src="../../site/assets/hsr/characters/1303.png" alt="완·매" loading="lazy" width="256" height="256"><span class="portrait-options"><button type="button" class="replacement-badge" title="완·매 대체: 한아" aria-label="완·매 대체: 한아 선택" data-party-option="1215" data-slot="1303" aria-pressed="false" data-replacement-badge="1303"><img class="alternative-face" src="../../site/assets/hsr/characters/1215.png" alt="완·매 대체: 한아" loading="lazy" width="256" height="256"></button><button type="button" class="replacement-badge" title="완·매 대체: 루카" aria-label="완·매 대체: 루카 선택" data-party-option="1111" data-slot="1303" aria-pressed="false" data-replacement-badge="1303"><img class="alternative-face" src="../../site/assets/hsr/characters/1111.png" alt="완·매 대체: 루카" loading="lazy" width="256" height="256"></button></span></span><strong>완·매</strong><span>약점 격파 효율·저항 관통</span>
+        <a class="text-link" href="../../guides/hsr-ruan-mei/index.html">육성 보기 →</a>
+        </div><div class="roster-member" data-member-preview="1215" hidden>
+          <img class="member-face" src="../../site/assets/hsr/characters/1215.png" alt="한아" loading="lazy" width="256" height="256"><strong>한아</strong><span>완·매 대체</span>
+          <a class="text-link" href="../../guides/hsr-hanya/index.html">육성 보기 →</a></div><div class="roster-member" data-member-preview="1111" hidden>
+          <img class="member-face" src="../../site/assets/hsr/characters/1111.png" alt="루카" loading="lazy" width="256" height="256"><strong>루카</strong><span>완·매 대체</span>
+          <a class="text-link" href="../../guides/hsr-luka/index.html">육성 보기 →</a></div>
         <div class="slot-alternatives">
           <p class="replacement-label">완·매 대체</p>
+          <button type="button" class="restore-member" data-party-option="1303" data-slot="1303" aria-pressed="true">완·매로 복원</button>
           <ul><li data-replaces="1303">
-              <div class="replacement-character"><img class="" src="../../site/assets/hsr/characters/1215.png" alt="" loading="lazy" width="256" height="256"><strong>한아</strong></div>
+              <button type="button" class="replacement-character" data-party-option="1215" data-slot="1303" aria-pressed="false" aria-label="완·매 대신 한아 선택"><img class="" src="../../site/assets/hsr/characters/1215.png" alt="" loading="lazy" width="256" height="256"><strong>한아</strong></button>
               <details><summary>교체할 때 확인</summary><p>한아의 스킬 포인트와 속도 지원. 약점 격파 효율 지원은 완·매 추천.</p></details><a class="text-link" href="../../guides/hsr-hanya/index.html">육성 보기 →</a>
             </li><li data-replaces="1303">
-              <div class="replacement-character"><img class="" src="../../site/assets/hsr/characters/1111.png" alt="" loading="lazy" width="256" height="256"><strong>루카</strong></div>
+              <button type="button" class="replacement-character" data-party-option="1111" data-slot="1303" aria-pressed="false" aria-label="완·매 대신 루카 선택"><img class="" src="../../site/assets/hsr/characters/1111.png" alt="" loading="lazy" width="256" height="256"><strong>루카</strong></button>
               <details><summary>교체할 때 확인</summary><p>물리 약점 보스에 루카의 열상 기폭과 강인성 감소 추가.</p></details><a class="text-link" href="../../guides/hsr-luka/index.html">육성 보기 →</a>
             </li></ul>
-        </div></div><div class="roster-slot" data-member-id="1301"><a class="roster-member" href="../../guides/hsr-gallagher/index.html"><span class="party-portrait"><img class="member-face" src="../../site/assets/hsr/characters/1301.png" alt="갤러거" loading="lazy" width="256" height="256"><span class="portrait-options"><span title="갤러거 대체: 영사" data-replacement-badge="1301"><img class="alternative-face" src="../../site/assets/hsr/characters/1222.png" alt="갤러거 대체: 영사" loading="lazy" width="256" height="256"></span></span></span><strong>갤러거</strong><span>만취 치유·포인트 수급</span><small>육성 보기 →</small></a>
+        </div></div><div class="roster-slot" data-member-id="1301"><div class="roster-member" data-member-preview="1301">
+        <span class="party-portrait"><img class="member-face" src="../../site/assets/hsr/characters/1301.png" alt="갤러거" loading="lazy" width="256" height="256"><span class="portrait-options"><button type="button" class="replacement-badge" title="갤러거 대체: 영사" aria-label="갤러거 대체: 영사 선택" data-party-option="1222" data-slot="1301" aria-pressed="false" data-replacement-badge="1301"><img class="alternative-face" src="../../site/assets/hsr/characters/1222.png" alt="갤러거 대체: 영사" loading="lazy" width="256" height="256"></button></span></span><strong>갤러거</strong><span>만취 치유·포인트 수급</span>
+        <a class="text-link" href="../../guides/hsr-gallagher/index.html">육성 보기 →</a>
+        </div><div class="roster-member" data-member-preview="1222" hidden>
+          <img class="member-face" src="../../site/assets/hsr/characters/1222.png" alt="영사" loading="lazy" width="256" height="256"><strong>영사</strong><span>갤러거 대체</span>
+          <a class="text-link" href="../../guides/hsr-lingsha/index.html">육성 보기 →</a></div>
         <div class="slot-alternatives">
           <p class="replacement-label">갤러거 대체</p>
+          <button type="button" class="restore-member" data-party-option="1301" data-slot="1301" aria-pressed="true">갤러거로 복원</button>
           <ul><li data-replaces="1301">
-              <div class="replacement-character"><img class="" src="../../site/assets/hsr/characters/1222.png" alt="" loading="lazy" width="256" height="256"><strong>영사</strong></div>
+              <button type="button" class="replacement-character" data-party-option="1222" data-slot="1301" aria-pressed="false" aria-label="갤러거 대신 영사 선택"><img class="" src="../../site/assets/hsr/characters/1222.png" alt="" loading="lazy" width="256" height="256"><strong>영사</strong></button>
               <details><summary>교체할 때 확인</summary><p>갤러거 대신 광역 치유·화염 격파 보조.</p></details><a class="text-link" href="../../guides/hsr-lingsha/index.html">육성 보기 →</a>
             </li></ul>
         </div></div></div>
-          <p class="party-note">대상에게 물리 약점이 있을 때 활용. 1돌 스킬 포인트 반환은 이미 격파된 대상에 적용됩니다.</p>
+          <p class="party-note" data-base-note>대상에게 물리 약점이 있을 때 활용. 1돌 스킬 포인트 반환은 이미 격파된 대상에 적용됩니다.</p>
         </section>
         <section class="visual-section">
-          <h2>이렇게 운영하세요</h2>
-          <ol class="rotation-steps"><li>완·매 스킬과 개척자 필살기로 격파 준비</li><li>소상이 물리 약점을 격파</li><li>격파 상태에서 스킬 → 필살기 → 스킬</li></ol>
+          <h2 data-operation-heading>이렇게 운영하세요</h2>
+          <div data-preview-operation hidden><p class="party-note" data-preview-scope></p><ul class="replacement-operation"></ul></div>
+          <div data-base-operation><ol class="rotation-steps"><li>완·매 스킬과 개척자 필살기로 격파 준비</li><li>소상이 물리 약점을 격파</li><li>격파 상태에서 스킬 → 필살기 → 스킬</li></ol>
           <details class="equipment-reason"><summary>편성과 운영 자세히</summary><h3>편성 조건</h3><p>대상에게 물리 약점이 있을 때 활용. 1돌 스킬 포인트 반환은 이미 격파된 대상에 적용됩니다.</p></details>
+          </div>
         </section>
         <details class="article-sources"><summary>기준과 출처 · 2026-11-25</summary><p>4.7 스킬 대조 · 자료실 편성 예시</p><ul><li><a href="https://www.prydwen.gg/star-rail/characters/sushang" target="_blank" rel="noopener noreferrer">Prydwen · 장비와 운용 ↗</a></li><li><a href="https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_skills.json" target="_blank" rel="noopener noreferrer">StarRailRes 4.7 · 편성에 사용한 스킬 효과 ↗</a></li></ul></details>
       </article></main>
