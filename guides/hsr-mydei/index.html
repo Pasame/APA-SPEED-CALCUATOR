@@ -7,8 +7,8 @@
     <title>마이데이 육성 가이드 · Fluffy Archive</title>
     <meta name="description" content="자신의 HP를 소모해 피의 원한을 활성화하고 자동 강화 스킬을 발동합니다.">
     <link rel="icon" href="../../site/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../../site/styles.css?v=da5d4934ee3a">
-    <script src="../../site/app.js?v=a8fd9286b8ef" defer></script>
+    <link rel="stylesheet" href="../../site/styles.css?v=9539d7fb716c">
+    <script src="../../site/app.js?v=68080ed0d7c1" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -69,60 +69,16 @@
       </div></section>
         <section class="visual-section" id="targets">
           <h2>이 정도면 잘 키웠다</h2>
-          <p class="eyebrow">동일 파티·광추 기준 · 조건 [*]</p>
+          <p class="eyebrow">세팅에 따른 목표값 · —는 출처에 별도 기준 없음</p>
           <table class="stat-tier-table">
             <caption class="sr-only">마이데이 추천 스탯·준종결·종결 비교</caption>
             <thead><tr><th scope="col">스탯</th><th scope="col">추천 스탯</th><th scope="col">준종결</th><th scope="col">종결</th></tr></thead>
-            <tbody>
-              <tr id="stat-row-1">
-                <th scope="row">HP
-                  <span class="stat-note" data-stat-note>
-                    <a class="stat-note-link" href="#stat-note-1" aria-label="HP 조건 각주 1" aria-describedby="stat-tooltip-1">[*]</a>
-                    <span class="stat-tooltip" id="stat-tooltip-1" role="tooltip">4,000 초과분 최대 4,000까지 승급 행적 계산. 8,000을 넘어도 피해는 증가.</span>
-                  </span>
-                </th>
-                <td data-tier="추천 스탯">전투 8,000</td>
-                <td data-tier="준종결">전투 8,000 유지</td>
-                <td data-tier="종결">전투 8,000+</td>
-              </tr>
-              <tr id="stat-row-2">
-                <th scope="row">치명타 확률
-                  <span class="stat-note" data-stat-note>
-                    <a class="stat-note-link" href="#stat-note-2" aria-label="치명타 확률 조건 각주 2" aria-describedby="stat-tooltip-2">[*]</a>
-                    <span class="stat-tooltip" id="stat-tooltip-2" role="tooltip">HP 행적 최대 +48% 및 동료 치명타 확률을 포함.</span>
-                  </span>
-                </th>
-                <td data-tier="추천 스탯">전투 90%</td>
-                <td data-tier="준종결">전투 95%</td>
-                <td data-tier="종결">전투 100%</td>
-              </tr>
-              <tr id="stat-row-3">
-                <th scope="row">치명타 피해
-                  <span class="stat-note" data-stat-note>
-                    <a class="stat-note-link" href="#stat-note-3" aria-label="치명타 피해 조건 각주 3" aria-describedby="stat-tooltip-3">[*]</a>
-                    <span class="stat-tooltip" id="stat-tooltip-3" role="tooltip">정령·동료의 조건부 치명타 피해 적용 전 기준.</span>
-                  </span>
-                </th>
-                <td data-tier="추천 스탯">160%</td>
-                <td data-tier="준종결">160%+</td>
-                <td data-tier="종결">치명타 확률 100% 이후 보강</td>
-              </tr>
-              <tr id="stat-row-4">
-                <th scope="row">속도
-                  <span class="stat-note" data-stat-note>
-                    <a class="stat-note-link" href="#stat-note-4" aria-label="속도 조건 각주 4" aria-describedby="stat-tooltip-4">[*]</a>
-                    <span class="stat-tooltip" id="stat-tooltip-4" role="tooltip">선데이의 턴 오더에 따라 HP 신발과 속도 신발을 비교.</span>
-                  </span>
-                </th>
-                <td data-tier="추천 스탯">기본 또는 134</td>
-                <td data-tier="준종결">134 선택</td>
-                <td data-tier="종결">행동 지원과 조정</td>
-              </tr></tbody>
+            <tbody><tr id="stat-row-1"><th scope="row" id="stat-row-1-label">HP</th><td id="stat-row-1-value" data-tier="추천 스탯">8000<span class="stat-note" data-stat-note><a class="stat-note-link" id="stat-ref-1" href="#stat-note-1" aria-label="HP · 추천 스탯 각주 1" aria-describedby="stat-tooltip-1"><sup>[1]</sup></a><span class="stat-tooltip" id="stat-tooltip-1" role="tooltip">최소 HP 기준.</span></span></td><td id="stat-row-1-nearFinal" data-tier="준종결">—</td><td id="stat-row-1-final" data-tier="종결">8000</td></tr><tr id="stat-row-2"><th scope="row" id="stat-row-2-label">속도</th><td id="stat-row-2-value" data-tier="추천 스탯">133.4+<span class="stat-note" data-stat-note><a class="stat-note-link" id="stat-ref-2" href="#stat-note-2" aria-label="속도 · 추천 스탯 각주 2" aria-describedby="stat-tooltip-2"><sup>[2]</sup></a><span class="stat-tooltip" id="stat-tooltip-2" role="tooltip">키레네 조합 시 우선도 낮음.</span></span></td><td id="stat-row-2-nearFinal" data-tier="준종결">—</td><td id="stat-row-2-final" data-tier="종결">—</td></tr><tr id="stat-row-3"><th scope="row" id="stat-row-3-label">치명타 확률</th><td id="stat-row-3-value" data-tier="추천 스탯">52%<span class="stat-note" data-stat-note><a class="stat-note-link" id="stat-ref-3" href="#stat-note-3" aria-label="치명타 확률 · 추천 스탯 각주 3" aria-describedby="stat-tooltip-3"><sup>[3]</sup></a><span class="stat-tooltip" id="stat-tooltip-3" role="tooltip">제자 16% · 선데이 20% 참고.</span></span></td><td id="stat-row-3-nearFinal" data-tier="준종결">—</td><td id="stat-row-3-final" data-tier="종결">52%</td></tr><tr id="stat-row-4"><th scope="row" id="stat-row-4-label">치명타 피해</th><td id="stat-row-4-value" data-tier="추천 스탯">150%</td><td id="stat-row-4-nearFinal" data-tier="준종결">—</td><td id="stat-row-4-final" data-tier="종결">280%</td></tr></tbody>
           </table>
-          <details class="equipment-reason"><summary>육성 단계의 기준</summary><p>Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.</p></details>
+          <details class="equipment-reason"><summary>육성 단계의 기준</summary><p>준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (학자 / 습골지)입니다.</p></details>
           <div class="stat-footnotes">
             <h3>스탯 조건과 각주</h3>
-            <ol><li id="stat-note-1" tabindex="-1"><strong>HP</strong> 4,000 초과분 최대 4,000까지 승급 행적 계산. 8,000을 넘어도 피해는 증가. <a href="#stat-row-1" aria-label="HP 스탯으로 돌아가기">↑</a></li><li id="stat-note-2" tabindex="-1"><strong>치명타 확률</strong> HP 행적 최대 +48% 및 동료 치명타 확률을 포함. <a href="#stat-row-2" aria-label="치명타 확률 스탯으로 돌아가기">↑</a></li><li id="stat-note-3" tabindex="-1"><strong>치명타 피해</strong> 정령·동료의 조건부 치명타 피해 적용 전 기준. <a href="#stat-row-3" aria-label="치명타 피해 스탯으로 돌아가기">↑</a></li><li id="stat-note-4" tabindex="-1"><strong>속도</strong> 선데이의 턴 오더에 따라 HP 신발과 속도 신발을 비교. <a href="#stat-row-4" aria-label="속도 스탯으로 돌아가기">↑</a></li></ol>
+            <ol><li id="stat-note-1" tabindex="-1"><strong>HP · 추천 스탯</strong> 최소 HP 기준. <a href="#stat-ref-1" aria-label="HP · 추천 스탯 스탯으로 돌아가기">↑</a></li><li id="stat-note-2" tabindex="-1"><strong>속도 · 추천 스탯</strong> 키레네 조합 시 우선도 낮음. <a href="#stat-ref-2" aria-label="속도 · 추천 스탯 스탯으로 돌아가기">↑</a></li><li id="stat-note-3" tabindex="-1"><strong>치명타 확률 · 추천 스탯</strong> 제자 16% · 선데이 20% 참고. <a href="#stat-ref-3" aria-label="치명타 확률 · 추천 스탯 스탯으로 돌아가기">↑</a></li></ol>
           </div>
         </section>
         <section class="visual-section" id="eidolons"><h2>성혼과 추천 돌파</h2><p class="investment-note">성혼 1은 최상위 강화 스킬을 전체 공격으로 바꿉니다. 성혼 2는 치유 기반 충전과 방어력 무시를 더합니다.</p><div class="eidolon-list"><details><summary><span class="eidolon-number">1</span><span>강화 스킬 주 대상 배율 +30%p·전원 동일 피해</span><span class="recommend-tag">추천</span></summary><p>신을 죽여 신이 된 자가 주목표에게 가하는 피해 배율이 30% 증가하고, 모든 적에게 주목표 피해 배율만큼 허수 속성 피해를 가하는 것으로 변경된다</p></details><details><summary><span class="eidolon-number">2</span><span>피의 원한 중 방어력 15% 무시·회복량 일부를 충전으로 전환</span><span class="recommend-tag">추천</span></summary><p>피의 원한 상태 동안, 마이데이가 가하는 피해는 적의 방어력을 15% 무시하며, 치유를 받으면 치유량의 40%가 충전으로 전환된다. 누적 전환되는 충전은 40pt를 초과하지 않는다. 임의 유닛 행동 후 누적 가능한 충전이 초기화된다</p></details><details><summary><span class="eidolon-number">3</span><span>전투 스킬 +2 · 일반 공격 +1</span></summary><p>전투 스킬 +2 · 일반 공격 +1</p></details><details><summary><span class="eidolon-number">4</span><span>피의 원한 중 치명타 피해 +30%·피격 후 자기 치유</span></summary><p>피의 원한 상태 동안 치명타 피해가 30% 증가하며, 적의 공격을 받으면 자신의 HP 최대치의 10%만큼 HP를 회복</p></details><details><summary><span class="eidolon-number">5</span><span>필살기 +2 · 특성 +2</span></summary><p>필살기 +2 · 특성 +2</p></details><details><summary><span class="eidolon-number">6</span><span>전투 진입 즉시 피의 원한·강화 스킬 요구 충전 100pt</span></summary><p>전투 진입 시 즉시 피의 원한 상태에 진입하고, 신을 죽여 신이 된 자에 필요한 충전치가 100pt로 감소</p></details></div></section>
@@ -135,7 +91,7 @@
           <h3>기본 운영</h3><p>스킬과 아군 치유로 피의 원한을 이어가세요. 필살기로 집중 공격할 적을 표시하면 다음 자동 강화 스킬의 주 대상을 유도할 수 있습니다.</p><h3>행적 우선순위</h3><p>전투 스킬 &gt; 필살기 &gt; 특성 &gt; 일반 공격. HP 초과분을 치명타 확률·충전·치유로 바꾸는 행적을 해금하세요.</p>
           <a class="text-link" href="../../tools/aha/index.html">아하 속도 계산기 →</a>
         </details>
-        <details class="article-sources"><summary>기준과 출처 · 2026-11-25</summary><p>4.7 · 한국어 게임 데이터 및 Prydwen 육성 분석</p><ul><li><a href="https://www.prydwen.gg/star-rail/characters/mydei" target="_blank" rel="noopener noreferrer">Prydwen · 장비·스탯·편성 분석 ↗</a></li><li><a href="https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/light_cone_ranks.json" target="_blank" rel="noopener noreferrer">StarRailRes 4.7 · 광추 효과 ↗</a></li><li><a href="https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/relic_sets.json" target="_blank" rel="noopener noreferrer">StarRailRes 4.7 · 유물 효과 ↗</a></li><li><a href="https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_ranks.json" target="_blank" rel="noopener noreferrer">StarRailRes 4.7 · 캐릭터 성혼 데이터 ↗</a></li><li><a href="https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_skill_trees.json" target="_blank" rel="noopener noreferrer">StarRailRes 4.7 · 행적 ↗</a></li><li><a href="https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_skills.json" target="_blank" rel="noopener noreferrer">StarRailRes 4.7 · 스킬 ↗</a></li></ul></details>
+        <details class="article-sources"><summary>기준과 출처 · 2026-11-25</summary><p>4.7 · 한국어 게임 데이터 및 Prydwen 육성 분석</p><ul><li><a href="https://www.prydwen.gg/star-rail/characters/mydei" target="_blank" rel="noopener noreferrer">Prydwen · 장비·스탯·편성 분석 ↗</a></li><li><a href="https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/light_cone_ranks.json" target="_blank" rel="noopener noreferrer">StarRailRes 4.7 · 광추 효과 ↗</a></li><li><a href="https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/relic_sets.json" target="_blank" rel="noopener noreferrer">StarRailRes 4.7 · 유물 효과 ↗</a></li><li><a href="https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_ranks.json" target="_blank" rel="noopener noreferrer">StarRailRes 4.7 · 캐릭터 성혼 데이터 ↗</a></li><li><a href="https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_skill_trees.json" target="_blank" rel="noopener noreferrer">StarRailRes 4.7 · 행적 ↗</a></li><li><a href="https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_skills.json" target="_blank" rel="noopener noreferrer">StarRailRes 4.7 · 스킬 ↗</a></li><li><a href="https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&amp;range=A382:P385" target="_blank" rel="noopener noreferrer">붕스 세팅정리 · 세팅 (2026-11-27 확인) ↗</a></li><li><a href="https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&amp;range=A171:F174" target="_blank" rel="noopener noreferrer">붕스 세팅정리 · 종결 (2026-11-27 확인) ↗</a></li></ul></details>
       </article></main>
     <footer class="site-footer">
       <a class="footer-brand" href="../../index.html">Fluffy Archive</a>

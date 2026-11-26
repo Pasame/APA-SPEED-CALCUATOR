@@ -75,27 +75,21 @@
     "targetStats": [
       {
         "label": "속도",
-        "value": "마을 125",
-        "nearFinal": "마을 150",
-        "final": "마을 150+",
-        "condition": "승급 6단계 125/150에서 환락도 +120%/+150%."
+        "value": "177+",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
         "label": "치명타 확률",
-        "value": "전투 100%",
-        "nearFinal": "전투 100%",
-        "final": "전투 100%",
-        "condition": "환락만상 치확은 아하 명함 +12%, 2돌 +20%. 해당 증가분 합산."
-      },
-      {
-        "label": "치명타 피해",
-        "value": "마을 140%+",
-        "nearFinal": "마을 140%+",
-        "final": "마을 140%+",
-        "condition": "Prydwen 장비 기준. 사도와 원력 순환이 우선."
+        "value": "88%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "아하 2돌 치명타 확률 +8% · 효광 전용 광추 +10%."
+        }
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -136,6 +130,10 @@
     ],
     "eidolonAdvice": "명함부터 승격. 첫 필살기를 당기려면 1돌, 개별 승격 강화는 2돌. 은랑의 히든 스코어 보너스 턴은 은랑 2돌 조건도 필요.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A62:P65"
+      },
       {
         "label": "HoYoLAB · 4.7 업데이트 상세",
         "url": "https://www.hoyolab.com/article/47394097"
@@ -265,27 +263,27 @@
     "targetStats": [
       {
         "label": "속도",
-        "value": "마을 140",
-        "nearFinal": "마을 160",
-        "final": "마을 200",
-        "condition": "승급 2단계 140부터 환락도. 가이드 빌드 160~200, 필살기 속도 +30%는 전투에서 반영."
+        "value": "170+",
+        "nearFinal": "—",
+        "final": "180"
       },
       {
         "label": "치명타 확률",
-        "value": "전투 100%",
-        "nearFinal": "전투 100%",
-        "final": "전투 100%",
-        "condition": "장비와 파티 치확 반영."
+        "value": "100%",
+        "nearFinal": "—",
+        "final": "100%",
+        "notes": {
+          "value": "점술가 4세트 효과 중복 불가."
+        }
       },
       {
         "label": "치명타 피해",
-        "value": "마을 120%",
-        "nearFinal": "마을 120%",
-        "final": "마을 120%",
-        "condition": "가이드 전투 전 참고값."
+        "value": "100%",
+        "nearFinal": "—",
+        "final": "160%"
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (마법소녀 / 펑크 로드)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -326,6 +324,14 @@
     ],
     "eidolonAdvice": "10/20/30pt 발동은 1돌, 열의 상한·추가 발동 확대는 2돌. 아하 2돌보다 웨이브의 2돌이 우선인 분기.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A58:P61"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A31:F34"
+      },
       {
         "label": "Prydwen · 어벤츄린•웨이브 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/aventurine-waveflair"
@@ -450,34 +456,33 @@
     "targetStats": [
       {
         "label": "HP",
-        "value": "마을 6,000",
-        "nearFinal": "마을 7,000",
-        "final": "마을 8,000",
-        "condition": "정령 피해에 반영. 열기를 얻도록 한 아군의 공격력이 로빈보다 높으면 로빈 HP 비례 공격력 버프, 그 외에는 치명타 피해 버프."
+        "value": "8000 / 6500",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "공격력 기반 딜러 지원 8000 · 기억·환락 등 비공격력 기반 딜러 지원 6500 (로빈 공격력 > 딜러 공격력)."
+        }
       },
       {
         "label": "속도",
-        "value": "마을 160+",
-        "nearFinal": "마을 160+",
-        "final": "마을 160+",
-        "condition": "비술·장신구의 초기 행동 당김은 별도."
+        "value": "160+",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "기억·환락 등 비공격력 기반 딜러 지원. 로빈 공격력 > 딜러 공격력."
+        }
       },
       {
         "label": "치명타 확률",
-        "value": "마을 50%",
-        "nearFinal": "마을 50%",
-        "final": "마을 50%",
-        "condition": "가이드 장비 치확. 승급 6단계 전투 치확 증가 별도."
-      },
-      {
-        "label": "에너지 회복효율",
-        "value": "마을 119.44%",
-        "nearFinal": "마을 119.44%",
-        "final": "마을 119.44%",
-        "condition": "5성 +15 회복효율 매듭 기준."
+        "value": "50%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "공격력 기반 딜러 지원 기준."
+        }
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -518,6 +523,10 @@
     ],
     "eidolonAdvice": "기록 확정 피해는 1돌, 팀 저항 관통과 Fever 열기 유지는 2돌.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A338:P341"
+      },
       {
         "label": "Prydwen · 로빈•서머레토 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/robin-summeretto"
@@ -651,34 +660,41 @@
     "targetStats": [
       {
         "label": "공격력",
-        "value": "마을 3,500",
-        "nearFinal": "마을 3,750",
-        "final": "마을 4,000+",
-        "condition": "가이드 3,500~4,000+."
-      },
-      {
-        "label": "치명타 확률",
-        "value": "전투 100%",
-        "nearFinal": "전투 100%",
-        "final": "전투 100%",
-        "condition": "파티와 장비 조건 합산."
-      },
-      {
-        "label": "치명타 피해",
-        "value": "마을 100%+",
-        "nearFinal": "마을 100%+",
-        "final": "마을 100%+",
-        "condition": "전투 지원 스킬 발동 후의 치피는 별도."
+        "value": "3500 / 3300",
+        "nearFinal": "—",
+        "final": "4400",
+        "notes": {
+          "value": "판결(선데이·등황) 3500 · 섬멸(웰트·Mar. 7th) 3300.",
+          "final": "공격력 구체 기준."
+        }
       },
       {
         "label": "속도",
-        "value": "마을 98",
-        "nearFinal": "마을 98",
-        "final": "마을 134+ 선택",
-        "condition": "공격력% 신발 기본. 행동 요구가 있는 경우에 134를 검토."
+        "value": "134+",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "섬멸 세팅 기준."
+        }
+      },
+      {
+        "label": "치명타 확률",
+        "value": "100%",
+        "nearFinal": "—",
+        "final": "100%",
+        "notes": {
+          "value": "판결 세팅 · 선데이 치명타 확률 20% 참고.",
+          "final": "선데이 치명타 확률 20% 참고."
+        }
+      },
+      {
+        "label": "치명타 피해",
+        "value": "—",
+        "nearFinal": "—",
+        "final": "160%"
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (아집 / 출항지)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -719,6 +735,14 @@
     ],
     "eidolonAdvice": "지원 스킬 요건을 낮추려면 1돌, 횟수·피해와 동행 제약 완화는 2돌.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A290:P293"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A127:F130"
+      },
       {
         "label": "Prydwen · 히메코•노바 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/himeko-nova"
@@ -842,34 +866,33 @@
     "targetStats": [
       {
         "label": "공격력",
-        "value": "마을 3,000",
-        "nearFinal": "마을 3,250",
-        "final": "마을 3,500+",
-        "condition": "흥미·필살기 운영과 맞춘 장비 참고 범위."
-      },
-      {
-        "label": "치명타 확률",
-        "value": "전투 90%",
-        "nearFinal": "전투 95%",
-        "final": "전투 100%",
-        "condition": "가이드 실전 치확 범위."
-      },
-      {
-        "label": "치명타 피해",
-        "value": "마을 120%",
-        "nearFinal": "마을 120%",
-        "final": "마을 120%",
-        "condition": "흥미가 주는 치피는 별도."
+        "value": "2800",
+        "nearFinal": "—",
+        "final": "4000",
+        "notes": {
+          "final": "번개 피해 구체 기준."
+        }
       },
       {
         "label": "속도",
-        "value": "기초 97",
-        "nearFinal": "기초 97",
-        "final": "기초 97",
-        "condition": "팀 행동과 필살기에서 흥미를 얻는 기본 세팅."
+        "value": "134+",
+        "nearFinal": "—",
+        "final": "—"
+      },
+      {
+        "label": "치명타 확률",
+        "value": "100%",
+        "nearFinal": "—",
+        "final": "100%"
+      },
+      {
+        "label": "치명타 피해",
+        "value": "100%",
+        "nearFinal": "—",
+        "final": "140%"
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (학자 / 생명과학연구원)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -910,6 +933,14 @@
     ],
     "eidolonAdvice": "팀 방어력 무시와 개인 에너지 순환에 1돌 우선.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A114:P117"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A55:F58"
+      },
       {
         "label": "Prydwen · 길가메시 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/gilgamesh"
@@ -1033,34 +1064,42 @@
     "targetStats": [
       {
         "label": "공격력",
-        "value": "마을 2,500",
-        "nearFinal": "마을 2,750",
-        "final": "마을 3,000+",
-        "condition": "가이드 2,500~3,000+."
-      },
-      {
-        "label": "치명타 확률",
-        "value": "전투 90%",
-        "nearFinal": "전투 95%",
-        "final": "전투 100%",
-        "condition": "장비·아군 버프 합산."
-      },
-      {
-        "label": "치명타 피해",
-        "value": "마을 120%",
-        "nearFinal": "마을 120%",
-        "final": "마을 120%",
-        "condition": "특성의 전투 버프는 별도."
+        "value": "2500",
+        "nearFinal": "—",
+        "final": "3200",
+        "notes": {
+          "value": "아처 연계 딜러 기준."
+        }
       },
       {
         "label": "속도",
-        "value": "마을 102 · 주 딜러",
-        "nearFinal": "마을 135 · 보조",
-        "final": "마을 160 · 보조",
-        "condition": "주 딜러 기본 속도와 보조 딜러 135~160의 세팅 분기."
+        "value": "134+ / 158+",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "아처 연계 딜러 134+ (자버프 20.4). 매 세트 서포터 158+는 스파클도 매+댄스! 댄스! 댄스!+바커공 158+로 교대 행동."
+        }
+      },
+      {
+        "label": "치명타 확률",
+        "value": "100%",
+        "nearFinal": "—",
+        "final": "100%",
+        "notes": {
+          "value": "양쪽 세팅 모두 100%. 연계 딜러는 스파클 전용 광추 치명타 확률 10% 참고."
+        }
+      },
+      {
+        "label": "치명타 피해",
+        "value": "120%",
+        "nearFinal": "—",
+        "final": "180%",
+        "notes": {
+          "value": "아처 연계 딜러 기준."
+        }
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (학자 / 텐고쿠)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -1101,6 +1140,14 @@
     ],
     "eidolonAdvice": "린이 주 딜러면 1돌 반복 강화 스킬, 아처와 스킬 배율을 올리려면 2돌.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A54:P57"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A27:F30"
+      },
       {
         "label": "Prydwen · 토오사카 린 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/rin-tohsaka"
@@ -1223,42 +1270,40 @@
     ],
     "targetStats": [
       {
-        "label": "속도",
-        "value": "마을 134",
-        "nearFinal": "마을 160",
-        "final": "마을 170 선택",
-        "condition": "170은 사이퍼 전광의 추가 효과와 결계 행동 순서를 함께 검토."
-      },
-      {
         "label": "HP",
-        "value": "마을 6,000+",
-        "nearFinal": "마을 6,000+",
-        "final": "마을 6,000+",
-        "condition": "스킬·필살기의 HP 소모와 피해 계수."
+        "value": "6000",
+        "nearFinal": "—",
+        "final": "7000",
+        "notes": {
+          "value": "서브 딜러 기준."
+        }
       },
       {
-        "label": "효과 명중",
-        "value": "마을 0% 선택",
-        "nearFinal": "마을 40% 선택",
-        "final": "마을 67% 선택",
-        "condition": "명중을 요구하는 광추에만 적용하는 편성 분기."
+        "label": "속도",
+        "value": "141+ / 170+ / 168",
+        "nearFinal": "—",
+        "final": "141",
+        "notes": {
+          "value": "서브 딜러 141+ · 사이퍼 전용 광추 170+ · 매·철위대 서포터 168."
+        }
       },
       {
         "label": "치명타 확률",
-        "value": "전투 100%",
-        "nearFinal": "전투 100%",
-        "final": "전투 100%",
-        "condition": "필살기 결계 Lv.10 치확 +60%를 포함."
+        "value": "80%",
+        "nearFinal": "—",
+        "final": "80%"
       },
       {
         "label": "치명타 피해",
-        "value": "마을 130%+",
-        "nearFinal": "마을 130%+",
-        "final": "마을 130%+",
-        "condition": "결계 치피 +50% 적용 전 장비 참고."
+        "value": "120%",
+        "nearFinal": "—",
+        "final": "160%",
+        "notes": {
+          "value": "서브 딜러 기준."
+        }
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (명장·매 / 바커공·습골지)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -1299,6 +1344,14 @@
     ],
     "eidolonAdvice": "디버프 강화는 1돌, 필살기와 추가 공격 연계는 2돌.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A286:P289"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A123:F126"
+      },
       {
         "label": "Prydwen · 천야•블레이드 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/blade-mortenax"
@@ -1420,27 +1473,30 @@
     "targetStats": [
       {
         "label": "속도",
-        "value": "마을 160",
-        "nearFinal": "마을 180",
-        "final": "마을 200+",
-        "condition": "가이드 범위의 200+는 전광 기반 목표."
+        "value": "200+",
+        "nearFinal": "—",
+        "final": "210",
+        "notes": {
+          "value": "원본 상한 260."
+        }
       },
       {
         "label": "치명타 확률",
-        "value": "마을 84%",
-        "nearFinal": "마을 88%",
-        "final": "마을 92%",
-        "condition": "히든 스코어의 전투 치확은 별도이며 상한 초과분은 치피로 전환."
+        "value": "84%+",
+        "nearFinal": "—",
+        "final": "82%",
+        "notes": {
+          "value": "효광 전용 광추 치명타 확률 10% 참고."
+        }
       },
       {
         "label": "치명타 피해",
-        "value": "마을 80%",
-        "nearFinal": "마을 90%",
-        "final": "마을 100%",
-        "condition": "가이드 장비 범위. 변신·승격 전투 치피는 별도."
+        "value": "—",
+        "nearFinal": "—",
+        "final": "170%"
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (마법소녀 / 펑크 로드)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -1481,6 +1537,14 @@
     ],
     "eidolonAdvice": "변신 연결은 1돌, 스코어 120pt마다 추가 행동은 2돌. 아하 승격은 히든 스코어 상한과 환산을 별도로 강화.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A386:P389"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A175:F178"
+      },
       {
         "label": "Prydwen · 은랑 LV.999 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/silver-wolf-lv-999"
@@ -1575,28 +1639,31 @@
     ],
     "targetStats": [
       {
+        "label": "속도",
+        "value": "아하 타임 +0.1",
+        "nearFinal": "—",
+        "final": "134",
+        "notes": {
+          "value": "속도 신발 세팅. 효광 200·매+바커공 환락 개척자 157일 때 에바네시아 143 예시."
+        }
+      },
+      {
         "label": "치명타 확률",
-        "value": "전투 100%",
-        "nearFinal": "전투 100%",
-        "final": "전투 100%",
-        "condition": "승급 2단계 치확과 팀 버프를 반영."
+        "value": "70%",
+        "nearFinal": "—",
+        "final": "70%",
+        "notes": {
+          "value": "효광 전용 광추 치명타 확률 10% 참고."
+        }
       },
       {
         "label": "치명타 피해",
-        "value": "마을 220%+",
-        "nearFinal": "마을 220%+",
-        "final": "마을 220%+",
-        "condition": "가이드 목표. 환락 피해 비중이 높아 공격력·물리 피해 주옵보다 우선."
-      },
-      {
-        "label": "속도",
-        "value": "마을 104",
-        "nearFinal": "마을 104",
-        "final": "마을 134 선택",
-        "condition": "기본값 유지가 보통 편리하다. 134는 추가 필살기 타이밍을 만들 수 있을 때."
+        "value": "240%",
+        "nearFinal": "—",
+        "final": "300%"
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (마법소녀 / 펑크 로드)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -1637,6 +1704,14 @@
     ],
     "eidolonAdvice": "여우 선생님 뒤 환락 스킬 연계가 목적이면 1돌. 아하 2돌을 쓰면 승격 효과가 추가 강화.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A230:P233"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A95:F98"
+      },
       {
         "label": "Prydwen · 에바네시아 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/evanescia"
@@ -1760,34 +1835,39 @@
     "targetStats": [
       {
         "label": "공격력",
-        "value": "마을 3,000+",
-        "nearFinal": "마을 3,000+",
-        "final": "마을 3,000+",
-        "condition": "공격력% 또는 속도 신발에서 같이 확인."
-      },
-      {
-        "label": "치명타 확률",
-        "value": "전투 100%",
-        "nearFinal": "전투 100%",
-        "final": "전투 100%",
-        "condition": "가이드 상한. 낮은 HP 적 한정 치확은 따로 확인."
-      },
-      {
-        "label": "치명타 피해",
-        "value": "마을 100%",
-        "nearFinal": "마을 125%",
-        "final": "마을 150%+",
-        "condition": "전투 중 추가 공격 치피 버프는 별도."
+        "value": "3400",
+        "nearFinal": "—",
+        "final": "3600",
+        "notes": {
+          "value": "추가 공격 딜러 기준."
+        }
       },
       {
         "label": "속도",
-        "value": "마을 106",
-        "nearFinal": "마을 106",
-        "final": "마을 135 선택",
-        "condition": "공격력% 신발 권장 기본값 또는 행동 순서 조율용 135."
+        "value": "134+ / 168",
+        "nearFinal": "—",
+        "final": "134",
+        "notes": {
+          "value": "추가 공격 딜러 134+ · 웨이브 지원용 매+바커공 168."
+        }
+      },
+      {
+        "label": "치명타 확률",
+        "value": "100%",
+        "nearFinal": "—",
+        "final": "100%"
+      },
+      {
+        "label": "치명타 피해",
+        "value": "120%",
+        "nearFinal": "—",
+        "final": "160%",
+        "notes": {
+          "value": "추가 공격 딜러 기준."
+        }
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (대공 / 도람)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -1828,6 +1908,14 @@
     ],
     "eidolonAdvice": "팀 지원이면 1돌, 본인 강화 추가 공격 순환이면 2돌.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A106:P109"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A51:F54"
+      },
       {
         "label": "Prydwen · 애쉬베일 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/ashveil"
@@ -1950,27 +2038,24 @@
     "targetStats": [
       {
         "label": "방어력",
-        "value": "마을 2,500",
-        "nearFinal": "마을 3,000",
-        "final": "마을 3,500",
-        "condition": "승급 2단계에서 방어력이 환락도·치유량으로 이어진다."
+        "value": "2400+",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "환락도 보너스 적용 2400–6000."
+        }
       },
       {
         "label": "속도",
-        "value": "마을 160",
-        "nearFinal": "마을 170",
-        "final": "마을 180",
-        "condition": "필살기 순환을 위한 가이드 범위."
-      },
-      {
-        "label": "효과 저항",
-        "value": "전투 50%+",
-        "nearFinal": "전투 50%+",
-        "final": "전투 50%+",
-        "condition": "솜씨 보유 중 승급 4단계로 팀 효과 저항 +50%. 용골의 자체 +10%를 합치면 60%+. 솜씨 소진 후에는 용골 발동선 30% 유지 여부 확인."
+        "value": "168+",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "속도 우선."
+        }
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -2011,6 +2096,10 @@
     ],
     "eidolonAdvice": "환락 4인 생존·버프는 1돌, 팀 행동과 웃음 자원 확대는 2돌.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A166:P169"
+      },
       {
         "label": "Prydwen · 펄 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/pearl"
@@ -2121,34 +2210,24 @@
     "targetStats": [
       {
         "label": "속도",
-        "value": "마을 160",
-        "nearFinal": "마을 180",
-        "final": "마을 200",
-        "condition": "가이드 범위 160~200. 승급 2단계 속도 초과분이 환락도를 올린다."
+        "value": "200+",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "2돌은 필요 속도 12 감소. 속도 200 우선."
+        }
       },
       {
         "label": "치명타 확률",
-        "value": "전투 100%",
-        "nearFinal": "전투 100%",
-        "final": "전투 100%",
-        "condition": "속도 확보 후 자신이 가하는 환락 피해 치확을 맞춘다."
-      },
-      {
-        "label": "치명타 피해",
-        "value": "마을 100%",
-        "nearFinal": "마을 100%",
-        "final": "마을 100%",
-        "condition": "Prydwen 전투 전 참고."
-      },
-      {
-        "label": "HP",
-        "value": "마을 3,000",
-        "nearFinal": "마을 3,500",
-        "final": "마을 4,000",
-        "condition": "생존 참고 범위."
+        "value": "100%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "효광 전용 광추 10% · 점술가 18% 참고."
+        }
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -2189,6 +2268,10 @@
     ],
     "eidolonAdvice": "첫 아하 타임 웃음과 환락 피해 방어력 무시를 원하면 1돌.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A226:P229"
+      },
       {
         "label": "Prydwen · 효광 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/yao-guang"
@@ -2306,34 +2389,39 @@
     "targetStats": [
       {
         "label": "공격력",
-        "value": "전투 3,600",
-        "nearFinal": "전투 3,600",
-        "final": "전투 3,600",
-        "condition": "승급 2단계 환락도 환산 상한. 스파클·루샤카 등의 버프 반영."
-      },
-      {
-        "label": "치명타 피해",
-        "value": "마을 140%",
-        "nearFinal": "마을 160%",
-        "final": "마을 180%+",
-        "condition": "출처의 전투 전 세팅 목표."
-      },
-      {
-        "label": "치명타 확률",
-        "value": "전투 100%",
-        "nearFinal": "전투 100%",
-        "final": "전투 100%",
-        "condition": "장비와 파티 버프를 합산."
+        "value": "전투 3600",
+        "nearFinal": "—",
+        "final": "3000"
       },
       {
         "label": "속도",
-        "value": "기초 107",
-        "nearFinal": "기초 107",
-        "final": "기초 107",
-        "condition": "가이드 권장 기본 속도 운용."
+        "value": "160+",
+        "nearFinal": "—",
+        "final": "148",
+        "notes": {
+          "value": "은랑 LV.999·스파키·아하·펄 모두 2돌인 서포터 세팅."
+        }
+      },
+      {
+        "label": "치명타 확률",
+        "value": "100% / 82%",
+        "nearFinal": "—",
+        "final": "100%",
+        "notes": {
+          "value": "딜러 100% (효광 전용 광추 10% 참고) · 은랑 LV.999·스파키·아하·펄 모두 2돌인 서포터 82%."
+        }
+      },
+      {
+        "label": "치명타 피해",
+        "value": "180%",
+        "nearFinal": "—",
+        "final": "200%",
+        "notes": {
+          "value": "딜러 기준."
+        }
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (마법소녀 / 텐고쿠)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -2374,6 +2462,14 @@
     ],
     "eidolonAdvice": "보너스 턴과 SP 상쇄가 목적이면 2돌. 아하 승격 효과는 별도로 적용.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A282:P285"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A119:F122"
+      },
       {
         "label": "Prydwen · 스파키 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/sparxie"
@@ -2494,35 +2590,40 @@
     ],
     "targetStats": [
       {
-        "label": "속도",
-        "value": "마을 180",
-        "nearFinal": "마을 180",
-        "final": "마을 200+",
-        "condition": "180/200은 가이드 분기. 승급 6단계 속도로 얼음 저항 관통을 늘린다."
-      },
-      {
         "label": "HP",
-        "value": "마을 5,000+",
-        "nearFinal": "마을 5,000+",
-        "final": "마을 5,000+",
-        "condition": "정령 피해와 생존. 속도 우선."
+        "value": "6500",
+        "nearFinal": "—",
+        "final": "5500",
+        "notes": {
+          "value": "서브 딜러 · 치명타 피해 상의 6500 · HP 상의는 +1000."
+        }
       },
       {
-        "label": "치명타 피해",
-        "value": "마을 100%",
-        "nearFinal": "마을 130%",
-        "final": "마을 160%",
-        "condition": "개인 화력을 사용하는 기억 편성 참고."
+        "label": "속도",
+        "value": "200+ / 180+",
+        "nearFinal": "—",
+        "final": "200",
+        "notes": {
+          "value": "서포터 200+ · 서브 딜러 180+. 속도 180+ 먼저 확보."
+        }
       },
       {
         "label": "치명타 확률",
-        "value": "마을 50%",
-        "nearFinal": "마을 50%",
-        "final": "마을 50%",
-        "condition": "가이드 장비 기준. 속도·HP 우선."
+        "value": "50%",
+        "nearFinal": "—",
+        "final": "50%",
+        "notes": {
+          "value": "서포터 세팅 기준."
+        }
+      },
+      {
+        "label": "치명타 피해",
+        "value": "—",
+        "nearFinal": "—",
+        "final": "220%"
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (구세주 / 앰포리어스)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -2563,6 +2664,14 @@
     ],
     "eidolonAdvice": "기억 동료가 적어 첫 필살기가 늦으면 2돌을 우선 고려.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A162:P165"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A71:F74"
+      },
       {
         "label": "Prydwen · 키레네 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/cyrene"
@@ -2693,27 +2802,33 @@
     "targetStats": [
       {
         "label": "공격력",
-        "value": "마을 3,000",
-        "nearFinal": "마을 3,500",
-        "final": "마을 4,000+",
-        "condition": "실드와 전우 공격력의 기준."
+        "value": "4000 / 2700",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "전용 광추와 공격력 상의·속도 신발·공격력 구체·에너지 회복효율 매듭 4000 · 공훈 광추 2700."
+        }
       },
       {
         "label": "속도",
-        "value": "마을 134",
-        "nearFinal": "마을 134",
-        "final": "마을 160 선택",
-        "condition": "134/160은 스킬 갱신과 SP 수급의 순서 분기."
+        "value": "133.4+ / 155+",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "보호막 세팅 133.4+ · 지속 피해 세팅 155+."
+        }
       },
       {
-        "label": "HP",
-        "value": "마을 3,000+",
-        "nearFinal": "마을 3,000+",
-        "final": "마을 3,000+",
-        "condition": "생존용 가이드 하한."
+        "label": "효과 명중",
+        "value": "75%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "카프카 지속 피해 팀 기준."
+        }
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -2754,6 +2869,10 @@
     ],
     "eidolonAdvice": "SP가 빠듯하면 1돌, 용령 행동과 실드에 더 투자하면 2돌.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A222:P225"
+      },
       {
         "label": "Prydwen · 단항•등황 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/dan-heng-permansor-terrae"
@@ -2894,35 +3013,38 @@
     ],
     "targetStats": [
       {
-        "label": "치명타 확률",
-        "value": "행적 제외 65%",
-        "nearFinal": "행적 제외 65%",
-        "final": "행적 제외 65%",
-        "condition": "승급 2단계 +35% 적용 후 100%. 팀 치확이 있으면 필요한 장비 치확을 재계산."
-      },
-      {
-        "label": "치명타 피해",
-        "value": "행적 발동 전 160%",
-        "nearFinal": "행적 발동 전 170%",
-        "final": "행적 발동 전 180%+",
-        "condition": "전투 중 HP 소모 시 승급 2단계 강화분 별도."
-      },
-      {
         "label": "HP",
-        "value": "마을 7,000",
-        "nearFinal": "마을 7,500",
-        "final": "마을 8,000",
-        "condition": "본체·긴 밤의 HP 비례 피해에 반영."
+        "value": "5500 / 6500",
+        "nearFinal": "—",
+        "final": "8000",
+        "notes": {
+          "value": "서포터·서브 딜러 5500 · 메인 딜러 6500 (2돌 이상 권장, 구체만 HP% 주옵션).",
+          "final": "얼음 피해 구체 기준."
+        }
       },
       {
         "label": "속도",
-        "value": "마을 99+",
-        "nearFinal": "마을 99+",
-        "final": "마을 99+",
-        "condition": "가이드 기본 속도 또는 그 이상. 전투 속도 버프 포함 전 기준."
+        "value": "120+",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "서포터·서브 딜러 기준."
+        }
+      },
+      {
+        "label": "치명타 확률",
+        "value": "65%",
+        "nearFinal": "—",
+        "final": "65%"
+      },
+      {
+        "label": "치명타 피해",
+        "value": "180%",
+        "nearFinal": "—",
+        "final": "240%"
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (구세주 / 습골지)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -2963,6 +3085,14 @@
     ],
     "eidolonAdvice": "정령 전체 화력은 1돌부터, 자체 필살기 강화 유지와 기억 물질은 2돌.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A158:P161"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A67:F70"
+      },
       {
         "label": "Prydwen · 에버나이트 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/evernight"
@@ -3087,20 +3217,24 @@
     "targetStats": [
       {
         "label": "공격력",
-        "value": "마을 4,000+",
-        "nearFinal": "마을 4,000+",
-        "final": "마을 4,000+",
-        "condition": "가이드 목표. 승급 2단계 케리드라의 치피 환산과 군공 지원에 활용."
+        "value": "4000",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "추가 능력의 치명타 피해 전환 상한."
+        }
       },
       {
         "label": "속도",
-        "value": "마을 140+",
-        "nearFinal": "마을 140+",
-        "final": "마을 140+",
-        "condition": "승급 6단계 스킬 +20이 적용되면 전투 160 이상."
+        "value": "113.4+",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "파이논 조합 기준."
+        }
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -3141,6 +3275,10 @@
     ],
     "eidolonAdvice": "복제 전투 스킬의 방어력 무시가 목적이면 1돌.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A334:P337"
+      },
       {
         "label": "Prydwen · 케리드라 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/cerydra"
@@ -3266,28 +3404,36 @@
     ],
     "targetStats": [
       {
-        "label": "효과 명중",
-        "value": "마을 120%",
-        "nearFinal": "마을 120%",
-        "final": "마을 120%",
-        "condition": "승급 6단계 피해 증가 상한 기준."
+        "label": "공격력",
+        "value": "2400",
+        "nearFinal": "—",
+        "final": "4300 / 3800",
+        "notes": {
+          "value": "전투 중 공격력 목표 3600+.",
+          "final": "속도 129 세팅 4300 · 속도 168 세팅 3800."
+        }
       },
       {
         "label": "속도",
-        "value": "마을 134",
-        "nearFinal": "마을 134",
-        "final": "마을 160 선택",
-        "condition": "134와 160은 선택 가능한 행동 순서. 카프카가 지속 피해 부여 뒤 기폭하도록 조율."
+        "value": "168+ / 128.5+ / 133.4+",
+        "nearFinal": "—",
+        "final": "129 / 168",
+        "notes": {
+          "value": "168+는 히실렌스 전용 광추 버프를 받은 카프카보다 빠르게. 공격력 신발은 전용 광추 128.5+, 미착용 133.4+.",
+          "final": "공격력 4300 세팅 129 · 공격력 3800 세팅 168."
+        }
       },
       {
-        "label": "공격력",
-        "value": "마을 3,000",
-        "nearFinal": "마을 3,250",
-        "final": "마을 3,500+",
-        "condition": "가이드 3,000~3,500+. 장신구 버프는 장착 조건 확인."
+        "label": "효과 명중",
+        "value": "120%",
+        "nearFinal": "—",
+        "final": "120%",
+        "notes": {
+          "final": "속도 129·공격력 4300과 같은 행. 속도 168 행의 별도 수치는 미기재."
+        }
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (죄수 / 일각)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -3328,6 +3474,14 @@
     ],
     "eidolonAdvice": "다종 지속 피해와 기폭을 함께 키우려면 1돌. 2돌은 결계의 팀 피해 지원.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A218:P221"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A87:F90"
+      },
       {
         "label": "Prydwen · 히실렌스 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/hysilens"
@@ -3444,28 +3598,28 @@
     ],
     "targetStats": [
       {
-        "label": "속도",
-        "value": "전투 200+",
-        "nearFinal": "전투 200+",
-        "final": "전투 200+",
-        "condition": "승급 6단계 HP·치유 효과의 전투 속도 조건."
+        "label": "HP",
+        "value": "5000",
+        "nearFinal": "—",
+        "final": "6000"
       },
       {
-        "label": "HP",
-        "value": "마을 4,300",
-        "nearFinal": "마을 4,650",
-        "final": "마을 5,000+",
-        "condition": "필살기의 HP 최대치 증가 효과는 별도."
+        "label": "속도",
+        "value": "200+ / 193.4+",
+        "nearFinal": "—",
+        "final": "240",
+        "notes": {
+          "value": "여전사 세트 착용 시 193.4+."
+        }
       },
       {
         "label": "치명타 피해",
-        "value": "마을 100%",
-        "nearFinal": "마을 110%",
-        "final": "마을 120%+",
-        "condition": "치유 중심이면 속도·HP부터 확보."
+        "value": "—",
+        "nearFinal": "—",
+        "final": "120%"
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (여전사 / 고목)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -3506,6 +3660,14 @@
     ],
     "eidolonAdvice": "HP 소모 팀에서 회복을 늘리려면 1돌. 아군 순환을 빠르게 하려면 2돌.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A326:P329"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A147:F150"
+      },
       {
         "label": "Prydwen · 히아킨 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/hyacine"
@@ -3636,34 +3798,31 @@
     "targetStats": [
       {
         "label": "공격력",
-        "value": "마을 2,200",
-        "nearFinal": "마을 2,400",
-        "final": "마을 2,600+",
-        "condition": "가이드 2,200~2,600+. 변신과 동료 공격력 버프는 별도."
+        "value": "3000 / 3500",
+        "nearFinal": "—",
+        "final": "3000",
+        "notes": {
+          "value": "물리 피해 구체 3000 · 공격력 구체 +500."
+        }
       },
       {
         "label": "치명타 확률",
-        "value": "전투 90%",
-        "nearFinal": "전투 95%",
-        "final": "전투 100%",
-        "condition": "선데이 치확 등 유지 가능한 버프 적용."
+        "value": "100%",
+        "nearFinal": "—",
+        "final": "100%",
+        "notes": {
+          "value": "선데이 20% · 스파클 전용 광추 10% · 키레네 16% 참고.",
+          "final": "키레네 치명타 확률 16% 참고."
+        }
       },
       {
         "label": "치명타 피해",
-        "value": "행적 발동 전 160%",
-        "nearFinal": "행적 발동 전 170%",
-        "final": "행적 발동 전 180%+",
-        "condition": "동료 스킬 지정 후의 특성 버프는 별도."
-      },
-      {
-        "label": "속도",
-        "value": "당김 동료보다 +1",
-        "nearFinal": "당김 동료보다 +1",
-        "final": "당김 동료보다 +1",
-        "condition": "변신 전 불씨 순서 기준. 변신 중 보너스 턴에는 기초 속도가 반영된다."
+        "value": "140%",
+        "nearFinal": "—",
+        "final": "200%"
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (아집 / 뭇별·낙원)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -3704,6 +3863,14 @@
     ],
     "eidolonAdvice": "1돌은 변신 행동을 앞당긴다. 보너스 턴이 목적이면 2돌까지.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A214:P217"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A91:F94"
+      },
       {
         "label": "Prydwen · 파이논 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/phainon"
@@ -3832,34 +3999,39 @@
     "targetStats": [
       {
         "label": "HP",
-        "value": "7,000",
-        "nearFinal": "7,500",
-        "final": "8,000+",
-        "condition": "카스토리스와 용의 피해에 기여하는 마을 HP."
-      },
-      {
-        "label": "치명타 확률",
-        "value": "전투 80%",
-        "nearFinal": "전투 90%",
-        "final": "전투 100%",
-        "condition": "시인 4세트와 팀 버프 포함."
-      },
-      {
-        "label": "치명타 피해",
-        "value": "200%",
-        "nearFinal": "210%",
-        "final": "220%+",
-        "condition": "용의 치명타 확률과 함께 균형 조정."
+        "value": "9000 / 8000",
+        "nearFinal": "—",
+        "final": "8000",
+        "notes": {
+          "value": "시인 · HP 구체 9000. 히아킨 1돌 이상에서 양자 피해 구체를 고려할 때 8000."
+        }
       },
       {
         "label": "속도",
-        "value": "95 미만",
-        "nearFinal": "95 미만 유지",
-        "final": "95 미만 유지",
-        "condition": "시인 발동의 전투 진입 전 조건. 속도 신발과 부옵션을 피하세요."
+        "value": "—",
+        "nearFinal": "—",
+        "final": "95 미만"
+      },
+      {
+        "label": "치명타 확률",
+        "value": "68% / 100%",
+        "nearFinal": "—",
+        "final": "68%",
+        "notes": {
+          "value": "시인 68% · 구세주 100% (4기억 네 명 모두 2돌)."
+        }
+      },
+      {
+        "label": "치명타 피해",
+        "value": "180% / 120%",
+        "nearFinal": "—",
+        "final": "240%",
+        "notes": {
+          "value": "시인 180% · 구세주 120% (4기억 네 명 모두 2돌)."
+        }
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (시인 / 습골지)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -3900,6 +4072,14 @@
     ],
     "eidolonAdvice": "성혼 1은 적 HP가 낮을 때 피해를 올리고 성혼 2는 용의 숨결과 본체 행동을 늘립니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A42:P45"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A15:F18"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/castorice"
@@ -4016,34 +4196,27 @@
     "targetStats": [
       {
         "label": "속도",
-        "value": "전투 140",
-        "nearFinal": "전투 170",
-        "final": "전투 170 유지",
-        "condition": "승급 행적: 140/170에서 치명타 확률 +25%/+50%, 기록량 +50%/+100%."
-      },
-      {
-        "label": "효과 명중",
-        "value": "39%",
-        "nearFinal": "39% 또는 67%",
-        "final": "광추별 유지",
-        "condition": "전광·스킬 기본 확률 120%면 약 39%, 결심 5중첩 기본 100%면 약 67%. 적 효과 저항 40% 기준."
-      },
-      {
-        "label": "치명타 피해",
-        "value": "130%",
-        "nearFinal": "145%",
-        "final": "160%+",
-        "condition": "자체 공격 세팅의 목표. 속도 170과 필요한 효과 명중을 먼저 확보."
+        "value": "170+",
+        "nearFinal": "—",
+        "final": "200",
+        "notes": {
+          "value": "세팅 탭은 종결 속도 200 이상도 명시."
+        }
       },
       {
         "label": "치명타 확률",
-        "value": "전투 90%",
-        "nearFinal": "전투 95%",
-        "final": "전투 100%",
-        "condition": "속도 행적 치명타 확률 +50%를 합쳐 전투 100%까지 맞출 수 있습니다."
+        "value": "50%",
+        "nearFinal": "—",
+        "final": "50%"
+      },
+      {
+        "label": "치명타 피해",
+        "value": "100%",
+        "nearFinal": "—",
+        "final": "200%"
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (천재 / 아무거나)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -4084,6 +4257,14 @@
     ],
     "eidolonAdvice": "성혼 1은 기록량, 성혼 2는 팀이 활용하는 추가 피해 취약을 높입니다. 속도 170 조건을 우선 달성하세요.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A46:P49"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A19:F22"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/cipher"
@@ -4220,35 +4401,37 @@
     ],
     "targetStats": [
       {
-        "label": "치명타 확률",
-        "value": "전투 90%",
-        "nearFinal": "전투 95%",
-        "final": "전투 100%",
-        "condition": "경기장은 전투 70% 이상. 이즈모를 쓰면 파티의 두 번째 지식 유무에 따라 치명타 확률을 계산합니다."
-      },
-      {
-        "label": "치명타 피해",
-        "value": "100%",
-        "nearFinal": "110%",
-        "final": "120%+",
-        "condition": "단독 지식 행적 치명타 피해를 적용하기 전 기준."
-      },
-      {
         "label": "공격력",
-        "value": "2,600",
-        "nearFinal": "2,800",
-        "final": "3,000+",
-        "condition": "속도와 치명타 목표 이후 보강."
+        "value": "—",
+        "nearFinal": "—",
+        "final": "3800"
       },
       {
         "label": "속도",
-        "value": "134+",
-        "nearFinal": "지원보다 빠르게",
-        "final": "행동 순서 검증",
-        "condition": "선데이와 쓰면 아낙사 턴 다음 선데이 턴을 배치하세요."
+        "value": "133.4 / 166.7+",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "메인 딜러 133.4 (케리드라 기용 시 20 감소, 키레네 기용 시 불필요) · 매 서브 딜러 166.7+."
+        }
+      },
+      {
+        "label": "치명타 확률",
+        "value": "100%",
+        "nearFinal": "—",
+        "final": "100%",
+        "notes": {
+          "value": "선데이 20% · 이즈모 12% 참고."
+        }
+      },
+      {
+        "label": "치명타 피해",
+        "value": "—",
+        "nearFinal": "—",
+        "final": "180%"
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (천재 / 뭇별)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -4289,6 +4472,14 @@
     ],
     "eidolonAdvice": "성혼 1은 첫 포인트와 방어력 감소를 제공하고, 성혼 2는 새 적 대응과 파티 전체의 화력을 돕습니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A322:P325"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A143:F146"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/anaxa"
@@ -4420,34 +4611,39 @@
     "targetStats": [
       {
         "label": "HP",
-        "value": "전투 8,000",
-        "nearFinal": "전투 8,000 유지",
-        "final": "전투 8,000+",
-        "condition": "4,000 초과분 최대 4,000까지 승급 행적 계산. 8,000을 넘어도 피해는 증가."
-      },
-      {
-        "label": "치명타 확률",
-        "value": "전투 90%",
-        "nearFinal": "전투 95%",
-        "final": "전투 100%",
-        "condition": "HP 행적 최대 +48% 및 동료 치명타 확률을 포함."
-      },
-      {
-        "label": "치명타 피해",
-        "value": "160%",
-        "nearFinal": "160%+",
-        "final": "치명타 확률 100% 이후 보강",
-        "condition": "정령·동료의 조건부 치명타 피해 적용 전 기준."
+        "value": "8000",
+        "nearFinal": "—",
+        "final": "8000",
+        "notes": {
+          "value": "최소 HP 기준."
+        }
       },
       {
         "label": "속도",
-        "value": "기본 또는 134",
-        "nearFinal": "134 선택",
-        "final": "행동 지원과 조정",
-        "condition": "선데이의 턴 오더에 따라 HP 신발과 속도 신발을 비교."
+        "value": "133.4+",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "키레네 조합 시 우선도 낮음."
+        }
+      },
+      {
+        "label": "치명타 확률",
+        "value": "52%",
+        "nearFinal": "—",
+        "final": "52%",
+        "notes": {
+          "value": "제자 16% · 선데이 20% 참고."
+        }
+      },
+      {
+        "label": "치명타 피해",
+        "value": "150%",
+        "nearFinal": "—",
+        "final": "280%"
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (학자 / 습골지)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -4488,6 +4684,14 @@
     ],
     "eidolonAdvice": "성혼 1은 최상위 강화 스킬을 전체 공격으로 바꿉니다. 성혼 2는 치유 기반 충전과 방어력 무시를 더합니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A382:P385"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A171:F174"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/mydei"
@@ -4610,34 +4814,42 @@
     "targetStats": [
       {
         "label": "HP",
-        "value": "4,000",
-        "nearFinal": "5,000",
-        "final": "6,000+",
-        "condition": "습골지를 쓰면 HP 5,000부터 치명타 피해."
-      },
-      {
-        "label": "치명타 확률",
-        "value": "전투 80%",
-        "nearFinal": "전투 85%",
-        "final": "전투 90%+",
-        "condition": "시인 착용 여부에 따라 전투 치명타 확률을 계산."
-      },
-      {
-        "label": "치명타 피해",
-        "value": "160%",
-        "nearFinal": "170%",
-        "final": "180%+",
-        "condition": "광추·습골지의 조건부 치명타 피해를 함께 확인."
+        "value": "6000",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "시인 세팅 기준."
+        }
       },
       {
         "label": "속도",
-        "value": "저속형 기본",
-        "nearFinal": "지원형 120+",
-        "final": "행동 순서 맞춤",
-        "condition": "시인으로 저속 부딜을 운용하는 경우 속도 95 미만을 유지."
+        "value": "95 미만 / 134.7 / 140.7",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "시인 95 미만 · 매+댄스! 댄스! 댄스! 134.7 (필살기 2회로 3행동) · 매+바커공+댄스! 댄스! 댄스! 140.7 (필살기 1회로 3행동)."
+        }
+      },
+      {
+        "label": "치명타 확률",
+        "value": "68% / 80%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "시인 68% · 매 80%."
+        }
+      },
+      {
+        "label": "치명타 피해",
+        "value": "200% / 120%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "시인 200% · 매 120%."
+        }
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -4678,6 +4890,10 @@
     ],
     "eidolonAdvice": "성혼 1은 결계 내 아군의 공격을 확정 피해로 더합니다. 광역 파티의 주요 첫 투자입니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A38:P41"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/tribbie"
@@ -4816,35 +5032,28 @@
     ],
     "targetStats": [
       {
+        "label": "속도",
+        "value": "159+ / 생략 가능",
+        "nearFinal": "—",
+        "final": "161+",
+        "notes": {
+          "value": "키레네 미편성, 선데이 속도 134 기준 159+. 키레네 편성 시 생략 가능."
+        }
+      },
+      {
         "label": "치명타 확률",
-        "value": "80%",
-        "nearFinal": "90%",
-        "final": "100%",
-        "condition": "기억 정령과 본체의 치명타를 함께 확인하세요."
+        "value": "100%",
+        "nearFinal": "—",
+        "final": "100%"
       },
       {
         "label": "치명타 피해",
-        "value": "100%",
-        "nearFinal": "120%",
-        "final": "140%+",
-        "condition": "장신구·동료의 전투 중 버프 제외."
-      },
-      {
-        "label": "에너지 회복효율",
-        "value": "119.4%",
-        "nearFinal": "119.4% 유지",
-        "final": "지고의 자태 갱신",
-        "condition": "명함은 에너지 회복효율 매듭 권장. 성혼 1에서 공격력 매듭을 비교할 수 있습니다."
-      },
-      {
-        "label": "속도",
-        "value": "선데이와 순서 맞춤",
-        "nearFinal": "160형 조건 확인",
-        "final": "자태 전후 순서 검증",
-        "condition": "기초 속도 변경 광추와 의상공 스택을 포함해 비교. 저속 지원형과 빠른 본체형의 배치가 다릅니다."
+        "value": "—",
+        "nearFinal": "—",
+        "final": "140%"
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (영웅 / 나나 낙원)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -4885,6 +5094,14 @@
     ],
     "eidolonAdvice": "성혼 1이 자태 유지와 피해에 크게 기여합니다. 명함은 에너지 지원과 속도 조정부터 맞추세요.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A102:P105"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A47:F50"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/aglaea"
@@ -5014,35 +5231,34 @@
     ],
     "targetStats": [
       {
-        "label": "치명타 확률",
-        "value": "90%",
-        "nearFinal": "95%",
-        "final": "100%",
-        "condition": "이즈모·시인 보너스를 포함한 전투 치명타 확률."
-      },
-      {
-        "label": "치명타 피해",
-        "value": "100%",
-        "nearFinal": "110%",
-        "final": "120%+",
-        "condition": "본인 포함 지식 2명일 때의 행적 치명타 피해 +80% 적용 전."
-      },
-      {
         "label": "공격력",
-        "value": "2,500",
-        "nearFinal": "2,700",
-        "final": "2,900+",
-        "condition": "속도 신발과 광추에 따라 조정."
+        "value": "3000",
+        "nearFinal": "—",
+        "final": "3000",
+        "notes": {
+          "value": "얼음 피해 구체 기준."
+        }
       },
       {
         "label": "속도",
-        "value": "기본 또는 134",
-        "nearFinal": "134+",
-        "final": "160 선택",
-        "condition": "시인 또는 고속 행동 지원을 쓸 때 저속 선택. 제이드의 수금업자 속도 +30을 별도 반영."
+        "value": "133.4+",
+        "nearFinal": "—",
+        "final": "—"
+      },
+      {
+        "label": "치명타 확률",
+        "value": "88%",
+        "nearFinal": "—",
+        "final": "88%"
+      },
+      {
+        "label": "치명타 피해",
+        "value": "120%",
+        "nearFinal": "—",
+        "final": "200%"
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (학자 / 이즈모)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -5083,6 +5299,14 @@
     ],
     "eidolonAdvice": "성혼 1은 해독을, 성혼 2는 강화 스킬 횟수와 자기 행동을 보강합니다. 먼저 지식 동료를 확보하세요.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A150:P153"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A63:F66"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/the-herta"
@@ -5215,28 +5439,31 @@
     ],
     "targetStats": [
       {
-        "label": "격파 특수효과",
-        "value": "200%",
-        "nearFinal": "225%",
-        "final": "250%+",
-        "condition": "전투 조건 포함. 철기군 슈퍼 격파 방어력 무시는 250%."
-      },
-      {
         "label": "속도",
-        "value": "160+",
-        "nearFinal": "160+ 유지",
-        "final": "딜러보다 빠르게",
-        "condition": "딜러 전에 결계·영락을 적용하는 편성 조건."
+        "value": "160+ / 166.7",
+        "nearFinal": "—",
+        "final": "170",
+        "notes": {
+          "value": "철기군·속도 2+2는 160+ · 매 166.7."
+        }
       },
       {
         "label": "효과 명중",
-        "value": "광추에 맞춤",
-        "nearFinal": "67% 조건부",
-        "final": "67% 유지",
-        "condition": "결심 5중첩·휴일의 목욕탕 대모험처럼 기본 확률 100% 디버프를 고저항 적에게 확정할 때."
+        "value": "66.7%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "「땀방울처럼 빛나는 결심」 사용 시 (효과 중복 불가)."
+        }
+      },
+      {
+        "label": "격파 특수효과",
+        "value": "150%",
+        "nearFinal": "—",
+        "final": "220%"
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (철기군 / 연마궁)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -5277,6 +5504,14 @@
     ],
     "eidolonAdvice": "성혼 1은 춤 파트너의 슈퍼 격파와 강인성 감소를 늘립니다. 성혼 2는 새 적에 영락을 자동 부여하고 저항을 낮춥니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A278:P281"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A115:F118"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/the-dahlia"
@@ -5400,28 +5635,25 @@
     ],
     "targetStats": [
       {
-        "label": "격파 특수효과",
-        "value": "마을 160%",
-        "nearFinal": "마을 200%",
-        "final": "마을 240%+",
-        "condition": "회복효율 매듭을 쓸 때 낮아질 수 있습니다. 철기군은 전투 250%에서 슈퍼 격파 효과까지 발동."
+        "label": "공격력",
+        "value": "2800",
+        "nearFinal": "—",
+        "final": "3400"
       },
       {
         "label": "속도",
-        "value": "145",
-        "nearFinal": "150",
-        "final": "턴 횟수 최적화",
-        "condition": "탈리아는 전투 145 이상을 확인하세요."
+        "value": "168+",
+        "nearFinal": "—",
+        "final": "170"
       },
       {
-        "label": "공격력",
-        "value": "전투 3,200 목표",
-        "nearFinal": "전투 3,200",
-        "final": "전투 3,200 유지",
-        "condition": "공격력 행적 보너스 상한. 격파 특수효과·필요 속도 이후 조정."
+        "label": "격파 특수효과",
+        "value": "최대한",
+        "nearFinal": "—",
+        "final": "280%"
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (철기군 / 연마궁)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -5462,6 +5694,14 @@
     ],
     "eidolonAdvice": "성혼 1은 결인 피해와 다음 필살기 회전을 모두 보강합니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A374:P377"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A167:F170"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/rappa"
@@ -5584,28 +5824,22 @@
     ],
     "targetStats": [
       {
-        "label": "격파 특수효과",
-        "value": "전투 260%",
-        "nearFinal": "전투 300%",
-        "final": "전투 340%+",
-        "condition": "격파 파티 버프 적용 후 기준. 250%에서 철기군의 슈퍼 격파 조건을 충족합니다."
-      },
-      {
         "label": "속도",
-        "value": "145",
-        "nearFinal": "160",
-        "final": "지원 포함 200 선택",
-        "condition": "전용 광추의 속도 버프와 선데이의 실제 턴 순서를 포함."
+        "value": "167.1+",
+        "nearFinal": "—",
+        "final": "180",
+        "notes": {
+          "value": "전용 광추·달리아 편성 시 1라운드 3행동 기준."
+        }
       },
       {
-        "label": "HP",
-        "value": "2,900",
-        "nearFinal": "3,050",
-        "final": "3,200+",
-        "condition": "대치 상대에게 받는 피해를 버티는 육성값. 생존 주옵션을 써도 격파 피해에 직접 손해가 없습니다."
+        "label": "격파 특수효과",
+        "value": "—",
+        "nearFinal": "—",
+        "final": "280%"
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (철기군 / 연마궁)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -5646,6 +5880,14 @@
     ],
     "eidolonAdvice": "성혼 1은 첫 포켓 어드벤티지를 앞당깁니다. 성혼 2는 대치에서 포인트를 돌려받고 격파 특수효과를 올립니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A206:P209"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A79:F82"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/boothill"
@@ -5775,35 +6017,28 @@
     ],
     "targetStats": [
       {
+        "label": "공격력",
+        "value": "3200",
+        "nearFinal": "—",
+        "final": "3500"
+      },
+      {
         "label": "치명타 확률",
-        "value": "75%",
-        "nearFinal": "90%",
-        "final": "100%",
-        "condition": "성혼 2 전당품 15스택에서 +18% 포함."
+        "value": "100%",
+        "nearFinal": "—",
+        "final": "82%"
       },
       {
         "label": "치명타 피해",
-        "value": "100%",
-        "nearFinal": "110%",
-        "final": "120%+",
-        "condition": "전당품 전 기준. 전투 중 중첩으로 크게 증가합니다."
-      },
-      {
-        "label": "공격력",
-        "value": "2,700",
-        "nearFinal": "2,850",
-        "final": "3,000+",
-        "condition": "기본 속도·공격력 신발 기준."
-      },
-      {
-        "label": "속도",
-        "value": "기본 103",
-        "nearFinal": "134 선택",
-        "final": "수금업자에 맞춤",
-        "condition": "수금업자 공격 빈도를 우선하고, 제이드가 먼저 지정해야 하면 선행동 행적과 속도를 같이 계산."
+        "value": "80%",
+        "nearFinal": "—",
+        "final": "160%",
+        "notes": {
+          "value": "특성으로 치명타 피해 120% 자버프 가능."
+        }
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (천재 / 도람)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -5844,6 +6079,14 @@
     ],
     "eidolonAdvice": "성혼 1은 공격 대상이 적은 전투에서 충전 부족을 보완합니다. 다수전 편성은 명함부터 시작할 수 있습니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A34:P37"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A11:F14"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/jade"
@@ -5973,28 +6216,22 @@
     ],
     "targetStats": [
       {
-        "label": "치명타 피해",
-        "value": "180%",
-        "nearFinal": "200%",
-        "final": "220%+",
-        "condition": "필살기의 치명타 피해 증가량이 선데이 치명타 피해에 비례."
-      },
-      {
         "label": "속도",
-        "value": "134 / 딜러보다 느리게",
-        "nearFinal": "딜러보다 약 1 느리게",
-        "final": "고속형 160+ 선택",
-        "condition": "딜러 턴 직후 당기거나 선데이 자체 속도를 높이는 두 세팅입니다. 전투 중 속도 변화 확인."
+        "value": "133.4+ / 167.4+",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "사제 133.4+ (딜러보다 느리게) · 매+댄스! 댄스! 댄스! 167.4+."
+        }
       },
       {
-        "label": "에너지 회복효율",
-        "value": "119.4%",
-        "nearFinal": "124.4% 선택",
-        "final": "필살기 주기 유지",
-        "condition": "회복효율 매듭과 필요 시 5% 장신구. 전광 및 피격 등에 따라 주기 변동."
+        "label": "치명타 피해",
+        "value": "200%",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -6035,6 +6272,10 @@
     ],
     "eidolonAdvice": "성혼 1은 소환물 딜러에 특히 큰 방어력 무시를 제공합니다. 포인트가 빠듯하면 전용 광추도 비교하세요.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A378:P381"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/sunday"
@@ -6167,35 +6408,25 @@
     ],
     "targetStats": [
       {
+        "label": "공격력",
+        "value": "2400",
+        "nearFinal": "—",
+        "final": "—"
+      },
+      {
         "label": "치명타 확률",
-        "value": "65%",
-        "nearFinal": "70%",
-        "final": "70%+",
-        "condition": "살소토 발동은 50%. 치명타 확률을 먼저 확보하세요."
+        "value": "100%",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
         "label": "치명타 피해",
-        "value": "120%",
-        "nearFinal": "125%",
-        "final": "130%+",
-        "condition": "설원 세트를 쓰는 경우 필살기 사용 후 보너스를 합산."
-      },
-      {
-        "label": "공격력",
-        "value": "2,000",
-        "nearFinal": "2,200",
-        "final": "2,400+",
-        "condition": "속도 신발과 광추에 따라 조정."
-      },
-      {
-        "label": "속도",
-        "value": "134",
-        "nearFinal": "134+",
-        "final": "행동 지원 맞춤",
-        "condition": "고속 스파클과 편성하면 공격력 신발 비교."
+        "value": "80%",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -6236,6 +6467,10 @@
     ],
     "eidolonAdvice": "성혼 2는 다단 필살기에서 방어력 감소를 노릴 수 있고, 성혼 6은 파티 포인트 부담을 낮춥니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A146:P149"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/misha"
@@ -6356,35 +6591,32 @@
     ],
     "targetStats": [
       {
-        "label": "격파 특수효과",
-        "value": "완전연소 중 300%+",
-        "nearFinal": "완전연소 중 350%+",
-        "final": "완전연소 중 400%+",
-        "condition": "완전연소 격특 300% → 슈퍼 격파 배율 150%. 전투 수치(공격력 전환·완전연소 +25%·장비·동료 버프 포함)."
+        "label": "공격력",
+        "value": "2200",
+        "nearFinal": "—",
+        "final": "2500"
       },
       {
         "label": "속도",
-        "value": "완전연소 중 210+",
-        "nearFinal": "완전연소 중 210+ 유지",
-        "final": "완전연소 중 210+ · 순서 조정",
-        "condition": "완전연소 210 목표. 필살기 Lv.10 +60 → 마을 150부터. 반디가 화염 약점 부여 후 달리아의 속도 +30%, 완·매 특성 +10.4 등은 전투에서 합산."
+        "value": "최대 178 / 최대 177.4",
+        "nearFinal": "—",
+        "final": "190",
+        "notes": {
+          "value": "달리아와 필살기 종료 후 즉시 재변신하는 상한 178.0. 파이논 전용 광추 177.4. 망귀인 2돌·댄스! 댄스! 댄스!는 별도 계산.",
+          "final": "종결 탭은 190. 추천 칸의 즉시 재변신 조건은 종결 탭에 기재되어 있지 않음."
+        }
       },
       {
-        "label": "공격력",
-        "value": "공격력% 몸통·구체",
-        "nearFinal": "격특·속도 확보 후 보강",
-        "final": "같은 조건에서 격특 효율 우선",
-        "condition": "승급 6단계 · 공격력 1,800 초과분 100당 격특 +8% · 전투 격특에 포함."
-      },
-      {
-        "label": "HP",
-        "value": "마을 2,600+",
-        "nearFinal": "마을 2,600+ 유지",
-        "final": "마을 2,600+ · 생존 확인",
-        "condition": "생존 참고값 · 부족할 때만 HP·방어력·치유 보완."
+        "label": "격파 특수효과",
+        "value": "200%",
+        "nearFinal": "—",
+        "final": "300%",
+        "notes": {
+          "value": "전투 중 목표 250%."
+        }
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 주요 행적 · 필살기 Lv.10 · 5성 유물 +15. 발동 조건 외에는 동일 파티·광추·버프 기준 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (철기군 / 연마궁)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -6425,6 +6657,14 @@
     ],
     "eidolonAdvice": "명함으로 슈퍼 격파 운용. 동료·장비 확보 후 1돌 SP 절약 → 2돌 보너스 턴.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A262:P265"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A107:F110"
+      },
       {
         "label": "HoYoLAB · 4.2 정련된 새 빛 강화 안내",
         "url": "https://www.hoyolab.com/article/44655474"
@@ -6571,27 +6811,21 @@
     "targetStats": [
       {
         "label": "공격력",
-        "value": "3,000",
-        "nearFinal": "3,600",
-        "final": "4,400+",
-        "condition": "필살기 공격력 버프의 로빈 비례분. 협주·광추 전투 버프 전 기준."
+        "value": "4500",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
         "label": "속도",
-        "value": "120",
-        "nearFinal": "120+",
-        "final": "첫 행동 순서 확보",
-        "condition": "바커 공과 승급 행적으로 전투 첫 턴을 당깁니다. 협주 종료 속도는 고정."
-      },
-      {
-        "label": "에너지 회복효율",
-        "value": "119.4%",
-        "nearFinal": "124.4%",
-        "final": "협주 주기 유지",
-        "condition": "매듭과 에너지 5% 장신구 기준. 공격 빈도가 낮으면 광추나 지원을 함께 조정."
+        "value": "117+ / 120",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "1돌 이하 자동 전투, 딜러 속도 134 기준 117+ · 바커공 120."
+        }
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -6632,6 +6866,10 @@
     ],
     "eidolonAdvice": "성혼 1은 팀 전체가 받는 저항 관통을 높입니다. 먼저 회복효율과 첫 행동을 확보하세요.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A202:P205"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/robin"
@@ -6766,35 +7004,46 @@
     ],
     "targetStats": [
       {
-        "label": "치명타 확률",
-        "value": "전투 80%",
-        "nearFinal": "전투 85%",
-        "final": "전투 90%+",
-        "condition": "전투 적용치 기준. 이즈모 +12%, 성혼 1의 디버프 대상 +18% 등이 있으면 마을 수치를 그만큼 낮추고 전투 100%까지 확보."
-      },
-      {
-        "label": "치명타 피해",
-        "value": "160%",
-        "nearFinal": "170%",
-        "final": "180%+",
-        "condition": "치명타 확률 목표를 달성한 뒤 치명타 피해 강화."
-      },
-      {
         "label": "공격력",
-        "value": "2,900",
-        "nearFinal": "3,050",
-        "final": "3,200+",
-        "condition": "공격력 구체·신발을 장착하면 더 높아집니다."
+        "value": "3400",
+        "nearFinal": "—",
+        "final": "4000",
+        "notes": {
+          "value": "일반·AS 세팅 모두 3400.",
+          "final": "공격력 구체 기준."
+        }
       },
       {
         "label": "속도",
-        "value": "기본 101",
-        "nearFinal": "134 선택",
-        "final": "기연 성혼 발동 주기 확인",
-        "condition": "기본 속도는 고속 행동 지원 조합, 134는 자기 행동 수를 늘리는 세팅."
+        "value": "133.4+",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "일반 세팅 기준."
+        }
+      },
+      {
+        "label": "치명타 확률",
+        "value": "100%",
+        "nearFinal": "—",
+        "final": "80% / 66%",
+        "notes": {
+          "value": "일반 · 1돌 18%, 이즈모 12%, 선구자 4% 참고. AS · 기연성혼 활성화, 파티원 전원 매 세트, 천야•블레이드 속도 168+, 애쉬베일 속도 생략 또는 168+.",
+          "final": "명함 80% · 2돌 66%."
+        }
+      },
+      {
+        "label": "치명타 피해",
+        "value": "140%",
+        "nearFinal": "—",
+        "final": "240% / 280%",
+        "notes": {
+          "value": "일반 세팅 기준.",
+          "final": "명함 240% · 2돌 280%."
+        }
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (선구자 / 이즈모)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -6835,6 +7084,14 @@
     ],
     "eidolonAdvice": "기연 성혼을 해금한 뒤 일반 성혼 2를 검토하세요. 공허 한 자리로 나락의 최대 효과를 내고 아케론의 턴마다 꿈 조각을 더 얻습니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A94:P97"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A43:F46"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/acheron"
@@ -6972,28 +7229,28 @@
     ],
     "targetStats": [
       {
-        "label": "효과 명중",
-        "value": "120%",
-        "nearFinal": "120% 유지",
-        "final": "120% 유지",
-        "condition": "정련된 새 빛의 팀 피해 증가 행적 상한. 아르카나 적용 확률도 높입니다."
-      },
-      {
         "label": "공격력",
-        "value": "3,100",
-        "nearFinal": "3,100+",
-        "final": "전투 3,600 선택",
-        "condition": "바다의 일각 2단계 보너스는 전투 공격력 3,600. 동료 버프를 함께 계산."
+        "value": "2400",
+        "nearFinal": "—",
+        "final": "4400",
+        "notes": {
+          "value": "전투 중 공격력 목표 3600+."
+        }
       },
       {
         "label": "속도",
-        "value": "134",
-        "nearFinal": "기폭 담당보다 빠르게",
-        "final": "160 비교",
-        "condition": "지속 피해를 먼저 쌓을 수 있도록 카프카의 실제 전투 속도와 비교."
+        "value": "133.4+",
+        "nearFinal": "—",
+        "final": "134"
+      },
+      {
+        "label": "효과 명중",
+        "value": "156.5% (최소 120%)",
+        "nearFinal": "—",
+        "final": "120%"
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (죄수 / 일각)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -7034,6 +7291,14 @@
     ],
     "eidolonAdvice": "성혼 1은 여러 속성의 지속 피해를 함께 올립니다. 성혼 2는 새 적이 계속 들어오는 콘텐츠에서 아르카나 준비 시간을 줄입니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A314:P317"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A135:F138"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/black-swan"
@@ -7163,28 +7428,25 @@
     ],
     "targetStats": [
       {
-        "label": "치명타 피해",
-        "value": "175%",
-        "nearFinal": "190%",
-        "final": "210%+",
-        "condition": "스킬 치명타 피해의 스파클 비례분. 목표 속도를 먼저 확보."
-      },
-      {
         "label": "속도",
-        "value": "160+",
-        "nearFinal": "167.4 조건부",
-        "final": "184 조건부",
-        "condition": "첫 150 행동값 3회 기준. 매 4세트·댄스! 5중첩의 행동 당김을 각 1회 쓰면 167.4, 하나만 쓰면 184. 바커 공 별도."
+        "value": "133.4+ / 167.4+ / 168.3+",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "사제 133.4+ · 매+댄스! 댄스! 댄스! 3행동 167.4+ · 1돌 매+전광 168.3+."
+        }
       },
       {
-        "label": "에너지 회복효율",
-        "value": "119.4%",
-        "nearFinal": "124.4% 선택",
-        "final": "필살기 주기 유지",
-        "condition": "회복효율 매듭에 필요하면 장신구 5%를 더하세요. 딜러의 포인트 소모도 에너지를 돌려줍니다."
+        "label": "치명타 피해",
+        "value": "200%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "사제 세팅 기준."
+        }
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -7225,6 +7487,10 @@
     ],
     "eidolonAdvice": "성혼 1은 가속과 공격력, 성혼 2는 파티 방어력 감소로 이어집니다. 포인트 소비가 많은 딜러와 먼저 맞추세요.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A30:P33"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/sparkle"
@@ -7374,35 +7640,37 @@
     ],
     "targetStats": [
       {
-        "label": "치명타 확률",
-        "value": "전투 90%",
-        "nearFinal": "전투 95%",
-        "final": "전투 100%",
-        "condition": "귀납의 치명타 확률과 선구자 등 장비 보너스를 적용한 수치."
-      },
-      {
-        "label": "치명타 피해",
-        "value": "전투 180%",
-        "nearFinal": "전투 190%",
-        "final": "전투 200%+",
-        "condition": "귀납과 동료 버프 합산."
-      },
-      {
         "label": "공격력",
-        "value": "2,700",
-        "nearFinal": "2,900",
-        "final": "3,100+",
-        "condition": "속도 신발과 사용 광추에 따라 변동."
+        "value": "3500",
+        "nearFinal": "—",
+        "final": "3000"
       },
       {
         "label": "속도",
-        "value": "134",
-        "nearFinal": "143 선택",
-        "final": "161 선택",
-        "condition": "디버프 담당이 먼저 행동해야 추가 공격을 확정할 수 있습니다."
+        "value": "—",
+        "nearFinal": "—",
+        "final": "134"
+      },
+      {
+        "label": "치명타 확률",
+        "value": "87.5%",
+        "nearFinal": "—",
+        "final": "87.5%",
+        "notes": {
+          "value": "귀납 치명타 확률 최대 12.5% 참고."
+        }
+      },
+      {
+        "label": "치명타 피해",
+        "value": "130%",
+        "nearFinal": "—",
+        "final": "150%",
+        "notes": {
+          "value": "귀납 치명타 피해 30% 참고."
+        }
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (선구자 / 도람)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -7443,6 +7711,14 @@
     ],
     "eidolonAdvice": "성혼 1은 귀납 초기 치명타와 상한, 성혼 2는 디버프가 많은 보스 대상의 추가 피해를 높입니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A358:P361"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A159:F162"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/dr-ratio"
@@ -7575,34 +7851,30 @@
     "targetStats": [
       {
         "label": "방어력",
-        "value": "4,000",
-        "nearFinal": "4,000 유지",
-        "final": "4,000+",
-        "condition": "승급 2단계 치명타 확률 +48% 상한. 실드 안정성은 방어력이 높을수록 개선."
+        "value": "4500",
+        "nearFinal": "—",
+        "final": "4000"
       },
       {
         "label": "속도",
-        "value": "134",
-        "nearFinal": "134 유지",
-        "final": "파티 순서 조정",
-        "condition": "실드가 자주 끊기면 속도 신발로 스킬 턴과 포인트 생성량 확보."
+        "value": "133.4+",
+        "nearFinal": "—",
+        "final": "134"
       },
       {
         "label": "치명타 확률",
-        "value": "전투 60%",
-        "nearFinal": "전투 75%",
-        "final": "전투 90%+",
-        "condition": "방어력 행적 포함, 방어력 4,000 이후 부딜 투자."
+        "value": "—",
+        "nearFinal": "—",
+        "final": "52%"
       },
       {
         "label": "치명타 피해",
-        "value": "110%",
-        "nearFinal": "140%",
-        "final": "170%+",
-        "condition": "실드 역할에 충분한 방어력과 속도를 맞춘 뒤 확보."
+        "value": "—",
+        "nearFinal": "—",
+        "final": "150%"
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (선구자 / 루샤카·도람)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -7643,6 +7915,14 @@
     ],
     "eidolonAdvice": "성혼 1은 필살기로 전원 실드를 갱신합니다. 성혼 2는 일반 공격에 저항 감소를 붙여 디버프 파티 운용을 보조합니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A362:P365"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A163:F166"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/aventurine"
@@ -7783,35 +8063,25 @@
     ],
     "targetStats": [
       {
-        "label": "격파 특수효과",
-        "value": "전투 180%",
-        "nearFinal": "전투 180%",
-        "final": "전투 180% 유지",
-        "condition": "전투 180% → 승급 6단계 행적 피해 증가 상한. 승급 2단계 행적 +20%만 받으면 마을 160%."
-      },
-      {
         "label": "속도",
-        "value": "전투 134 전후",
-        "nearFinal": "134 전후 / 수용소 145+",
-        "final": "파티 행동 순서에 맞춤",
-        "condition": "전투 134는 범용 시작점. 결계·전투 스킬은 완·매 턴 기준. 바커 공으로 저속 선버프 가능. 전투 145 이상 → 수용소 발동."
+        "value": "120+",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "바커공 사용 시. 6돌 미만은 저속 권장."
+        }
       },
       {
-        "label": "에너지 회복효율",
-        "value": "119.4%+",
-        "nearFinal": "119.4% / 조건부 124.4%",
-        "final": "필살기 주기 충족",
-        "condition": "매듭 +15 → 119.4%, 회복효율 5% 장신구 포함 → 124.4%. 두 장비+승급 4단계 행적+광추 5중첩(기억 속 모습/맞물린 톱니) → 전투 스킬 1회+일반 공격 2회로 필살기 충전."
-      },
-      {
-        "label": "HP / 방어력",
-        "value": "마을 3,700 / 1,000 전후",
-        "nearFinal": "마을 4,300 / 1,000 전후",
-        "final": "마을 5,000 / 1,100 전후",
-        "condition": "생존 투자 목표. 격파 특수효과·속도·필살기 주기 확보 후 보완."
+        "label": "격파 특수효과",
+        "value": "최대한 / 160%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "격파 지원 최대한 · 범용 지원 160% (추가 능력 +20%로 피해 증가 상한 180%)."
+        }
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80, 핵심 행적, 유물 +15. 추천·준종결·종결은 편집상 목표. 전투 버프 포함.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -7852,6 +8122,10 @@
     ],
     "eidolonAdvice": "E0부터 격파·저항 관통 지원. 파티 피해를 더 높이려면 E1.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A142:P145"
+      },
       {
         "label": "HoYoLAB · 완·매 공식 프리뷰",
         "url": "https://www.hoyolab.com/article/23785424"
@@ -8000,35 +8274,37 @@
     ],
     "targetStats": [
       {
-        "label": "치명타 확률",
-        "value": "전투 75%",
-        "nearFinal": "전투 80%",
-        "final": "전투 90%+",
-        "condition": "특성 승격 치명타 확률을 포함하고 동료 버프까지 합쳐 100% 이하로 맞추세요."
-      },
-      {
-        "label": "치명타 피해",
-        "value": "전투 150%",
-        "nearFinal": "전투 160%",
-        "final": "160%+ 유지",
-        "condition": "허구 이야기에서 츠가냐와 성혼 1 승격 중첩을 합산."
-      },
-      {
         "label": "공격력",
-        "value": "2,600",
-        "nearFinal": "2,800",
-        "final": "3,000+",
-        "condition": "공격력 신발과 광추에 따라 달라집니다."
+        "value": "3600",
+        "nearFinal": "—",
+        "final": "3000"
       },
       {
         "label": "속도",
-        "value": "134",
-        "nearFinal": "134 유지",
-        "final": "지원과 순서 조정",
-        "condition": "고속 행동 지원과 함께라면 기본 속도·공격력 신발로 비교."
+        "value": "166.7+",
+        "nearFinal": "—",
+        "final": "134",
+        "notes": {
+          "value": "더 헤르타 팀 · 영험한 열쇠+매 세트."
+        }
+      },
+      {
+        "label": "치명타 확률",
+        "value": "75%",
+        "nearFinal": "—",
+        "final": "75%",
+        "notes": {
+          "value": "광역 딜러 기준. 승격 치명타 확률 25% 참고."
+        }
+      },
+      {
+        "label": "치명타 피해",
+        "value": "150%",
+        "nearFinal": "—",
+        "final": "200%"
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (학자 / 살소토)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -8069,6 +8345,14 @@
     ],
     "eidolonAdvice": "성혼 1로 승격에 치명타 피해가 더해집니다. 허구 이야기에서 지원·에너지 주기부터 확보하세요.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A194:P197"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A75:F78"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/argenti"
@@ -8200,34 +8484,21 @@
     "targetStats": [
       {
         "label": "속도",
-        "value": "전투 134+",
-        "nearFinal": "전투 143+",
-        "final": "전투 160 초과",
-        "condition": "범용 전투 속도 목표. 행동 순서에 증식·필살기 후 자신의 행동 게이지 +100% 반영."
+        "value": "145+",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
-        "label": "격파 특수효과 · 치유",
-        "value": "마을 60%부터",
-        "nearFinal": "전투 150%",
-        "final": "전투 150% 유지",
-        "condition": "전투 격파 특수효과 150% → 치유량 증가 최대 75%."
-      },
-      {
-        "label": "격파 특수효과 · 철기군",
-        "value": "전투 150%",
-        "nearFinal": "전투 250%",
-        "final": "전투 250%+",
-        "condition": "철기군 4세트 전투 150% → 격파 피해 방어력 10% 무시, 250% → 슈퍼 격파 피해 방어력 추가 15% 무시. 250%는 슈퍼 격파용 목표."
-      },
-      {
-        "label": "효과 저항",
-        "value": "용골 사용 시 전투 30%+",
-        "nearFinal": "용골 사용 시 전투 30%+",
-        "final": "전투 100% · 선택 목표",
-        "condition": "용골 → 전투 효과 저항 30% 이상. E1 +50% → 마을 50%면 전투 100%(행적·장신구 포함). 100%는 선택 목표."
+        "label": "격파 특수효과",
+        "value": "150%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "격파 특수효과에 따른 치유량 증가 상한."
+        }
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80, 핵심 행적, 유물 +15. 편집상 목표. 전투 수치는 파티·장신구·성혼 버프 포함.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -8268,6 +8539,10 @@
     ],
     "eidolonAdvice": "E0 만취 회복·격파 지원. 해제는 E2, 슈퍼 격파 파티는 E6 목표.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A258:P261"
+      },
       {
         "label": "공식 2.1 업데이트 · 갤러거와 만취 소개",
         "url": "https://hsr.hoyoverse.com/en-us/news/123034"
@@ -8428,28 +8703,25 @@
     ],
     "targetStats": [
       {
-        "label": "격파 특수효과",
-        "value": "전투 220%",
-        "nearFinal": "전투 250% 선택",
-        "final": "220% 이상 유지",
-        "condition": "220%는 격파 행적의 높은 보너스 기준. 자체 행적 +30%, 동료·장신구 효과를 함께 계산하세요."
+        "label": "속도",
+        "value": "160+",
+        "nearFinal": "—",
+        "final": "187"
       },
       {
         "label": "효과 명중",
-        "value": "67%",
-        "nearFinal": "67% 유지",
-        "final": "필요 조건 유지",
-        "condition": "효과 저항 40%인 적에게 100% 기본 확률 방어력 감소 적중 기준."
+        "value": "66.7%",
+        "nearFinal": "—",
+        "final": "66%"
       },
       {
-        "label": "속도",
-        "value": "142+",
-        "nearFinal": "145+",
-        "final": "160+",
-        "condition": "수용소 발동은 전투 속도 145. 첫 턴 기도 대상보다 먼저 행동하도록 맞추세요."
+        "label": "격파 특수효과",
+        "value": "전투 220%",
+        "nearFinal": "—",
+        "final": "250%"
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (철기군 / 연마궁)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -8490,6 +8762,14 @@
     ],
     "eidolonAdvice": "성혼 1은 주 대상의 격파 효율을, 성혼 2는 반복 격파 전투에서 필살기와 아군 행동 횟수를 높입니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A274:P277"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A111:F114"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/tingyun-fugue"
@@ -8625,34 +8905,42 @@
     "targetStats": [
       {
         "label": "속도",
-        "value": "마을 123+",
-        "nearFinal": "마을 133+",
-        "final": "사부와 순서 조정",
-        "condition": "성혼 1의 전투 속도 +10%를 적용하면 각각 전투 약 134/145."
+        "value": "160+ / 168+",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "히메코·노바 지원 160+ · 달리아 격파 편성 168+."
+        }
       },
       {
         "label": "치명타 확률",
-        "value": "75%",
-        "nearFinal": "80%",
-        "final": "85%+",
-        "condition": "치명타 세팅의 목표. 경기장은 전투 70%부터."
+        "value": "80%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "히메코·노바 지원 기준."
+        }
       },
       {
         "label": "치명타 피해",
-        "value": "150%",
-        "nearFinal": "160%",
-        "final": "170%+",
-        "condition": "치명타 세팅에서 필살기·성혼 보너스 전 기준."
+        "value": "120%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "히메코·노바 지원 기준."
+        }
       },
       {
         "label": "격파 특수효과",
-        "value": "140%",
-        "nearFinal": "전투 150%",
-        "final": "전투 250% 선택",
-        "condition": "격파 세팅에서 철기군 4세트 발동을 기준으로 단계 설정."
+        "value": "최대한",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "달리아 격파 편성 기준."
+        }
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -8693,6 +8981,10 @@
     ],
     "eidolonAdvice": "상시 콘텐츠로 성혼을 해금하세요. 성혼 2는 충전 속도를 높이고 성혼 6은 치명타형 강화 공격을 강화합니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A370:P373"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/march-7th-swordmaster"
@@ -8819,28 +9111,28 @@
     ],
     "targetStats": [
       {
+        "label": "공격력",
+        "value": "2700",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "번개 피해 구체 2700 · 공격력 구체 3000."
+        }
+      },
+      {
         "label": "치명타 확률",
-        "value": "80%",
-        "nearFinal": "90%",
-        "final": "100%",
-        "condition": "비소와 함께 이즈모를 쓰는 경우 전투 치명타 확률 +12%를 합산."
+        "value": "100%",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
         "label": "치명타 피해",
-        "value": "120%",
-        "nearFinal": "130%",
-        "final": "140%+",
-        "condition": "성혼 2의 사냥감 대상 피해 보너스 별도."
-      },
-      {
-        "label": "공격력",
-        "value": "2,400",
-        "nearFinal": "2,500",
-        "final": "2,600+",
-        "condition": "공격력 신발 기준. 속도는 첫 표식에 필요한 만큼 조정하세요."
+        "value": "100%",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -8881,6 +9173,10 @@
     ],
     "eidolonAdvice": "성혼 2가 사냥감 대상의 파티 치명타 피해를 크게 높입니다. 성혼 1은 첫 필살기와 유지에 도움을 줍니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A98:P101"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/moze"
@@ -9012,27 +9308,21 @@
     "targetStats": [
       {
         "label": "속도",
-        "value": "151",
-        "nearFinal": "160",
-        "final": "파티 순서 조정",
-        "condition": "스킬·필살기와 부원 행동을 늘립니다. 수용소는 전투 속도 145 이상."
+        "value": "160+ / 166.7+",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "철기군 160+ · 적 다수에서 매+관의 울림 166.7+."
+        }
       },
       {
         "label": "격파 특수효과",
-        "value": "100%",
-        "nearFinal": "150%",
-        "final": "250% 전투 선택",
-        "condition": "승급 행적의 공격력·치유 증가와 철기군 발동 기준."
-      },
-      {
-        "label": "공격력",
-        "value": "2,000",
-        "nearFinal": "2,100",
-        "final": "2,200+",
-        "condition": "격파 특수효과에 따른 행적의 공격력 전환을 별도로 고려."
+        "value": "전투 200%",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -9073,6 +9363,10 @@
     ],
     "eidolonAdvice": "성혼 1은 강인성 감소 속도와 파티 격파 피해를 높이는 첫 투자입니다. 성혼 2는 필살기로 팀 격파 특수효과를 더합니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A270:P273"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/lingsha"
@@ -9211,35 +9505,28 @@
     ],
     "targetStats": [
       {
+        "label": "공격력",
+        "value": "2900",
+        "nearFinal": "—",
+        "final": "3500"
+      },
+      {
         "label": "치명타 확률",
-        "value": "90%",
-        "nearFinal": "95%",
+        "value": "100%",
+        "nearFinal": "—",
         "final": "100%",
-        "condition": "시인·동료 버프 포함. 반격의 안정적인 치명타를 우선."
+        "notes": {
+          "value": "치명타 확률 100% 우선."
+        }
       },
       {
         "label": "치명타 피해",
-        "value": "100%",
-        "nearFinal": "110%",
-        "final": "120%+",
-        "condition": "필살기 자체의 치명타 피해 보너스 제외."
-      },
-      {
-        "label": "공격력",
-        "value": "3,200",
-        "nearFinal": "3,300",
-        "final": "3,400+",
-        "condition": "Lv.80 광추와 공격력 신발 기준."
-      },
-      {
-        "label": "속도",
-        "value": "94",
-        "nearFinal": "94 유지",
-        "final": "저속 유지",
-        "condition": "반격은 적 행동을 따라 발생하며 시인 치명타 조건에 유리합니다."
+        "value": "120%",
+        "nearFinal": "—",
+        "final": "220%"
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (용맹함 / 도람)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -9280,6 +9567,14 @@
     ],
     "eidolonAdvice": "성혼 1과 2는 반격 피해를 키웁니다. 전용 광추의 피격 확률 지원은 적 행동 연결에도 도움이 됩니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A210:P213"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A83:F86"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/yunli"
@@ -9409,35 +9704,37 @@
     ],
     "targetStats": [
       {
-        "label": "치명타 확률",
-        "value": "85%",
-        "nearFinal": "90%",
-        "final": "95%+",
-        "condition": "전투 보너스 포함 100%를 넘지 않게 조정하세요."
-      },
-      {
-        "label": "치명타 피해",
-        "value": "134%",
-        "nearFinal": "144%",
-        "final": "154%+",
-        "condition": "로빈과 비소 자체 추가 공격 치명타 피해 버프는 별도."
-      },
-      {
         "label": "공격력",
-        "value": "2,700",
-        "nearFinal": "3,000",
-        "final": "3,300+",
-        "condition": "속도 신발의 공격력은 낮아질 수 있습니다."
+        "value": "3000",
+        "nearFinal": "—",
+        "final": "2200",
+        "notes": {
+          "value": "공격력 신발·바람 피해 구체 기준."
+        }
       },
       {
         "label": "속도",
-        "value": "기본 속도",
-        "nearFinal": "134 선택",
-        "final": "파티 순서 조정",
-        "condition": "공격력 신발은 동료 공격 빈도가 높을 때, 속도 134는 비소 자신의 행동 횟수를 늘릴 때 선택."
+        "value": "133.4+",
+        "nearFinal": "—",
+        "final": "151+",
+        "notes": {
+          "value": "용맹 세트 기준. 매 세트는 우선도 낮음."
+        }
+      },
+      {
+        "label": "치명타 확률",
+        "value": "100%",
+        "nearFinal": "—",
+        "final": "100%"
+      },
+      {
+        "label": "치명타 피해",
+        "value": "120%",
+        "nearFinal": "—",
+        "final": "120%"
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (매 / 도람)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -9478,6 +9775,14 @@
     ],
     "eidolonAdvice": "성혼 1은 필살기 피해 증가, 성혼 2는 추가 공격 편성에서 필살기 사용 빈도 증가에 유효합니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A318:P321"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A139:F142"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/feixiao"
@@ -9607,28 +9912,25 @@
     ],
     "targetStats": [
       {
-        "label": "효과 명중",
-        "value": "140%",
-        "nearFinal": "140% 유지",
-        "final": "고저항 적 기준 보강",
-        "condition": "행적 공격력 상한 기준. 65% 기본 확률 디버프는 효과 저항 40% 적에게 157% 부근에서 확정."
-      },
-      {
         "label": "속도",
-        "value": "딜러보다 빠르게",
-        "nearFinal": "143+",
-        "final": "160+",
-        "condition": "결계를 가능한 한 적 행동 전에 가동하세요."
+        "value": "166.7+",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "매 세트 기준."
+        }
       },
       {
-        "label": "에너지 회복효율",
-        "value": "119.4%",
-        "nearFinal": "124.4% 선택",
-        "final": "결계 주기 유지",
-        "condition": "회복효율 매듭·바커 공 기준."
+        "label": "효과 명중",
+        "value": "177.8% / 66.7%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "아케론 조합 177.8% · 다른 조합 66.7%."
+        }
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -9669,6 +9971,10 @@
     ],
     "eidolonAdvice": "성혼 1은 직접 피해 지원, 성혼 2는 지속 피해 파티에서 훈작의 비중을 높입니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A266:P269"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/jiaoqiu"
@@ -9807,35 +10113,19 @@
     ],
     "targetStats": [
       {
-        "label": "속도",
-        "value": "전투 134+",
-        "nearFinal": "전투 143+",
-        "final": "전투 160 초과",
-        "condition": "범용 전투 속도 목표. E1 양명 중 각 아군 기초 속도의 12% 추가(곽향 +11.76). 강화 곽향은 전투 시작부터 양명."
-      },
-      {
         "label": "HP",
-        "value": "마을 5,600 전후",
-        "nearFinal": "마을 6,000 전후",
-        "final": "마을 6,400+",
-        "condition": "최대 HP 비례 치유. 치유량 갑옷 착용 기준. 5,600~6,400은 권장 범위, 6,000은 편집상 목표."
+        "value": "6000",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
-        "label": "에너지 회복효율",
-        "value": "119.4%+",
-        "nearFinal": "119.4%+",
-        "final": "119.4%+ 유지",
-        "condition": "회복효율 매듭 +15 기준. 필살기 주기는 광추·장신구·치유 발동 횟수·피격에 따라 변동."
-      },
-      {
-        "label": "효과 저항",
-        "value": "용골 사용 시 30%+",
-        "nearFinal": "용골 사용 시 30%+",
-        "final": "용골 사용 시 30%+ 유지",
-        "condition": "용골 착용 시 전투 효과 저항 30% 이상(세트 자체 10% 포함) → 팀 치명타 피해 증가. 제어류 디버프 저항 35%는 별도."
+        "label": "속도",
+        "value": "160+",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "4.2 강화, 캐릭터·광추 Lv.80, 유물 +15. 편집상 목표. 속도는 전투, HP·회복효율은 마을 기준.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -9876,6 +10166,10 @@
     ],
     "eidolonAdvice": "E0 치유·해제·필살기 지원. 양명 유지·팀 속도는 E1 우선. 보유 4성 광추로 시작 가능.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A310:P313"
+      },
       {
         "label": "HoYoLAB · 4.2 정련된 새 빛 공식 공지",
         "url": "https://www.hoyolab.com/article/44655474"
@@ -10026,27 +10320,12 @@
     "targetStats": [
       {
         "label": "속도",
-        "value": "165",
-        "nearFinal": "170",
-        "final": "175+",
-        "condition": "필살기 가속량은 한아 속도 기준. 파티 행동 순서를 함께 확인하세요."
-      },
-      {
-        "label": "에너지 회복효율",
-        "value": "119.4%",
-        "nearFinal": "119.4%",
-        "final": "124.4% 선택",
-        "condition": "매듭 +19.4%, 루샤카 +5%. 광추와 피격에 따라 주기가 달라집니다."
-      },
-      {
-        "label": "HP",
-        "value": "3,500",
-        "nearFinal": "4,000",
-        "final": "4,400+",
-        "condition": "속도와 회복효율 확보 후 몸통·구체에서 생존 보완."
+        "value": "160+",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -10087,6 +10366,10 @@
     ],
     "eidolonAdvice": "성혼 2로 한아의 행동이 빨라지고 성혼 4로 딜러의 속도·공격력 버프가 더 오래 유지됩니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A198:P201"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/hanya"
@@ -10200,35 +10483,25 @@
     ],
     "targetStats": [
       {
-        "label": "격파 특수효과",
-        "value": "100%",
-        "nearFinal": "125%",
-        "final": "150%+",
-        "condition": "격파 특수효과는 자체 행적을 통해 일반 피해에도 기여합니다."
-      },
-      {
-        "label": "치명타 확률",
-        "value": "60%",
-        "nearFinal": "65%",
-        "final": "70%+",
-        "condition": "마음에 새긴 약속의 필살기 후 치명타 확률과 합산하세요."
-      },
-      {
-        "label": "치명타 피해",
-        "value": "120%",
-        "nearFinal": "130%",
-        "final": "140%+",
-        "condition": "격파와 치명타를 함께 확보하는 세팅 기준."
-      },
-      {
         "label": "속도",
-        "value": "134",
-        "nearFinal": "145",
-        "final": "160 비교",
-        "condition": "탈리아를 쓰면 전투 145 확보."
+        "value": "145",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "격파 세팅 기준."
+        }
+      },
+      {
+        "label": "격파 특수효과",
+        "value": "200%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "격파 세팅 기준."
+        }
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -10269,6 +10542,10 @@
     ],
     "eidolonAdvice": "성혼 2는 약점이 다른 적도 추가 공격으로 격파할 수 있게 합니다. 성혼 6은 업보의 추가 공격 주기를 줄입니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A26:P29"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/xueyi"
@@ -10389,35 +10666,28 @@
     ],
     "targetStats": [
       {
+        "label": "공격력",
+        "value": "3300",
+        "nearFinal": "—",
+        "final": "3200"
+      },
+      {
         "label": "치명타 확률",
-        "value": "75%",
-        "nearFinal": "80%",
-        "final": "85%+",
-        "condition": "경기장 발동은 전투 치명타 확률 70%부터."
+        "value": "100%",
+        "nearFinal": "—",
+        "final": "100%",
+        "notes": {
+          "value": "선데이 20% · 스파클 전용 광추 10% 참고."
+        }
       },
       {
         "label": "치명타 피해",
-        "value": "145%",
-        "nearFinal": "155%",
-        "final": "165%+",
-        "condition": "노호 및 허수 약점 행적의 치명타 피해는 별도."
-      },
-      {
-        "label": "공격력",
-        "value": "2,200",
-        "nearFinal": "2,400",
-        "final": "2,600+",
-        "condition": "공격력 신발 기준. 전광의 전투 중 중첩 제외."
-      },
-      {
-        "label": "속도",
-        "value": "기본 속도",
-        "nearFinal": "고속 스파클 사용",
-        "final": "지원에 맞춤",
-        "condition": "포인트 수급이 따라오는 지원의 턴에 음월을 당기세요."
+        "value": "130%",
+        "nearFinal": "—",
+        "final": "220%"
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (뭇별)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -10458,6 +10728,14 @@
     ],
     "eidolonAdvice": "기연 성혼 해금 후 일반 성혼은 2가 우선입니다. 강화 일반 공격 → 필살기 → 역린을 사용한 강화 일반 공격으로 이어갑니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A354:P357"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A155:F158"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/imbibitor-lunae"
@@ -10596,34 +10874,39 @@
     "targetStats": [
       {
         "label": "HP",
-        "value": "6,000",
-        "nearFinal": "6,700",
-        "final": "7,400+",
-        "condition": "정련된 새 빛 Lv.80의 마을 HP 목표."
-      },
-      {
-        "label": "치명타 확률",
-        "value": "전백 전 40%",
-        "nearFinal": "전백 전 45%",
-        "final": "전백 전 50%",
-        "condition": "동료 치명타 확률 포함. 전백의 +50%를 합산해 최대 100%."
-      },
-      {
-        "label": "치명타 피해",
-        "value": "110%",
-        "nearFinal": "130%",
-        "final": "150%+",
-        "condition": "달빛과 동료 버프 적용 전 참고값."
+        "value": "8000 / 7000",
+        "nearFinal": "—",
+        "final": "8000",
+        "notes": {
+          "value": "기본 8000 · 얼음 피해 구체 7000."
+        }
       },
       {
         "label": "속도",
-        "value": "135",
-        "nearFinal": "지원보다 +1",
-        "final": "행동 순서 유지",
-        "condition": "선데이·브로냐보다 먼저 움직이면 경류 턴 직후 당길 수 있습니다."
+        "value": "133.4+",
+        "nearFinal": "—",
+        "final": "134",
+        "notes": {
+          "value": "선데이 편성 시 선데이보다 약간 빠르게 맞춤."
+        }
+      },
+      {
+        "label": "치명타 확률",
+        "value": "50% / 30%",
+        "nearFinal": "—",
+        "final": "50%",
+        "notes": {
+          "value": "기본 50% · 선데이 편성 30%."
+        }
+      },
+      {
+        "label": "치명타 피해",
+        "value": "150%",
+        "nearFinal": "—",
+        "final": "200%"
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (학자 / 습골지)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -10664,6 +10947,14 @@
     ],
     "eidolonAdvice": "성혼 1은 강화 공격의 단일 대상 피해를 올립니다. 최신 HP 세팅과 치유 파티를 우선 갖추세요.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A138:P141"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A59:F62"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/jingliu"
@@ -10794,27 +11085,18 @@
     "targetStats": [
       {
         "label": "HP",
-        "value": "5,600",
-        "nearFinal": "6,000",
-        "final": "6,400+",
-        "condition": "치유량 몸통 사용 시 마을 HP."
+        "value": "6000",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
         "label": "속도",
-        "value": "134",
-        "nearFinal": "143",
-        "final": "160",
-        "condition": "생명의 잔여 턴과 동료 피격 시점을 확인하세요."
-      },
-      {
-        "label": "에너지 회복효율",
-        "value": "119.4%",
-        "nearFinal": "119.4%",
-        "final": "124.4% 선택",
-        "condition": "회복효율 매듭과 5% 장신구 기준. 광추 회복효율 별도."
+        "value": "160+",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -10855,6 +11137,10 @@
     ],
     "eidolonAdvice": "성혼 1은 풀 HP에서 에너지를 돌려주고 성혼 4는 스킬 대상에게 피해 증가를 줍니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A70:P73"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/bailu"
@@ -10988,28 +11274,28 @@
     ],
     "targetStats": [
       {
-        "label": "효과 명중",
-        "value": "67%",
-        "nearFinal": "67% 유지",
-        "final": "67% 유지",
-        "condition": "100% 기본 확률이 효과 저항 40%인 적에게 적중하는 기준. 일반 공격 연소는 기본 확률이 낮습니다."
+        "label": "공격력",
+        "value": "3000",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
         "label": "속도",
-        "value": "134",
-        "nearFinal": "143",
-        "final": "160 비교",
-        "condition": "카프카 기폭 전에 연소와 불쇼를 준비하세요."
+        "value": "160+",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
-        "label": "공격력",
-        "value": "2,600",
-        "nearFinal": "2,800",
-        "final": "3,000+",
-        "condition": "지속 피해 세팅에서 명중·속도 이후."
+        "label": "효과 명중",
+        "value": "66.7% / 42.9%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "명함 66.7% · 1돌 이상 42.9%."
+        }
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -11050,6 +11336,10 @@
     ],
     "eidolonAdvice": "성혼 1은 디버프 적중을 보조하고, 성혼 6은 불쇼의 최대 피해 취약을 높입니다.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A254:P257"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/guinaifen"
@@ -11173,35 +11463,25 @@
     ],
     "targetStats": [
       {
+        "label": "공격력",
+        "value": "3000",
+        "nearFinal": "—",
+        "final": "—"
+      },
+      {
         "label": "치명타 확률",
-        "value": "전투 100% 목표",
-        "nearFinal": "전투 100% 유지",
-        "final": "전투 100% 유지",
-        "condition": "필살기 중 기준. 신검합일 +20%와 필살기 +60%를 받으면 마을 약 20%부터."
+        "value": "80%",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
         "label": "치명타 피해",
         "value": "160%",
-        "nearFinal": "180%",
-        "final": "200%+",
-        "condition": "신검합일·필살기·동료 보너스 적용 전 기준."
-      },
-      {
-        "label": "공격력",
-        "value": "2,500",
-        "nearFinal": "2,700",
-        "final": "2,900+",
-        "condition": "속도 신발이면 낮아질 수 있습니다."
-      },
-      {
-        "label": "속도",
-        "value": "134",
-        "nearFinal": "135 또는 143",
-        "final": "파티 순서 조정",
-        "condition": "그라모스 135부터. 고속 행동 지원을 받으면 공격력 신발을 비교하세요."
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -11242,6 +11522,10 @@
     ],
     "eidolonAdvice": "성혼 1은 빙결이 유지되는 전투, 성혼 2는 필살기 회전에 유효합니다. 먼저 실드와 행동 지원을 갖추세요.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A134:P137"
+      },
       {
         "label": "Prydwen · 장비·스탯·편성 분석",
         "url": "https://www.prydwen.gg/star-rail/characters/yanqing"
@@ -11382,27 +11666,18 @@
     "targetStats": [
       {
         "label": "HP",
-        "value": "궁관진 적용 6,500+",
-        "nearFinal": "궁관진 적용 8,000",
-        "final": "8,000 유지 · 방어력 보강",
-        "condition": "궁관진의 HP 증가를 포함한 전투 수치."
-      },
-      {
-        "label": "방어력",
-        "value": "1,400",
-        "nearFinal": "1,600",
-        "final": "1,600 유지 · HP 보강",
-        "condition": "부현이 받는 연속 분담 피해 대비."
+        "value": "8000",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
         "label": "속도",
-        "value": "120 이상",
-        "nearFinal": "134 선택",
-        "final": "궁관진 만료 전 갱신",
-        "condition": "선주 장신구 발동은 전투 속도 120. 궁관진 갱신과 필살기 회전 고려."
+        "value": "133.4+",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -11443,6 +11718,10 @@
     ],
     "eidolonAdvice": "1돌 궁관진 치피 +30% · 2돌 궁관진 중 1회 아군 전투 불능 방지.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A18:P21"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/fu-xuan"
@@ -11571,27 +11850,12 @@
     "targetStats": [
       {
         "label": "속도",
-        "value": "딜러보다 빠르게",
-        "nearFinal": "유지력 담당 −1~2",
-        "final": "직전 행동 순서 유지",
-        "condition": "유지력 → 어공 → 딜러를 목표. 1돌 전투 초반 속도와 행동 전진 확인."
-      },
-      {
-        "label": "HP",
-        "value": "3,700+",
-        "nearFinal": "4,500+",
-        "final": "4,500+ 유지 · 효과 저항 보강",
-        "condition": "치명타 버프 자체는 어공 치명타 스탯에 비례하지 않음."
-      },
-      {
-        "label": "에너지 회복효율",
-        "value": "119.4%",
-        "nearFinal": "119.4%",
-        "final": "124.4% 선택",
-        "condition": "5성 회복효율 매듭 119.4%. 루샤카·페나코니 5% 추가로 124.4%."
+        "value": "딜러보다 +1",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -11632,6 +11896,10 @@
     ],
     "eidolonAdvice": "2돌 필살기 회전 보강 · 6돌 필살기로 호령을 즉시 켜서 운용 자유도 증가.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A346:P349"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/yukong"
@@ -11749,28 +12017,25 @@
     ],
     "targetStats": [
       {
-        "label": "격파 특수효과",
-        "value": "격파 매듭 확보",
-        "nearFinal": "100% 부근",
-        "final": "120%+ · 전광 150% 선택",
-        "condition": "격파형 목표. 전광은 전투 격특 150%에서 추가 속도 적용."
+        "label": "공격력",
+        "value": "3000",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
-        "label": "치명타 확률 · 피해",
-        "value": "60% / 120%",
-        "nearFinal": "70% / 140%",
-        "final": "치확 70% 이상 · 치피 추가",
-        "condition": "치명타 딜러 목표. 격파형은 격특·속도 우선."
+        "label": "치명타 확률",
+        "value": "80%",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
-        "label": "속도",
-        "value": "134",
-        "nearFinal": "143",
-        "final": "160 선택",
-        "condition": "탈리아 속도 145는 특성 가속을 반영한 전투 수치."
+        "label": "치명타 피해",
+        "value": "120%",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -11811,6 +12076,10 @@
     ],
     "eidolonAdvice": "1돌 격파 적 스킬 포인트 반환 · 4돌 격특 +40%.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A182:P185"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/sushang"
@@ -11933,27 +12202,36 @@
     "targetStats": [
       {
         "label": "HP",
-        "value": "6,000+",
-        "nearFinal": "7,200+",
-        "final": "7,200+ 유지 · 치피 보강",
-        "condition": "전투 캐릭터 버프 별도. 습골지는 전투 최대 HP 5,000 이상."
-      },
-      {
-        "label": "치명타 확률 · 피해",
-        "value": "전투 치확 80% · 치피 150%",
-        "nearFinal": "전투 치확 90% · 치피 180%",
-        "final": "전투 치확 100% · 치피 추가",
-        "condition": "제자 2스택과 성혼 2 지옥변 치확 +15% 포함."
+        "value": "7000",
+        "nearFinal": "—",
+        "final": "8000"
       },
       {
         "label": "속도",
-        "value": "135 또는 기초",
-        "nearFinal": "행동 지원 +1",
-        "final": "턴 순서 유지",
-        "condition": "저속 조율이면 블레이드 135 / 선데이 134. 고속 전진 지원은 HP 신발 고려."
+        "value": "133.4",
+        "nearFinal": "—",
+        "final": "134",
+        "notes": {
+          "value": "선데이·브로냐보다 빠르게."
+        }
+      },
+      {
+        "label": "치명타 확률",
+        "value": "80% / 65%",
+        "nearFinal": "—",
+        "final": "80%",
+        "notes": {
+          "value": "선데이 편성 80% · 2돌 65%."
+        }
+      },
+      {
+        "label": "치명타 피해",
+        "value": "140%",
+        "nearFinal": "—",
+        "final": "160%"
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (제자 / 습골지)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -11994,6 +12272,14 @@
     ],
     "eidolonAdvice": "1돌 강화 평타와 필살기 강화 · 2돌 지옥변 치확 +15%.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A306:P309"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A131:F134"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/blade"
@@ -12120,28 +12406,37 @@
     ],
     "targetStats": [
       {
-        "label": "치명타 확률 · 피해",
-        "value": "전투 치확 90% · 치피 140%",
-        "nearFinal": "전투 치확 100% · 치피 160%",
-        "final": "치확 100% 유지 · 치피 추가",
-        "condition": "전투 스킬 후 치확과 서포터 치확 포함. 치피는 마을 수치."
+        "label": "공격력",
+        "value": "3000 / 3500",
+        "nearFinal": "—",
+        "final": "3000",
+        "notes": {
+          "value": "번개 피해 구체 3000 · 공격력 구체 3500."
+        }
       },
       {
         "label": "속도",
-        "value": "기초 속도",
-        "nearFinal": "−1 선데이 135/134 선택",
-        "final": "신군과 아군 턴 조율",
-        "condition": "빠른 행동 지원으로 공격력 신발을 쓰거나 경원이 선데이 바로 앞."
+        "value": "—",
+        "nearFinal": "—",
+        "final": "134"
       },
       {
-        "label": "공격력",
-        "value": "2,600+",
-        "nearFinal": "3,000+",
-        "final": "3,000+ 유지 · 치피 보강",
-        "condition": "EX 피해 증가가 활성화된 편성에서 공격력·방어력 무시 가치도 비교."
+        "label": "치명타 확률",
+        "value": "70%",
+        "nearFinal": "—",
+        "final": "80%",
+        "notes": {
+          "value": "선데이 20% + 경원 추가 능력 10% 참고."
+        }
+      },
+      {
+        "label": "치명타 피해",
+        "value": "160%",
+        "nearFinal": "—",
+        "final": "200%"
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (대공 / 나나 낙원)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -12182,6 +12477,14 @@
     ],
     "eidolonAdvice": "기연 성혼 보유 시 신군 최대 30단. 기본 1돌 인접 피해 · 4돌 신군 타격당 에너지.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A82:P85"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A35:F38"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/jing-yuan"
@@ -12309,28 +12612,16 @@
     ],
     "targetStats": [
       {
-        "label": "공격력",
-        "value": "2,400+",
-        "nearFinal": "2,600+",
-        "final": "2,600+ 유지 · 생존 보강",
-        "condition": "스킬과 결계 회복량은 공격력 비례."
-      },
-      {
         "label": "속도",
-        "value": "134",
-        "nearFinal": "143",
-        "final": "160",
-        "condition": "평타 SP 수급과 자동 치유 대기시간 경과를 앞당김."
-      },
-      {
-        "label": "효과 저항",
-        "value": "용골 30%",
-        "nearFinal": "30% 유지",
-        "final": "30% 이상 · 생존 보강",
-        "condition": "제어 디버프 저항 행적과 일반 효저 별도."
+        "value": "135+ / 160+",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "거목 세트 발동 최소 135 · 목표 160+."
+        }
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -12371,6 +12662,10 @@
     ],
     "eidolonAdvice": "명함 자동 치유·결계. 1돌 결계 중 전원 공격력 +20%.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A350:P353"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/luocha"
@@ -12500,27 +12795,21 @@
     "targetStats": [
       {
         "label": "공격력",
-        "value": "2,400+",
-        "nearFinal": "2,600+",
-        "final": "축복 상한 충족",
-        "condition": "스킬 Lv.10은 딜러 기초 공격력의 50%와 정운 현재 공격력의 25% 중 작은 값. 딜러 기초 공격력의 2배까지 투자."
+        "value": "2875",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "정운 6돌 기준."
+        }
       },
       {
         "label": "속도",
-        "value": "134",
-        "nearFinal": "143",
-        "final": "160+",
-        "condition": "딜러보다 먼저 축복을 부여. 바커 공 첫 전투 행동 전진 고려."
-      },
-      {
-        "label": "에너지 회복효율",
-        "value": "119.4%",
-        "nearFinal": "119.4%",
-        "final": "124.4% 선택",
-        "condition": "5성 회복효율 매듭 119.4%. 바커 공·루샤카 5% 추가로 124.4%."
+        "value": "134+",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -12561,6 +12850,10 @@
     ],
     "eidolonAdvice": "2돌 축복 딜러 처치 시 에너지 · 6돌 필살기 대상 에너지 +10pt.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A78:P81"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/tingyun"
@@ -12693,28 +12986,40 @@
     ],
     "targetStats": [
       {
-        "label": "치명타 확률 · 피해",
-        "value": "65% / 130%",
-        "nearFinal": "70% / 140%",
-        "final": "치확 70% 이상 · 치피 추가",
-        "condition": "전투 치확은 시인 효과를 포함해 100%까지. 뭇별 치확 70% 이상."
+        "label": "공격력",
+        "value": "3000",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
         "label": "속도",
-        "value": "시인 110 미만",
-        "nearFinal": "시인 95 미만 선택",
-        "final": "선택한 속도 조건 유지",
-        "condition": "시인 장착 후 마을 속도. 천재 세팅은 134+ 또는 고속 스파클에 맞춤."
+        "value": "95 미만",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "시인 세트 기준."
+        }
       },
       {
-        "label": "공격력",
-        "value": "2,500+",
-        "nearFinal": "2,900+",
-        "final": "2,900+ 유지 · 치피 보강",
-        "condition": "공격력 신발 기준. 시인 치확이 넘치면 치피 몸통."
+        "label": "치명타 확률",
+        "value": "100% / 68%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "일반 100% · 시인 68%."
+        }
+      },
+      {
+        "label": "치명타 피해",
+        "value": "150% / 200%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "일반 150% · 시인 200%."
+        }
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -12755,6 +13060,10 @@
     ],
     "eidolonAdvice": "4돌 스킬 후 추가 공격 확률 · 6돌 강화 일반 공격 후 포인트 환급.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A10:P13"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/qingque"
@@ -12876,28 +13185,40 @@
     ],
     "targetStats": [
       {
-        "label": "치명타 확률 · 피해",
-        "value": "80% / 150%",
-        "nearFinal": "90% / 170%",
-        "final": "치확 90% 이상 · 치피 추가",
-        "condition": "전광 치확 +18% · 살소토·별바다 등 조건 확인."
+        "label": "공격력",
+        "value": "2500",
+        "nearFinal": "—",
+        "final": "2800",
+        "notes": {
+          "value": "속도 신발·화염 피해 구체·공격력 매듭 기준."
+        }
       },
       {
         "label": "속도",
-        "value": "134",
-        "nearFinal": "143",
-        "final": "딜러보다 먼저 표식",
-        "condition": "부채 증명 대상 변경이 필요한 콘텐츠에서 먼저 움직임."
+        "value": "133.4+",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
-        "label": "공격력",
-        "value": "2,100+",
-        "nearFinal": "2,800+",
-        "final": "2,800+ 유지 · 치피 보강",
-        "condition": "추가 공격 버프와 동료 공격력 버프 별도."
+        "label": "치명타 확률",
+        "value": "100%",
+        "nearFinal": "—",
+        "final": "100%",
+        "notes": {
+          "value": "속도 신발·화염 피해 구체·공격력 매듭 기준."
+        }
+      },
+      {
+        "label": "치명타 피해",
+        "value": "130%",
+        "nearFinal": "—",
+        "final": "200%",
+        "notes": {
+          "value": "속도 신발·화염 피해 구체·공격력 매듭 기준."
+        }
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (대공 / 나나 낙원)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -12938,6 +13259,14 @@
     ],
     "eidolonAdvice": "명함으로 추가 공격 취약 제공. 1돌 부채 대상 추가 공격 치피 +25%씩 2중첩.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A250:P253"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A103:F106"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/topaz"
@@ -13061,28 +13390,25 @@
     ],
     "targetStats": [
       {
-        "label": "효과 명중",
-        "value": "67%",
-        "nearFinal": "카프카 동행 75%",
-        "final": "75% 유지 · 적 저항 확인",
-        "condition": "열상 기본 확률 100%. 강화 카프카의 공격력 버프는 효과 명중 75%."
+        "label": "속도",
+        "value": "145+",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
-        "label": "속도",
-        "value": "134",
-        "nearFinal": "143",
-        "final": "160 선택",
-        "condition": "탈리아는 전투 145 이상. 필살기 취약이 기폭보다 먼저."
+        "label": "효과 명중",
+        "value": "66.7%",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
         "label": "격파 특수효과",
-        "value": "격파형 매듭 확보",
-        "nearFinal": "격파형 100% 부근",
-        "final": "격파형 120%+",
-        "condition": "직접 물리 격파할 수 있는 적 대상 편성 목표."
+        "value": "200%",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -13123,6 +13449,10 @@
     ],
     "eidolonAdvice": "2돌 물리 약점 적에 투지 추가 · 6돌 강화 일반 공격 열상 기폭 증가.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A190:P193"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/luka"
@@ -13246,27 +13576,18 @@
     "targetStats": [
       {
         "label": "HP",
-        "value": "5,000+",
-        "nearFinal": "5,700+",
-        "final": "5,700+ 유지 · 효과 저항 보강",
-        "condition": "치유와 생존 반응의 HP 증가량이 본인 HP 최대치에 비례."
+        "value": "5000",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
         "label": "속도",
-        "value": "134",
-        "nearFinal": "143",
-        "final": "160",
-        "condition": "치유·SP 행동 빈도."
-      },
-      {
-        "label": "효과 저항",
-        "value": "용골 30%",
-        "nearFinal": "30% 유지",
-        "final": "30% 이상 · 자신 정화 우선",
-        "condition": "용골·광추 포함. 링스가 제어되면 필살기 사용 불가."
+        "value": "160+",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -13307,6 +13628,10 @@
     ],
     "eidolonAdvice": "2돌 생존 반응 대상 디버프 1회 저항 · 6돌 HP·효과 저항 증가.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A22:P25"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/lynx"
@@ -13428,28 +13753,25 @@
     ],
     "targetStats": [
       {
-        "label": "치명타 확률 · 피해",
-        "value": "60% / 120%",
-        "nearFinal": "70% / 140%",
-        "final": "치확 70% 이상 · 치피 추가",
-        "condition": "선구자 발동 치확 포함. 연소가 끊기지 않는 편성에서 운용."
-      },
-      {
-        "label": "속도",
-        "value": "134",
-        "nearFinal": "143",
-        "final": "행동 지원에 맞춤",
-        "condition": "고속 브로냐·스파클이 턴을 줄 때 공격력 신발 가능."
-      },
-      {
         "label": "공격력",
-        "value": "2,400+",
-        "nearFinal": "2,800+",
-        "final": "2,800+ 유지 · 치피 보강",
-        "condition": "연소 적 대상 특성 피해도 공격력 비례."
+        "value": "3000",
+        "nearFinal": "—",
+        "final": "—"
+      },
+      {
+        "label": "치명타 확률",
+        "value": "80%",
+        "nearFinal": "—",
+        "final": "—"
+      },
+      {
+        "label": "치명타 피해",
+        "value": "110%",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -13490,6 +13812,10 @@
     ],
     "eidolonAdvice": "4돌 연소 전파 · 6돌 연소 적 피해 +20%.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A234:P237"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/hook"
@@ -13609,28 +13935,25 @@
     ],
     "targetStats": [
       {
-        "label": "효과 명중",
-        "value": "67%",
-        "nearFinal": "75%",
-        "final": "80% 선택",
-        "condition": "강화 카프카와 함께라면 75%에서 공격력 +100%. 풍화 기본 확률은 별도 판단."
+        "label": "공격력",
+        "value": "2500",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
         "label": "속도",
-        "value": "134",
-        "nearFinal": "143",
-        "final": "160",
-        "condition": "카프카 기폭 전에 풍화를 올리는 순서."
+        "value": "133.4+",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
-        "label": "공격력",
-        "value": "마을 2,800+",
-        "nearFinal": "마을 3,200+",
-        "final": "마을 3,200+ 유지",
-        "condition": "바다의 일각 상한은 아군 버프를 포함한 전투 공격력 3,600."
+        "label": "효과 명중",
+        "value": "66.7%",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -13671,6 +13994,10 @@
     ],
     "eidolonAdvice": "4돌 풍화 직접 기폭 · 6돌 풍화 배율 증가.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A298:P301"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/sampo"
@@ -13796,28 +14123,31 @@
     ],
     "targetStats": [
       {
-        "label": "치명타 확률 · 피해",
-        "value": "60% / 120%",
-        "nearFinal": "70% / 140%",
-        "final": "치확 70% 이상 · 치피 추가",
-        "condition": "시인 치확 포함. 95 미만 조건을 유지해 치확 초과 방지."
-      },
-      {
         "label": "공격력",
-        "value": "3,200+",
-        "nearFinal": "3,600+",
-        "final": "3,600+ 유지 · 치피 보강",
-        "condition": "공격력 신발 기준."
+        "value": "3400",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "물리 피해 구체 기준."
+        }
       },
       {
-        "label": "속도",
-        "value": "기초 속도 90",
-        "nearFinal": "시인 착용 후 95 미만",
-        "final": "시인 조건 유지",
-        "condition": "적 턴 반격 후에 클라라가 행동하도록 조율. 파이논 광추 기초 속도 +12 포함 확인."
+        "label": "치명타 확률",
+        "value": "80% / 68%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "80% 또는 68%. 68% 줄과 시인 세트 설명의 각주 번호가 원문에서 서로 다름."
+        }
+      },
+      {
+        "label": "치명타 피해",
+        "value": "120%",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -13858,6 +14188,10 @@
     ],
     "eidolonAdvice": "1돌 반격 표식 유지 · 6돌 동료 피격 반격과 강화 반격 횟수 증가.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A186:P189"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/clara"
@@ -13974,28 +14308,19 @@
     ],
     "targetStats": [
       {
-        "label": "효과 명중",
-        "value": "전투 66.7%",
-        "nearFinal": "전투 66.7% 유지",
-        "final": "전투 66.7% 유지 · 광추 확인",
-        "condition": "승급 행적 전투 효과 명중 +10%를 포함해 마을 56.7%부터. 적 효저 40%·기본 확률 100% 기준."
-      },
-      {
         "label": "속도",
-        "value": "134",
-        "nearFinal": "143",
-        "final": "160",
-        "condition": "딜러보다 먼저 방어력 감소 적용. 사이퍼 광추의 추가 효과는 전투 170."
+        "value": "133.4+",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
-        "label": "에너지 회복효율",
-        "value": "119.4%",
-        "nearFinal": "119.4%",
-        "final": "124.4% 선택",
-        "condition": "5성 회복효율 매듭 119.4%. 루샤카·페나코니 5% 추가로 124.4%."
+        "label": "효과 명중",
+        "value": "66.7%",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -14036,6 +14361,10 @@
     ],
     "eidolonAdvice": "1돌 적 처치 시 에너지 회복 · 4돌 얼음 딜러에게 저항 감소 지원.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A126:P129"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/pela"
@@ -14166,27 +14495,18 @@
     "targetStats": [
       {
         "label": "HP",
-        "value": "5,200+",
-        "nearFinal": "6,100+",
-        "final": "6,100+ 유지 · 효과 저항 보강",
-        "condition": "치유량 몸통·HP 구체·회복효율 매듭 기준."
+        "value": "6000",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
         "label": "속도",
-        "value": "134",
-        "nearFinal": "143",
-        "final": "160",
-        "condition": "치유 및 SP 수급 빈도 개선."
-      },
-      {
-        "label": "효과 저항",
-        "value": "용골 30%",
-        "nearFinal": "30% 유지",
-        "final": "30% 이상 · 정화 담당 보호",
-        "condition": "효과 저항 광추·장신구와 부옵 합산."
+        "value": "133.4+",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -14227,6 +14547,10 @@
     ],
     "eidolonAdvice": "2돌 위급한 아군 지속 치유 · 4돌 피격 에너지 회복.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A178:P181"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/natasha"
@@ -14350,27 +14674,21 @@
     "targetStats": [
       {
         "label": "방어력",
-        "value": "2,400+",
-        "nearFinal": "2,900+",
-        "final": "2,900+ 유지 · 속도 확보",
-        "condition": "필살기 실드 배율 기준. 피격 시 전광 추가 방어력은 전투에서 적용."
+        "value": "3000",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
-        "label": "속도",
-        "value": "121",
-        "nearFinal": "134",
-        "final": "134+ 유지 · 실드 라운드 확인",
-        "condition": "행동 당김 딜러가 실드 턴을 빨리 보내는 편성에서 게파드 속도 투자."
-      },
-      {
-        "label": "에너지 회복효율",
-        "value": "119.4%",
-        "nearFinal": "119.4%",
-        "final": "124.4% 선택",
-        "condition": "5성 회복효율 매듭 119.4%. 루샤카 5% 추가로 124.4%."
+        "label": "효과 명중",
+        "value": "66.7%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "1돌 기준. 명함 요구치는 156.4%라 원본은 일부 확보만 권장."
+        }
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -14411,6 +14729,10 @@
     ],
     "eidolonAdvice": "1돌 빙결 확률 · 4돌 파티 효과 저항 +20%.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A130:P133"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/gepard"
@@ -14535,28 +14857,52 @@
     ],
     "targetStats": [
       {
-        "label": "치명타 확률 · 피해",
-        "value": "65% / 130%",
-        "nearFinal": "75% / 150%",
-        "final": "치확 75% 이상 · 치피 추가",
-        "condition": "번개 딜러 세팅. 해독 지원에서는 속도·회복효율 우선."
+        "label": "공격력",
+        "value": "2200",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "광역 딜러 기준."
+        }
       },
       {
         "label": "속도",
-        "value": "134+",
-        "nearFinal": "143+",
-        "final": "회전 특화 160+",
-        "condition": "160은 열쇠·매·회복효율 매듭을 쓰는 더 헤르타 편성 목표."
+        "value": "166.7+",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "더 헤르타 팀 · 영험한 열쇠와 매 세트 기준."
+        }
       },
       {
-        "label": "공격력",
-        "value": "2,200+",
-        "nearFinal": "2,600+",
-        "final": "2,600+ 유지 · 치피 보강",
-        "condition": "딜러 세팅 기준."
+        "label": "치명타 확률",
+        "value": "70%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "광역 딜러 기준."
+        }
+      },
+      {
+        "label": "치명타 피해",
+        "value": "140%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "광역 딜러 기준."
+        }
+      },
+      {
+        "label": "효과 명중",
+        "value": "108.4%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "더 헤르타 팀 · 영험한 열쇠 세팅."
+        }
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -14597,6 +14943,10 @@
     ],
     "eidolonAdvice": "2돌 특성 에너지 · 4돌 필살기 감전 · 6돌 감전 적 추가 피해.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A74:P77"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/serval"
@@ -14711,28 +15061,43 @@
     ],
     "targetStats": [
       {
-        "label": "치명타 확률 · 피해",
-        "value": "전투 치확 80%+ · 치피 160%",
-        "nearFinal": "전투 치확 90%+ · 치피 160% 유지",
-        "final": "전투 치확 100% · 치피 추가",
-        "condition": "모든 단계는 전투 수치. 1돌 적 HP 80% 이하 치확 +15%와 별바다 조건부 치확은 해당 대상에서만 합산."
+        "label": "공격력",
+        "value": "3200/3600 · 2700/3100",
+        "nearFinal": "—",
+        "final": "4000",
+        "notes": {
+          "value": "야경·이상이 3200 (공격력 구체 3600) · 단잠·순항·논검 2700 (공격력 구체 3100). 이상이는 스파클 조합."
+        }
       },
       {
         "label": "속도",
-        "value": "기초 115",
-        "nearFinal": "기초 115 유지",
-        "final": "그라모스 160 선택",
-        "condition": "그라모스는 스킬 가속 후 전투 속도. 전광 피해 중첩도 전투 속도로 계산."
+        "value": "마을 131.3+",
+        "nearFinal": "—",
+        "final": "122",
+        "notes": {
+          "value": "「야경 속에서」 풀버프 기준."
+        }
       },
       {
-        "label": "공격력",
-        "value": "2,900+",
-        "nearFinal": "3,300+",
-        "final": "3,300+ 유지 · 치피 보강",
-        "condition": "공격력 신발 기준."
+        "label": "치명타 확률",
+        "value": "80% / 100%",
+        "nearFinal": "—",
+        "final": "80%",
+        "notes": {
+          "value": "선데이 조합 80% · 그 외 100%."
+        }
+      },
+      {
+        "label": "치명타 피해",
+        "value": "160% / 140%",
+        "nearFinal": "—",
+        "final": "240%",
+        "notes": {
+          "value": "선데이 조합 160% · 그 외 140%."
+        }
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (천재 / 뭇별)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -14773,6 +15138,14 @@
     ],
     "eidolonAdvice": "1돌 치확·방어력 무시 · 2돌 전투 스킬 가속 2중첩.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A6:P9"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A7:F10"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/seele"
@@ -14894,27 +15267,24 @@
     "targetStats": [
       {
         "label": "속도",
-        "value": "딜러 −1~2",
-        "nearFinal": "딜러 −1~2 유지",
-        "final": "고속형 160+ 선택",
-        "condition": "저속형 딜러 135 / 브로냐 134 예시. 2돌과 가속·행동 전진 발동 후 재조율."
+        "value": "133.3+ / 167.4+",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "사제+전용 광추 133.3+ (딜러보다 느리게) · 매+댄스! 댄스! 댄스! 167.4+."
+        }
       },
       {
         "label": "치명타 피해",
-        "value": "175%+",
-        "nearFinal": "210%+",
-        "final": "210%+ 유지 · 속도 맞춤",
-        "condition": "필살기 지원량이 본인 치피에 비례."
-      },
-      {
-        "label": "에너지 회복효율",
-        "value": "119.4%",
-        "nearFinal": "119.4%",
-        "final": "124.4% 선택",
-        "condition": "5성 회복효율 매듭 119.4%. 루샤카 5% 추가로 124.4%."
+        "value": "200% / 최대한",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "사제 200% · 매 세팅 최대한."
+        }
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -14955,6 +15325,10 @@
     ],
     "eidolonAdvice": "1돌 SP 소모 완화 · 6돌 스킬 피해 증가 지속 +1턴.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A294:P297"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/bronya"
@@ -15085,28 +15459,28 @@
     ],
     "targetStats": [
       {
-        "label": "치명타 확률 · 피해",
-        "value": "전투 치확 80%+ · 치피 140%",
-        "nearFinal": "전투 치확 95%+ · 치피 180%",
-        "final": "전투 치확 100% · 치피 추가",
-        "condition": "버프·광추 조건 포함. 별바다 HP 50% 이하 추가 치확은 별도."
-      },
-      {
         "label": "공격력",
-        "value": "2,800+",
-        "nearFinal": "3,200+",
-        "final": "3,200+ 유지 · 치피 보강",
-        "condition": "공격력 신발 기준. 전광의 SP 최대치 조건은 전투에서 확인."
+        "value": "3000",
+        "nearFinal": "—",
+        "final": "3000"
       },
       {
-        "label": "속도",
-        "value": "기초 속도",
-        "nearFinal": "기초 속도 유지",
-        "final": "아처 직전 SP 수급",
-        "condition": "빠른 스파클과 조합. 아처가 움직이기 전 전투 스킬 포인트 확보."
+        "label": "치명타 확률",
+        "value": "100%",
+        "nearFinal": "—",
+        "final": "100%",
+        "notes": {
+          "value": "스파클 전용 광추 치명타 확률 10% 참고."
+        }
+      },
+      {
+        "label": "치명타 피해",
+        "value": "100%",
+        "nearFinal": "—",
+        "final": "200%"
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (아집·천재 / 텐고쿠)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -15147,6 +15521,14 @@
     ],
     "eidolonAdvice": "1돌 스킬 3회 후 SP 2pt 반환 · 2돌 필살기 약점 부여와 저항 감소.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A50:P53"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A23:F26"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/archer"
@@ -15268,28 +15650,34 @@
     ],
     "targetStats": [
       {
-        "label": "치명타 확률 · 피해",
-        "value": "전투 치확 80%+ · 치피 150%",
-        "nearFinal": "전투 치확 95%+ · 치피 180%",
-        "final": "전투 치확 100% · 치피 추가",
-        "condition": "특성 치확 +20%와 선데이 등의 버프 포함. 전투 치확 100% 이후 치피 부옵 우선."
+        "label": "공격력",
+        "value": "2200",
+        "nearFinal": "—",
+        "final": "2400"
       },
       {
         "label": "속도",
-        "value": "135 또는 행동 지원",
-        "nearFinal": "서포터 +1",
-        "final": "턴 순서 유지",
-        "condition": "느린 선데이 조율 예시 세이버 135 / 선데이 134."
+        "value": "134+",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
-        "label": "공격력",
-        "value": "2,600+",
-        "nearFinal": "3,000+",
-        "final": "3,000+ 유지 · 치피 보강",
-        "condition": "전광 발동과 전투 버프 별도."
+        "label": "치명타 확률",
+        "value": "80%",
+        "nearFinal": "—",
+        "final": "80%",
+        "notes": {
+          "value": "특성 치명타 확률 20% 참고."
+        }
+      },
+      {
+        "label": "치명타 피해",
+        "value": "160%",
+        "nearFinal": "—",
+        "final": "220%"
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (학자 / 생명과학연구원)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -15330,6 +15718,14 @@
     ],
     "eidolonAdvice": "1돌 필살기 피해 +60%와 노심 공명 · 2돌 방어력 무시와 스킬 배율 추가.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A330:P333"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A151:F154"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/saber"
@@ -15452,28 +15848,28 @@
     ],
     "targetStats": [
       {
-        "label": "치명타 확률 · 피해",
-        "value": "65% / 130%",
-        "nearFinal": "70% / 150%",
-        "final": "치확 70% 이상 · 치피 추가",
-        "condition": "2돌 특성 발동당 치확 3%, 최대 15%. 전투 치확 100% 확인."
-      },
-      {
         "label": "공격력",
-        "value": "2,000+",
-        "nearFinal": "2,400+",
-        "final": "2,400+ 유지 · 치피 보강",
-        "condition": "추가 공격 위주면 공격력 신발."
+        "value": "2500",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
-        "label": "속도",
-        "value": "기초 속도",
-        "nearFinal": "직접 행동형 134",
-        "final": "편성에 맞춰 조율",
-        "condition": "추가 공격형은 동료의 공격을 활용."
+        "label": "치명타 확률",
+        "value": "85%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "2돌 15% · 이즈모 사용 시 필요 치명타 확률 12%p 감소."
+        }
+      },
+      {
+        "label": "치명타 피해",
+        "value": "140%",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -15514,6 +15910,10 @@
     ],
     "eidolonAdvice": "2돌 연쇄 치확 · 4돌 특성 피해 · 6돌 필살기 후 공격력 증가.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A118:P121"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/herta"
@@ -15631,27 +16031,12 @@
     "targetStats": [
       {
         "label": "속도",
-        "value": "134",
-        "nearFinal": "143",
-        "final": "160+",
-        "condition": "자기 속도와 필살기로 늘리는 파티 속도는 별도."
-      },
-      {
-        "label": "HP",
-        "value": "3,600+",
-        "nearFinal": "4,400+",
-        "final": "4,400+ 유지 · 효과 저항 보강",
-        "condition": "생존 투자. 몸통·구체는 체력과 방어력 중 부족한 쪽."
-      },
-      {
-        "label": "에너지 회복효율",
-        "value": "119.4%",
-        "nearFinal": "119.4%",
-        "final": "124.4% 선택",
-        "condition": "5성 회복효율 매듭 119.4%. 바커 공·페나코니 5% 추가로 124.4%."
+        "value": "160+",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -15692,6 +16077,10 @@
     ],
     "eidolonAdvice": "1돌 타격 1회 증가 · 4돌 충전 2스택에서 회복효율 +15% · 6돌 스택 유지 개선.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A242:P245"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/asta"
@@ -15811,28 +16200,34 @@
     ],
     "targetStats": [
       {
-        "label": "치명타 확률 · 피해",
-        "value": "60% / 120%",
-        "nearFinal": "70% / 140%",
-        "final": "치확 70% 이상 · 치피 추가",
-        "condition": "제자 치확 최대 +16%를 전투 치확에 가산. 뭇별은 전투 70%."
+        "label": "공격력",
+        "value": "3000 / 3500",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "번개 피해 구체 3000 · 공격력 구체 3500."
+        }
       },
       {
         "label": "속도",
-        "value": "134",
-        "nearFinal": "143",
-        "final": "지원 턴에 맞춤",
-        "condition": "빠른 스파클·브로냐로 행동을 당기면 공격력 신발 고려."
+        "value": "133.4+",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
-        "label": "공격력",
-        "value": "2,400+",
-        "nearFinal": "2,800+",
-        "final": "2,800+ 유지 · 치피 보강",
-        "condition": "HP 소모는 특성 조건이고 피해 배율은 공격력 기준."
+        "label": "치명타 확률",
+        "value": "80%",
+        "nearFinal": "—",
+        "final": "—"
+      },
+      {
+        "label": "치명타 피해",
+        "value": "110%",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -15873,6 +16268,10 @@
     ],
     "eidolonAdvice": "2돌 자가 정화 · 6돌 저HP 필살기 확산 피해 강화.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A90:P93"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/arlan"
@@ -15996,28 +16395,22 @@
     ],
     "targetStats": [
       {
-        "label": "효과 명중",
-        "value": "39% · 약점과 필살기 방깎",
-        "nearFinal": "67% · 결함·광추 포함",
-        "final": "67% 유지 · 광추에 맞춤",
-        "condition": "적 효과 저항 40% 기준. 스킬 약점·필살기 방깎의 기본 확률 120% → 효과 명중 39%, 결함·결심 5중첩 등 기본 확률 100% → 67%."
-      },
-      {
         "label": "속도",
-        "value": "134",
-        "nearFinal": "143",
-        "final": "160+",
-        "condition": "망연 광추의 추가 방깎을 노리면 전투 속도 170 이상."
+        "value": "166.7+ / 최대한",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "매 세트 166.7+ · 명장 또는 속도 2+2는 최대한."
+        }
       },
       {
-        "label": "에너지 회복효율",
-        "value": "119.4%",
-        "nearFinal": "119.4%",
-        "final": "124.4% 선택",
-        "condition": "5성 회복효율 매듭 119.4%. 루샤카·페나코니 5% 추가로 124.4%."
+        "label": "효과 명중",
+        "value": "67%",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -16058,6 +16451,10 @@
     ],
     "eidolonAdvice": "1돌 필살기 에너지 회복 · 2돌 적 받는 피해 증가와 아군 공격으로 결함 이식.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A14:P17"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/silver-wolf"
@@ -16186,35 +16583,22 @@
     ],
     "targetStats": [
       {
-        "label": "효과 명중",
-        "value": "마을 75% 이상",
-        "nearFinal": "마을 75% 이상 유지",
-        "final": "마을 75% 이상 유지",
-        "condition": "고통 행적 · 각 아군 효과 명중 75% → 해당 아군 공격력 +100%. 카프카 마을 75% · 광추 조건 별도."
-      },
-      {
         "label": "속도",
-        "value": "전투 160+",
-        "nearFinal": "전투 170+",
-        "final": "전투 180+",
-        "condition": "전투 160 권장 · 170/180 추가 투자. 전광 1중첩 첫 공격 전 0스택 · 3스택 +14.4. 다른 버프 없이 마을 145.6/155.6/165.6 → 전투 160/170/180. 매 4세트·파티 버프·SP에 따라 순서 조정."
+        "value": "166.7+ / 160+",
+        "nearFinal": "—",
+        "final": "167",
+        "notes": {
+          "value": "매+초보자 임무 시작 전 166.7+ · 죄수+전용 광추 160+ (4돌 이상 권장)."
+        }
       },
       {
-        "label": "공격력",
-        "value": "본인 피해: 마을 2,500+",
-        "nearFinal": "본인 피해: 마을 2,800+",
-        "final": "본인 피해: 마을 3,000+",
-        "condition": "본인 피해 목표 · 바다의 일각 최대 효과 → 전투 공격력 3,600. 기폭형은 효과 명중·속도·회복효율 우선."
-      },
-      {
-        "label": "에너지 회복효율",
-        "value": "지원형 119.4~124.4%",
-        "nearFinal": "지원형 124.4%",
-        "final": "지원형 124.4% 유지",
-        "condition": "5성 회복효율 매듭 +15 → 119.4% · 루샤카 포함 → 124.4%(부옵 없음). 본인 피해형은 공격력 매듭 가능."
+        "label": "효과 명중",
+        "value": "75%",
+        "nearFinal": "—",
+        "final": "75%"
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 주요 행적 · 5성 유물 +15 · 새 빛 강화. 발동 조건 외에는 자료실 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (매 / 루샤카)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -16255,6 +16639,14 @@
     ],
     "eidolonAdvice": "명함으로 기폭·공격력 지원. 추가 투자는 1돌 → 2돌. 대체 광추로 회전 지원 가능.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A86:P89"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A39:F42"
+      },
       {
         "label": "공식 4.7 업데이트 공지 · 현재 버전 확인",
         "url": "https://www.hoyolab.com/article/47394097"
@@ -16398,28 +16790,52 @@
     ],
     "targetStats": [
       {
+        "label": "공격력",
+        "value": "2500",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "딜러 세팅 기준."
+        }
+      },
+      {
         "label": "속도",
-        "value": "135",
-        "nearFinal": "143",
-        "final": "160+",
-        "condition": "선데이 134 세팅에서는 웰트를 135로 앞세움. 지원형은 160+ 목표."
+        "value": "166.7+ / 133.4+",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "매 디버퍼 166.7+ · 선구자 딜러 133.4+."
+        }
+      },
+      {
+        "label": "치명타 확률",
+        "value": "100%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "딜러 · 선데이 20% · 이즈모 12% · 6돌 30% 참고."
+        }
+      },
+      {
+        "label": "치명타 피해",
+        "value": "100%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "딜러 세팅 기준."
+        }
       },
       {
         "label": "효과 명중",
-        "value": "40%+",
-        "nearFinal": "67% 부근",
-        "final": "80% · 공격력 행적 상한",
-        "condition": "40% 초과 10%p당 공격력 +20% → 효과 명중 80%에서 공격력 +80%. 스킬 감속·필살기 속박 판정은 적 저항에 따름."
-      },
-      {
-        "label": "에너지 회복효율",
-        "value": "119.4%",
-        "nearFinal": "119.4%",
-        "final": "124.4% 선택",
-        "condition": "5성 회복효율 매듭 119.4%. 루샤카 5% 추가로 124.4%."
+        "value": "66.7% / 80%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "디버퍼 66.7% · 딜러 80%."
+        }
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -16460,6 +16876,10 @@
     ],
     "eidolonAdvice": "2돌 에너지 회복 강화 · 지원형 4돌 무중력 대상 속성 저항 −30%.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A342:P345"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/welt"
@@ -16588,28 +17008,52 @@
     ],
     "targetStats": [
       {
-        "label": "치명타 확률 · 피해",
-        "value": "65% / 130%",
-        "nearFinal": "70% / 140%",
-        "final": "치확 70% 이상 · 치피 추가",
-        "condition": "HP 80% 이상이면 승급 행적 치확 +15%. 이 효과를 포함해 100%까지."
-      },
-      {
         "label": "공격력",
-        "value": "2,500+",
-        "nearFinal": "2,900+",
-        "final": "2,900+ 유지 · 치피 보강",
-        "condition": "공격력 신발 기준. 서포터 공격력 버프 별도."
+        "value": "3300",
+        "nearFinal": "—",
+        "final": "3300",
+        "notes": {
+          "value": "추가 공격 · 공격력 신발·화염 피해 구체·공격력 매듭 기준."
+        }
       },
       {
         "label": "속도",
-        "value": "기초 속도",
-        "nearFinal": "기초 속도 유지",
-        "final": "딜러·격파 순서 조율",
-        "condition": "동료가 격파하면 추가 공격이 발동하므로 공격력 신발 우선."
+        "value": "133.4+",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "격파 세팅 기준."
+        }
+      },
+      {
+        "label": "치명타 확률",
+        "value": "85%",
+        "nearFinal": "—",
+        "final": "85%",
+        "notes": {
+          "value": "추가 공격 세팅 · 행적 15% · 이즈모 12% 참고."
+        }
+      },
+      {
+        "label": "치명타 피해",
+        "value": "110%",
+        "nearFinal": "—",
+        "final": "130%",
+        "notes": {
+          "value": "추가 공격 세팅 기준."
+        }
+      },
+      {
+        "label": "격파 특수효과",
+        "value": "200%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "격파 세팅 · 전투 중 목표 250%."
+        }
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (대공 / 츠가냐)입니다.",
     "eidolons": [
       {
         "level": 1,
@@ -16650,6 +17094,14 @@
     ],
     "eidolonAdvice": "명함으로 격파 연쇄 가능. 4돌은 히메코가 스킬로 직접 격파할 때 충전 1pt 추가.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A246:P249"
+      },
+      {
+        "label": "붕스 세팅정리 · 종결 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&range=A99:F102"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/himeko"
@@ -16764,28 +17216,25 @@
     ],
     "targetStats": [
       {
-        "label": "치명타 확률 · 피해",
-        "value": "65% / 130%",
-        "nearFinal": "75% / 150%",
-        "final": "치확 75% 이상 · 치피 추가",
-        "condition": "1돌의 적 HP 50% 이상 조건은 마을 치확과 별도."
-      },
-      {
-        "label": "속도",
-        "value": "134",
-        "nearFinal": "143",
-        "final": "160 선택",
-        "condition": "행동 전진 지원이 직접 턴을 주면 공격력 신발 고려. 그라모스는 전투 속도 135/160."
-      },
-      {
         "label": "공격력",
-        "value": "2,100+",
-        "nearFinal": "2,500+",
-        "final": "2,500+ 유지 · 치피 보강",
-        "condition": "바람 구체 기준. 스탯 우선순위는 치확과 속도 조율."
+        "value": "2400",
+        "nearFinal": "—",
+        "final": "—"
+      },
+      {
+        "label": "치명타 확률",
+        "value": "80%",
+        "nearFinal": "—",
+        "final": "—"
+      },
+      {
+        "label": "치명타 피해",
+        "value": "120%",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -16826,6 +17275,10 @@
     ],
     "eidolonAdvice": "2돌 저항 관통 주기 단축 · 4돌 필살기 처치 시 즉시 행동.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A302:P305"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/dan-heng"
@@ -16940,28 +17393,13 @@
     ],
     "targetStats": [
       {
-        "label": "속도",
-        "value": "134",
-        "nearFinal": "143",
-        "final": "160",
-        "condition": "마을 속도. 실드와 정화를 자주 쓰는 목표."
-      },
-      {
         "label": "방어력",
-        "value": "실드형 2,800+",
-        "nearFinal": "실드형 3,100+",
-        "final": "실드형 3,400+",
-        "condition": "빙결형은 방어력 1,800~2,200+와 효과 명중 몸통으로 조율."
-      },
-      {
-        "label": "효과 명중",
-        "value": "빙결형 64%",
-        "nearFinal": "빙결형 80%",
-        "final": "빙결형 92%",
-        "condition": "빙결형 마을 목표. 실제 빙결 성공률은 적의 효과 저항과 빙결 저항에 따름."
+        "value": "3000",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "캐릭터·광추 Lv.80 · 5성 유물 +15. 발동 조건은 명시한 수치, 그 외는 육성 목표.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -17002,6 +17440,10 @@
     ],
     "eidolonAdvice": "4돌 반격 횟수 증가 · 6돌 스킬 실드에 회복 추가.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A122:P125"
+      },
       {
         "label": "Prydwen · 장비와 운용",
         "url": "https://www.prydwen.gg/star-rail/characters/march-7th"
@@ -17115,35 +17557,31 @@
     ],
     "targetStats": [
       {
-        "label": "속도",
-        "value": "마을 160+",
-        "nearFinal": "마을 160+",
-        "final": "마을 160+",
-        "condition": "아군 딜러의 웃음 수급과 필살기 발동 순서 확인."
+        "label": "공격력",
+        "value": "전투 2200",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
-        "label": "공격력",
-        "value": "마을 2,200",
-        "nearFinal": "마을 2,200",
-        "final": "마을 2,200",
-        "condition": "승급 2단계 환락도 환산 상한."
+        "label": "속도",
+        "value": "160+ / 157",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "기본 160+ · 매+바커공 157."
+        }
       },
       {
         "label": "치명타 확률",
-        "value": "마을 80%",
-        "nearFinal": "마을 90%",
-        "final": "마을 100%",
-        "condition": "출처 80~100% 참고. 실제 전투 버프 합산 후 상한 점검."
-      },
-      {
-        "label": "치명타 피해",
-        "value": "마을 100%",
-        "nearFinal": "마을 100%",
-        "final": "마을 100%",
-        "condition": "6성혼의 전투 치피 효과는 별도."
+        "value": "85%",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "효광 전용 광추 10% · 점술가 18% (중복 불가) 참고."
+        }
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -17184,6 +17622,10 @@
     ],
     "eidolonAdvice": "보상으로 해금. 2·4단계는 팀 지원, 6단계는 개인 화력. 아하 승격으로 팀 치피와 환락 스킬 연계 보강.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A110:P113"
+      },
       {
         "label": "Prydwen · 개척자(환락) 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/trailblazer-elation"
@@ -17307,28 +17749,31 @@
     ],
     "targetStats": [
       {
+        "label": "HP",
+        "value": "5000",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "카스토리스 조합 한정."
+        }
+      },
+      {
         "label": "속도",
-        "value": "마을 160+",
-        "nearFinal": "마을 160+",
-        "final": "마을 160+",
-        "condition": "고속 지원 세팅. 승급 2단계 행동 당김은 별도."
+        "value": "최대한",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "여력과 편성에 맞게 133.4, 143, 160, 166.7 등."
+        }
       },
       {
         "label": "치명타 피해",
-        "value": "마을 180%",
-        "nearFinal": "마을 200%",
-        "final": "마을 220%+",
-        "condition": "미미 특성으로 팀 치피 지원."
-      },
-      {
-        "label": "에너지 회복효율",
-        "value": "마을 119.44%",
-        "nearFinal": "마을 119.44%",
-        "final": "마을 124.44%+ 선택",
-        "condition": "회복효율 매듭과 5% 회복효율 장신구로 124.44% 수준."
+        "value": "200%",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -17369,6 +17814,10 @@
     ],
     "eidolonAdvice": "보상으로 해금. 정령 편성은 2단계, 카스토리스처럼 최대 에너지 0인 딜러는 4단계 효과 확인.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A154:P157"
+      },
       {
         "label": "Prydwen · 개척자(기억) 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/trailblazer-remembrance"
@@ -17499,28 +17948,22 @@
     ],
     "targetStats": [
       {
-        "label": "격파 특수효과",
-        "value": "필살기 제외 150%",
-        "nearFinal": "필살기 제외 200%",
-        "final": "필살기 제외 250%+",
-        "condition": "필살기 버프 없이 비교. 4성혼은 개척자 격특의 15%를 동료에게 제공."
-      },
-      {
         "label": "속도",
-        "value": "마을 134",
-        "nearFinal": "마을 134",
-        "final": "마을 145",
-        "condition": "수용소·탈리아의 전투 145 조건을 장비로 유지하는 선택."
+        "value": "145+",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "탈리아 장신구 기준."
+        }
       },
       {
-        "label": "HP",
-        "value": "마을 3,500",
-        "nearFinal": "마을 4,000",
-        "final": "마을 4,500+",
-        "condition": "가이드 생존 참고 범위."
+        "label": "격파 특수효과",
+        "value": "최대한",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -17561,6 +18004,10 @@
     ],
     "eidolonAdvice": "보상으로 성혼 해금. 팀 격특 공유는 4단계, 스킬 강인성 감소는 6단계.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A366:P369"
+      },
       {
         "label": "Prydwen · 개척자(화합) 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/trailblazer-harmony"
@@ -17688,14 +18135,16 @@
     ],
     "targetStats": [
       {
-        "label": "효과 저항",
-        "value": "마을 30%",
-        "nearFinal": "마을 30%",
-        "final": "마을 30%",
-        "condition": "용골을 쓸 때 적용. Prydwen에 종합 목표 수치가 없어 실드·도발 안정성으로 장비를 비교."
+        "label": "방어력",
+        "value": "4000",
+        "nearFinal": "—",
+        "final": "—",
+        "notes": {
+          "value": "원본 기타 칸에 벨로보그 장신구 조건 표기."
+        }
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -17736,6 +18185,10 @@
     ],
     "eidolonAdvice": "제작·상점 재화로 얻는 성혼. 실드가 목적이면 2·6단계 효과를 확인.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A238:P241"
+      },
       {
         "label": "Prydwen · 개척자(보존) 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/trailblazer-preservation"
@@ -17852,34 +18305,24 @@
     "targetStats": [
       {
         "label": "공격력",
-        "value": "마을 2,000",
-        "nearFinal": "마을 2,400",
-        "final": "마을 2,800+",
-        "condition": "격파에 따라 쌓이는 전투 공격력 별도."
+        "value": "3000",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
         "label": "치명타 확률",
-        "value": "마을 65%",
-        "nearFinal": "마을 70%",
-        "final": "마을 70%",
-        "condition": "경기장 발동은 유지 가능한 전투 치확 70%."
+        "value": "80%",
+        "nearFinal": "—",
+        "final": "—"
       },
       {
         "label": "치명타 피해",
-        "value": "마을 120%",
-        "nearFinal": "마을 125%",
-        "final": "마을 130%+",
-        "condition": "가이드 120~130%+."
-      },
-      {
-        "label": "속도",
-        "value": "마을 100 · 당김 세팅",
-        "nearFinal": "마을 134",
-        "final": "마을 143 선택",
-        "condition": "빠른 스파클이 있으면 기본 100 사용. 일반 운영 목표는 134."
+        "value": "120%",
+        "nearFinal": "—",
+        "final": "—"
       }
     ],
-    "targetNote": "Lv.80·유물 +15 기준. 입문·중간 목표는 육성 편의를 위한 단계이며, 완성값의 버프와 편성 조건은 각주를 확인.",
+    "targetNote": "준종결 수치는 원본 시트에 없습니다. 추천은 ‘세팅’ 기준이며 ‘종결’에 해당 캐릭터 행이 없습니다.",
     "eidolons": [
       {
         "level": 1,
@@ -17920,6 +18363,10 @@
     ],
     "eidolonAdvice": "스토리·상점 재화로 해금. 치확과 특성 유지에 4·6단계가 유용.",
     "sources": [
+      {
+        "label": "붕스 세팅정리 · 세팅 (2026-11-27 확인)",
+        "url": "https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&range=A174:P177"
+      },
       {
         "label": "Prydwen · 개척자(파멸) 빌드와 파티",
         "url": "https://www.prydwen.gg/star-rail/characters/trailblazer-destruction"
