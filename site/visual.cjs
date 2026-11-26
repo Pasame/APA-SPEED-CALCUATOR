@@ -28,6 +28,21 @@ function substatsForSlot(mainStat, substats) {
 function createVisuals({ profiles, assets, docs, escape, partyGroups = [] }) {
   const groupForParty = new Map(partyGroups.flatMap(group => group.variants.map(id => [id, group])));
   const byName = new Intl.Collator('ko').compare;
+  function partyReleaseDate(doc) {
+    const variants = doc.partyGroup
+      ? doc.partyGroup.variants.map(id => docs.find(item => item.id === id))
+      : [doc];
+    const dates = variants.flatMap(variant => variant.party.coreMemberIds.map(id => {
+      if (!releaseDates[id]) throw new Error(`Missing party core release date: ${variant.id}/${id}`);
+      return releaseDates[id];
+    }));
+    return dates.sort().at(-1);
+  }
+
+  function newestPartyFirst(left, right) {
+    return partyReleaseDate(right).localeCompare(partyReleaseDate(left))
+      || byName(left.party.lead, right.party.lead);
+  }
   function image(group, id, prefix, className = '', alt = '') {
     const asset = assets[group][id];
     if (!asset) throw new Error(`Missing ${group} image: ${id}`);
@@ -82,7 +97,7 @@ function createVisuals({ profiles, assets, docs, escape, partyGroups = [] }) {
   function gameCatalog(ownDocs, prefix, kinds, card) {
     const available = Object.keys(kinds).filter(kind => ownDocs.some(doc => doc.kind === kind));
     const defaultKind = available[0];
-    const parties = ownDocs.filter(doc => doc.party);
+    const parties = ownDocs.filter(doc => doc.party).sort(newestPartyFirst);
     const partyCategories = Object.entries(categories).filter(([key]) => parties.some(doc => doc.party.category === key));
     return `<section class="visual-catalog" data-game-catalog data-default-kind="${defaultKind}" aria-label="게임 자료">
       <div class="filter-chips catalog-tabs" role="group" aria-label="자료 종류">${available.map(kind => `<button type="button" data-view="${kind}" aria-controls="catalog-${kind}" aria-pressed="${kind === defaultKind}">${kinds[kind]}</button>`).join('')}</div>
@@ -116,7 +131,7 @@ function createVisuals({ profiles, assets, docs, escape, partyGroups = [] }) {
             <p class="empty-state" data-character-empty hidden>이 조건에 맞는 육성 가이드가 없어요. 검색어나 필터를 바꿔 주세요.</p>`;
         } else if (kind === 'party') {
           content = `<div class="filter-chips party-categories" role="group" aria-label="파티 유형">${partyCategories.map(([key, name], index) => `<button type="button" data-category="${key}" aria-pressed="${index === 0}">${name}</button>`).join('')}</div>
-            <div class="section-heading"><h2 data-party-heading>메인 딜러 선택</h2><p class="eyebrow">작은 얼굴은 대체 후보</p></div>
+            <div class="section-heading"><h2 data-party-heading>메인 딜러 선택</h2><p class="eyebrow">최신 딜러순 · 작은 얼굴은 대체 후보</p></div>
             <div class="party-grid">${parties.map(doc => partyTile(doc, prefix)).join('')}</div>`;
         } else {
           content = `<div class="doc-grid">${entries.map(doc => card(doc, prefix)).join('')}</div>`;
@@ -210,7 +225,7 @@ ${statNotes.length ? `      <div class="stat-footnotes"><h3>스탯 조건과 각
     const targetPanels = builds
       ? `${buildChoices('target')}${builds.map((build, index) => `<div id="build-target-${build.id}" data-build-panel="${build.id}"${index ? ' hidden' : ''}>${statTable(profile, build, `build-${build.id}-`)}</div>`).join('')}`
       : statTable(profile, profile);
-    const relatedParties = docs.filter(item => item.party && (profile.related.includes(item.id) || item.party.members.some(member => member.guideId === doc.id)));
+    const relatedParties = docs.filter(item => item.party && (profile.related.includes(item.id) || item.party.members.some(member => member.guideId === doc.id))).sort(newestPartyFirst);
     return `<a class="back-link" href="${prefix}games/hsr/index.html?view=character">← 캐릭터 육성</a>
       <header class="profile-header">${image('characters', profile.characterId, prefix, 'profile-portrait')}<div><p class="eyebrow">캐릭터 육성</p><h1>${escape(profile.name)}</h1><p>${escape(profile.role)}</p></div></header>
       <nav class="profile-nav" aria-label="육성 항목"><a href="#cones">광추</a><a href="#relics">유물</a><a href="#targets">이잘키</a><a href="#eidolons">성혼</a><a href="#parties">추천 파티</a></nav>
