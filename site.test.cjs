@@ -159,6 +159,13 @@ for (const doc of parties) {
   }
 }
 const hsr = fs.readFileSync(path.join(root, 'games/hsr/index.html'), 'utf8');
+for (const [newer, older] of [
+  ['hsr-hysilens-dot', 'hsr-kafka-black-swan-dot'],
+  ['hsr-aventurine-waveflair-team', 'hsr-jing-yuan-team'],
+  ['hsr-gilgamesh-team', 'hsr-himeko-nova-team'],
+]) {
+  assert.ok(hsr.indexOf(`guides/${newer}/index.html`) < hsr.indexOf(`guides/${older}/index.html`), `${newer} precedes older damage dealers`);
+}
 for (const group of partyGroups) {
   assert.equal((hsr.match(new RegExp(`href="../../guides/${group.id}/index.html"`, 'g')) || []).length, 1, 'one catalog card per party group');
   const groupPage = fs.readFileSync(path.join(root, `guides/${group.id}/index.html`), 'utf8');
