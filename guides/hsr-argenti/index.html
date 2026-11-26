@@ -7,8 +7,8 @@
     <title>아젠티 육성 가이드 · Fluffy Archive</title>
     <meta name="description" content="공격한 적 수로 에너지를 모아 광역 필살기를 사용합니다.">
     <link rel="icon" href="../../site/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../../site/styles.css?v=da5d4934ee3a">
-    <script src="../../site/app.js?v=a8fd9286b8ef" defer></script>
+    <link rel="stylesheet" href="../../site/styles.css?v=9539d7fb716c">
+    <script src="../../site/app.js?v=68080ed0d7c1" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -69,60 +69,16 @@
       </div></section>
         <section class="visual-section" id="targets">
           <h2>이 정도면 잘 키웠다</h2>
-          <p class="eyebrow">동일 파티·광추 기준 · 조건 [*]</p>
+          <p class="eyebrow">세팅에 따른 목표값 · —는 출처에 별도 기준 없음</p>
           <table class="stat-tier-table">
             <caption class="sr-only">아젠티 추천 스탯·준종결·종결 비교</caption>
             <thead><tr><th scope="col">스탯</th><th scope="col">추천 스탯</th><th scope="col">준종결</th><th scope="col">종결</th></tr></thead>
-            <tbody>
-              <tr id="stat-row-1">
-                <th scope="row">치명타 확률
-                  <span class="stat-note" data-stat-note>
-                    <a class="stat-note-link" href="#stat-note-1" aria-label="치명타 확률 조건 각주 1" aria-describedby="stat-tooltip-1">[*]</a>
-                    <span class="stat-tooltip" id="stat-tooltip-1" role="tooltip">특성 승격 치명타 확률을 포함하고 동료 버프까지 합쳐 100% 이하로 맞추세요.</span>
-                  </span>
-                </th>
-                <td data-tier="추천 스탯">전투 75%</td>
-                <td data-tier="준종결">전투 80%</td>
-                <td data-tier="종결">전투 90%+</td>
-              </tr>
-              <tr id="stat-row-2">
-                <th scope="row">치명타 피해
-                  <span class="stat-note" data-stat-note>
-                    <a class="stat-note-link" href="#stat-note-2" aria-label="치명타 피해 조건 각주 2" aria-describedby="stat-tooltip-2">[*]</a>
-                    <span class="stat-tooltip" id="stat-tooltip-2" role="tooltip">허구 이야기에서 츠가냐와 성혼 1 승격 중첩을 합산.</span>
-                  </span>
-                </th>
-                <td data-tier="추천 스탯">전투 150%</td>
-                <td data-tier="준종결">전투 160%</td>
-                <td data-tier="종결">160%+ 유지</td>
-              </tr>
-              <tr id="stat-row-3">
-                <th scope="row">공격력
-                  <span class="stat-note" data-stat-note>
-                    <a class="stat-note-link" href="#stat-note-3" aria-label="공격력 조건 각주 3" aria-describedby="stat-tooltip-3">[*]</a>
-                    <span class="stat-tooltip" id="stat-tooltip-3" role="tooltip">공격력 신발과 광추에 따라 달라집니다.</span>
-                  </span>
-                </th>
-                <td data-tier="추천 스탯">2,600</td>
-                <td data-tier="준종결">2,800</td>
-                <td data-tier="종결">3,000+</td>
-              </tr>
-              <tr id="stat-row-4">
-                <th scope="row">속도
-                  <span class="stat-note" data-stat-note>
-                    <a class="stat-note-link" href="#stat-note-4" aria-label="속도 조건 각주 4" aria-describedby="stat-tooltip-4">[*]</a>
-                    <span class="stat-tooltip" id="stat-tooltip-4" role="tooltip">고속 행동 지원과 함께라면 기본 속도·공격력 신발로 비교.</span>
-                  </span>
-                </th>
-                <td data-tier="추천 스탯">134</td>
-                <td data-tier="준종결">134 유지</td>
-                <td data-tier="종결">지원과 순서 조정</td>
-              </tr></tbody>
+            <tbody><tr id="stat-row-1"><th scope="row" id="stat-row-1-label">공격력</th><td id="stat-row-1-value" data-tier="추천 스탯">3600</td><td id="stat-row-1-nearFinal" data-tier="준종결">—</td><td id="stat-row-1-final" data-tier="종결">3000</td></tr><tr id="stat-row-2"><th scope="row" id="stat-row-2-label">속도</th><td id="stat-row-2-value" data-tier="추천 스탯">166.7+<span class="stat-note" data-stat-note><a class="stat-note-link" id="stat-ref-1" href="#stat-note-1" aria-label="속도 · 추천 스탯 각주 1" aria-describedby="stat-tooltip-1"><sup>[1]</sup></a><span class="stat-tooltip" id="stat-tooltip-1" role="tooltip">더 헤르타 팀 · 영험한 열쇠+매 세트.</span></span></td><td id="stat-row-2-nearFinal" data-tier="준종결">—</td><td id="stat-row-2-final" data-tier="종결">134</td></tr><tr id="stat-row-3"><th scope="row" id="stat-row-3-label">치명타 확률</th><td id="stat-row-3-value" data-tier="추천 스탯">75%<span class="stat-note" data-stat-note><a class="stat-note-link" id="stat-ref-2" href="#stat-note-2" aria-label="치명타 확률 · 추천 스탯 각주 2" aria-describedby="stat-tooltip-2"><sup>[2]</sup></a><span class="stat-tooltip" id="stat-tooltip-2" role="tooltip">광역 딜러 기준. 승격 치명타 확률 25% 참고.</span></span></td><td id="stat-row-3-nearFinal" data-tier="준종결">—</td><td id="stat-row-3-final" data-tier="종결">75%</td></tr><tr id="stat-row-4"><th scope="row" id="stat-row-4-label">치명타 피해</th><td id="stat-row-4-value" data-tier="추천 스탯">150%</td><td id="stat-row-4-nearFinal" data-tier="준종결">—</td><td id="stat-row-4-final" data-tier="종결">200%</td></tr></tbody>
           </table>
-          <details class="equipment-reason"><summary>육성 단계의 기준</summary><p>Lv.80 · 5성 유물 +15. Prydwen 참고 범위와 발동 조건을 바탕으로 나눈 편집 목표입니다.</p></details>
+          <details class="equipment-reason"><summary>육성 단계의 기준</summary><p>준종결 수치는 원본 시트에 없습니다. 추천과 종결은 별도 세팅입니다. 종결 표의 기본 전제는 5성 명함·전용 광추 (학자 / 살소토)입니다.</p></details>
           <div class="stat-footnotes">
             <h3>스탯 조건과 각주</h3>
-            <ol><li id="stat-note-1" tabindex="-1"><strong>치명타 확률</strong> 특성 승격 치명타 확률을 포함하고 동료 버프까지 합쳐 100% 이하로 맞추세요. <a href="#stat-row-1" aria-label="치명타 확률 스탯으로 돌아가기">↑</a></li><li id="stat-note-2" tabindex="-1"><strong>치명타 피해</strong> 허구 이야기에서 츠가냐와 성혼 1 승격 중첩을 합산. <a href="#stat-row-2" aria-label="치명타 피해 스탯으로 돌아가기">↑</a></li><li id="stat-note-3" tabindex="-1"><strong>공격력</strong> 공격력 신발과 광추에 따라 달라집니다. <a href="#stat-row-3" aria-label="공격력 스탯으로 돌아가기">↑</a></li><li id="stat-note-4" tabindex="-1"><strong>속도</strong> 고속 행동 지원과 함께라면 기본 속도·공격력 신발로 비교. <a href="#stat-row-4" aria-label="속도 스탯으로 돌아가기">↑</a></li></ol>
+            <ol><li id="stat-note-1" tabindex="-1"><strong>속도 · 추천 스탯</strong> 더 헤르타 팀 · 영험한 열쇠+매 세트. <a href="#stat-ref-1" aria-label="속도 · 추천 스탯 스탯으로 돌아가기">↑</a></li><li id="stat-note-2" tabindex="-1"><strong>치명타 확률 · 추천 스탯</strong> 광역 딜러 기준. 승격 치명타 확률 25% 참고. <a href="#stat-ref-2" aria-label="치명타 확률 · 추천 스탯 스탯으로 돌아가기">↑</a></li></ol>
           </div>
         </section>
         <section class="visual-section" id="eidolons"><h2>성혼과 추천 돌파</h2><p class="investment-note">성혼 1로 승격에 치명타 피해가 더해집니다. 허구 이야기에서 지원·에너지 주기부터 확보하세요.</p><div class="eidolon-list"><details><summary><span class="eidolon-number">1</span><span>승격마다 치명타 피해 +4%</span><span class="recommend-tag">추천</span></summary><p>승격 스택마다 추가로 치명타 피해가 4% 증가</p></details><details><summary><span class="eidolon-number">2</span><span>적 3기 이상에서 필살기 → 공격력 +40%(1턴)</span></summary><p>필살기 발동 시 적이 3기 이상일 경우 공격력이 40% 증가. 지속 1턴</p></details><details><summary><span class="eidolon-number">3</span><span>전투 스킬 +2 · 특성 +2</span></summary><p>전투 스킬 +2 · 특성 +2</p></details><details><summary><span class="eidolon-number">4</span><span>전투 시작 승격 +2·최대 +2</span></summary><p>전투 시작 시 승격을 2스택 획득하고, 특성의 효과 최대 중첩수가 2스택 증가</p></details><details><summary><span class="eidolon-number">5</span><span>필살기 +2 · 일반 공격 +1</span></summary><p>필살기 +2 · 일반 공격 +1</p></details><details><summary><span class="eidolon-number">6</span><span>필살기 방어력 30% 무시</span></summary><p>필살기 발동 시 적의 방어력을 30% 무시한다</p></details></div></section>
@@ -138,7 +94,7 @@
           <h3>기본 운영</h3><p>적이 많을 때 스킬로 에너지를 모으세요. 저체력 웨이브에는 90 에너지 필살기, 정예를 포함한 웨이브에는 180 에너지 필살기를 사용하세요.</p><h3>행적 우선순위</h3><p>필살기 &gt; 전투 스킬 = 특성 &gt; 일반 공격. 승격은 전투 중 치명타 확률을 높입니다.</p>
           <a class="text-link" href="../../tools/aha/index.html">아하 속도 계산기 →</a>
         </details>
-        <details class="article-sources"><summary>기준과 출처 · 2026-11-25</summary><p>4.7 · 한국어 게임 데이터 및 Prydwen 육성 분석</p><ul><li><a href="https://www.prydwen.gg/star-rail/characters/argenti" target="_blank" rel="noopener noreferrer">Prydwen · 장비·스탯·편성 분석 ↗</a></li><li><a href="https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/light_cone_ranks.json" target="_blank" rel="noopener noreferrer">StarRailRes 4.7 · 광추 효과 ↗</a></li><li><a href="https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/relic_sets.json" target="_blank" rel="noopener noreferrer">StarRailRes 4.7 · 유물 효과 ↗</a></li><li><a href="https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_ranks.json" target="_blank" rel="noopener noreferrer">StarRailRes 4.7 · 캐릭터 성혼 데이터 ↗</a></li><li><a href="https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_skill_trees.json" target="_blank" rel="noopener noreferrer">StarRailRes 4.7 · 행적 ↗</a></li><li><a href="https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_skills.json" target="_blank" rel="noopener noreferrer">StarRailRes 4.7 · 스킬 ↗</a></li></ul></details>
+        <details class="article-sources"><summary>기준과 출처 · 2026-11-25</summary><p>4.7 · 한국어 게임 데이터 및 Prydwen 육성 분석</p><ul><li><a href="https://www.prydwen.gg/star-rail/characters/argenti" target="_blank" rel="noopener noreferrer">Prydwen · 장비·스탯·편성 분석 ↗</a></li><li><a href="https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/light_cone_ranks.json" target="_blank" rel="noopener noreferrer">StarRailRes 4.7 · 광추 효과 ↗</a></li><li><a href="https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/relic_sets.json" target="_blank" rel="noopener noreferrer">StarRailRes 4.7 · 유물 효과 ↗</a></li><li><a href="https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_ranks.json" target="_blank" rel="noopener noreferrer">StarRailRes 4.7 · 캐릭터 성혼 데이터 ↗</a></li><li><a href="https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_skill_trees.json" target="_blank" rel="noopener noreferrer">StarRailRes 4.7 · 행적 ↗</a></li><li><a href="https://github.com/Mar-7th/StarRailRes/blob/03907e798b46f9eb109a1f882055cdf49ce3d374/index_new/kr/character_skills.json" target="_blank" rel="noopener noreferrer">StarRailRes 4.7 · 스킬 ↗</a></li><li><a href="https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=0&amp;range=A194:P197" target="_blank" rel="noopener noreferrer">붕스 세팅정리 · 세팅 (2026-11-27 확인) ↗</a></li><li><a href="https://docs.google.com/spreadsheets/d/1kRQjQrHsgIDqPdnyDCVXG59Ge8AaKm0dyJvj6Vp2AY4/edit#gid=1550788507&amp;range=A75:F78" target="_blank" rel="noopener noreferrer">붕스 세팅정리 · 종결 (2026-11-27 확인) ↗</a></li></ul></details>
       </article></main>
     <footer class="site-footer">
       <a class="footer-brand" href="../../index.html">Fluffy Archive</a>

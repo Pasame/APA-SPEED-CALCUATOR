@@ -187,14 +187,44 @@ for (const profile of profiles) {
   assert.ok(page.includes('기본 운영과 행적'));
   assert.ok(page.includes('tools/aha/index.html'));
   assert.ok(!page.includes('undefined'));
+  let noteCount = 0;
   for (const [index, stat] of profile.targetStats.entries()) {
-    for (const field of ['value', 'nearFinal', 'final', 'condition']) assert.ok(stat[field]?.trim());
-    assert.ok(page.includes(`href="#stat-note-${index + 1}"`));
-    assert.ok(page.includes(`id="stat-note-${index + 1}"`));
-    assert.ok(page.includes(`aria-describedby="stat-tooltip-${index + 1}"`));
+    for (const field of ['value', 'nearFinal', 'final']) assert.ok(stat[field]?.trim());
+    for (const [key, text] of [['label', stat.condition], ...['value', 'nearFinal', 'final'].map(key => [key, stat.notes?.[key]])]) {
+      const cellId = `stat-row-${index + 1}-${key}`;
+      const cell = page.match(new RegExp(`<t[hd][^>]*id="${cellId}"[^>]*>([\\s\\S]*?)</t[hd]>`))[1];
+      assert.equal(cell.includes('data-stat-note'), Boolean(text), `${profile.id}/${cellId} only has a note when needed`);
+      if (!text) continue;
+      noteCount++;
+      assert.ok(cell.includes(`<sup>[${noteCount}]</sup>`));
+      assert.ok(cell.includes(`href="#stat-note-${noteCount}"`));
+      assert.ok(page.includes(`id="stat-note-${noteCount}"`));
+      assert.ok(cell.includes(`aria-describedby="stat-tooltip-${noteCount}"`));
+      assert.ok(cell.includes(`id="stat-ref-${noteCount}"`));
+      assert.ok(page.includes(`href="#stat-ref-${noteCount}"`), 'footnote returns focus to its exact numbered link');
+    }
   }
+  assert.equal((page.match(/data-stat-note/g) || []).length, noteCount);
+  assert.equal(page.includes('class="stat-footnotes"'), noteCount > 0);
 }
 console.log('PASS visual guides have real equipment pieces, complete stats, linked parties and no all-category tab');
+
+const noteFixture = {
+  ...profiles[0],
+  targetStats: [
+    { label: '속도', value: '134', nearFinal: '—', final: '160', condition: '동일 파티 기준', notes: { final: '특정 행동 순서 조건' } },
+    { label: '공격력', value: '3000', nearFinal: '—', final: '—' },
+  ],
+};
+const fixturePage = createVisuals({ profiles: [noteFixture], assets, docs, escape: String })
+  .characterDetail(docs.find(doc => doc.id === noteFixture.id), '../../');
+assert.equal((fixturePage.match(/data-stat-note/g) || []).length, 2, 'common and value-specific notes are numbered without empty notes');
+assert.match(fixturePage, /id="stat-row-1-label"[^>]*>속도<span class="stat-note"/);
+assert.match(fixturePage, /id="stat-row-1-final"[^>]*>160<span class="stat-note"/);
+assert.match(fixturePage, /id="stat-row-1-value"[^>]*>134<\/td>/);
+assert.ok(fixturePage.includes('href="#stat-ref-2"'), 'value-specific footnote returns to the value link');
+assert.ok(!fixturePage.includes('[*]'), 'numbered superscripts replace large generic markers');
+console.log('PASS optional footnotes attach to the exact value or common stat label');
 
 // Detail pages do not have a catalog. Their equipment controls must still work,
 // and changing one group must not change another group's selection.
@@ -307,15 +337,29 @@ assert.throws(() => createVisuals({profiles:[invalidProfile],assets,docs,escape:
 console.log('PASS character filters combine name, element and path, restore URLs and reset safely');
 
 const note = catalogControl();
+const tooltip = { style: {}, getBoundingClientRect: () => ({ width: 240, height: 80 }) };
+note.getBoundingClientRect = () => ({ left: 240, top: 20, bottom: 40, height: 20 });
+note.querySelector = selector => selector === 'a' ? note : tooltip;
+const secondNote = catalogControl();
+secondNote.querySelector = note.querySelector;
+secondNote.getBoundingClientRect = note.getBoundingClientRect;
 const noteDocumentEvents = {};
 vm.runInNewContext(fs.readFileSync(path.join(root, 'site/app.js'), 'utf8'), {
   document: {
-    querySelectorAll(selector) { return selector === '[data-stat-note]' ? [note] : []; },
+    documentElement: { clientWidth: 320 },
+    querySelectorAll(selector) { return selector === '[data-stat-note]' ? [note, secondNote] : []; },
     querySelector() { return null; },
     addEventListener(name, callback) { noteDocumentEvents[name] = callback; },
   },
 });
 note.events.pointerenter();
+assert.equal(tooltip.style.left, '-176px', 'mobile tooltip stays inside the viewport');
+assert.equal(tooltip.style.top, '20px', 'tooltip appears below a trigger near the viewport top');
+secondNote.events.pointerenter();
+assert.equal(note.dataset.active, undefined, 'hovering another note does not retain a competing focus tooltip');
+assert.equal(secondNote.dataset.active, 'true');
+secondNote.events.pointerleave();
+assert.equal(secondNote.dataset.active, undefined);
 noteDocumentEvents.keydown({key:'Escape', target:{tagName:'INPUT'}});
 assert.equal(note.dataset.dismissed, 'true', 'Escape dismisses hover tooltips even when another element has focus');
 note.events.focusin();

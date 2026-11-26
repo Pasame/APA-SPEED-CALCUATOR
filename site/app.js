@@ -3,12 +3,31 @@
   if (statNotes.length) {
     document.addEventListener('keydown', event => {
       if (event.key !== 'Escape') return;
-      for (const note of statNotes) note.dataset.dismissed = 'true';
+      for (const note of statNotes) {
+        note.dataset.dismissed = 'true';
+        delete note.dataset.active;
+      }
     });
   }
   for (const note of statNotes) {
-    for (const event of ['pointerenter', 'pointerleave', 'focusin', 'focusout']) {
-      note.addEventListener(event, () => { delete note.dataset.dismissed; });
+    for (const event of ['pointerenter', 'focusin']) {
+      note.addEventListener(event, () => {
+        for (const other of statNotes) delete other.dataset.active;
+        delete note.dataset.dismissed;
+        note.dataset.active = 'true';
+        const tooltip = note.querySelector('.stat-tooltip');
+        const anchor = note.getBoundingClientRect();
+        const trigger = note.querySelector('a').getBoundingClientRect();
+        const box = tooltip.getBoundingClientRect();
+        const left = Math.max(16, Math.min(trigger.left, document.documentElement.clientWidth - box.width - 16));
+        tooltip.style.left = `${left - anchor.left}px`;
+        tooltip.style.bottom = 'auto';
+        const top = trigger.top >= box.height + 8 ? trigger.top - box.height : trigger.bottom;
+        tooltip.style.top = `${top - anchor.top}px`;
+      });
+    }
+    for (const event of ['pointerleave', 'focusout']) {
+      note.addEventListener(event, () => { delete note.dataset.active; });
     }
   }
   for (const group of document.querySelectorAll('[data-choice-group]')) {

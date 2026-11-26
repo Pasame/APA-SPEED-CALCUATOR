@@ -145,10 +145,27 @@ function createVisuals({ profiles, assets, docs, escape, partyGroups = [] }) {
   function characterDetail(doc, prefix) {
     const profile = profiles.find(item => item.id === doc.id);
     for (const stat of profile.targetStats) {
-      if ([stat.value, stat.nearFinal, stat.final, stat.condition].some(value => typeof value !== 'string' || !value.trim())) {
-        throw new Error(`Missing stat tier or footnote: ${doc.id}/${stat.label}`);
+      if ([stat.value, stat.nearFinal, stat.final].some(value => typeof value !== 'string' || !value.trim())) {
+        throw new Error(`Missing stat tier: ${doc.id}/${stat.label}`);
       }
     }
+    const statNotes = [];
+    function statNote(text, label) {
+      if (!text) return '';
+      const number = statNotes.length + 1;
+      statNotes.push({ number, text, label, target: `stat-ref-${number}` });
+      return `<span class="stat-note" data-stat-note><a class="stat-note-link" id="stat-ref-${number}" href="#stat-note-${number}" aria-label="${escape(label)} 각주 ${number}" aria-describedby="stat-tooltip-${number}"><sup>[${number}]</sup></a><span class="stat-tooltip" id="stat-tooltip-${number}" role="tooltip">${escape(text)}</span></span>`;
+    }
+    const tiers = [['value', '추천 스탯'], ['nearFinal', '준종결'], ['final', '종결']];
+    const statRows = profile.targetStats.map((stat, index) => {
+      const rowId = `stat-row-${index + 1}`;
+      const label = `<th scope="row" id="${rowId}-label">${escape(stat.label)}${statNote(stat.condition, stat.label)}</th>`;
+      const cells = tiers.map(([key, title]) => {
+        const cellId = `${rowId}-${key}`;
+        return `<td id="${cellId}" data-tier="${title}">${escape(stat[key])}${statNote(stat.notes?.[key], `${stat.label} · ${title}`)}</td>`;
+      }).join('');
+      return `<tr id="${rowId}">${label}${cells}</tr>`;
+    }).join('');
     const coneButtons = profile.cones.map((cone, index) => `<button class="cone-choice" type="button" data-choice="cone-${index}" aria-controls="cone-${index}" aria-pressed="${index === 0}">
       ${image('cones', cone.id, prefix)}<span>${escape(cone.name)}</span><small>${escape(cone.tag)}</small></button>`).join('');
     const conePanels = profile.cones.map((cone, index) => `<div class="equipment-description" id="cone-${index}" data-choice-panel${index ? ' hidden' : ''}>
@@ -181,28 +198,17 @@ function createVisuals({ profiles, assets, docs, escape, partyGroups = [] }) {
         <section class="visual-section" id="relics" data-choice-group><h2>추천 유물</h2><div class="filter-chips build-choices" role="group" aria-label="유물 세팅">${profile.relicBuilds.map((build, index) => `<button type="button" data-choice="relic-${index}" aria-controls="relic-${index}" aria-pressed="${index === 0}">${escape(build.name)}</button>`).join('')}</div>${relicPanels}</section>
         <section class="visual-section" id="targets">
           <h2>이 정도면 잘 키웠다</h2>
-          <p class="eyebrow">동일 파티·광추 기준 · 조건 [*]</p>
+          <p class="eyebrow">세팅에 따른 목표값 · —는 출처에 별도 기준 없음</p>
           <table class="stat-tier-table">
             <caption class="sr-only">${escape(profile.name)} 추천 스탯·준종결·종결 비교</caption>
             <thead><tr><th scope="col">스탯</th><th scope="col">추천 스탯</th><th scope="col">준종결</th><th scope="col">종결</th></tr></thead>
-            <tbody>${profile.targetStats.map((stat, index) => `
-              <tr id="stat-row-${index + 1}">
-                <th scope="row">${escape(stat.label)}
-                  <span class="stat-note" data-stat-note>
-                    <a class="stat-note-link" href="#stat-note-${index + 1}" aria-label="${escape(stat.label)} 조건 각주 ${index + 1}" aria-describedby="stat-tooltip-${index + 1}">[*]</a>
-                    <span class="stat-tooltip" id="stat-tooltip-${index + 1}" role="tooltip">${escape(stat.condition)}</span>
-                  </span>
-                </th>
-                <td data-tier="추천 스탯">${escape(stat.value)}</td>
-                <td data-tier="준종결">${escape(stat.nearFinal)}</td>
-                <td data-tier="종결">${escape(stat.final)}</td>
-              </tr>`).join('')}</tbody>
+            <tbody>${statRows}</tbody>
           </table>
           <details class="equipment-reason"><summary>육성 단계의 기준</summary><p>${escape(profile.targetNote)}</p></details>
-          <div class="stat-footnotes">
+${statNotes.length ? `          <div class="stat-footnotes">
             <h3>스탯 조건과 각주</h3>
-            <ol>${profile.targetStats.map((stat, index) => `<li id="stat-note-${index + 1}" tabindex="-1"><strong>${escape(stat.label)}</strong> ${escape(stat.condition)} <a href="#stat-row-${index + 1}" aria-label="${escape(stat.label)} 스탯으로 돌아가기">↑</a></li>`).join('')}</ol>
-          </div>
+            <ol>${statNotes.map(note => `<li id="stat-note-${note.number}" tabindex="-1"><strong>${escape(note.label)}</strong> ${escape(note.text)} <a href="#${note.target}" aria-label="${escape(note.label)} 스탯으로 돌아가기">↑</a></li>`).join('')}</ol>
+          </div>` : ''}
         </section>
         <section class="visual-section" id="eidolons"><h2>성혼과 추천 돌파</h2><p class="investment-note">${escape(profile.eidolonAdvice)}</p><div class="eidolon-list">${profile.eidolons.map(eidolon => `<details><summary><span class="eidolon-number">${eidolon.level}</span><span>${escape(eidolon.short)}</span>${eidolon.recommended ? '<span class="recommend-tag">추천</span>' : ''}</summary><p>${escape(eidolon.detail)}</p></details>`).join('')}</div></section>
         <section class="visual-section" id="parties"><h2>추천 파티</h2><div class="party-grid">${relatedParties.map(party => partyTile(party, prefix)).join('')}</div></section>
