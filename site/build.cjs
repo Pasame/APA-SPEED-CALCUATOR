@@ -51,6 +51,7 @@ const games = [
     official: 'https://wutheringwaves.kurogames.com/kr/main',
   },
 ];
+const SITE_ORIGIN = 'https://pasame.github.io/fluffy-archive/';
 const kinds = {
   character: '캐릭터 육성',
   party: '파티',
@@ -231,7 +232,7 @@ function buildArchive(root, art) {
       </a>`;
   };
 
-  function layout({ title, description, prefix = '', body, active = '', legacy = false }) {
+  function layout({ title, description, prefix = '', body, active = '', legacy = false, canonicalPath = '', ogImage = 'site/raccoon.png', ogType = 'website' }) {
     const legacyScript = legacy
       ? `
         <script>
@@ -246,6 +247,9 @@ function buildArchive(root, art) {
       : '';
     const gamesCurrent = active === 'games' ? ' aria-current="page"' : '';
     const searchCurrent = active === 'search' ? ' aria-current="page"' : '';
+    const pageTitle = `${title} · Fluffy Archive`;
+    const shareUrl = new URL(canonicalPath, SITE_ORIGIN).href;
+    const shareImage = new URL(ogImage, SITE_ORIGIN).href;
 
     return `<!doctype html>
 <html lang="ko">
@@ -253,8 +257,18 @@ function buildArchive(root, art) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <title>${escape(title)} · Fluffy Archive</title>
+    <title>${escape(pageTitle)}</title>
     <meta name="description" content="${escape(description)}">
+    <meta property="og:site_name" content="Fluffy Archive">
+    <meta property="og:type" content="${escape(ogType)}">
+    <meta property="og:title" content="${escape(pageTitle)}">
+    <meta property="og:description" content="${escape(description)}">
+    <meta property="og:url" content="${escape(shareUrl)}">
+    <meta property="og:image" content="${escape(shareImage)}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="${escape(pageTitle)}">
+    <meta name="twitter:description" content="${escape(description)}">
+    <meta name="twitter:image" content="${escape(shareImage)}">
     <link rel="icon" href="${prefix}site/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="${prefix}site/styles.css?v=${styleVersion}">${legacyScript}
     <script src="${prefix}site/app.js?v=${scriptVersion}" defer></script>
@@ -295,9 +309,18 @@ function buildArchive(root, art) {
   }
 
   function writeRedirect(id, destination, doc) {
+    const resolved = new URL(destination, `${SITE_ORIGIN}guides/${id}/`).href;
+    const canonicalPath = resolved.startsWith(SITE_ORIGIN) ? resolved.slice(SITE_ORIGIN.length) : destination;
+    const profile = profiles.find(item => item.id === doc.id);
+    const ogImage = profile
+      ? assets.characters[profile.characterId]?.path
+      : assets.characters[doc.party?.coreMemberIds?.[0]]?.path || `site/assets/games/${doc.game}.jpg`;
     const html = layout({
       title: doc.title,
       description: doc.summary,
+      canonicalPath,
+      ogImage,
+      ogType: 'article',
       prefix: '../../',
       body: `<a class="button" href="${escape(destination)}">${escape(doc.title)} →</a>`,
     }).replace('</head>', `    <meta http-equiv="refresh" content="0;url=${escape(destination)}">\n    <link rel="canonical" href="${escape(destination)}">\n  </head>`);
@@ -317,6 +340,8 @@ function buildArchive(root, art) {
   write('index.html', layout({
     title: '복슬복슬호 자료실',
     description: '다섯 게임의 육성 가이드, 파티 구성과 아하 속도 계산기를 한곳에서 만나보세요.',
+    canonicalPath: '',
+    ogImage: 'site/raccoon.png',
     legacy: true,
     body: `
       <section class="home-hero">
@@ -374,6 +399,8 @@ function buildArchive(root, art) {
     write(`games/${game.id}/index.html`, layout({
       title: game.name,
       description: `${game.name} 육성과 파티 가이드`,
+      canonicalPath: `games/${game.id}/index.html`,
+      ogImage: `site/assets/games/${game.id}.jpg`,
       prefix: '../../',
       active: 'games',
       body: `
@@ -410,10 +437,17 @@ function buildArchive(root, art) {
       writeRedirect(doc.id, `../${group.id}/index.html?party=${doc.id}`, doc);
       continue;
     }
-    if (profiles.some(profile => profile.id === doc.id) || doc.party) {
+    const profile = profiles.find(item => item.id === doc.id);
+    if (profile || doc.party) {
+      const ogImage = profile
+        ? assets.characters[profile.characterId]?.path
+        : assets.characters[doc.party.coreMemberIds?.[0]]?.path;
       write(`guides/${doc.id}/index.html`, layout({
         title: doc.title,
         description: doc.summary,
+        canonicalPath: `guides/${doc.id}/index.html`,
+        ogImage: ogImage || `site/assets/games/${doc.game}.jpg`,
+        ogType: 'article',
         prefix: '../../',
         body: doc.party ? visual.partyDetail(doc, '../../') : visual.characterDetail(doc, '../../'),
       }));
@@ -461,6 +495,9 @@ function buildArchive(root, art) {
     write(`guides/${doc.id}/index.html`, layout({
       title: doc.title,
       description: doc.summary,
+      canonicalPath: `guides/${doc.id}/index.html`,
+      ogImage: `site/assets/games/${doc.game}.jpg`,
+      ogType: 'article',
       prefix: '../../',
       body: `
         <div class="article-header">
@@ -501,9 +538,14 @@ function buildArchive(root, art) {
   }
 
   for (const group of partyGroups) {
+    const firstVariant = docs.find(item => item.id === group.variants[0]);
+    const ogImage = assets.characters[firstVariant?.party?.coreMemberIds?.[0]]?.path || 'site/assets/games/hsr.jpg';
     write(`guides/${group.id}/index.html`, layout({
       title: group.title,
       description: '메인 딜러별 운영법과 지원 캐릭터의 대체 후보를 확인하세요.',
+      canonicalPath: `guides/${group.id}/index.html`,
+      ogImage,
+      ogType: 'article',
       prefix: '../../',
       body: visual.partyGroupDetail(group, '../../'),
     }));
@@ -517,6 +559,8 @@ function buildArchive(root, art) {
   write('search/index.html', layout({
     title: '자료 검색',
     description: '게임, 캐릭터, 파티와 도구를 검색하세요.',
+    canonicalPath: 'search/index.html',
+    ogImage: 'site/raccoon.png',
     prefix: '../',
     active: 'search',
     body: `
@@ -548,6 +592,17 @@ function buildArchive(root, art) {
         </div>
       </section>`,
   }));
+
+  const sitemapPaths = [
+    '',
+    'search/index.html',
+    'tools/aha/index.html',
+    ...games.map(game => `games/${game.id}/index.html`),
+    ...docs.filter(doc => !groupedParties.has(doc.id)).map(doc => `guides/${doc.id}/index.html`),
+    ...partyGroups.map(group => `guides/${group.id}/index.html`),
+  ];
+  const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapPaths.map(relative => `  <url><loc>${escape(new URL(relative, SITE_ORIGIN).href)}</loc></url>`).join('\n')}\n</urlset>\n`;
+  write('sitemap.xml', sitemapXml);
   return { documents: docs.length, games: games.length };
 }
 

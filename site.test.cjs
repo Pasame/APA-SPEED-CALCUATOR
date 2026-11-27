@@ -461,3 +461,47 @@ assert.ok(calculator.includes('id="previewBanner"') && calculator.includes('id="
 const nonElationHtml = fs.readFileSync(path.join(root, 'guides/hsr-firefly-super-break/index.html'), 'utf8');
 assert.ok(!nonElationHtml.includes('data-calculator-link='), 'non-Elation parties do not attach Aha calculator links');
 console.log('PASS Elation party guides link verified 4-member default formations to the Aha calculator');
+
+// P2-3: OpenGraph metadata under /fluffy-archive/, redirect og:url == canonical destination, and canonical-only sitemap.xml.
+const homeOg = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+assert.match(homeOg, /property="og:url" content="https:\/\/pasame\.github\.io\/fluffy-archive\/"/);
+assert.match(homeOg, /property="og:image" content="https:\/\/pasame\.github\.io\/fluffy-archive\/site\/raccoon\.png"/);
+const ahaGuideOg = fs.readFileSync(path.join(root, 'guides/hsr-aha/index.html'), 'utf8');
+assert.match(ahaGuideOg, /property="og:url" content="https:\/\/pasame\.github\.io\/fluffy-archive\/guides\/hsr-aha\/index\.html"/);
+assert.match(ahaGuideOg, /property="og:image" content="https:\/\/pasame\.github\.io\/fluffy-archive\/site\/assets\/hsr\/characters\/1511\.png"/);
+for (const group of partyGroups) {
+  for (const variantId of group.variants) {
+    const redirectHtml = fs.readFileSync(path.join(root, `guides/${variantId}/index.html`), 'utf8');
+    const canonicalHref = redirectHtml.match(/<link rel="canonical" href="([^"]+)">/)?.[1];
+    const ogUrl = redirectHtml.match(/<meta property="og:url" content="([^"]+)">/)?.[1];
+    assert.ok(canonicalHref && ogUrl, `${variantId} redirect has canonical and og:url`);
+    assert.equal(ogUrl, new URL(canonicalHref, `https://pasame.github.io/fluffy-archive/guides/${variantId}/`).href, `${variantId} redirect og:url matches canonical destination`);
+  }
+}
+for (const doc of docs) {
+  for (const alias of doc.aliases || []) {
+    const redirectHtml = fs.readFileSync(path.join(root, `guides/${alias}/index.html`), 'utf8');
+    const canonicalHref = redirectHtml.match(/<link rel="canonical" href="([^"]+)">/)?.[1];
+    const ogUrl = redirectHtml.match(/<meta property="og:url" content="([^"]+)">/)?.[1];
+    assert.ok(canonicalHref && ogUrl, `${alias} alias redirect has canonical and og:url`);
+    assert.equal(ogUrl, new URL(canonicalHref, `https://pasame.github.io/fluffy-archive/guides/${alias}/`).href, `${alias} alias og:url matches canonical destination`);
+  }
+}
+const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
+assert.match(sitemap, /^<\?xml version="1\.0" encoding="UTF-8"\?>/);
+assert.ok(sitemap.includes('<loc>https://pasame.github.io/fluffy-archive/</loc>'));
+assert.ok(sitemap.includes('<loc>https://pasame.github.io/fluffy-archive/tools/aha/index.html</loc>'));
+assert.ok(sitemap.includes('<loc>https://pasame.github.io/fluffy-archive/guides/hsr-elation-hypercarry/index.html</loc>'));
+for (const group of partyGroups) {
+  for (const variantId of group.variants) {
+    assert.ok(!sitemap.includes(`guides/${variantId}/index.html`), `sitemap excludes dealer redirect ${variantId}`);
+  }
+}
+for (const doc of docs) {
+  for (const alias of doc.aliases || []) {
+    assert.ok(!sitemap.includes(`guides/${alias}/index.html`), `sitemap excludes alias redirect ${alias}`);
+  }
+}
+const serverSource = fs.readFileSync(path.join(root, 'server.js'), 'utf8');
+assert.ok(serverSource.includes("'.xml': 'application/xml; charset=utf-8'"), 'local server maps .xml MIME type');
+console.log('PASS OpenGraph metadata uses /fluffy-archive/ URLs, redirect og:url matches canonical, and sitemap.xml lists canonical pages only');
