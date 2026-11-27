@@ -7,6 +7,36 @@
     {
       "name": "『아하』가 처음 울리는 순간",
       "image": "site/assets/hsr/cones/23065.png"
+    },
+    {
+      "name": "아스타",
+      "image": "site/assets/hsr/characters/1009.png",
+      "sourceUrl": "https://www.hoyolab.com/article/47385253?reply=1"
+    },
+    {
+      "name": "링스",
+      "image": "site/assets/hsr/characters/1110.png",
+      "sourceUrl": "https://www.hoyolab.com/article/47385253?reply=1"
+    },
+    {
+      "name": "어공",
+      "image": "site/assets/hsr/characters/1207.png",
+      "sourceUrl": "https://www.hoyolab.com/article/47385253?reply=1"
+    },
+    {
+      "name": "우주 시장 동향",
+      "image": "site/assets/hsr/cones/21016.png",
+      "sourceUrl": "https://www.hoyolab.com/article/47385253?reply=1"
+    },
+    {
+      "name": "천재들의 휴식",
+      "image": "site/assets/hsr/cones/21020.png",
+      "sourceUrl": "https://www.hoyolab.com/article/47385253?reply=1"
+    },
+    {
+      "name": "그림자처럼 뒤따르는 밤",
+      "image": "site/assets/hsr/cones/21047.png",
+      "sourceUrl": "https://www.hoyolab.com/article/47385253?reply=1"
     }
   ],
   "hsr-47-phase-1-reruns": [
@@ -33,6 +63,36 @@
     {
       "name": "그녀가 보기로 결심했을 때",
       "image": "site/assets/hsr/cones/23054.png"
+    },
+    {
+      "name": "아스타",
+      "image": "site/assets/hsr/characters/1009.png",
+      "sourceUrl": "https://www.hoyolab.com/article/47385253?reply=1"
+    },
+    {
+      "name": "링스",
+      "image": "site/assets/hsr/characters/1110.png",
+      "sourceUrl": "https://www.hoyolab.com/article/47385253?reply=1"
+    },
+    {
+      "name": "어공",
+      "image": "site/assets/hsr/characters/1207.png",
+      "sourceUrl": "https://www.hoyolab.com/article/47385253?reply=1"
+    },
+    {
+      "name": "우주 시장 동향",
+      "image": "site/assets/hsr/cones/21016.png",
+      "sourceUrl": "https://www.hoyolab.com/article/47385253?reply=1"
+    },
+    {
+      "name": "천재들의 휴식",
+      "image": "site/assets/hsr/cones/21020.png",
+      "sourceUrl": "https://www.hoyolab.com/article/47385253?reply=1"
+    },
+    {
+      "name": "그림자처럼 뒤따르는 밤",
+      "image": "site/assets/hsr/cones/21047.png",
+      "sourceUrl": "https://www.hoyolab.com/article/47385253?reply=1"
     }
   ],
   "hsr-47-phase-2-reruns": [
@@ -59,6 +119,36 @@
     {
       "name": "동트기 전",
       "image": "site/assets/hsr/cones/23010.png"
+    },
+    {
+      "name": "아스타",
+      "image": "site/assets/hsr/characters/1009.png",
+      "sourceUrl": "https://www.hoyolab.com/article/47385253?reply=1"
+    },
+    {
+      "name": "링스",
+      "image": "site/assets/hsr/characters/1110.png",
+      "sourceUrl": "https://www.hoyolab.com/article/47385253?reply=1"
+    },
+    {
+      "name": "어공",
+      "image": "site/assets/hsr/characters/1207.png",
+      "sourceUrl": "https://www.hoyolab.com/article/47385253?reply=1"
+    },
+    {
+      "name": "우주 시장 동향",
+      "image": "site/assets/hsr/cones/21016.png",
+      "sourceUrl": "https://www.hoyolab.com/article/47385253?reply=1"
+    },
+    {
+      "name": "천재들의 휴식",
+      "image": "site/assets/hsr/cones/21020.png",
+      "sourceUrl": "https://www.hoyolab.com/article/47385253?reply=1"
+    },
+    {
+      "name": "그림자처럼 뒤따르는 밤",
+      "image": "site/assets/hsr/cones/21047.png",
+      "sourceUrl": "https://www.hoyolab.com/article/47385253?reply=1"
     }
   ],
   "zzz-34-sunbringer": [
@@ -503,6 +593,50 @@
       "image": "site/assets/calendar/audit-nte/prototype-land-overlord.webp",
       "imageUrl": "https://www.kaiden.gg/img/nte/UI/UI_Icon/Item/YH_UI_car_ICON31.webp",
       "sourceUrl": "https://www.kaiden.gg/nte/events/open-roads-ahead/"
+    }
+  ],
+  "genshin-72-polyphonic-harmony-ode": [
+    {
+      "name": "하모니",
+      "image": "site/assets/calendar/content-gw/genshin-polyphonic-variations.webp",
+      "imageUrl": "https://static.wikia.nocookie.net/gensin-impact/images/0/00/Item_Polyphonic_Variations_Manekina.png/revision/latest/scale-to-width-down/300"
+    },
+    {
+      "name": "봉제 곰인형",
+      "image": "site/assets/calendar/content-gw/genshin-dreamkeeper-plush.webp",
+      "imageUrl": "https://static.wikia.nocookie.net/gensin-impact/images/2/2d/Item_Dreamkeeper_Plush_Manekina.png/revision/latest/scale-to-width-down/300"
+    },
+    {
+      "name": "몽상가",
+      "image": "site/assets/calendar/content-gw/genshin-tea-time-enchantment.webp",
+      "imageUrl": "https://static.wikia.nocookie.net/gensin-impact/images/e/e8/Item_Tea-Time_Enchantment_Manekina.png/revision/latest/scale-to-width-down/300"
+    },
+    {
+      "name": "꽃 관찰자",
+      "image": "site/assets/calendar/content-gw/genshin-a-study-in-bloom.webp",
+      "imageUrl": "https://static.wikia.nocookie.net/gensin-impact/images/0/04/Item_A_Study_in_Bloom_Manekina.png/revision/latest/scale-to-width-down/300"
+    }
+  ],
+  "genshin-72-frosty-court-ode": [
+    {
+      "name": "눈꽃 깃털",
+      "image": "site/assets/calendar/content-gw/genshin-frosty-plume.webp",
+      "imageUrl": "https://static.wikia.nocookie.net/gensin-impact/images/8/8e/Item_Frosty_Plume_Manekina.png/revision/latest/scale-to-width-down/300"
+    },
+    {
+      "name": "겨울 축제",
+      "image": "site/assets/calendar/content-gw/genshin-winters-warmth.webp",
+      "imageUrl": "https://static.wikia.nocookie.net/gensin-impact/images/c/cc/Item_Winter's_Warmth_Manekina.png/revision/latest/scale-to-width-down/300"
+    },
+    {
+      "name": "산의 후예",
+      "image": "site/assets/calendar/content-gw/genshin-wildpeak-echoes.webp",
+      "imageUrl": "https://static.wikia.nocookie.net/gensin-impact/images/1/18/Item_Wildpeak_Echoes_Manekina.png/revision/latest/scale-to-width-down/300"
+    },
+    {
+      "name": "치유의 손길",
+      "image": "site/assets/calendar/content-gw/genshin-healing-heart.webp",
+      "imageUrl": "https://static.wikia.nocookie.net/gensin-impact/images/c/c7/Item_Healing_Heart_Manekina.png/revision/latest/scale-to-width-down/300"
     }
   ]
 }
