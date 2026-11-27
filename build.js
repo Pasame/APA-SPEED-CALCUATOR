@@ -12,7 +12,11 @@ fs.mkdirSync(calculatorDir, { recursive: true });
 fs.writeFileSync(path.join(calculatorDir, 'index.html'), output);
 const { buildArchive } = require('./site/build.cjs');
 const archive = buildArchive(dir, art);
-const canvasHtml = output.replace(/:root\{[^}]+\}/, ':root{/*__HOST_THEME__*/}');
+const canvasHtml = output
+  .replace('<html lang="ko">', '<html lang="ko" data-canvas-host>')
+  .replace(/<!--__STANDALONE_THEME_SCRIPT_START__-->[\s\S]*?<!--__STANDALONE_THEME_SCRIPT_END__-->/, '')
+  .replace(/\/\*__STANDALONE_THEME_START__\*\/[\s\S]*?\/\*__STANDALONE_THEME_END__\*\//, '[data-theme-toggle]{display:none!important}')
+  .replace(/:root\{[^}]+\}/, ':root{/*__HOST_THEME__*/}');
 const canvas = `import { useHostTheme } from "cursor/canvas";
 const documentSource = ${JSON.stringify(canvasHtml)};
 export default function AhaSpeedCalculator() {
