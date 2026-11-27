@@ -1,4 +1,23 @@
 (() => {
+  const chosungCache = new Map();
+  function toChosung(text) {
+    let cached = chosungCache.get(text);
+    if (cached !== undefined) return cached;
+    let result = '';
+    for (const char of text) {
+      const code = char.charCodeAt(0);
+      result += code >= 0xac00 && code <= 0xd7a3 ? String.fromCharCode(0x1100 + Math.floor((code - 0xac00) / 588)) : char;
+    }
+    chosungCache.set(text, result);
+    return result;
+  }
+  const hasChosung = text => /[\u1100-\u1112]/.test(text);
+  function matchesQueryText(normalizedTarget, normalizedQuery) {
+    if (!normalizedQuery) return true;
+    if (normalizedTarget.includes(normalizedQuery)) return true;
+    return hasChosung(normalizedQuery) && toChosung(normalizedTarget).includes(normalizedQuery);
+  }
+
   const statNotes = [...document.querySelectorAll('[data-stat-note]')];
   if (statNotes.length) {
     document.addEventListener('keydown', event => {
@@ -177,7 +196,7 @@
     const elementButtons = [...gameCatalog.querySelectorAll('[data-character-element]')];
     const pathButtons = [...gameCatalog.querySelectorAll('[data-character-path]')];
     const clear = gameCatalog.querySelector('[data-character-clear]');
-    const normalizeName = text => text.normalize('NFKC').toLocaleLowerCase('ko').replace(/[\s·•・]/g, '');
+    const normalizeName = text => text.normalize('NFKC').toLocaleLowerCase('ko').replace(/[\s·•・★☆]/g, '');
     const byName = new Intl.Collator('ko').compare;
     const nameOrder = (left, right) => byName(left.dataset.name, right.dataset.name);
     const releaseOrder = (left, right, direction) => (
@@ -205,8 +224,12 @@
       let partyCount = 0;
       for (const party of parties) {
         const variants = partyVariants.get(party);
-        const matchingVariant = variants?.find(variant => partyWords.every(word => normalizeName(variant.search).includes(word)));
-        const matches = variants ? Boolean(matchingVariant) : partyWords.every(word => normalizeName(party.dataset.partySearch || '').includes(word));
+        const matchingVariant = variants?.find(variant => {
+          const target = normalizeName(variant.search);
+          return partyWords.every(word => matchesQueryText(target, word));
+        });
+        const partyTarget = variants ? '' : normalizeName(party.dataset.partySearch || '');
+        const matches = variants ? Boolean(matchingVariant) : partyWords.every(word => matchesQueryText(partyTarget, word));
         party.hidden = party.dataset.party !== category || !matches;
         if (variants) party.setAttribute('href', partyWords.length && matchingVariant ? matchingVariant.href : partyLinks.get(party));
         if (!party.hidden) partyCount++;
@@ -228,7 +251,7 @@
       let count = 0;
       const query = normalizeName(search?.value || '');
       for (const character of characters) {
-        const matchesName = normalizeName(character.dataset.search).includes(query);
+        const matchesName = matchesQueryText(normalizeName(character.dataset.search), query);
         const matchesElement = !selectedElement || character.dataset.element === selectedElement;
         const matchesPath = !selectedPath || character.dataset.path === selectedPath;
         character.hidden = !(matchesName && matchesElement && matchesPath);
@@ -304,7 +327,14 @@
   const entries = [...catalog.querySelectorAll('[data-entry]')];
   const chips = [...catalog.querySelectorAll('[data-kind-filter]')];
   let selectedKind = '';
-  const normalize = value => value.normalize('NFKC').toLocaleLowerCase('ko').replace(/[·•・]/g, '').replace(/\s+/g, ' ').trim();
+  const normalize = value => value.normalize('NFKC').toLocaleLowerCase('ko').replace(/[·•・★☆]/g, '').replace(/\s+/g, ' ').trim();
+  const indexedEntries = entries.map(entry => ({
+    entry,
+    text: normalize(entry.dataset.search),
+    compact: null,
+    chosung: null,
+    compactChosung: null,
+  }));
 
   function readLocation() {
     const params = new URLSearchParams(location.search);
@@ -317,9 +347,19 @@
     const selectedGame = game?.value || '';
     const kind = type?.value || selectedKind;
     let count = 0;
-    for (const entry of entries) {
-      const text = normalize(entry.dataset.search);
-      const matches = (!selectedGame || entry.dataset.game === selectedGame) && (!kind || entry.dataset.kind === kind) && words.every(word => text.includes(word));
+    for (const item of indexedEntries) {
+      const { entry, text } = item;
+      const matches = (!selectedGame || entry.dataset.game === selectedGame) && (!kind || entry.dataset.kind === kind) && words.every(word => {
+        if (text.includes(word)) return true;
+        if (!hasChosung(word)) return false;
+        if (item.chosung === null) item.chosung = toChosung(text);
+        if (item.chosung.includes(word)) return true;
+        if (item.compactChosung === null) {
+          item.compact = text.replace(/\s+/g, '');
+          item.compactChosung = toChosung(item.compact);
+        }
+        return item.compactChosung.includes(word);
+      });
       entry.hidden = !matches;
       if (matches) count++;
     }
