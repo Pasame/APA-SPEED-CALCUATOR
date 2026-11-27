@@ -31,7 +31,7 @@ function control(dataset = {}) {
   };
 }
 
-function runPage({ query, hash = '', catalog = null, groups = [], buildButtons = [], buildPanels = [], statNotes = [], previews = [] }) {
+function runPage({ query, hash = '', catalog = null, searchCatalog = null, groups = [], buildButtons = [], buildPanels = [], statNotes = [], previews = [] }) {
   const location = { pathname: '/example/index.html', search: query, hash };
   const events = {};
   let currentUrl;
@@ -49,7 +49,11 @@ function runPage({ query, hash = '', catalog = null, groups = [], buildButtons =
     document: {
       addEventListener() {},
       createElement() { return { children: [], append(...children) { this.children.push(...children); } }; },
-      querySelector(selector) { return selector === '[data-game-catalog]' ? catalog : null; },
+      querySelector(selector) {
+        if (selector === '[data-game-catalog]') return catalog;
+        if (selector === '[data-catalog]') return searchCatalog;
+        return null;
+      },
       querySelectorAll(selector) {
         if (selector === '[data-choice-group]') return groups;
         if (selector === '[data-build-choice]') return buildButtons;
@@ -301,3 +305,116 @@ assert.match(restrictedPreview.fields['[data-preview-status]'].textContent, /개
 restrictedPreview.pick('1505', '1004');
 assert.equal(restrictedPreview.selected()[0], '1505', 'core damage dealers remain fixed even for an invalid option');
 console.log('PASS replacement previews update four-member portraits and conditions, prevent duplicates, isolate variants and reset');
+
+// P2-2: Korean Chosung search across character, party (multi-word same formation), and global search.
+search.value = 'ㄱㄹㄱ';
+search.events.input();
+assert.deepEqual(visibleNames(), ['갤러거'], 'character Chosung search matches Gallagher');
+search.value = 'ㅇㅇㅈㅇㅎ';
+search.events.input();
+assert.deepEqual(visibleNames(), ['에이언즈★아하'], 'character Chosung search treats ★ as a separator');
+search.value = '';
+search.events.input();
+
+const elationGroupTile = control({
+  party: 'elation',
+  partySearch: '환락 하이퍼캐리 에바네시아 효광 에이언즈★아하 펄 스파키',
+  partyVariants: JSON.stringify([
+    { search: '환락 하이퍼캐리 에바네시아 효광 에이언즈★아하 펄', href: '../../guides/hsr-elation-hypercarry/index.html?party=hsr-evanescia-elation' },
+    { search: '환락 하이퍼캐리 스파키 효광 에이언즈★아하 펄', href: '../../guides/hsr-elation-hypercarry/index.html?party=hsr-sparxie-team' },
+  ]),
+});
+elationGroupTile.setAttribute('href', '../../guides/hsr-elation-hypercarry/index.html');
+const partyQueryInput = control();
+const partyClearButton = control();
+const partyCountNode = {};
+const partyEmptyNode = {};
+const elationTab = control({ category: 'elation' });
+const partyViewTab = control({ view: 'party' });
+const partyPanel = { dataset: { viewPanel: 'party' } };
+const chosungPartyCatalog = {
+  dataset: { defaultKind: 'party' },
+  querySelector(selector) {
+    return {
+      '[data-party-query]': partyQueryInput,
+      '[data-party-clear]': partyClearButton,
+      '[data-party-count]': partyCountNode,
+      '[data-party-empty]': partyEmptyNode,
+    }[selector];
+  },
+  querySelectorAll(selector) {
+    return {
+      '[data-view]': [partyViewTab],
+      '[data-view-panel]': [partyPanel],
+      '[data-category]': [elationTab],
+      '[data-party]': [elationGroupTile],
+    }[selector] || [];
+  },
+};
+runPage({ query: '?view=party&category=elation', catalog: chosungPartyCatalog });
+partyQueryInput.value = 'ㅇㅂㄴㅅㅇ ㅎㄱ';
+partyQueryInput.events.input();
+assert.equal(elationGroupTile.hidden, false, 'multi-word Chosung matches within the same party variant');
+assert.equal(elationGroupTile.getAttribute('href'), '../../guides/hsr-elation-hypercarry/index.html?party=hsr-evanescia-elation');
+partyQueryInput.value = 'ㅇㅂㄴㅅㅇ ㅅㅍㅋ';
+partyQueryInput.events.input();
+assert.equal(elationGroupTile.hidden, true, 'multi-word Chosung across different variants does not match');
+assert.equal(partyEmptyNode.hidden, false);
+
+const globalEntries = [
+  control({ game: 'hsr', kind: 'character', search: '갤러거 붕괴: 스타레일 알맞은 타이밍 태양과 번개의 여전사' }),
+  control({ game: 'hsr', kind: 'character', search: '에이언즈★아하 붕괴: 스타레일 환락 서포터' }),
+  control({ game: 'hsr', kind: 'character', search: '효광 붕괴: 스타레일 환락 서포터' }),
+];
+const globalQuery = control();
+const globalGame = control();
+const globalType = control();
+const globalCount = {};
+const globalEmpty = {};
+const globalSearchCatalog = {
+  querySelector(selector) {
+    return {
+      '[data-query]': globalQuery,
+      '[data-game-filter]': globalGame,
+      '[data-type-filter]': globalType,
+      '[data-count]': globalCount,
+      '[data-empty]': globalEmpty,
+    }[selector];
+  },
+  querySelectorAll(selector) { return selector === '[data-entry]' ? globalEntries : []; },
+};
+let chosungConversions = 0;
+const instrumentedScript = script.replace('function toChosung(text) {', 'function toChosung(text) { __onChosung();');
+runInNewContext(instrumentedScript, {
+  URLSearchParams,
+  __onChosung: () => { chosungConversions++; },
+  location: { pathname: '/search/index.html', search: '', hash: '' },
+  history: { replaceState() {} },
+  window: { addEventListener() {} },
+  document: {
+    addEventListener() {},
+    querySelector(selector) { return selector === '[data-catalog]' ? globalSearchCatalog : null; },
+    querySelectorAll() { return []; },
+  },
+});
+assert.equal(chosungConversions, 0, 'empty global search runs 0 Chosung conversions');
+globalQuery.value = '갤';
+globalQuery.events.input();
+assert.deepEqual(globalEntries.map(e => !e.hidden), [true, false, false]);
+assert.equal(chosungConversions, 0, 'normal syllable search runs 0 Chosung conversions');
+globalQuery.value = 'ㅇㅇㅈㅇㅎ';
+globalQuery.events.input();
+assert.deepEqual(globalEntries.map(e => !e.hidden), [false, true, false], 'global Chosung search treats ★ as separator');
+const afterFirstChosung = chosungConversions;
+assert.ok(afterFirstChosung > 0, 'first Chosung query computes cached Chosung');
+globalQuery.value = 'ㄱㄹㄱ ㅇㅁㅇ';
+globalQuery.events.input();
+assert.deepEqual(globalEntries.map(e => !e.hidden), [true, false, false], 'global search matches multi-word Chosung');
+globalQuery.value = 'ㅎㄱ';
+globalQuery.events.input();
+assert.deepEqual(globalEntries.map(e => !e.hidden), [false, false, true]);
+const afterAllItemsCached = chosungConversions;
+globalQuery.value = 'ㅇㅇㅈㅇㅎ';
+globalQuery.events.input();
+assert.equal(chosungConversions, afterAllItemsCached, 'repeat Chosung queries reuse per-item cache with 0 recomputations');
+console.log('PASS Korean Chosung search works lazily with caching across character, same-formation party, and global search');
