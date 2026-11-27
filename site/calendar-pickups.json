@@ -5,7 +5,7 @@
       "image": "site/assets/hsr/characters/1511.png"
     },
     {
-      "name": "「아하」가 처음 울리는 순간",
+      "name": "『아하』가 처음 울리는 순간",
       "image": "site/assets/hsr/cones/23065.png"
     }
   ],
@@ -125,36 +125,108 @@
     {
       "name": "릴리",
       "image": "site/assets/calendar/pickups/wuwa-lily.webp"
+    },
+    {
+      "name": "유호",
+      "image": "site/assets/calendar/audit-gw/wuwa-youhu.png"
+    },
+    {
+      "name": "알토",
+      "image": "site/assets/calendar/audit-gw/wuwa-aalto.png"
+    },
+    {
+      "name": "양양",
+      "image": "site/assets/calendar/audit-gw/wuwa-yangyang.png"
     }
   ],
   "wuwa-38-p1-lullaby": [
     {
       "name": "럴러바이",
       "image": "site/assets/calendar/pickups/wuwa-lullaby.webp"
+    },
+    {
+      "name": "화려한 악곡",
+      "image": "site/assets/calendar/audit-gw/wuwa-cadenza.png"
+    },
+    {
+      "name": "천상의 나선",
+      "image": "site/assets/calendar/audit-gw/wuwa-celestial-spiral.png"
+    },
+    {
+      "name": "굉음",
+      "image": "site/assets/calendar/audit-gw/wuwa-comet-flare.png"
     }
   ],
   "wuwa-38-p1-sigrika": [
     {
       "name": "시그리카",
       "image": "site/assets/calendar/pickups/wuwa-sigrika.webp"
+    },
+    {
+      "name": "유호",
+      "image": "site/assets/calendar/audit-gw/wuwa-youhu.png"
+    },
+    {
+      "name": "알토",
+      "image": "site/assets/calendar/audit-gw/wuwa-aalto.png"
+    },
+    {
+      "name": "양양",
+      "image": "site/assets/calendar/audit-gw/wuwa-yangyang.png"
     }
   ],
   "wuwa-38-p1-solsworn-ciphers": [
     {
-      "name": "Solsworn Ciphers",
+      "name": "솔스원의 해석",
       "image": "site/assets/calendar/pickups/wuwa-solsworn-ciphers.webp"
+    },
+    {
+      "name": "화려한 악곡",
+      "image": "site/assets/calendar/audit-gw/wuwa-cadenza.png"
+    },
+    {
+      "name": "천상의 나선",
+      "image": "site/assets/calendar/audit-gw/wuwa-celestial-spiral.png"
+    },
+    {
+      "name": "굉음",
+      "image": "site/assets/calendar/audit-gw/wuwa-comet-flare.png"
     }
   ],
   "wuwa-38-p1-qiuyuan": [
     {
       "name": "구원",
       "image": "site/assets/calendar/pickups/wuwa-qiuyuan.webp"
+    },
+    {
+      "name": "유호",
+      "image": "site/assets/calendar/audit-gw/wuwa-youhu.png"
+    },
+    {
+      "name": "알토",
+      "image": "site/assets/calendar/audit-gw/wuwa-aalto.png"
+    },
+    {
+      "name": "양양",
+      "image": "site/assets/calendar/audit-gw/wuwa-yangyang.png"
     }
   ],
   "wuwa-38-p1-emerald-sentence": [
     {
-      "name": "Emerald Sentence",
+      "name": "푸른 의지",
       "image": "site/assets/calendar/pickups/wuwa-emerald-sentence.webp"
+    },
+    {
+      "name": "화려한 악곡",
+      "image": "site/assets/calendar/audit-gw/wuwa-cadenza.png"
+    },
+    {
+      "name": "천상의 나선",
+      "image": "site/assets/calendar/audit-gw/wuwa-celestial-spiral.png"
+    },
+    {
+      "name": "굉음",
+      "image": "site/assets/calendar/audit-gw/wuwa-comet-flare.png"
     }
   ],
   "wuwa-38-p2-xuanling": [
@@ -165,7 +237,7 @@
   ],
   "wuwa-38-p2-azure-oath": [
     {
-      "name": "Azure Oath",
+      "name": "아득히 푸른 하늘",
       "image": "site/assets/calendar/pickups/wuwa-azure-oath.webp"
     }
   ],
@@ -177,7 +249,7 @@
   ],
   "wuwa-38-p2-firstlights-herald": [
     {
-      "name": "Firstlight’s Herald",
+      "name": "노을에 깃든 이슬",
       "image": "site/assets/calendar/pickups/wuwa-firstlights-herald.webp"
     }
   ],
@@ -189,7 +261,7 @@
   ],
   "wuwa-38-p2-frostburn": [
     {
-      "name": "Frostburn",
+      "name": "서린 불꽃",
       "image": "site/assets/calendar/pickups/wuwa-frostburn.webp"
     }
   ],
@@ -238,51 +310,199 @@
   "nte-15-cipher-arc": [
     {
       "name": "점선 너머",
-      "image": "site/assets/games/nte.jpg"
+      "image": "site/assets/calendar/audit-nte/dotted-horizon.webp",
+      "sourceUrl": "https://www.kaiden.gg/nte/arcs/dotted-horizon/",
+      "imageUrl": "https://www.neverness.app/assets/codex/arcs/fork_exe.webp"
     }
   ],
   "genshin-72-p2-zibai": [
     {
       "name": "자백",
-      "image": "site/assets/games/genshin.jpg"
+      "image": "site/assets/calendar/audit-gw/genshin-zibai.png"
+    },
+    {
+      "name": "일루가",
+      "image": "site/assets/calendar/audit-gw/genshin-illuga.png"
+    },
+    {
+      "name": "아이노",
+      "image": "site/assets/calendar/audit-gw/genshin-aino.png"
+    },
+    {
+      "name": "응광",
+      "image": "site/assets/calendar/audit-gw/genshin-ningguang.png"
     }
   ],
   "genshin-72-p2-linnea": [
     {
       "name": "린네아",
-      "image": "site/assets/games/genshin.jpg"
+      "image": "site/assets/calendar/audit-gw/genshin-linnea.png"
+    },
+    {
+      "name": "일루가",
+      "image": "site/assets/calendar/audit-gw/genshin-illuga.png"
+    },
+    {
+      "name": "아이노",
+      "image": "site/assets/calendar/audit-gw/genshin-aino.png"
+    },
+    {
+      "name": "응광",
+      "image": "site/assets/calendar/audit-gw/genshin-ningguang.png"
     }
   ],
   "genshin-72-p2-weapons": [
     {
       "name": "신월의 달빛",
-      "image": "site/assets/games/genshin.jpg"
+      "image": "site/assets/calendar/audit-gw/genshin-lightbearing-moonshard.webp"
     },
     {
       "name": "서리 맺힌 금빛 가지",
-      "image": "site/assets/games/genshin.jpg"
+      "image": "site/assets/calendar/audit-gw/genshin-golden-frostbound-oath.webp"
+    },
+    {
+      "name": "휴대용 체인톱",
+      "image": "site/assets/calendar/audit-gw/genshin-portable-power-saw.webp"
+    },
+    {
+      "name": "거리 측정기",
+      "image": "site/assets/calendar/audit-gw/genshin-range-gauge.webp"
+    },
+    {
+      "name": "제례검",
+      "image": "site/assets/calendar/audit-gw/genshin-sacrificial-sword.webp"
+    },
+    {
+      "name": "페보니우스 장창",
+      "image": "site/assets/calendar/audit-gw/genshin-favonius-lance.webp"
+    },
+    {
+      "name": "소심",
+      "image": "site/assets/calendar/audit-gw/genshin-eye-of-perception.webp"
     }
   ],
   "genshin-72-p2-chronicled": [
     {
       "name": "바레사",
-      "image": "site/assets/games/genshin.jpg"
+      "image": "site/assets/calendar/audit-gw/genshin-varesa.png"
     },
     {
       "name": "차스카",
-      "image": "site/assets/games/genshin.jpg"
+      "image": "site/assets/calendar/audit-gw/genshin-chasca.png"
     },
     {
       "name": "실로닌",
-      "image": "site/assets/games/genshin.jpg"
+      "image": "site/assets/calendar/audit-gw/genshin-xilonen.png"
     },
     {
       "name": "말라니",
-      "image": "site/assets/games/genshin.jpg"
+      "image": "site/assets/calendar/audit-gw/genshin-mualani.png"
     },
     {
       "name": "키니치",
-      "image": "site/assets/games/genshin.jpg"
+      "image": "site/assets/calendar/audit-gw/genshin-kinich.png"
+    },
+    {
+      "name": "빛나는 마음",
+      "image": "site/assets/calendar/audit-gw/genshin-vivid-notions.webp"
+    },
+    {
+      "name": "붉은 깃 별독수리",
+      "image": "site/assets/calendar/audit-gw/genshin-astral-vulture.webp"
+    },
+    {
+      "name": "바위산을 맴도는 노래",
+      "image": "site/assets/calendar/audit-gw/genshin-peak-patrol-song.webp"
+    },
+    {
+      "name": "서핑 타임",
+      "image": "site/assets/calendar/audit-gw/genshin-surfs-up.webp"
+    },
+    {
+      "name": "산왕의 엄니",
+      "image": "site/assets/calendar/audit-gw/genshin-fang-mountain-king.webp"
+    },
+    {
+      "name": "견고한 골검",
+      "image": "site/assets/calendar/audit-gw/genshin-sturdy-bone.webp"
+    },
+    {
+      "name": "수확의 갈고리",
+      "image": "site/assets/calendar/audit-gw/genshin-fruitful-hook.webp"
+    },
+    {
+      "name": "산을 고정하는 못",
+      "image": "site/assets/calendar/audit-gw/genshin-mountain-bracing-bolt.webp"
+    },
+    {
+      "name": "돌아오는 파도",
+      "image": "site/assets/calendar/audit-gw/genshin-waveriding-whirl.webp"
+    },
+    {
+      "name": "꽃장식 깃",
+      "image": "site/assets/calendar/audit-gw/genshin-flower-wreathed-feathers.webp"
+    }
+  ],
+  "wuwa-38-starpath-reverbs-ii": [
+    {
+      "name": "카멜리아",
+      "image": "site/assets/calendar/audit-gw/wuwa-camellya.png"
+    },
+    {
+      "name": "로코코",
+      "image": "site/assets/calendar/audit-gw/wuwa-roccia.png"
+    },
+    {
+      "name": "페비",
+      "image": "site/assets/calendar/audit-gw/wuwa-phoebe.png"
+    },
+    {
+      "name": "브렌트",
+      "image": "site/assets/calendar/audit-gw/wuwa-brant.png"
+    }
+  ],
+  "wuwa-38-tideforge-reverbs-ii": [
+    {
+      "name": "날카로운 봄",
+      "image": "site/assets/calendar/audit-gw/wuwa-red-spring.png"
+    },
+    {
+      "name": "희비극",
+      "image": "site/assets/calendar/audit-gw/wuwa-tragicomedy.png"
+    },
+    {
+      "name": "광휘의 찬송가",
+      "image": "site/assets/calendar/audit-gw/wuwa-luminous-hymn.png"
+    },
+    {
+      "name": "흔들리지 않는 용기",
+      "image": "site/assets/calendar/audit-gw/wuwa-unflickering-valor.png"
+    },
+    {
+      "name": "야귀의 신념",
+      "image": "site/assets/calendar/audit-gw/wuwa-commando-of-conviction.png"
+    },
+    {
+      "name": "판타지 변주",
+      "image": "site/assets/calendar/audit-gw/wuwa-variation.png"
+    },
+    {
+      "name": "금주의 수호",
+      "image": "site/assets/calendar/audit-gw/wuwa-jinzhou-keeper.png"
+    }
+  ],
+  "nte-15-road-boxes": [
+    {
+      "name": "차량 「철강호」",
+      "image": "site/assets/calendar/audit-nte/iron-ogre.webp",
+      "imageUrl": "https://www.kaiden.gg/img/nte/UI/UI_Icon/Item/YH_UI_car_ICON30.webp",
+      "sourceUrl": "https://www.kaiden.gg/nte/events/open-roads-ahead/"
+    },
+    {
+      "name": "차량 「육지의 지배자 001 시제품」",
+      "image": "site/assets/calendar/audit-nte/prototype-land-overlord.webp",
+      "imageUrl": "https://www.kaiden.gg/img/nte/UI/UI_Icon/Item/YH_UI_car_ICON31.webp",
+      "sourceUrl": "https://www.kaiden.gg/nte/events/open-roads-ahead/"
     }
   ]
 }

@@ -1,5 +1,6 @@
 const { TYPES, DEFAULT_TYPES } = require('./calendar.js');
 const pickups = require('./calendar-pickups.json');
+const filterNames = { gacha: '픽업', event: '인게임', endgame: '엔드', web: '웹', login: '출석', claim: '접속', broadcast: '방송', update: '버전', offline: '공식행사' };
 
 function calendarSection(data, games, escape, scriptVersion) {
   const payload = {
@@ -10,7 +11,7 @@ function calendarSection(data, games, escape, scriptVersion) {
   return `<section class="home-section game-calendar" data-game-calendar aria-labelledby="calendar-title">
     <div class="section-heading horizontal"><h2 id="calendar-title">지금부터 6주</h2><span class="calendar-range" data-calendar-range></span></div>
     <div class="calendar-controls"><div class="calendar-games" role="group" aria-label="게임 일정 표시">${games.map(game => `<button type="button" data-calendar-game="${game.id}" aria-pressed="true"><img src="site/assets/games/${game.id}.jpg" width="28" height="28" alt=""><span>${escape(game.name)}</span></button>`).join('')}</div></div>
-    <div class="calendar-categories" role="group" aria-label="일정 유형 표시">${Object.entries(TYPES).map(([id, label]) => `<button type="button" data-calendar-type="${id}" data-kind="${id}" aria-pressed="${DEFAULT_TYPES.has(id)}"><i aria-hidden="true"></i>${label}</button>`).join('')}</div>
+    <div class="calendar-categories" role="group" aria-label="일정 유형 표시">${Object.entries(TYPES).map(([id, label]) => `<button type="button" data-calendar-type="${id}" data-kind="${id}" aria-pressed="${DEFAULT_TYPES.has(id)}" aria-label="${label}" title="${label}"><i aria-hidden="true"></i>${filterNames[id] || label}</button>`).join('')}</div>
     <div class="calendar-scroll" tabindex="0" role="region" aria-label="6주 일정표. 상하좌우로 스크롤할 수 있습니다."><div class="calendar-head"><div class="calendar-axis" data-calendar-axis></div></div><div data-calendar-rows></div><p class="calendar-empty" data-calendar-empty hidden>선택한 항목의 확정 일정이 없습니다.</p></div>
     <div class="calendar-tooltip" id="calendar-tooltip" data-calendar-tooltip role="region" aria-label="일정 상세" tabindex="-1" hidden></div>
     <div class="calendar-footer"><span data-calendar-count role="status" aria-live="polite"></span><span data-calendar-checked></span></div>
