@@ -321,7 +321,6 @@ function buildArchive(root, art) {
       <section id="games" class="home-section home-game-links">
         <div class="section-heading">
           <h2>게임 자료실</h2>
-          <p>게임별 가이드를 살펴보세요.</p>
         </div>
         <div class="game-grid">${gameCards}</div>
       </section>

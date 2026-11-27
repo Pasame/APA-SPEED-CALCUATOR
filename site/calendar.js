@@ -3,8 +3,18 @@
   const DAY = 86400000;
   const WEEK = 7 * DAY;
   const KST_OFFSET = 9 * 3600000;
-  const TYPES = { gacha: '픽업·뽑기', event: '이벤트', login: '출석', broadcast: '공식 방송', update: '버전 업데이트', offline: '국내 공식행사' };
-  const TYPE_PRIORITY = { gacha: 0, event: 1, login: 2, broadcast: 3, update: 3, offline: 4 };
+  const TYPES = {
+    gacha: '픽업·뽑기',
+    event: '인게임 이벤트',
+    web: '웹 이벤트',
+    login: '누적 출석',
+    claim: '접속 보상',
+    broadcast: '공식 방송',
+    update: '버전 업데이트',
+    offline: '국내 공식행사',
+  };
+  const DEFAULT_TYPES = new Set(['gacha', 'event', 'broadcast', 'update']);
+  const TYPE_PRIORITY = { gacha: 0, event: 1, web: 1, login: 2, claim: 2, broadcast: 3, update: 3, offline: 4 };
   const WEEKDAYS = ['일', '월', '화', '수', '목', '금', '토'];
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const stamp = value => Date.parse(value.length === 10 ? value + 'T00:00:00+09:00' : value);
@@ -32,6 +42,43 @@
     const displayedStart = event => Math.max(stamp(event.start), window.start);
     const end = event => event.end ? stamp(event.end) : Infinity;
     return displayedStart(a) - displayedStart(b) || end(a) - end(b) || TYPE_PRIORITY[a.type] - TYPE_PRIORITY[b.type];
+  }
+
+  function groupEvents(events) {
+    const groups = new Map();
+    for (const event of events) {
+      const start = stamp(event.start);
+      const end = event.end ? stamp(event.end) : NaN;
+      const confirmedVersion = typeof event.version === 'string' && event.version.trim();
+      const canGroup = confirmedVersion && Number.isFinite(start) && Number.isFinite(end) && !event.instant && !event.endUnknown && event.type !== 'offline';
+      const key = canGroup ? 'group:' + JSON.stringify([event.game, confirmedVersion, event.type, start, end]) : 'event:' + event.id;
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(event);
+    }
+    return [...groups].map(([key, members]) => {
+      if (members.length === 1) return members[0];
+      const representative = members[0];
+      const pickups = new Map();
+      for (const pickup of members.flatMap(event => event.pickups || [])) {
+        if (!pickups.get(pickup.name)?.image) pickups.set(pickup.name, pickup);
+      }
+      let representativeTitle = representative.title;
+      if (representative.type === 'gacha') {
+        const names = members.map(event => event.pickups?.[0]?.name);
+        representativeTitle = names.every(Boolean)
+          ? [...new Set(names)].join(' · ') + ' 픽업'
+          : [...new Set(members.map(event => event.title))].join(' · ');
+      }
+      return {
+        ...representative,
+        id: key,
+        title: representative.version.trim() + ' · ' + members.length + '개 일정',
+        representativeTitle,
+        endDisplay: members.every(event => event.endDisplay === representative.endDisplay) ? representative.endDisplay : undefined,
+        pickups: [...pickups.values()],
+        members,
+      };
+    });
   }
 
   function position(event, window) {
@@ -81,12 +128,42 @@
     return '<span class="calendar-today" aria-hidden="true">' + (header ? '<span class="calendar-today-label">오늘</span>' : '') + '</span>';
   }
 
-  function renderWeeks(weeks) {
+  function versionInWeek(timeline, sunday, now) {
+    const before = timeline.findLast(entry => entry.time < sunday);
+    const transitions = timeline.filter(entry => entry.time >= sunday && entry.time < sunday + WEEK);
+    if (transitions.length) return [before, ...transitions].filter(Boolean).map(entry => entry.version).join(' → ');
+    if (!before) return '';
+    return before.version + (!before.unknown && (before.estimated || before.time > now) ? ' (예상)' : '');
+  }
+
+  function versionStamp(value) {
+    if (!value) return NaN;
+    const kst = value.length > 10 && !/(?:Z|[+-]\d{2}:?\d{2})$/i.test(value) ? value + '+09:00' : value;
+    return stamp(kst);
+  }
+
+  function renderWeeks(weeks, games = [], versionTimeline = {}, now = Date.now()) {
+    const timelines = games.map(game => {
+      const entries = (versionTimeline[game.id] || []).map(entry => ({ ...entry, time: versionStamp(entry.start) }))
+        .filter(entry => entry.version && Number.isFinite(entry.time)).sort((a, b) => a.time - b.time);
+      const last = entries.at(-1);
+      const end = versionStamp(last?.end);
+      if (last && end > last.time) entries.push({ version: '미정', time: end, unknown: true });
+      return { name: game.name, entries };
+    });
     return weeks.map(week => {
       const label = week.year + '년 W' + week.number;
-      return '<button type="button" class="calendar-week" data-calendar-week="' + week.sunday + '" aria-label="' + label + ', ' + week.range + '" aria-expanded="false" style="--left:' + week.left + '%;--width:' + week.width + '%">' +
+      const versionLines = timelines.flatMap(({ name, entries }) => {
+        const version = versionInWeek(entries, week.sunday, now);
+        return version ? [name + ' : ' + version] : [];
+      });
+      const versions = versionLines.length
+        ? '<span class="calendar-week-versions">' + versionLines.map(line => '<span class="calendar-week-version">' + esc(line) + '</span>').join('') + '</span>'
+        : '';
+      const announcement = [label, week.range, ...versionLines].map(esc).join(', ');
+      return '<button type="button" class="calendar-week" data-calendar-week="' + week.sunday + '" aria-label="' + announcement + '" aria-expanded="false" style="--left:' + week.left + '%;--width:' + week.width + '%">' +
         '<span class="calendar-week-label" aria-hidden="true"><span class="calendar-week-year">' + week.year + '</span><span class="calendar-week-number">W' + week.number + '</span></span>' +
-        '<span class="calendar-week-range" aria-hidden="true">' + week.range + '</span></button>';
+        '<span class="calendar-week-range" aria-hidden="true"><span class="calendar-week-date">' + week.range + '</span>' + versions + '</span></button>';
     }).join('') + todayLine(true);
   }
 
@@ -104,39 +181,57 @@
   }
 
   function pickupItems(event, showNames = false) {
-    const pickups = event.pickups || [];
-    return pickups.map(pickup => '<span class="calendar-pickup">' + image(pickup.image, showNames ? 44 : 28) + (showNames ? '<span>' + esc(pickup.name) + '</span>' : '') + '</span>').join('');
+    const items = [];
+    const pictures = new Set();
+    for (const pickup of event.pickups || []) {
+      if (!showNames && (!pickup.image || pictures.has(pickup.image))) continue;
+      pictures.add(pickup.image);
+      items.push('<span class="calendar-pickup">' + image(pickup.image, showNames ? 44 : 28) + (showNames ? '<span>' + esc(pickup.name) + '</span>' : '') + '</span>');
+    }
+    return items.join('');
   }
 
   function renderRow(event, window, games) {
     const pos = position(event, window);
     const game = games.find(g => g.id === event.game);
-    const short = pos.width < 29;
-    const alignBefore = short && pos.left >= 40 && pos.left + pos.width > 65;
     const rewardCount = event.rewards?.length || 0;
     const extra = rewardCount > 3 ? '<span class="calendar-reward-extra">+' + (rewardCount - 3) + '</span>' : '';
-    const label = [game.name, TYPES[event.type], event.title, period(event)].map(esc).join(' · ');
-    const content = '<span class="calendar-bar-content"><span class="calendar-bar-game">' + image(game.image, 22) + '</span>' +
-      '<span class="calendar-bar-title">' + esc(event.title) + '</span><span class="calendar-bar-period">' + esc(period(event)) + '</span>' +
+    const types = (event.types || [event.type]).map(type => TYPES[type]).join(' · ');
+    const label = [game.name, types, event.title, event.representativeTitle, period(event)].filter(Boolean).map(esc).join(' · ');
+    const content = '<span class="calendar-bar-content"><span class="calendar-bar-heading"><span class="calendar-bar-game">' + image(game.image, 22) + '</span>' +
+      '<span class="calendar-bar-title">' + esc(event.representativeTitle || event.title) + '</span>' +
+      (event.members ? '<span class="calendar-group-count">' + esc(event.title) + '</span>' : '') +
+      '</span><span class="calendar-bar-meta"><span class="calendar-bar-period">' + esc(period(event)) + '</span>' +
       (event.pickups?.length ? '<span class="calendar-banner">' + pickupItems(event) + '</span>' : '') +
-      (rewardCount ? '<span class="calendar-rewards">' + rewardItems(event, 3) + extra + '</span>' : '') + '</span>';
-    const classes = ['calendar-bar', pos.point && 'is-point', event.endUnknown && 'is-unknown', short && 'is-short', alignBefore && 'align-label-before'].filter(Boolean).join(' ');
+      (rewardCount ? '<span class="calendar-rewards">' + rewardItems(event, 3) + extra + '</span>' : '') + '</span></span>';
+    const classes = ['calendar-bar', pos.point && 'is-point', event.endUnknown && 'is-unknown'].filter(Boolean).join(' ');
     return '<article class="calendar-row" data-calendar-row="' + esc(event.id) + '" data-game="' + esc(event.game) + '" data-kind="' + esc(event.type) + '">' +
       '<div class="calendar-track" style="--left:' + pos.left + '%;--width:' + pos.width + '%">' + todayLine() +
       '<button type="button" class="' + classes + '" data-calendar-event="' + esc(event.id) + '" aria-label="' + label + '" aria-expanded="false" aria-controls="calendar-tooltip">' +
-      (short ? '<span class="calendar-short-label">' + content + '</span>' : content) +
+      content +
       (pos.before && !pos.point ? '<span class="bar-edge" aria-hidden="true">‹</span>' : '') +
       (pos.after ? '<span class="bar-edge end" aria-hidden="true">›</span>' : '') + '</button></div></article>';
   }
 
   function renderDetails(event, games) {
     const game = games.find(g => g.id === event.game);
+    const headingClass = event.members ? 'calendar-tooltip-heading calendar-tooltip-group-heading' : 'calendar-tooltip-heading';
+    const header = '<div class="' + headingClass + '">' + image(game.image, 28) +
+      '<div><small>' + esc(game.name) + ' · ' + TYPES[event.type] + '</small><strong>' + esc(event.title) + '</strong></div></div>' +
+      '<p class="calendar-tooltip-period">' + esc(period(event)) + '</p>';
     const pickups = event.pickups?.length ? '<div class="calendar-tooltip-pickups"><strong>픽업 대상</strong><div>' + pickupItems(event, true) + '</div></div>' : '';
-    const rewards = event.rewards?.length ? '<div class="calendar-tooltip-rewards"><strong>보상</strong><div class="calendar-rewards">' + rewardItems(event) + '</div></div>' : '';
-    return '<div class="calendar-tooltip-heading">' + image(game.image, 28) + '<div><small>' + esc(game.name) + ' · ' + TYPES[event.type] + '</small><strong>' + esc(event.title) + '</strong></div></div>' +
-      '<p class="calendar-tooltip-period">' + esc(period(event)) + '</p>' + (event.location ? '<p>' + esc(event.location) + '</p>' : '') + pickups + rewards +
-      (event.notes ? '<p>' + esc(event.notes) + '</p>' : '') +
-      '<a class="calendar-tooltip-source" href="' + esc(event.sourceUrl) + '" target="_blank" rel="noopener noreferrer">' + esc(event.sourceLabel || '공식 안내') + ' ↗</a>';
+    if (!event.members) return header + pickups + locationAndRewards(event);
+    const entries = event.members.filter(member => member.rewards?.length || member.location || !member.pickups?.length);
+    return '<div class="calendar-tooltip-group">' + header + pickups +
+      entries.map(member => '<article class="calendar-tooltip-entry" data-kind="' + esc(member.type) + '"><strong>' +
+        esc(member.title) + '</strong>' + locationAndRewards(member) + '</article>').join('') + '</div>';
+  }
+
+  function locationAndRewards(event) {
+    const location = event.location ? '<p>' + esc(event.location) + '</p>' : '';
+    return location + (event.rewards?.length
+      ? '<div class="calendar-tooltip-rewards"><strong>보상</strong><div class="calendar-rewards">' + rewardItems(event) + '</div></div>'
+      : '');
   }
 
   function mount(section, data) {
@@ -146,16 +241,54 @@
     const axis = section.querySelector('[data-calendar-axis]');
     const scroll = section.querySelector('.calendar-scroll');
     const tooltip = section.querySelector('[data-calendar-tooltip]');
-    const eventById = new Map(data.events.map(event => [event.id, event]));
     const selected = (buttons, key) => new Set(buttons.filter(button => button.getAttribute('aria-pressed') === 'true').map(button => button.dataset[key]));
+    let rowById;
     let signature;
     let axisStart;
+    let axisMarkup;
+    let weeks;
     let activeTrigger;
     let dismissedTrigger;
     let sticky = false;
     let closeTimer;
 
+    function positionPopup(anchor, popup, prefix) {
+      const size = popup.getBoundingClientRect();
+      const viewportWidth = root.document?.documentElement?.clientWidth || root.innerWidth;
+      const x = Math.max(8, Math.min(anchor.left, viewportWidth - size.width - 8));
+      const below = anchor.bottom + 8;
+      const maxTop = root.innerHeight - size.height - 8;
+      const y = Math.max(8, Math.min(below <= maxTop ? below : anchor.top - size.height - 8, maxTop));
+      popup.style.setProperty('--' + prefix + '-x', x + 'px');
+      popup.style.setProperty('--' + prefix + '-y', y + 'px');
+    }
+
+    function positionWeek(button) {
+      positionPopup(button.getBoundingClientRect(), button.querySelector('.calendar-week-range'), 'week-popup');
+    }
+
+    function dismissWeeks(except) {
+      for (const week of axis.querySelectorAll('[aria-expanded="true"], [data-calendar-week]:focus, [data-calendar-week]:hover')) {
+        if (week === except) continue;
+        week.setAttribute('aria-expanded', 'false');
+        week.dataset.dismissed = '';
+      }
+    }
+
+    function showWeek(week) {
+      if ('dismissed' in week.dataset) return;
+      dismissWeeks(week);
+      if (activeTrigger) {
+        dismissedTrigger = activeTrigger;
+        const restoreFocus = tooltip.contains(root.document?.activeElement);
+        hideDetails();
+        if (restoreFocus) dismissedTrigger.focus({ preventScroll: true });
+      }
+      positionWeek(week);
+    }
+
     function reposition() {
+      for (const button of axis.querySelectorAll('[aria-expanded="true"], [data-calendar-week]:hover, [data-calendar-week]:focus-visible')) positionWeek(button);
       if (!activeTrigger) return;
       const anchor = activeTrigger.getBoundingClientRect();
       const bounds = scroll.getBoundingClientRect();
@@ -164,12 +297,7 @@
         hideDetails();
         return;
       }
-      const size = tooltip.getBoundingClientRect();
-      const x = Math.max(8, Math.min(anchor.left, root.innerWidth - size.width - 8));
-      const below = anchor.bottom + 8;
-      const y = below + size.height <= root.innerHeight - 8 ? below : Math.max(8, anchor.top - size.height - 8);
-      tooltip.style.setProperty('--tooltip-x', x + 'px');
-      tooltip.style.setProperty('--tooltip-y', y + 'px');
+      positionPopup(anchor, tooltip, 'tooltip');
     }
 
     function hideDetails() {
@@ -182,12 +310,14 @@
 
     function showDetails(trigger, pin = false) {
       if (!pin && (sticky || trigger === dismissedTrigger)) return;
+      dismissWeeks();
       root.clearTimeout(closeTimer);
       if (trigger !== activeTrigger) {
         activeTrigger?.setAttribute('aria-expanded', 'false');
         activeTrigger = trigger;
         trigger.setAttribute('aria-expanded', 'true');
-        tooltip.innerHTML = renderDetails(eventById.get(trigger.dataset.calendarEvent), data.games);
+        tooltip.innerHTML = renderDetails(rowById.get(trigger.dataset.calendarEvent), data.games);
+        tooltip.scrollTop = 0;
       }
       sticky = pin;
       tooltip.hidden = false;
@@ -205,10 +335,11 @@
       const window = windowFor();
       const gameFilter = selected(games, 'calendarGame');
       const typeFilter = selected(types, 'calendarType');
-      const events = data.events.filter(event => visible(event, window, gameFilter, typeFilter)).sort((a, b) => compareRows(a, b, window));
+      const events = data.events.filter(event => visible(event, window, gameFilter, typeFilter));
+      const items = groupEvents(events).sort((a, b) => compareRows(a, b, window));
       if (axisStart !== window.start) {
         axisStart = window.start;
-        const weeks = weeksFor(window);
+        weeks = weeksFor(window);
         const grid = weeks.filter(week => week.left > 0).map(week => {
           const before = 'calc(' + week.left + '% - .5px)';
           const after = 'calc(' + week.left + '% + .5px)';
@@ -216,17 +347,29 @@
         }).join(', ');
         scroll.style.setProperty('--today', pct(window.today, window) + '%');
         scroll.style.setProperty('--calendar-grid', grid);
-        axis.innerHTML = renderWeeks(weeks);
+      }
+      const nextAxisMarkup = renderWeeks(weeks, data.games.filter(game => gameFilter.has(game.id)), data.versionTimeline, window.now);
+      if (axisMarkup !== nextAxisMarkup) {
+        const focusedWeek = root.document?.activeElement?.dataset.calendarWeek;
+        axis.innerHTML = nextAxisMarkup;
+        axisMarkup = nextAxisMarkup;
+        if (focusedWeek) {
+          const replacement = [...axis.querySelectorAll('[data-calendar-week]')].find(button => button.dataset.calendarWeek === focusedWeek);
+          (replacement || scroll).focus({ preventScroll: true });
+        }
       }
       section.querySelector('[data-calendar-range]').textContent = shortDate(window.today) + '–' + shortDate(window.end - DAY) + ' · 한국 시간';
-      section.querySelector('[data-calendar-count]').textContent = events.length + '개 일정';
-      const nextSignature = window.start + ':' + events.map(event => event.id).join(',');
+      const grouped = items.filter(item => item.members).length;
+      section.querySelector('[data-calendar-count]').textContent = events.length + '개 일정' +
+        (grouped ? ' · ' + items.length + '개 막대 (묶음 ' + grouped + '개)' : '');
+      const nextSignature = JSON.stringify([window.start, items.map(item => item.members?.map(member => member.id) || item.id)]);
       if (nextSignature !== signature) {
         const focusedEvent = root.document?.activeElement?.dataset.calendarEvent;
         const detailFocused = tooltip.contains?.(root.document?.activeElement);
         const restore = focusedEvent || (detailFocused && activeTrigger?.dataset.calendarEvent);
         hideDetails();
-        rows.innerHTML = events.map(event => renderRow(event, window, data.games)).join('');
+        rowById = new Map(items.map(item => [item.id, item]));
+        rows.innerHTML = items.map(item => renderRow(item, window, data.games)).join('');
         if (restore) {
           const replacement = [...rows.querySelectorAll('[data-calendar-event]')].find(button => button.dataset.calendarEvent === restore);
           (replacement || scroll).focus({ preventScroll: true });
@@ -234,8 +377,7 @@
         signature = nextSignature;
       }
       section.querySelector('[data-calendar-empty]').hidden = events.length > 0;
-      const stale = window.now - stamp(data.checkedAt) >= WEEK;
-      section.querySelector('[data-calendar-checked]').textContent = data.checkedAt.replaceAll('-', '.') + ' 확인' + (stale ? ' · 새 일정은 공식 공지도 확인해 주세요.' : '');
+      section.querySelector('[data-calendar-checked]').textContent = data.checkedAt.replaceAll('-', '.') + ' 확인';
     }
 
     for (const button of [...games, ...types]) {
@@ -248,10 +390,20 @@
       const week = event.target.closest('[data-calendar-week]');
       if (!week) return;
       const open = week.getAttribute('aria-expanded') !== 'true';
-      for (const button of axis.querySelectorAll('[data-calendar-week]')) button.setAttribute('aria-expanded', 'false');
       week.setAttribute('aria-expanded', String(open));
-      if (open) delete week.dataset.dismissed;
+      if (open) {
+        delete week.dataset.dismissed;
+        showWeek(week);
+      }
       else week.dataset.dismissed = '';
+    });
+    axis.addEventListener('pointerover', event => {
+      const week = event.target.closest('[data-calendar-week]');
+      if (week && event.pointerType !== 'touch' && !week.contains(event.relatedTarget)) showWeek(week);
+    });
+    axis.addEventListener('focusin', event => {
+      const week = event.target.closest('[data-calendar-week]');
+      if (week) showWeek(week);
     });
     axis.addEventListener('pointerout', event => {
       const week = event.target.closest('[data-calendar-week]');
@@ -289,7 +441,7 @@
       } else {
         dismissedTrigger = undefined;
         showDetails(trigger, true);
-        if (event.detail === 0 && !tooltip.hidden) tooltip.querySelector('a')?.focus();
+        if (event.detail === 0 && !tooltip.hidden) tooltip.focus({ preventScroll: true });
       }
     });
     tooltip.addEventListener('pointerenter', () => root.clearTimeout(closeTimer));
@@ -299,9 +451,7 @@
     });
     root.document?.addEventListener('pointerdown', event => {
       if (activeTrigger && !activeTrigger.contains(event.target) && !tooltip.contains(event.target)) hideDetails();
-      if (!axis.contains(event.target)) {
-        for (const week of axis.querySelectorAll('[aria-expanded="true"]')) week.setAttribute('aria-expanded', 'false');
-      }
+      if (!axis.contains(event.target)) dismissWeeks();
     });
     root.document?.addEventListener('keydown', event => {
       if (event.key !== 'Escape') return;
@@ -311,10 +461,7 @@
         hideDetails();
         if (restoreFocus) dismissedTrigger.focus({ preventScroll: true });
       }
-      for (const week of axis.querySelectorAll('[aria-expanded="true"], [data-calendar-week]:focus, [data-calendar-week]:hover')) {
-        week.setAttribute('aria-expanded', 'false');
-        week.dataset.dismissed = '';
-      }
+      dismissWeeks();
     });
     root.addEventListener('resize', reposition);
     root.addEventListener('scroll', reposition, true);
@@ -324,7 +471,7 @@
   }
 
   if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { TYPES, stamp, windowFor, visible, compareRows, position, weeksFor, period, renderWeeks, renderRow, renderDetails, mount };
+    module.exports = { TYPES, DEFAULT_TYPES, stamp, windowFor, visible, compareRows, groupEvents, position, weeksFor, period, renderWeeks, renderRow, renderDetails, mount };
   } else {
     const section = document.querySelector('[data-game-calendar]');
     if (section) mount(section, JSON.parse(document.getElementById('game-calendar-data').textContent));
