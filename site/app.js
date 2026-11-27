@@ -18,6 +18,40 @@
     return hasChosung(normalizedQuery) && toChosung(normalizedTarget).includes(normalizedQuery);
   }
 
+  const themeToggle = document.querySelector('[data-theme-toggle]');
+  if (themeToggle) {
+    const THEME_KEY = 'fluffy-theme';
+    const order = ['system', 'light', 'dark'];
+    const labels = { system: '시스템', light: '라이트', dark: '다크' };
+    const readTheme = () => {
+      try {
+        const saved = localStorage.getItem(THEME_KEY);
+        return saved === 'light' || saved === 'dark' ? saved : 'system';
+      } catch {
+        const attr = document.documentElement?.dataset?.theme;
+        return attr === 'light' || attr === 'dark' ? attr : 'system';
+      }
+    };
+    const applyTheme = mode => {
+      if (document.documentElement?.dataset) {
+        if (mode === 'system') delete document.documentElement.dataset.theme;
+        else document.documentElement.dataset.theme = mode;
+      }
+      themeToggle.textContent = labels[mode];
+      themeToggle.setAttribute('aria-label', `화면 테마 변경 (현재: ${labels[mode]})`);
+    };
+    let currentTheme = readTheme();
+    applyTheme(currentTheme);
+    themeToggle.addEventListener('click', () => {
+      currentTheme = order[(order.indexOf(currentTheme) + 1) % order.length];
+      applyTheme(currentTheme);
+      try {
+        if (currentTheme === 'system') localStorage.removeItem(THEME_KEY);
+        else localStorage.setItem(THEME_KEY, currentTheme);
+      } catch { /* Ignore storage restrictions. */ }
+    });
+  }
+
   const statNotes = [...document.querySelectorAll('[data-stat-note]')];
   if (statNotes.length) {
     document.addEventListener('keydown', event => {

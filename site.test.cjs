@@ -505,3 +505,26 @@ for (const doc of docs) {
 const serverSource = fs.readFileSync(path.join(root, 'server.js'), 'utf8');
 assert.ok(serverSource.includes("'.xml': 'application/xml; charset=utf-8'"), 'local server maps .xml MIME type');
 console.log('PASS OpenGraph metadata uses /fluffy-archive/ URLs, redirect og:url matches canonical, and sitemap.xml lists canonical pages only');
+
+// P2-1 & P3-1: Theme toggle, HEX defaults with @supports light-dark(), single :root, and Canvas host theme isolation.
+const stripLightDarkSupports = css => css.replace(/@supports\s*\(\s*color:\s*light-dark\([^)]*\)\s*\)\s*\{(?:[^{}]*|\{[^{}]*\})*\}/g, '');
+const siteStyles = fs.readFileSync(path.join(root, 'site/styles.css'), 'utf8');
+const appSource = fs.readFileSync(path.join(root, 'app.html'), 'utf8');
+assert.ok(!stripLightDarkSupports(siteStyles).includes('light-dark('), 'site/styles.css places all light-dark() declarations inside @supports');
+assert.ok(!stripLightDarkSupports(appSource).includes('light-dark('), 'app.html places all light-dark() declarations inside @supports');
+assert.equal((appSource.match(/:root\{/g) || []).length, 2, 'app.html keeps one base :root and one @supports light-dark :root');
+assert.equal((appSource.match(/@media\(max-width:768px\)/g) || []).length, 1, 'app.html consolidates mobile breakpoint rules');
+assert.ok(homeOg.includes('data-theme-toggle'), 'archive header includes manual theme toggle');
+assert.ok(calculator.includes('data-theme-toggle'), 'standalone calculator includes manual theme toggle');
+const canvasFile = path.join(root, 'aha-speed.canvas.tsx');
+if (fs.existsSync(canvasFile)) {
+  const canvasSource = fs.readFileSync(canvasFile, 'utf8');
+  assert.ok(canvasSource.includes('/*__HOST_THEME__*/'), 'Canvas wrapper injects host theme variables');
+  assert.ok(canvasSource.includes('data-canvas-host'), 'Canvas wrapper marks host-themed document');
+  assert.ok(!canvasSource.includes(':root[data-theme=dark]'), 'Canvas wrapper strips standalone dark theme overrides');
+  assert.ok(!canvasSource.includes('light-dark('), 'Canvas wrapper strips standalone light-dark() overrides');
+  assert.ok(canvasSource.includes(':root[data-canvas-host] body{--path-bg:var(--canvas-path-bg)}'), 'Canvas path badges use a host color override');
+  assert.ok(canvasSource.includes("theme.kind === 'dark' ? '#151a22' : '#414956'"), 'Canvas defines both path badge colors as HEX values');
+  assert.ok(canvasSource.includes('--canvas-path-bg:${pathBadgeBackground};'), 'Canvas injects the resolved path badge color');
+}
+console.log('PASS calculator CSS consolidated and HEX/@supports light-dark/Canvas themes isolated cleanly');
