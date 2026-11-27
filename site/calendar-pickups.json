@@ -1,0 +1,288 @@
+{
+  "hsr-47-aha": [
+    {
+      "name": "에이언즈★아하",
+      "image": "site/assets/hsr/characters/1511.png"
+    },
+    {
+      "name": "「아하」가 처음 울리는 순간",
+      "image": "site/assets/hsr/cones/23065.png"
+    }
+  ],
+  "hsr-47-phase-1-reruns": [
+    {
+      "name": "은랑 LV.999",
+      "image": "site/assets/hsr/characters/1506.png"
+    },
+    {
+      "name": "스파키",
+      "image": "site/assets/hsr/characters/1501.png"
+    },
+    {
+      "name": "효광",
+      "image": "site/assets/hsr/characters/1502.png"
+    },
+    {
+      "name": "갤럭시 시티에 오신 것을 환영합니다",
+      "image": "site/assets/hsr/cones/23057.png"
+    },
+    {
+      "name": "눈부신 파키의 세상",
+      "image": "site/assets/hsr/cones/23053.png"
+    },
+    {
+      "name": "그녀가 보기로 결심했을 때",
+      "image": "site/assets/hsr/cones/23054.png"
+    }
+  ],
+  "hsr-47-phase-2-reruns": [
+    {
+      "name": "아케론",
+      "image": "site/assets/hsr/characters/1308.png"
+    },
+    {
+      "name": "단항•음월",
+      "image": "site/assets/hsr/characters/1213.png"
+    },
+    {
+      "name": "경원",
+      "image": "site/assets/hsr/characters/1204.png"
+    },
+    {
+      "name": "흘러가는 강가를 따라",
+      "image": "site/assets/hsr/cones/23024.png"
+    },
+    {
+      "name": "태양보다 밝게 빛나는 것",
+      "image": "site/assets/hsr/cones/23015.png"
+    },
+    {
+      "name": "동트기 전",
+      "image": "site/assets/hsr/cones/23010.png"
+    }
+  ],
+  "zzz-34-sunbringer": [
+    {
+      "name": "태양을 가져온 자",
+      "image": "site/assets/calendar/pickups/zzz-sunbringer.webp"
+    },
+    {
+      "name": "몽환의 흑염",
+      "image": "site/assets/calendar/pickups/zzz-dragonfire-mirage.webp"
+    }
+  ],
+  "zzz-34-robin-channel": [
+    {
+      "name": "로빈",
+      "image": "site/assets/calendar/pickups/zzz-robin.webp"
+    },
+    {
+      "name": "은하의 운율",
+      "image": "site/assets/calendar/pickups/zzz-iridescent-starsong.webp"
+    }
+  ],
+  "zzz-33-severian": [
+    {
+      "name": "세베리안",
+      "image": "site/assets/calendar/pickups/zzz-severian.webp"
+    },
+    {
+      "name": "금단의 감옥",
+      "image": "site/assets/calendar/pickups/zzz-incarcerating-grip.webp"
+    }
+  ],
+  "zzz-33-norma": [
+    {
+      "name": "노르마",
+      "image": "site/assets/calendar/pickups/zzz-norma.webp"
+    },
+    {
+      "name": "수석 조수",
+      "image": "site/assets/calendar/pickups/zzz-chief-sidekick.webp"
+    }
+  ],
+  "zzz-34-kafka": [
+    {
+      "name": "카프카",
+      "image": "site/assets/calendar/pickups/zzz-kafka.webp"
+    },
+    {
+      "name": "거미가 남긴 악장",
+      "image": "site/assets/calendar/pickups/zzz-requiem-araneae.webp"
+    }
+  ],
+  "zzz-34-alice": [
+    {
+      "name": "앨리스",
+      "image": "site/assets/calendar/pickups/zzz-alice.webp"
+    },
+    {
+      "name": "완벽하게 단조된 별",
+      "image": "site/assets/calendar/pickups/zzz-practiced-perfection.webp"
+    }
+  ],
+  "wuwa-38-p1-lily": [
+    {
+      "name": "릴리",
+      "image": "site/assets/calendar/pickups/wuwa-lily.webp"
+    }
+  ],
+  "wuwa-38-p1-lullaby": [
+    {
+      "name": "럴러바이",
+      "image": "site/assets/calendar/pickups/wuwa-lullaby.webp"
+    }
+  ],
+  "wuwa-38-p1-sigrika": [
+    {
+      "name": "시그리카",
+      "image": "site/assets/calendar/pickups/wuwa-sigrika.webp"
+    }
+  ],
+  "wuwa-38-p1-solsworn-ciphers": [
+    {
+      "name": "Solsworn Ciphers",
+      "image": "site/assets/calendar/pickups/wuwa-solsworn-ciphers.webp"
+    }
+  ],
+  "wuwa-38-p1-qiuyuan": [
+    {
+      "name": "구원",
+      "image": "site/assets/calendar/pickups/wuwa-qiuyuan.webp"
+    }
+  ],
+  "wuwa-38-p1-emerald-sentence": [
+    {
+      "name": "Emerald Sentence",
+      "image": "site/assets/calendar/pickups/wuwa-emerald-sentence.webp"
+    }
+  ],
+  "wuwa-38-p2-xuanling": [
+    {
+      "name": "양양·현령",
+      "image": "site/assets/calendar/pickups/wuwa-yangyang-xuanling.webp"
+    }
+  ],
+  "wuwa-38-p2-azure-oath": [
+    {
+      "name": "Azure Oath",
+      "image": "site/assets/calendar/pickups/wuwa-azure-oath.webp"
+    }
+  ],
+  "wuwa-38-p2-suisui": [
+    {
+      "name": "수수",
+      "image": "site/assets/calendar/pickups/wuwa-suisui.webp"
+    }
+  ],
+  "wuwa-38-p2-firstlights-herald": [
+    {
+      "name": "Firstlight’s Herald",
+      "image": "site/assets/calendar/pickups/wuwa-firstlights-herald.webp"
+    }
+  ],
+  "wuwa-38-p2-hiyuki": [
+    {
+      "name": "히유키",
+      "image": "site/assets/calendar/pickups/wuwa-hiyuki.webp"
+    }
+  ],
+  "wuwa-38-p2-frostburn": [
+    {
+      "name": "Frostburn",
+      "image": "site/assets/calendar/pickups/wuwa-frostburn.webp"
+    }
+  ],
+  "nte-15-elyms": [
+    {
+      "name": "엘림",
+      "image": "site/assets/calendar/pickups/nte-elyms.webp"
+    }
+  ],
+  "nte-15-echo-arc": [
+    {
+      "name": "연결음이 흐르는 동안",
+      "image": "site/assets/calendar/pickups/nte-echoes-on-hold.webp"
+    }
+  ],
+  "nte-15-shinku": [
+    {
+      "name": "신쿠",
+      "image": "site/assets/calendar/pickups/nte-shinku.webp"
+    }
+  ],
+  "nte-15-resolve-arc": [
+    {
+      "name": "홍염의 신기루",
+      "image": "site/assets/calendar/pickups/nte-blushing-mirage.webp"
+    }
+  ],
+  "nte-15-exe": [
+    {
+      "name": "Exe",
+      "image": "site/assets/calendar/pickups/nte-exe.webp"
+    }
+  ],
+  "nte-15-chaos": [
+    {
+      "name": "카오스",
+      "image": "site/assets/calendar/pickups/nte-chaos.webp"
+    }
+  ],
+  "nte-15-hunter-arc": [
+    {
+      "name": "만인의 갈망",
+      "image": "site/assets/calendar/pickups/nte-whats-desired.webp"
+    }
+  ],
+  "nte-15-cipher-arc": [
+    {
+      "name": "점선 너머",
+      "image": "site/assets/games/nte.jpg"
+    }
+  ],
+  "genshin-72-p2-zibai": [
+    {
+      "name": "자백",
+      "image": "site/assets/games/genshin.jpg"
+    }
+  ],
+  "genshin-72-p2-linnea": [
+    {
+      "name": "린네아",
+      "image": "site/assets/games/genshin.jpg"
+    }
+  ],
+  "genshin-72-p2-weapons": [
+    {
+      "name": "신월의 달빛",
+      "image": "site/assets/games/genshin.jpg"
+    },
+    {
+      "name": "서리 맺힌 금빛 가지",
+      "image": "site/assets/games/genshin.jpg"
+    }
+  ],
+  "genshin-72-p2-chronicled": [
+    {
+      "name": "바레사",
+      "image": "site/assets/games/genshin.jpg"
+    },
+    {
+      "name": "차스카",
+      "image": "site/assets/games/genshin.jpg"
+    },
+    {
+      "name": "실로닌",
+      "image": "site/assets/games/genshin.jpg"
+    },
+    {
+      "name": "말라니",
+      "image": "site/assets/games/genshin.jpg"
+    },
+    {
+      "name": "키니치",
+      "image": "site/assets/games/genshin.jpg"
+    }
+  ]
+}

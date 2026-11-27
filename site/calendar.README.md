@@ -6,7 +6,8 @@
 - `start` / `end`: Korean dates (`YYYY-MM-DD`) or offset timestamps. End is exclusive. An announcement ending at 15:59 has an end of 16:00. Use `endDisplay` when the original deadline has special wording.
 - `instant`: a confirmed broadcast/update start without an invented duration. Date-only starts stay on their calendar day; timed starts disappear after their time.
 - `endUnknown`: render only a start marker in the visible date window. Never imply that an unknown end means an indefinitely ongoing event.
-- Window: today in Korea plus 41 following days. Ongoing known intervals are clipped visually; their original dates remain visible. Ongoing items sort by earliest end, then upcoming items by start.
+- Window: today in Korea plus 41 following days, with yesterday at the left edge for context. The vertical line marks today. Each week runs Sunday through Saturday. Rows sort by their visible start, then end, then category. The details show the original dates of clipped intervals.
+- `calendar-pickups.json` maps event IDs to featured characters and weapons. Keep each verified local image with its item name. Desktop hover, keyboard focus and tapping a bar reveal its details.
 - `type`: `gacha`, `event`, `login`, `broadcast`, `update`, `offline`.
 - `offline`: only game-company events or confirmed official collaborations in South Korea. Exclude fan gatherings, ordinary merchandise-store promotions and expired collaborations. Retain location and approval/source evidence. This filter is independent of all five game filters.
 - `rewards`: only confirmed currencies, tickets, characters and cosmetic/special rewards. `quantity: null` means no confirmed number. Keep purchase, paid-pass, draw, competition and maximum-reward conditions in `note`; never imply that all visitors receive them.
