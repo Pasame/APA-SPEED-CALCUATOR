@@ -1,8 +1,77 @@
 {
   "checkedAt": "2026-11-28",
+  "versionTimeline": {
+    "hsr": [
+      {
+        "start": "2026-11-11",
+        "version": "4.7",
+        "sourceUrl": "https://www.hoyolab.com/article/47394097?lang=ko-kr"
+      },
+      {
+        "start": "2026-12-23T07:00:00+09:00",
+        "version": "4.8",
+        "estimated": true,
+        "sourceUrl": "https://www.hoyolab.com/article/47394097?lang=ko-kr",
+        "verificationUrls": [
+          "https://www.hoyolab.com/article/47507004?reply=1"
+        ]
+      }
+    ],
+    "zzz": [
+      {
+        "start": "2026-10-21",
+        "version": "3.3",
+        "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/166963"
+      },
+      {
+        "start": "2026-12-02",
+        "version": "3.4",
+        "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/167400?lang=ko-kr"
+      }
+    ],
+    "genshin": [
+      {
+        "start": "2026-11-04",
+        "version": "7.2",
+        "sourceUrl": "https://www.hoyolab.com/article/47306125?reply=1",
+        "end": "2026-12-16",
+        "endEstimated": true,
+        "verificationUrls": [
+          "https://www.hoyolab.com/article/47298205?reply=1",
+          "https://genshin.hoyoverse.com/ko/news/detail/167370",
+          "https://genshin.hoyoverse.com/en/news/detail/166212"
+        ]
+      }
+    ],
+    "wuwa": [
+      {
+        "start": "2026-11-12",
+        "version": "3.8",
+        "sourceUrl": "https://wutheringwaves.kurogames.com/kr/main/news/detail/5784"
+      },
+      {
+        "start": "2026-12-22",
+        "version": "4.0",
+        "sourceUrl": "https://new-federation.kurogames-global.com/?lang=kr&source=x"
+      }
+    ],
+    "nte": [
+      {
+        "start": "2026-11-11",
+        "version": "1.5",
+        "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
+        "end": "2026-12-23T07:00:00+09:00",
+        "verificationUrls": [
+          "https://game.naver.com/lounge/NTE/board/detail/8440814",
+          "https://pf.kakao.com/_uSxfcG/115281290"
+        ]
+      }
+    ]
+  },
   "events": [
     {
       "id": "hsr-version-47",
+      "version": "4.7",
       "game": "hsr",
       "type": "update",
       "title": "4.7 버전 「지금, 뭇별을 웃음으로」",
@@ -11,11 +80,11 @@
       "timePrecision": "date",
       "sourceUrl": "https://www.hoyolab.com/article/47394097?lang=ko-kr",
       "sourceLabel": "스타레일 4.7 한국어 업데이트 공지",
-      "rewards": [],
-      "notes": "11월 11일 점검 후 시작한 버전입니다. 12월 23일 07:00 KST는 공식 4.7 종료 시각입니다."
+      "rewards": []
     },
     {
       "id": "hsr-47-aha",
+      "version": "4.7",
       "game": "hsr",
       "type": "gacha",
       "title": "에이언즈★아하 · 전용 광추 픽업",
@@ -24,11 +93,11 @@
       "timePrecision": "date",
       "sourceUrl": "https://www.hoyolab.com/article/47385253?reply=1",
       "sourceLabel": "스타레일 4.7 전반 공식 워프 공지",
-      "rewards": [],
-      "notes": "4.7 전·후반 공통 워프입니다. 「뭇별을 향한 희롱」과 광추 「『아하』가 처음 울리는 순간」의 워프입니다."
+      "rewards": []
     },
     {
       "id": "hsr-47-phase-1-reruns",
+      "version": "4.7",
       "game": "hsr",
       "type": "gacha",
       "title": "은랑 LV.999 · 스파키 · 효광 복각",
@@ -37,11 +106,11 @@
       "timePrecision": "date",
       "sourceUrl": "https://www.hoyolab.com/article/47385253?reply=1",
       "sourceLabel": "스타레일 4.7 전반 공식 워프 공지",
-      "rewards": [],
-      "notes": "세 캐릭터와 대응 전용 광추를 포함합니다. 공식 종료 표기는 12월 2일 12:59 KST입니다."
+      "rewards": []
     },
     {
       "id": "hsr-47-phase-2-reruns",
+      "version": "4.7",
       "game": "hsr",
       "type": "gacha",
       "title": "아케론 · 단항•음월 · 경원 복각",
@@ -50,11 +119,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://www.hoyolab.com/article/47351625?reply=1",
       "sourceLabel": "스타레일 4.7 공식 프리뷰",
-      "rewards": [],
-      "notes": "세 캐릭터와 대응 전용 광추를 포함합니다. 원문의 아시아 서버 시간 12:00~15:00을 KST로 환산했습니다."
+      "rewards": []
     },
     {
       "id": "hsr-47-aha-trial",
+      "version": "4.7",
       "game": "hsr",
       "type": "event",
       "title": "솜씨 발휘 · 에이언즈★아하와 4성 체험",
@@ -70,13 +139,14 @@
           "quantity": null,
           "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/900001.png",
           "sourceUrl": "https://www.hoyolab.com/article/47385253?reply=1",
-          "image": "site/assets/calendar/hsr-item-1.png"
+          "image": "site/assets/calendar/hsr-item-1.png",
+          "note": "체험 완료"
         }
-      ],
-      "notes": "여행 기록 기능 해제 필요. 아하·아스타·링스·어공 체험을 완료하면 성옥과 육성 재료를 받습니다. 공식 공지에 수량 합계는 없습니다."
+      ]
     },
     {
       "id": "hsr-47-phase-1-trials",
+      "version": "4.7",
       "game": "hsr",
       "type": "event",
       "title": "솜씨 발휘 · 은랑 LV.999 · 스파키 · 효광",
@@ -92,13 +162,14 @@
           "quantity": null,
           "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/900001.png",
           "sourceUrl": "https://www.hoyolab.com/article/47385253?reply=1",
-          "image": "site/assets/calendar/hsr-item-1.png"
+          "image": "site/assets/calendar/hsr-item-1.png",
+          "note": "체험 완료"
         }
-      ],
-      "notes": "여행 기록 기능 해제 필요. 각 체험 완료 시 성옥과 육성 재료를 받습니다. 공지에 수량 합계는 없습니다."
+      ]
     },
     {
       "id": "hsr-47-aha-login",
+      "version": "4.7",
       "game": "hsr",
       "type": "login",
       "title": "아하의 은총",
@@ -114,15 +185,16 @@
           "quantity": 20,
           "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/102.png",
           "sourceUrl": "https://www.hoyolab.com/article/47394097?lang=ko-kr",
-          "image": "site/assets/calendar/hsr-item-102.png"
+          "image": "site/assets/calendar/hsr-item-102.png",
+          "note": "누적 출석"
         }
-      ],
-      "notes": "4.7 버전 중 누적 출석으로 받는 합계입니다. 개척 레벨 4 이상."
+      ]
     },
     {
       "id": "hsr-47-magic-show-invitation",
+      "version": "4.7",
       "game": "hsr",
-      "type": "login",
+      "type": "claim",
       "title": "마술쇼 초대장",
       "start": "2026-11-11",
       "end": "2026-12-23T07:00:00+09:00",
@@ -135,15 +207,16 @@
           "name": "한정 5성 캐릭터 선택",
           "quantity": 1,
           "imageUrl": null,
-          "sourceUrl": "https://www.hoyolab.com/article/47394097?lang=ko-kr"
+          "sourceUrl": "https://www.hoyolab.com/article/47394097?lang=ko-kr",
+          "note": "개척 레벨 4 이상"
         }
-      ],
-      "notes": "개척 레벨 4 이상. 아케론·단항•음월·경원 중 1명과 선택 캐릭터의 Lv.60 육성 재료를 수령합니다."
+      ]
     },
     {
       "id": "hsr-47-starlit-curtain",
+      "version": "4.7",
       "game": "hsr",
-      "type": "login",
+      "type": "claim",
       "title": "기연의 별빛 장막",
       "start": "2026-11-11",
       "end": "2026-12-23T07:00:00+09:00",
@@ -157,15 +230,16 @@
           "quantity": 1,
           "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/309013.png",
           "sourceUrl": "https://www.hoyolab.com/article/47394097?lang=ko-kr",
-          "image": "site/assets/calendar/hsr-item-309013.png"
+          "image": "site/assets/calendar/hsr-item-309013.png",
+          "note": "개척 레벨 4 이상"
         }
-      ],
-      "notes": "개척 레벨 4 이상. 아케론·단항•음월·경원 중 기연 성혼 1개를 고를 수 있습니다."
+      ]
     },
     {
       "id": "hsr-47-star-companions",
+      "version": "4.7",
       "game": "hsr",
-      "type": "login",
+      "type": "claim",
       "title": "별들의 동행자",
       "start": "2026-11-11",
       "end": "2026-12-23T07:00:00+09:00",
@@ -179,15 +253,16 @@
           "quantity": 1,
           "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/281.png",
           "sourceUrl": "https://www.hoyolab.com/article/47394097?lang=ko-kr",
-          "image": "site/assets/calendar/hsr-item-281.png"
+          "image": "site/assets/calendar/hsr-item-281.png",
+          "note": "개척 레벨 4 이상"
         }
-      ],
-      "notes": "개척 레벨 4 이상. 로그인하여 수령하고 「영혼이 모여 주조된 별」 상점에서 사용합니다."
+      ]
     },
     {
       "id": "hsr-47-curtain-call",
+      "version": "4.7",
       "game": "hsr",
-      "type": "login",
+      "type": "claim",
       "title": "커튼콜 기프트 · 택배 수령 안내",
       "start": "2026-11-11",
       "end": "2026-12-23T07:00:00+09:00",
@@ -200,7 +275,8 @@
           "name": "옐로 퍼플 룩",
           "quantity": 1,
           "imageUrl": null,
-          "sourceUrl": "https://www.hoyolab.com/article/47394097?lang=ko-kr"
+          "sourceUrl": "https://www.hoyolab.com/article/47394097?lang=ko-kr",
+          "note": "개척 레벨 4 이상"
         },
         {
           "id": "hsr-item-227021",
@@ -208,7 +284,8 @@
           "quantity": 1,
           "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/227021.png",
           "sourceUrl": "https://www.hoyolab.com/article/47394097?lang=ko-kr",
-          "image": "site/assets/calendar/hsr-item-227021.png"
+          "image": "site/assets/calendar/hsr-item-227021.png",
+          "note": "개척 레벨 4 이상"
         },
         {
           "id": "hsr-item-822",
@@ -216,7 +293,8 @@
           "quantity": 1,
           "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/822.png",
           "sourceUrl": "https://www.hoyolab.com/article/47394097?lang=ko-kr",
-          "image": "site/assets/calendar/hsr-item-822.png"
+          "image": "site/assets/calendar/hsr-item-822.png",
+          "note": "개척 레벨 4 이상"
         },
         {
           "id": "hsr-item-824",
@@ -224,13 +302,14 @@
           "quantity": 1,
           "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/824.png",
           "sourceUrl": "https://www.hoyolab.com/article/47394097?lang=ko-kr",
-          "image": "site/assets/calendar/hsr-item-824.png"
+          "image": "site/assets/calendar/hsr-item-824.png",
+          "note": "개척 레벨 4 이상"
         }
-      ],
-      "notes": "개척 레벨 4 이상. 옐로 퍼플 룩, 특수 아이템, 아삿 프라마드의 선물 및 「『환락』의 대리인」 머리장식을 수령합니다."
+      ]
     },
     {
       "id": "hsr-47-fluffy-kitchen",
+      "version": "4.7",
       "game": "hsr",
       "type": "event",
       "title": "극장판 복슬복슬호: 시끌벅적 주방",
@@ -239,11 +318,11 @@
       "timePrecision": "date",
       "sourceUrl": "https://www.hoyolab.com/article/47394097?lang=ko-kr",
       "sourceLabel": "스타레일 4.7 한국어 업데이트 공지",
-      "rewards": [],
-      "notes": "개척 레벨 21 이상. 디저트 가게 운영 기간입니다. 업데이트 공지 본문에 한정 보상 수량이 없습니다."
+      "rewards": []
     },
     {
       "id": "hsr-47-road-to-fame",
+      "version": "4.7",
       "game": "hsr",
       "type": "event",
       "title": "스타피스 페스티벌: 스타의 길",
@@ -252,11 +331,11 @@
       "timePrecision": "date",
       "sourceUrl": "https://www.hoyolab.com/article/47394097?lang=ko-kr",
       "sourceLabel": "스타레일 4.7 한국어 업데이트 공지",
-      "rewards": [],
-      "notes": "개척 레벨 21 이상. 무대 전투 이벤트입니다. 업데이트 공지 본문에 보상 수량이 없습니다."
+      "rewards": []
     },
     {
       "id": "hsr-47-relic-recon",
+      "version": "4.7",
       "game": "hsr",
       "type": "event",
       "title": "기이한 유물 탐사",
@@ -265,11 +344,20 @@
       "timePrecision": "date",
       "sourceUrl": "https://www.hoyolab.com/article/47375703?reply=1",
       "sourceLabel": "스타레일 기이한 유물 탐사 공식 안내",
-      "rewards": [],
-      "notes": "개척 레벨 21 이상. 각기 다른 장착 부위의 +15 5성 유물을 최대 6개 얻을 수 있습니다. 초기 보조 속성은 4개입니다."
+      "rewards": [
+        {
+          "id": "enhanced-relics",
+          "name": "+15 5성 유물",
+          "quantity": 6,
+          "imageUrl": null,
+          "note": "최대 · 개척 레벨 21 이상",
+          "sourceUrl": "https://www.hoyolab.com/article/47375703?reply=1"
+        }
+      ]
     },
     {
       "id": "hsr-47-phantasia-showstage",
+      "version": "4.7",
       "game": "hsr",
       "type": "gacha",
       "title": "우주적 미학•환상의 쇼타임",
@@ -284,7 +372,8 @@
           "name": "별무리 로또",
           "quantity": null,
           "imageUrl": null,
-          "sourceUrl": "https://www.hoyolab.com/article/47252509?reply=1"
+          "sourceUrl": "https://www.hoyolab.com/article/47252509?reply=1",
+          "note": "유료 코스튬 뽑기"
         },
         {
           "id": "hsr-item-227020",
@@ -292,7 +381,8 @@
           "quantity": null,
           "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/227020.png",
           "sourceUrl": "https://www.hoyolab.com/article/47252509?reply=1",
-          "image": "site/assets/calendar/hsr-item-227020.png"
+          "image": "site/assets/calendar/hsr-item-227020.png",
+          "note": "유료 코스튬 뽑기"
         },
         {
           "id": "hsr-item-253006",
@@ -300,7 +390,8 @@
           "quantity": null,
           "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/253006.png",
           "sourceUrl": "https://www.hoyolab.com/article/47252509?reply=1",
-          "image": "site/assets/calendar/hsr-item-253006.png"
+          "image": "site/assets/calendar/hsr-item-253006.png",
+          "note": "유료 코스튬 뽑기"
         },
         {
           "id": "hsr-item-220014",
@@ -308,13 +399,14 @@
           "quantity": null,
           "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/220014.png",
           "sourceUrl": "https://www.hoyolab.com/article/47252509?reply=1",
-          "image": "site/assets/calendar/hsr-item-220014.png"
+          "image": "site/assets/calendar/hsr-item-220014.png",
+          "note": "유료 코스튬 뽑기"
         }
-      ],
-      "notes": "개척 레벨 4 이상. 코스튬 초대장을 쓰는 유료 코스튬 뽑기입니다. 목록은 뽑기로 획득 가능한 보상입니다."
+      ]
     },
     {
       "id": "hsr-47-myriad-symphony",
+      "version": "4.7",
       "game": "hsr",
       "type": "event",
       "title": "만상의 하모니",
@@ -323,13 +415,22 @@
       "timePrecision": "date",
       "sourceUrl": "https://www.hoyolab.com/article/47394097?lang=ko-kr",
       "sourceLabel": "스타레일 4.7 한국어 업데이트 공지",
-      "rewards": [],
-      "notes": "별의 궤도 전용티켓 또는 코스튬 초대장 사용량에 따라 메아리를 획득하여 기연 성혼을 수령합니다."
+      "rewards": [
+        {
+          "id": "novaflare-eidolon",
+          "name": "기연 성혼",
+          "quantity": null,
+          "imageUrl": null,
+          "note": "전용티켓·코스튬 초대장 누적 소모",
+          "sourceUrl": "https://www.hoyolab.com/article/47394097?lang=ko-kr"
+        }
+      ]
     },
     {
       "id": "hsr-47-maintenance-compensation",
+      "version": "4.7",
       "game": "hsr",
-      "type": "event",
+      "type": "claim",
       "title": "4.7 서버 점검 보상 수령",
       "start": "2026-11-11",
       "end": "2026-12-23T07:00:00+09:00",
@@ -343,15 +444,16 @@
           "quantity": 300,
           "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/900001.png",
           "sourceUrl": "https://www.hoyolab.com/article/47394097?lang=ko-kr",
-          "image": "site/assets/calendar/hsr-item-1.png"
+          "image": "site/assets/calendar/hsr-item-1.png",
+          "note": "점검 전 개척 레벨 4 이상"
         }
-      ],
-      "notes": "11월 11일 07:00 점검 전에 개척 레벨 4 이상인 계정에 우편 지급됩니다."
+      ]
     },
     {
       "id": "hsr-47-fix-compensation",
+      "version": "4.7",
       "game": "hsr",
-      "type": "event",
+      "type": "claim",
       "title": "4.7 문제수정 보상 수령",
       "start": "2026-11-11",
       "end": "2026-12-12T00:59:00+09:00",
@@ -365,14 +467,15 @@
           "quantity": 300,
           "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/900001.png",
           "sourceUrl": "https://www.hoyolab.com/article/47394097?lang=ko-kr",
-          "image": "site/assets/calendar/hsr-item-1.png"
+          "image": "site/assets/calendar/hsr-item-1.png",
+          "note": "점검 전 개척 레벨 4 이상"
         }
       ],
-      "notes": "11월 11일 07:00 점검 전에 개척 레벨 4 이상인 계정 대상입니다. 12월 12일 00:59 KST 전에 접속해 우편을 받으세요.",
       "endDisplay": "12월 12일 00:59 KST 전"
     },
     {
       "id": "hsr-47-apocalyptic-shadow",
+      "version": "4.7",
       "game": "hsr",
       "type": "event",
       "title": "종말의 환영•항법과 어둠",
@@ -381,11 +484,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://www.hoyolab.com/article/47394097?lang=ko-kr",
       "sourceLabel": "스타레일 4.7 한국어 업데이트 공지",
-      "rewards": [],
-      "notes": "아시아 서버 기준 정기 도전 회차입니다."
+      "rewards": []
     },
     {
       "id": "hsr-47-pure-fiction",
+      "version": "4.7",
       "game": "hsr",
       "type": "event",
       "title": "허구 이야기•허구의 이치화",
@@ -394,11 +497,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://www.hoyolab.com/article/47394097?lang=ko-kr",
       "sourceLabel": "스타레일 4.7 한국어 업데이트 공지",
-      "rewards": [],
-      "notes": "아시아 서버 기준 정기 도전 회차입니다."
+      "rewards": []
     },
     {
       "id": "hsr-47-memory-of-chaos",
+      "version": "4.7",
       "game": "hsr",
       "type": "event",
       "title": "혼돈의 기억•칠흑의 잔음",
@@ -407,11 +510,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://www.hoyolab.com/article/47394097?lang=ko-kr",
       "sourceLabel": "스타레일 4.7 한국어 업데이트 공지",
-      "rewards": [],
-      "notes": "아시아 서버 기준 정기 도전 회차입니다."
+      "rewards": []
     },
     {
       "id": "hsr-47-planar-fissure",
+      "version": "4.7",
       "type": "event",
       "title": "차원 분열 · 차원 장신구 2배",
       "start": "2026-11-23T05:00:00+09:00",
@@ -420,19 +523,18 @@
       "sourceUrl": "https://www.hoyolab.com/article/47526861?reply=1",
       "sourceLabel": "스타레일 차원 분열 공식 안내",
       "rewards": [],
-      "notes": "차원 장신구 해제 후 시뮬레이션 우주에서 2배 보상을 받습니다. 2배 횟수는 이벤트 화면에 표시되며 기간 중 초기화되지 않습니다.",
       "game": "hsr"
     },
     {
       "id": "hsr-47-return-web",
-      "type": "event",
+      "version": "4.7",
+      "type": "web",
       "title": "4.7 복귀 개척자 초대 웹 이벤트",
       "start": "2026-11-11",
       "end": "2026-12-23T07:00:00+09:00",
       "timePrecision": "date",
       "sourceUrl": "https://www.hoyolab.com/article/47396790?reply=1",
       "sourceLabel": "스타레일 공식 복귀 웹 이벤트 공지",
-      "notes": "복귀 개척자 4명 초대 및 웹 임무 완료 시 최대 성옥 480개를 받을 수 있습니다. 참여 계정과 초대 실적에 따라 보상이 달라집니다.",
       "game": "hsr",
       "rewards": [
         {
@@ -441,20 +543,21 @@
           "quantity": null,
           "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/900001.png",
           "sourceUrl": "https://www.hoyolab.com/article/47396790?reply=1",
-          "image": "site/assets/calendar/hsr-item-1.png"
+          "image": "site/assets/calendar/hsr-item-1.png",
+          "note": "복귀 4명 초대·웹 임무 · 최대 480개"
         }
       ]
     },
     {
       "id": "hsr-47-discord-quest",
-      "type": "event",
+      "version": "4.7",
+      "type": "web",
       "title": "4.7 Discord 퀘스트",
       "start": "2026-11-11",
       "end": "2026-12-02",
       "timePrecision": "date",
       "sourceUrl": "https://www.hoyolab.com/article/47398071?reply=1",
       "sourceLabel": "스타레일 공식 Discord 퀘스트 공지",
-      "notes": "공식 공지의 마지막 날짜는 12월 1일(UTC+8)이며 마감 시각은 공개되지 않았습니다. Discord에서 퀘스트를 수락하고 게임을 플레이합니다.",
       "game": "hsr",
       "rewards": [
         {
@@ -463,12 +566,14 @@
           "quantity": null,
           "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/900001.png",
           "sourceUrl": "https://www.hoyolab.com/article/47398071?reply=1",
-          "image": "site/assets/calendar/hsr-item-1.png"
+          "image": "site/assets/calendar/hsr-item-1.png",
+          "note": "Discord 수락 후 게임 플레이"
         }
       ]
     },
     {
       "id": "zzz-version-33",
+      "version": "3.3",
       "game": "zzz",
       "type": "update",
       "title": "3.3 버전 「다시 하늘을 향해」",
@@ -477,11 +582,11 @@
       "timePrecision": "date",
       "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/166963",
       "sourceLabel": "젠레스 존 제로 3.3 한국어 업데이트 공지",
-      "rewards": [],
-      "notes": "10월 21일 점검 후 시작한 버전입니다. 12월 2일 07:00 KST는 공식 3.3 종료 시각입니다."
+      "rewards": []
     },
     {
       "id": "zzz-33-severian",
+      "version": "3.3",
       "game": "zzz",
       "type": "gacha",
       "title": "세베리안 · 「금단의 감옥」 픽업",
@@ -490,11 +595,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/167269",
       "sourceLabel": "젠레스 존 제로 3.3 하반기 공식 변조 공지",
-      "rewards": [],
-      "notes": "「답은 바람에 실려」 에이전트 변조와 W-엔진 변조입니다. 공식 종료 표기는 12월 1일 15:59 KST입니다."
+      "rewards": []
     },
     {
       "id": "zzz-33-norma",
+      "version": "3.3",
       "game": "zzz",
       "type": "gacha",
       "title": "노르마 · 「수석 조수」 복각",
@@ -503,11 +608,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/167269",
       "sourceLabel": "젠레스 존 제로 3.3 하반기 공식 변조 공지",
-      "rewards": [],
-      "notes": "「천재 부등식」 에이전트 변조와 W-엔진 변조입니다."
+      "rewards": []
     },
     {
       "id": "zzz-33-open-audition",
+      "version": "3.3",
       "game": "zzz",
       "type": "event",
       "title": "공개 오디션 · 세베리안과 노르마",
@@ -516,11 +621,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/167269",
       "sourceLabel": "젠레스 존 제로 3.3 하반기 공식 변조 공지",
-      "rewards": [],
-      "notes": "로프넷 레벨 8 이상과 이벤트 기능 해제 필요. 체험 스테이지 첫 완료 보상을 받을 수 있습니다."
+      "rewards": []
     },
     {
       "id": "zzz-33-visitor-login",
+      "version": "3.3",
       "game": "zzz",
       "type": "login",
       "title": "신규 프로그램 · 3.3 출석",
@@ -536,13 +641,14 @@
           "quantity": 10,
           "imageUrl": "https://zzz.gg/_ipx/q_70&s_45x45/images/GachaTicket2Big.png",
           "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/166963",
-          "image": "site/assets/calendar/zzz-encrypted-master-tape.png"
+          "image": "site/assets/calendar/zzz-encrypted-master-tape.png",
+          "note": "누적 7일"
         }
-      ],
-      "notes": "로프넷 레벨 5 이상 등 이벤트 해제 조건을 충족하고 누적 7일 로그인합니다."
+      ]
     },
     {
       "id": "zzz-33-boopon-login",
+      "version": "3.3",
       "game": "zzz",
       "type": "login",
       "title": "하늘에서 떨어진 「웅나」 · 3.3 출석",
@@ -558,13 +664,14 @@
           "quantity": 10,
           "imageUrl": "https://zzz.gg/_ipx/q_70&s_45x45/images/GachaTicket3Big.png",
           "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/166963",
-          "image": "site/assets/calendar/zzz-boopon.png"
+          "image": "site/assets/calendar/zzz-boopon.png",
+          "note": "누적 7일"
         }
-      ],
-      "notes": "로프넷 레벨 5 이상 등 이벤트 해제 조건을 충족하고 누적 7일 로그인합니다."
+      ]
     },
     {
       "id": "zzz-33-spooky-funhouse",
+      "version": "3.3",
       "game": "zzz",
       "type": "event",
       "title": "괴상한 오싹오싹 유령의 집",
@@ -603,11 +710,11 @@
           "imageUrl": null,
           "sourceUrl": "https://zenless.hoyoverse.com/m/ko-kr/news/166946"
         }
-      ],
-      "notes": "로프넷 레벨 20 이상과 제1장·막간 완료 필요. 촛불 트릭 W-엔진, 로프꾼 액세서리, 육성 재료도 획득 가능합니다."
+      ]
     },
     {
       "id": "zzz-33-hobbling-crow",
+      "version": "3.3",
       "game": "zzz",
       "type": "event",
       "title": "절름발이 까마귀 행방록",
@@ -625,11 +732,11 @@
           "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/167270",
           "image": "site/assets/calendar/zzz-polychrome.png"
         }
-      ],
-      "notes": "로프넷 레벨 20 이상과 제1장·막간 완료 필요. 조율 튜너와 육성 재료가 포함됩니다."
+      ]
     },
     {
       "id": "zzz-33-drifting-art",
+      "version": "3.3",
       "game": "zzz",
       "type": "event",
       "title": "복원하자! 표류 화집",
@@ -655,11 +762,11 @@
           "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/167283",
           "image": "site/assets/calendar/zzz-boopon.png"
         }
-      ],
-      "notes": "로프넷 레벨 20 이상과 제1장·막간 완료 필요. 부아스트럼에서 퍼즐을 완료합니다. 공지 본문에 보상 수량이 없습니다."
+      ]
     },
     {
       "id": "zzz-33-combat-bounty",
+      "version": "3.3",
       "game": "zzz",
       "type": "event",
       "title": "데이터 현상금-실전 시뮬레이션",
@@ -668,13 +775,22 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/167413?catchSpider=1",
       "sourceLabel": "젠레스 존 제로 데이터 현상금 공식 안내",
-      "rewards": [],
-      "notes": "실전 시뮬레이션룸 도전 보상 2배입니다. 매일 몬스터 카드 5장까지 적용되며 05:00 KST에 초기화됩니다."
+      "rewards": [
+        {
+          "id": "combat-simulation-bonus",
+          "name": "도전 보상 2배",
+          "quantity": null,
+          "imageUrl": null,
+          "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/167413?catchSpider=1",
+          "note": "하루 카드 5장까지"
+        }
+      ]
     },
     {
       "id": "zzz-33-maintenance-compensation",
+      "version": "3.3",
       "game": "zzz",
-      "type": "event",
+      "type": "claim",
       "title": "3.3 서버 점검 보상 수령",
       "start": "2026-10-21",
       "end": "2026-12-02T07:00:00+09:00",
@@ -688,15 +804,16 @@
           "quantity": 300,
           "imageUrl": "https://zzz.gg/_ipx/q_70&s_45x45/images/IconCurrency.png",
           "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/166963",
-          "image": "site/assets/calendar/zzz-polychrome.png"
+          "image": "site/assets/calendar/zzz-polychrome.png",
+          "note": "점검 전 로프넷 레벨 4 이상"
         }
-      ],
-      "notes": "10월 21일 07:00 점검 전 로프넷 레벨 4 이상인 계정 대상입니다. 메일 유효 기간은 30일입니다."
+      ]
     },
     {
       "id": "zzz-34-preregistration",
+      "version": "3.4",
       "game": "zzz",
-      "type": "event",
+      "type": "web",
       "title": "여명 전의 결전 · 3.4 사전예약",
       "start": "2026-11-20",
       "end": "2026-12-02T07:00:00+09:00",
@@ -710,22 +827,24 @@
           "quantity": 160,
           "imageUrl": "https://zzz.gg/_ipx/q_70&s_45x45/images/IconCurrency.png",
           "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/167395?lang=ko-kr",
-          "image": "site/assets/calendar/zzz-polychrome.png"
+          "image": "site/assets/calendar/zzz-polychrome.png",
+          "note": "사전예약·웹 미니 게임 완료"
         },
         {
           "id": "zzz-34-commemorative-namecard",
           "name": "3.4 사전예약 기념 명함",
           "quantity": 1,
           "imageUrl": null,
-          "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/167395?lang=ko-kr"
+          "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/167395?lang=ko-kr",
+          "note": "사전예약·웹 미니 게임 완료"
         }
-      ],
-      "notes": "사전예약과 웹 미니 게임 완료 후 3.4 업데이트 뒤 로그인하면 기념 명함과 폴리크롬을 우편으로 수령합니다."
+      ]
     },
     {
       "id": "zzz-34-invite-return",
+      "version": "3.4",
       "game": "zzz",
-      "type": "event",
+      "type": "web",
       "title": "리두로의 귀환, 꿈의 재탄생",
       "start": "2026-11-20",
       "end": "2027-01-13T07:00:00+09:00",
@@ -739,13 +858,14 @@
           "quantity": null,
           "imageUrl": "https://zzz.gg/_ipx/q_70&s_45x45/images/IconCurrency.png",
           "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/167395?lang=ko-kr",
-          "image": "site/assets/calendar/zzz-polychrome.png"
+          "image": "site/assets/calendar/zzz-polychrome.png",
+          "note": "복귀·신규 초대 · 최대 340개"
         }
-      ],
-      "notes": "웹 복귀·신규 친구 초대 조건에 따라 최대 폴리크롬 340개를 받을 수 있습니다. 추첨 경품은 별도입니다."
+      ]
     },
     {
       "id": "zzz-version-34-launch",
+      "version": "3.4",
       "game": "zzz",
       "type": "update",
       "title": "3.4 버전 「긴 나날의 끝자락」 출시",
@@ -755,11 +875,11 @@
       "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/167400?lang=ko-kr",
       "sourceLabel": "젠레스 존 제로 3.4 공식 혜택 안내",
       "rewards": [],
-      "notes": "12월 2일 출시가 공식 발표됐습니다. 이 항목은 출시일을 표시합니다.",
       "instant": true
     },
     {
       "id": "zzz-34-sunbringer",
+      "version": "3.4",
       "game": "zzz",
       "type": "gacha",
       "title": "태양을 가져온 자 · 「밤을 태워 피운 낮」",
@@ -768,11 +888,11 @@
       "timePrecision": "date",
       "sourceUrl": "https://x.com/ZZZ_EN/status/2123731372984672333",
       "sourceLabel": "젠레스 존 제로 공식 변조 일정 (@ZZZ_EN)",
-      "rewards": [],
-      "notes": "3.4 업데이트 후 시작합니다. 공식 종료 표기는 1월 12일 15:59 KST입니다."
+      "rewards": []
     },
     {
       "id": "zzz-34-robin-channel",
+      "version": "3.4",
       "game": "zzz",
       "type": "gacha",
       "title": "로빈 · 「빛에 실린 맑은 선율」",
@@ -781,11 +901,11 @@
       "timePrecision": "date",
       "sourceUrl": "https://x.com/ZZZ_EN/status/2123731372984672333",
       "sourceLabel": "젠레스 존 제로 공식 변조 일정 (@ZZZ_EN)",
-      "rewards": [],
-      "notes": "3.4 업데이트 후 열리는 변조입니다. 로그인 보상과 별개입니다."
+      "rewards": []
     },
     {
       "id": "zzz-34-kafka",
+      "version": "3.4",
       "game": "zzz",
       "type": "gacha",
       "title": "카프카 · 「종막을 향한 야상곡」",
@@ -794,11 +914,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://x.com/ZZZ_EN/status/2123731906000994630",
       "sourceLabel": "젠레스 존 제로 공식 변조 일정 (@ZZZ_EN)",
-      "rewards": [],
-      "notes": "콜라보 한정 변조입니다. 공식 종료 표기는 1월 21일 15:59 KST입니다."
+      "rewards": []
     },
     {
       "id": "zzz-34-alice",
+      "version": "3.4",
       "game": "zzz",
       "type": "gacha",
       "title": "앨리스 · 「고결한 백리향의 맹세」 복각",
@@ -807,13 +927,13 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://x.com/ZZZ_EN/status/2123731906000994630",
       "sourceLabel": "젠레스 존 제로 공식 변조 일정 (@ZZZ_EN)",
-      "rewards": [],
-      "notes": "공식 종료 표기는 1월 12일 15:59 KST입니다. 카프카 채널과 종료일이 다릅니다."
+      "rewards": []
     },
     {
       "id": "zzz-34-robin-login",
+      "version": "3.4",
       "game": "zzz",
-      "type": "login",
+      "type": "claim",
       "title": "3.4 로그인 · S급 에이전트 로빈 수령",
       "start": "2026-12-02",
       "end": null,
@@ -829,11 +949,11 @@
           "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/167400?lang=ko-kr"
         }
       ],
-      "notes": "3.4 업데이트 후 로그인으로 한정 로빈과 육성 재료, 추천 메인 속성의 커스텀 디스크를 받을 수 있습니다. 이 공지에 수령 종료 시각은 없습니다.",
       "endUnknown": true
     },
     {
       "id": "zzz-34-theatrical-dream",
+      "version": "3.4",
       "game": "zzz",
       "type": "event",
       "title": "연극 같은 꿈에 빠지다",
@@ -851,11 +971,11 @@
           "sourceUrl": "https://youtu.be/s1E6w6QrYZA"
         }
       ],
-      "notes": "3.4 업데이트 후 개방되는 스타레일 콜라보 촬영 이벤트입니다. 신규 Bangboo 폼폼을 무료로 획득할 수 있습니다. 종료 시각은 미확인입니다.",
       "endUnknown": true
     },
     {
       "id": "genshin-72-p2-zibai",
+      "version": "7.2",
       "game": "genshin",
       "type": "gacha",
       "title": "자백 픽업 · 사직 의례",
@@ -868,6 +988,7 @@
     },
     {
       "id": "genshin-72-p2-linnea",
+      "version": "7.2",
       "game": "genshin",
       "type": "gacha",
       "title": "린네아 픽업 · 야호 박물지",
@@ -880,6 +1001,7 @@
     },
     {
       "id": "genshin-72-p2-weapons",
+      "version": "7.2",
       "game": "genshin",
       "type": "gacha",
       "title": "신의 주조 · 신월의 달빛 / 서리 맺힌 금빛 가지",
@@ -892,6 +1014,7 @@
     },
     {
       "id": "genshin-72-p2-chronicled",
+      "version": "7.2",
       "game": "genshin",
       "type": "gacha",
       "title": "묶음 기원 · 불꽃에 새긴 이름",
@@ -904,6 +1027,7 @@
     },
     {
       "id": "genshin-72-p2-test-run",
+      "version": "7.2",
       "game": "genshin",
       "type": "event",
       "title": "7.2 제2회 솜씨 시험",
@@ -912,11 +1036,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://genshin.hoyoverse.com/ko/news/detail/167370",
       "sourceLabel": "원신 공식 7.2 제2회 기원 공지",
-      "rewards": [],
-      "notes": "기원 기간에 열리는 체험 스테이지입니다. 개별 도전 보상의 종류와 수량은 공지에서 확인되지 않았습니다."
+      "rewards": []
     },
     {
       "id": "genshin-72-block-smashing",
+      "version": "7.2",
       "game": "genshin",
       "type": "event",
       "title": "쾅쾅 블록 격파",
@@ -938,6 +1062,7 @@
     },
     {
       "id": "genshin-72-frames-of-fierce-splendor",
+      "version": "7.2",
       "game": "genshin",
       "type": "event",
       "title": "Frames of Fierce Splendor · 사진 촬영 도전",
@@ -955,11 +1080,11 @@
           "sourceUrl": "https://genshin.hoyoverse.com/ko/news/detail/167376",
           "image": "site/assets/calendar/genshin-primogem.png"
         }
-      ],
-      "notes": "한국어 공식 제목을 확인할 수 없어 영문 공지 제목을 사용했습니다."
+      ]
     },
     {
       "id": "genshin-72-ley-line-overflow",
+      "version": "7.2",
       "game": "genshin",
       "type": "event",
       "title": "지맥의 격류",
@@ -968,11 +1093,20 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://genshin.hoyoverse.com/ko/news/detail/167376",
       "sourceLabel": "원신 공식 7.2 제2회 이벤트 안내",
-      "rewards": [],
-      "notes": "장금의 꽃·계시의 꽃에서 하루 최대 3회 보상 2배를 적용합니다."
+      "rewards": [
+        {
+          "id": "ley-line-bonus",
+          "name": "지맥 보상 2배",
+          "quantity": null,
+          "imageUrl": null,
+          "sourceUrl": "https://genshin.hoyoverse.com/ko/news/detail/167376",
+          "note": "하루 최대 3회"
+        }
+      ]
     },
     {
       "id": "genshin-72-archon-rewards",
+      "version": "7.2",
       "game": "genshin",
       "type": "event",
       "title": "종말의 서막 · 마신 임무 기간 한정 보상",
@@ -988,27 +1122,30 @@
           "quantity": 560,
           "imageUrl": "https://i0.wp.com/www.alphr.com/wp-content/uploads/2021/03/Primogem.png?resize=1200%2C1200&ssl=1",
           "sourceUrl": "https://genshin.hoyoverse.com/en/news/detail/167155",
-          "image": "site/assets/calendar/genshin-primogem.png"
+          "image": "site/assets/calendar/genshin-primogem.png",
+          "note": "마신 임무 완료"
         },
         {
           "id": "genshin-character-development-materials",
           "name": "캐릭터 육성 소재",
           "quantity": null,
           "imageUrl": null,
-          "sourceUrl": "https://genshin.hoyoverse.com/en/news/detail/167155"
+          "sourceUrl": "https://genshin.hoyoverse.com/en/news/detail/167155",
+          "note": "마신 임무 완료"
         },
         {
           "id": "genshin-snezhnaya-local-specialties",
           "name": "스네즈나야 지역 특산물",
           "quantity": null,
           "imageUrl": null,
-          "sourceUrl": "https://genshin.hoyoverse.com/en/news/detail/167155"
+          "sourceUrl": "https://genshin.hoyoverse.com/en/news/detail/167155",
+          "note": "마신 임무 완료"
         }
-      ],
-      "notes": "참여 기간은 7.2 업데이트 후부터입니다. 시작 시각은 공지된 점검 종료 예정 시각입니다."
+      ]
     },
     {
       "id": "genshin-72-kristall-exploration",
+      "version": "7.2",
       "game": "genshin",
       "type": "event",
       "title": "수정이 우거진 땅 · 탐사 임무 보상",
@@ -1024,13 +1161,14 @@
           "quantity": 400,
           "imageUrl": "https://i0.wp.com/www.alphr.com/wp-content/uploads/2021/03/Primogem.png?resize=1200%2C1200&ssl=1",
           "sourceUrl": "https://genshin.hoyoverse.com/en/news/detail/167155",
-          "image": "site/assets/calendar/genshin-primogem.png"
+          "image": "site/assets/calendar/genshin-primogem.png",
+          "note": "지정 탐사 임무 완료"
         }
-      ],
-      "notes": "참여 기간은 7.2 업데이트 후부터입니다. 보상 종료일은 조사 기간 이후까지 이어집니다. 시작 시각은 7.2 점검 종료 예정 시각입니다."
+      ]
     },
     {
       "id": "genshin-72-repertoire",
+      "version": "7.2",
       "game": "genshin",
       "type": "event",
       "title": "만남·여정의 쉼표 · 연주 임무 보상",
@@ -1046,13 +1184,14 @@
           "quantity": 60,
           "imageUrl": "https://i0.wp.com/www.alphr.com/wp-content/uploads/2021/03/Primogem.png?resize=1200%2C1200&ssl=1",
           "sourceUrl": "https://genshin.hoyoverse.com/en/news/detail/167155",
-          "image": "site/assets/calendar/genshin-primogem.png"
+          "image": "site/assets/calendar/genshin-primogem.png",
+          "note": "지정 연주 임무 완료"
         }
-      ],
-      "notes": "7.2 업데이트 후 선율이 흐르는 악보의 지정 연주 임무를 완료하면 받을 수 있습니다. 시작 시각은 7.2 점검 종료 예정 시각입니다."
+      ]
     },
     {
       "id": "genshin-72-grand-defense",
+      "version": "7.2",
       "game": "genshin",
       "type": "event",
       "title": "티바트 방어전·하늘의 심판",
@@ -1084,11 +1223,11 @@
           "imageUrl": null,
           "sourceUrl": "https://genshin.hoyoverse.com/en/news/detail/167155"
         }
-      ],
-      "notes": "이벤트 보상 조건을 충족하면 ★4 캐릭터를 한 명 선택할 수 있습니다. 시작 시각은 7.2 점검 종료 예정 시각입니다."
+      ]
     },
     {
       "id": "genshin-72-stygian-onslaught",
+      "version": "7.2",
       "game": "genshin",
       "type": "event",
       "title": "지맥 제압전 · 7.2",
@@ -1106,11 +1245,11 @@
           "sourceUrl": "https://www.hoyolab.com/article/47375132",
           "image": "site/assets/calendar/genshin-primogem.png"
         }
-      ],
-      "notes": "본편 도전 기간입니다."
+      ]
     },
     {
       "id": "genshin-72-imaginarium-dec",
+      "version": "7.2",
       "game": "genshin",
       "type": "event",
       "title": "현실 속 환상극 · 12월 시즌",
@@ -1120,11 +1259,11 @@
       "sourceUrl": "https://genshin.hoyoverse.com/ko/news/detail/167187",
       "sourceLabel": "원신 공식 7.2 업데이트 안내",
       "rewards": [],
-      "notes": "공식 7.2 안내에서 12월 1일 개방을 확인했습니다. 종료 시각은 해당 안내에서 확인되지 않았습니다.",
       "endUnknown": true
     },
     {
       "id": "genshin-72-tcg-quick",
+      "version": "7.2",
       "game": "genshin",
       "type": "event",
       "title": "일곱 성인의 소환 · 빠른 기책",
@@ -1133,11 +1272,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://gamevika.com/ko/genshin/event/일곱-성인의-소환-격투-모드-빠른-기책-20663",
       "sourceLabel": "원신 인게임 공식 공지 사본",
-      "rewards": [],
-      "notes": "격투 모드의 한정 규칙에 참여하는 기간입니다."
+      "rewards": []
     },
     {
       "id": "genshin-72-harmony-play",
+      "version": "7.2",
       "game": "genshin",
       "type": "event",
       "title": "별바다 세계 · 하모니 시즌 플레이",
@@ -1146,11 +1285,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://gamevika.com/ko/genshin/event/하모니-시즌-개방-안내-21993",
       "sourceLabel": "원신 인게임 공식 공지 사본",
-      "rewards": [],
-      "notes": "경쟁 점수나 랭킹 점수를 획득할 수 있는 플레이 기간입니다."
+      "rewards": []
     },
     {
       "id": "genshin-72-costume-gift",
+      "version": "7.2",
       "game": "genshin",
       "type": "event",
       "title": "코스튬 선물·열정",
@@ -1165,17 +1304,18 @@
           "name": "동심 수리공 코스튬 세트",
           "quantity": 1,
           "imageUrl": null,
-          "sourceUrl": "https://gamevika.com/ko/genshin/event/코스튬-선물열정-참여-시-선택형-코스튬-세트-동심-수리공-획득-가능-21991"
+          "sourceUrl": "https://gamevika.com/ko/genshin/event/코스튬-선물열정-참여-시-선택형-코스튬-세트-동심-수리공-획득-가능-21991",
+          "note": "별인형 해금·별하늘 임무 완료"
         },
         {
           "id": "genshin-geode-of-replication",
           "name": "구현의 수정",
           "quantity": null,
           "imageUrl": null,
-          "sourceUrl": "https://gamevika.com/ko/genshin/event/코스튬-선물열정-참여-시-선택형-코스튬-세트-동심-수리공-획득-가능-21991"
+          "sourceUrl": "https://gamevika.com/ko/genshin/event/코스튬-선물열정-참여-시-선택형-코스튬-세트-동심-수리공-획득-가능-21991",
+          "note": "별인형 해금·별하늘 임무 완료"
         }
-      ],
-      "notes": "별바다 세계의 별인형을 깨우고 별하늘 임무를 완료해야 합니다. 시작 시각은 7.2 점검 종료 예정 시각입니다."
+      ]
     },
     {
       "id": "genshin-72-path-of-valor",
@@ -1193,15 +1333,15 @@
           "name": "선택형 운명의 별",
           "quantity": 1,
           "imageUrl": null,
-          "sourceUrl": "https://gamevika.com/ko/genshin/event/수행의-길-노력에-따른-보상-21892"
+          "sourceUrl": "https://gamevika.com/ko/genshin/event/수행의-길-노력에-따른-보상-21892",
+          "note": "주간 목표 8회 달성"
         }
-      ],
-      "notes": "이번 회차의 주간 수행 목표 8회 달성 시 보상을 교환할 수 있습니다."
+      ]
     },
     {
       "id": "genshin-72-new-player-character",
       "game": "genshin",
-      "type": "event",
+      "type": "claim",
       "title": "검에 서린 설원의 여정 · 신규 여행자 초대",
       "start": "2026-11-04T12:00:00+09:00",
       "end": null,
@@ -1214,14 +1354,15 @@
           "name": "선택형 일반 기원 ★5 캐릭터",
           "quantity": 1,
           "imageUrl": null,
-          "sourceUrl": "https://gamevika.com/ko/genshin/event/검에-서린-설원의-여정-이벤트-초심자-혜택-원하는-세상-여행-일반-기원의-5-캐릭터-초대-가능-21968"
+          "sourceUrl": "https://gamevika.com/ko/genshin/event/검에-서린-설원의-여정-이벤트-초심자-혜택-원하는-세상-여행-일반-기원의-5-캐릭터-초대-가능-21968",
+          "note": "7.2 이후 신규 가입·기원 해금"
         }
       ],
-      "notes": "7.2 이후 신규 가입한 여행자의 계정별로 가입 후 최대 42일 동안 열립니다. 전체 프로그램의 달력 종료일은 공지되지 않았습니다. 시작 시각은 7.2 점검 종료 예정 시각입니다.",
       "endUnknown": true
     },
     {
       "id": "wuwa-38-p1-lily",
+      "version": "3.8",
       "game": "wuwa",
       "type": "gacha",
       "title": "릴리 픽업 · 지난날의 꿈터에 만개한 꽃",
@@ -1230,11 +1371,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://x.com/Wuthering_Waves/status/2120350803970138329",
       "sourceLabel": "명조 공식 릴리 튜닝 공지",
-      "rewards": [],
-      "notes": "3.8 업데이트 직후 시작입니다. 표의 시작 시각은 공지된 점검 종료 예정 시각입니다."
+      "rewards": []
     },
     {
       "id": "wuwa-38-p1-lullaby",
+      "version": "3.8",
       "game": "wuwa",
       "type": "gacha",
       "title": "럴러바이 무기 픽업",
@@ -1243,11 +1384,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://www.youtube.com/watch?v=o1RBxRZlb6o",
       "sourceLabel": "명조 공식 럴러바이 영상 안내",
-      "rewards": [],
-      "notes": "3.8 업데이트 직후 시작입니다. 표의 시작 시각은 공지된 점검 종료 예정 시각입니다."
+      "rewards": []
     },
     {
       "id": "wuwa-38-p1-sigrika",
+      "version": "3.8",
       "game": "wuwa",
       "type": "gacha",
       "title": "시그리카 픽업",
@@ -1256,11 +1397,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://wutheringwaves.kurogames.com/m/en/main/news/detail/5754",
       "sourceLabel": "명조 공식 3.8 제1차 튜닝 공지",
-      "rewards": [],
-      "notes": "기간 시작은 3.8 업데이트 직후입니다. 시작 시각은 공지된 점검 종료 예정 시각입니다."
+      "rewards": []
     },
     {
       "id": "wuwa-38-p1-solsworn-ciphers",
+      "version": "3.8",
       "game": "wuwa",
       "type": "gacha",
       "title": "시그리카 무기 픽업 · Solsworn Ciphers",
@@ -1269,11 +1410,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://wutheringwaves.kurogames.com/m/en/main/news/detail/5754",
       "sourceLabel": "명조 공식 3.8 제1차 튜닝 공지",
-      "rewards": [],
-      "notes": "기간 시작은 3.8 업데이트 직후입니다. 시작 시각은 공지된 점검 종료 예정 시각입니다."
+      "rewards": []
     },
     {
       "id": "wuwa-38-p1-qiuyuan",
+      "version": "3.8",
       "game": "wuwa",
       "type": "gacha",
       "title": "구원 픽업",
@@ -1282,11 +1423,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://wutheringwaves.kurogames.com/m/en/main/news/detail/5754",
       "sourceLabel": "명조 공식 3.8 제1차 튜닝 공지",
-      "rewards": [],
-      "notes": "기간 시작은 3.8 업데이트 직후입니다. 시작 시각은 공지된 점검 종료 예정 시각입니다."
+      "rewards": []
     },
     {
       "id": "wuwa-38-p1-emerald-sentence",
+      "version": "3.8",
       "game": "wuwa",
       "type": "gacha",
       "title": "구원 무기 픽업 · Emerald Sentence",
@@ -1295,11 +1436,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://wutheringwaves.kurogames.com/m/en/main/news/detail/5754",
       "sourceLabel": "명조 공식 3.8 제1차 튜닝 공지",
-      "rewards": [],
-      "notes": "기간 시작은 3.8 업데이트 직후입니다. 시작 시각은 공지된 점검 종료 예정 시각입니다."
+      "rewards": []
     },
     {
       "id": "wuwa-38-p2-xuanling",
+      "version": "3.8",
       "game": "wuwa",
       "type": "gacha",
       "title": "양양·현령 픽업",
@@ -1308,11 +1449,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://wutheringwaves.kurogames.com/en/main/news/detail/5736",
       "sourceLabel": "명조 공식 3.8 콘텐츠 미리보기",
-      "rewards": [],
-      "notes": "공식 미리보기의 제2차 튜닝 일정을 한국 시간으로 환산했습니다."
+      "rewards": []
     },
     {
       "id": "wuwa-38-p2-azure-oath",
+      "version": "3.8",
       "game": "wuwa",
       "type": "gacha",
       "title": "양양·현령 무기 픽업 · Azure Oath",
@@ -1321,11 +1462,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://wutheringwaves.kurogames.com/en/main/news/detail/5736",
       "sourceLabel": "명조 공식 3.8 콘텐츠 미리보기",
-      "rewards": [],
-      "notes": "공식 미리보기의 제2차 튜닝 일정을 한국 시간으로 환산했습니다."
+      "rewards": []
     },
     {
       "id": "wuwa-38-p2-suisui",
+      "version": "3.8",
       "game": "wuwa",
       "type": "gacha",
       "title": "수수 픽업",
@@ -1334,11 +1475,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://wutheringwaves.kurogames.com/en/main/news/detail/5736",
       "sourceLabel": "명조 공식 3.8 콘텐츠 미리보기",
-      "rewards": [],
-      "notes": "공식 미리보기의 제2차 튜닝 일정을 한국 시간으로 환산했습니다."
+      "rewards": []
     },
     {
       "id": "wuwa-38-p2-firstlights-herald",
+      "version": "3.8",
       "game": "wuwa",
       "type": "gacha",
       "title": "수수 무기 픽업 · Firstlight's Herald",
@@ -1347,11 +1488,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://wutheringwaves.kurogames.com/en/main/news/detail/5736",
       "sourceLabel": "명조 공식 3.8 콘텐츠 미리보기",
-      "rewards": [],
-      "notes": "공식 미리보기의 제2차 튜닝 일정을 한국 시간으로 환산했습니다."
+      "rewards": []
     },
     {
       "id": "wuwa-38-p2-hiyuki",
+      "version": "3.8",
       "game": "wuwa",
       "type": "gacha",
       "title": "히유키 픽업",
@@ -1360,11 +1501,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://wutheringwaves.kurogames.com/en/main/news/detail/5736",
       "sourceLabel": "명조 공식 3.8 콘텐츠 미리보기",
-      "rewards": [],
-      "notes": "공식 미리보기의 제2차 튜닝 일정을 한국 시간으로 환산했습니다."
+      "rewards": []
     },
     {
       "id": "wuwa-38-p2-frostburn",
+      "version": "3.8",
       "game": "wuwa",
       "type": "gacha",
       "title": "히유키 무기 픽업 · Frostburn",
@@ -1373,11 +1514,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://wutheringwaves.kurogames.com/en/main/news/detail/5736",
       "sourceLabel": "명조 공식 3.8 콘텐츠 미리보기",
-      "rewards": [],
-      "notes": "공식 미리보기의 제2차 튜닝 일정을 한국 시간으로 환산했습니다."
+      "rewards": []
     },
     {
       "id": "wuwa-38-unwritten-dreams",
+      "version": "3.8",
       "game": "wuwa",
       "type": "event",
       "title": "세컨드 솔라리스: 이름 없는 꿈",
@@ -1472,11 +1613,11 @@
           "imageUrl": null,
           "sourceUrl": "https://wutheringwaves.kurogames.com/en/main/news/detail/5741"
         }
-      ],
-      "notes": "공식 개별 공지에서 별의 소리 총량을 확인했습니다. 시작 시각은 공지된 점검 종료 예정 시각입니다."
+      ]
     },
     {
       "id": "wuwa-38-lahai-roi-blocks",
+      "version": "3.8",
       "game": "wuwa",
       "type": "event",
       "title": "라하이 로이 퍼즐 · 역전",
@@ -1489,6 +1630,7 @@
     },
     {
       "id": "wuwa-38-lollo-groundwork",
+      "version": "3.8",
       "game": "wuwa",
       "type": "event",
       "title": "무무 기획 · 정비",
@@ -1497,11 +1639,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://wutheringwaves.kurogames.com/kr/main/news/detail/5784",
       "sourceLabel": "명조 공식 3.8 업데이트 안내",
-      "rewards": [],
-      "notes": "일일 임무로 획득한 무무 코인을 특별 소포로 교환할 수 있습니다."
+      "rewards": []
     },
     {
       "id": "wuwa-38-dreamfield-odyssey",
+      "version": "3.8",
       "game": "wuwa",
       "type": "event",
       "title": "꿈의 들판, 기이함을 찾아서",
@@ -1522,6 +1664,7 @@
     },
     {
       "id": "wuwa-38-bygone-dreams",
+      "version": "3.8",
       "game": "wuwa",
       "type": "login",
       "title": "옛 꿈의 선물 · 7일 출석",
@@ -1530,11 +1673,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://wutheringwaves.kurogames.com/kr/main/news/detail/5784",
       "sourceLabel": "명조 공식 3.8 업데이트 안내",
-      "rewards": [],
-      "notes": "공식 패치 공지에서 보상 수령 방식과 기간을 확인했습니다. 개별 일차의 보상 내역과 합계는 확인되지 않았습니다. 시작 시각은 3.8 점검 종료 예정 시각입니다."
+      "rewards": []
     },
     {
       "id": "wuwa-38-whither-the-wind",
+      "version": "3.8",
       "game": "wuwa",
       "type": "login",
       "title": "바람이 향하는 곳 · 출석",
@@ -1543,11 +1686,11 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://wutheringwaves.kurogames.com/kr/main/news/detail/5784",
       "sourceLabel": "명조 공식 3.8 업데이트 안내",
-      "rewards": [],
-      "notes": "공식 패치 공지에서 보상 수령 방식과 기간을 확인했습니다. 개별 일차의 보상 내역과 합계는 확인되지 않았습니다."
+      "rewards": []
     },
     {
       "id": "wuwa-40-embers-of-the-everbright",
+      "version": "4.0",
       "game": "wuwa",
       "type": "update",
       "title": "4.0 · 영원을 밝힐 불씨",
@@ -1563,15 +1706,15 @@
           "quantity": 100,
           "imageUrl": "https://cdn.th.gl/wuthering-waves/icons/icons.3a94f1b55b6d1e9019126e7b25db11c6.webp",
           "sourceUrl": "https://new-federation.kurogames-global.com/?lang=kr&source=x",
-          "note": "사전예약 후 업데이트 뒤 로그인",
+          "note": "사전예약 후 로그인",
           "image": "site/assets/calendar/wuwa-astrite.webp"
         }
       ],
-      "notes": "정식 시작일이 공개됐으며 한국 시간의 시작 시각은 미공개입니다. 별의 소리 100개는 사전예약 참여 후 업데이트 뒤 로그인할 때 받습니다.",
       "instant": true
     },
     {
       "id": "nte-15-version",
+      "version": "1.5",
       "game": "nte",
       "type": "update",
       "title": "1.5 버전 「지금 거신 번호는」",
@@ -1581,7 +1724,6 @@
       "sourceUrl": "https://www.youtube.com/watch?v=SXTEyXX__I8",
       "sourceLabel": "이환 1.5 공식 프리뷰 특별 방송",
       "rewards": [],
-      "notes": "11월 11일 점검 뒤에 시작한 버전입니다. 후반 기간 종료는 12월 23일 06:59(KST)입니다.",
       "verificationUrls": [
         "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
         "https://m.inven.co.kr/webzine/wznews.php?idx=322681&site=nte",
@@ -1590,6 +1732,7 @@
     },
     {
       "id": "nte-15-elyms",
+      "version": "1.5",
       "game": "nte",
       "type": "gacha",
       "title": "「디지털 드림」 한정 보드 · 엘림",
@@ -1598,11 +1741,11 @@
       "timePrecision": "date",
       "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
       "sourceLabel": "이환 1.5 버전 한국어 공식 공지",
-      "rewards": [],
-      "notes": "신규 한정 S급 엘림과 A급 민트·에드가·아들러. 시작은 11월 11일 업데이트 이후입니다."
+      "rewards": []
     },
     {
       "id": "nte-15-echo-arc",
+      "version": "1.5",
       "game": "nte",
       "type": "gacha",
       "title": "「에코 특간」 아크 연구 · 연결음이 흐르는 동안",
@@ -1611,11 +1754,11 @@
       "timePrecision": "date",
       "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
       "sourceLabel": "이환 1.5 버전 한국어 공식 공지",
-      "rewards": [],
-      "notes": "신규 한정 S급 아크. 시작은 11월 11일 업데이트 이후입니다."
+      "rewards": []
     },
     {
       "id": "nte-15-shinku",
+      "version": "1.5",
       "game": "nte",
       "type": "gacha",
       "title": "「동틀 녘」 한정 보드 · 신쿠 복각",
@@ -1624,11 +1767,11 @@
       "timePrecision": "date",
       "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
       "sourceLabel": "이환 1.5 버전 한국어 공식 공지",
-      "rewards": [],
-      "notes": "한정 S급 신쿠 복각. 시작은 11월 11일 업데이트 이후입니다."
+      "rewards": []
     },
     {
       "id": "nte-15-resolve-arc",
+      "version": "1.5",
       "game": "nte",
       "type": "gacha",
       "title": "「결의 특간」 아크 연구 · 홍염의 신기루 복각",
@@ -1637,11 +1780,11 @@
       "timePrecision": "date",
       "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
       "sourceLabel": "이환 1.5 버전 한국어 공식 공지",
-      "rewards": [],
-      "notes": "한정 S급 아크 복각. 시작은 11월 11일 업데이트 이후입니다."
+      "rewards": []
     },
     {
       "id": "nte-15-exe",
+      "version": "1.5",
       "game": "nte",
       "type": "gacha",
       "title": "「오프라인 알고리즘」 한정 보드 · Exe",
@@ -1651,7 +1794,6 @@
       "sourceUrl": "https://www.youtube.com/watch?v=SXTEyXX__I8",
       "sourceLabel": "이환 1.5 공식 프리뷰 특별 방송",
       "rewards": [],
-      "notes": "신규 한정 S급 Exe. 12월 2일 점검 후 시작합니다. 분 단위 시작 시각은 별도 공지를 확인해 주세요.",
       "verificationUrls": [
         "https://m.inven.co.kr/webzine/wznews.php?idx=322681&site=nte",
         "https://www.gamespress.com/NTE-Version-15-Once-Upon-a-Glitched-Call-Brings-a-New-Mystery-to-Hethe"
@@ -1659,6 +1801,7 @@
     },
     {
       "id": "nte-15-chaos",
+      "version": "1.5",
       "game": "nte",
       "type": "gacha",
       "title": "「돌아올 수 없는 길」 한정 보드 · 카오스 복각",
@@ -1668,7 +1811,6 @@
       "sourceUrl": "https://www.youtube.com/watch?v=SXTEyXX__I8",
       "sourceLabel": "이환 1.5 공식 프리뷰 특별 방송",
       "rewards": [],
-      "notes": "한정 S급 카오스 복각. 12월 2일 점검 후 시작합니다. 분 단위 시작 시각은 별도 공지를 확인해 주세요.",
       "verificationUrls": [
         "https://m.inven.co.kr/webzine/wznews.php?idx=322681&site=nte",
         "https://www.gamespress.com/NTE-Version-15-Once-Upon-a-Glitched-Call-Brings-a-New-Mystery-to-Hethe"
@@ -1676,6 +1818,7 @@
     },
     {
       "id": "nte-15-cipher-arc",
+      "version": "1.5",
       "game": "nte",
       "type": "gacha",
       "title": "「암호키 특간」 아크 연구 · 점선 너머",
@@ -1685,7 +1828,6 @@
       "sourceUrl": "https://www.youtube.com/watch?v=SXTEyXX__I8",
       "sourceLabel": "이환 1.5 공식 프리뷰 특별 방송",
       "rewards": [],
-      "notes": "신규 한정 S급 아크. 12월 2일 점검 후 시작합니다. 분 단위 시작 시각은 별도 공지를 확인해 주세요.",
       "verificationUrls": [
         "https://m.inven.co.kr/webzine/wznews.php?idx=322681&site=nte",
         "https://www.gamespress.com/NTE-Version-15-Once-Upon-a-Glitched-Call-Brings-a-New-Mystery-to-Hethe"
@@ -1693,6 +1835,7 @@
     },
     {
       "id": "nte-15-hunter-arc",
+      "version": "1.5",
       "game": "nte",
       "type": "gacha",
       "title": "「사냥꾼 특간」 아크 연구 · 만인의 갈망 복각",
@@ -1702,7 +1845,6 @@
       "sourceUrl": "https://www.youtube.com/watch?v=SXTEyXX__I8",
       "sourceLabel": "이환 1.5 공식 프리뷰 특별 방송",
       "rewards": [],
-      "notes": "한정 S급 아크 복각. 12월 2일 점검 후 시작합니다. 분 단위 시작 시각은 별도 공지를 확인해 주세요.",
       "verificationUrls": [
         "https://m.inven.co.kr/webzine/wznews.php?idx=322681&site=nte",
         "https://www.gamespress.com/NTE-Version-15-Once-Upon-a-Glitched-Call-Brings-a-New-Mystery-to-Hethe"
@@ -1710,6 +1852,7 @@
     },
     {
       "id": "nte-15-circle-gifts",
+      "version": "1.5",
       "game": "nte",
       "type": "login",
       "title": "「시즌 선물」 출석 이벤트",
@@ -1726,13 +1869,14 @@
           "imageUrl": "https://static.icy-veins.com/images/neverness-to-everness/items/source/dicelimite-256.webp",
           "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
           "imageSourceUrl": "https://www.icy-veins.com/neverness-to-everness/items",
-          "image": "site/assets/calendar/nte-solid-dice.webp"
+          "image": "site/assets/calendar/nte-solid-dice.webp",
+          "note": "누적 7일"
         }
-      ],
-      "notes": "버전 업데이트 이후 누적 7일 접속으로 진실의 주사위 10개를 받습니다."
+      ]
     },
     {
       "id": "nte-15-road-boxes",
+      "version": "1.5",
       "game": "nte",
       "type": "gacha",
       "title": "「가는 길마다 탄탄대로」 블라인드 박스",
@@ -1748,7 +1892,7 @@
           "quantity": null,
           "imageUrl": null,
           "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
-          "note": "폰즈 또는 환석을 소모하는 뽑기 구성품."
+          "note": "폰즈 또는 환석 소모 뽑기 · 15회 내 전체 획득"
         },
         {
           "id": "nte-land-overlord-001",
@@ -1756,7 +1900,7 @@
           "quantity": null,
           "imageUrl": null,
           "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
-          "note": "폰즈 또는 환석을 소모하는 뽑기 구성품."
+          "note": "폰즈 또는 환석 소모 뽑기 · 15회 내 전체 획득"
         },
         {
           "id": "nte-fabricated-dice",
@@ -1765,14 +1909,14 @@
           "imageUrl": "https://static.icy-veins.com/images/neverness-to-everness/items/source/dicenormal-256.webp",
           "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
           "imageSourceUrl": "https://www.icy-veins.com/neverness-to-everness/items",
-          "note": "폰즈 또는 환석을 소모하는 뽑기 구성품.",
+          "note": "폰즈 또는 환석 소모 뽑기 · 15회 내 전체 획득",
           "image": "site/assets/calendar/nte-fabricated-dice.webp"
         }
-      ],
-      "notes": "폰즈 또는 환석을 소모하는 블라인드 박스 뽑기입니다. 최대 15회 뽑으면 전체 구성품을 획득합니다."
+      ]
     },
     {
       "id": "nte-15-city-logistics",
+      "version": "1.5",
       "game": "nte",
       "type": "event",
       "title": "「시티 익스프레스」",
@@ -1787,14 +1931,16 @@
           "name": "차량 「C001」",
           "quantity": null,
           "imageUrl": null,
-          "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html"
+          "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
+          "note": "쿠바 교환"
         },
         {
           "id": "nte-ori-lv03",
           "name": "차량 「Ori-LV03」",
           "quantity": null,
           "imageUrl": null,
-          "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html"
+          "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
+          "note": "신용 등급 보상"
         },
         {
           "id": "nte-annulith",
@@ -1803,14 +1949,16 @@
           "imageUrl": "https://static.icy-veins.com/images/neverness-to-everness/items/source/icon-ringstone.webp",
           "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
           "imageSourceUrl": "https://www.icy-veins.com/neverness-to-everness/items",
-          "image": "site/assets/calendar/nte-annulith.webp"
+          "image": "site/assets/calendar/nte-annulith.webp",
+          "note": "신용 등급 보상"
         },
         {
           "id": "nte-theater-ticket",
           "name": "유빙 극장 티켓",
           "quantity": null,
           "imageUrl": null,
-          "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html"
+          "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
+          "note": "신용 등급 보상"
         },
         {
           "id": "nte-fabricated-dice",
@@ -1819,7 +1967,8 @@
           "imageUrl": "https://static.icy-veins.com/images/neverness-to-everness/items/source/dicenormal-256.webp",
           "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
           "imageSourceUrl": "https://www.icy-veins.com/neverness-to-everness/items",
-          "image": "site/assets/calendar/nte-fabricated-dice.webp"
+          "image": "site/assets/calendar/nte-fabricated-dice.webp",
+          "note": "쿠바 교환"
         },
         {
           "id": "nte-city-big-dreams",
@@ -1827,7 +1976,7 @@
           "quantity": null,
           "imageUrl": null,
           "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
-          "note": "한정 임무 모두 완료."
+          "note": "한정 임무 모두 완료"
         },
         {
           "id": "nte-city-delivery-king",
@@ -1835,7 +1984,7 @@
           "quantity": null,
           "imageUrl": null,
           "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
-          "note": "이벤트 상점 쿠바 교환."
+          "note": "쿠바 교환"
         },
         {
           "id": "nte-city-five-star-reviews",
@@ -1843,7 +1992,7 @@
           "quantity": null,
           "imageUrl": null,
           "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
-          "note": "이벤트 상점 쿠바 교환."
+          "note": "쿠바 교환"
         },
         {
           "id": "nte-city-next-order",
@@ -1851,7 +2000,7 @@
           "quantity": null,
           "imageUrl": null,
           "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
-          "note": "이벤트 상점 쿠바 교환."
+          "note": "쿠바 교환"
         },
         {
           "id": "nte-city-kool-avatar",
@@ -1859,7 +2008,7 @@
           "quantity": null,
           "imageUrl": null,
           "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
-          "note": "이벤트 상점 쿠바 교환."
+          "note": "쿠바 교환"
         },
         {
           "id": "nte-city-boss-is-in",
@@ -1867,13 +2016,13 @@
           "quantity": null,
           "imageUrl": null,
           "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
-          "note": "이벤트 상점 쿠바 교환."
+          "note": "쿠바 교환"
         }
-      ],
-      "notes": "한정 배송 임무를 수행해 쿠바를 모아 상점에서 교환합니다. 신용 등급을 올리면 별도 보상을 받습니다."
+      ]
     },
     {
       "id": "nte-15-hunters-crucible",
+      "version": "1.5",
       "game": "nte",
       "type": "event",
       "title": "「시련의 연회·공략」",
@@ -1908,11 +2057,11 @@
           "imageSourceUrl": "https://www.icy-veins.com/neverness-to-everness/items",
           "image": "site/assets/calendar/nte-fabricated-dice.webp"
         }
-      ],
-      "notes": "챌린지 스테이지를 클리어해 보상을 누적 획득합니다."
+      ]
     },
     {
       "id": "nte-15-full-tank",
+      "version": "1.5",
       "game": "nte",
       "type": "event",
       "title": "「탄탄대로」",
@@ -1929,20 +2078,22 @@
           "imageUrl": "https://static.icy-veins.com/images/neverness-to-everness/items/source/icon-ringstone.webp",
           "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
           "imageSourceUrl": "https://www.icy-veins.com/neverness-to-everness/items",
-          "image": "site/assets/calendar/nte-annulith.webp"
+          "image": "site/assets/calendar/nte-annulith.webp",
+          "note": "TX 기념 코인 교환"
         },
         {
           "id": "nte-theater-ticket",
           "name": "유빙 극장 티켓",
           "quantity": null,
           "imageUrl": null,
-          "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html"
+          "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
+          "note": "TX 기념 코인 교환"
         }
-      ],
-      "notes": "TX 기념 코인을 획득해 이벤트 상점에서 보상으로 교환합니다."
+      ]
     },
     {
       "id": "nte-15-fishing",
+      "version": "1.5",
       "game": "nte",
       "type": "event",
       "title": "「어획 대작전」",
@@ -1975,11 +2126,11 @@
           "imageUrl": null,
           "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html"
         }
-      ],
-      "notes": "나쿠펜다 공원 낚시터에서 어획 레벨을 높입니다. 아시아 서버 기준으로 변환했습니다."
+      ]
     },
     {
       "id": "nte-15-gold-rush",
+      "version": "1.5",
       "game": "nte",
       "type": "event",
       "title": "「골드러시 대작전」",
@@ -1988,11 +2139,20 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
       "sourceLabel": "이환 1.5 버전 한국어 공식 공지",
-      "rewards": [],
-      "notes": "「핑크퍼스를 털어라」의 폰즈 획득 효율이 2배가 됩니다. 아시아 서버 기준으로 변환했습니다."
+      "rewards": [
+        {
+          "id": "fons-bonus",
+          "name": "폰즈 획득량 2배",
+          "quantity": null,
+          "imageUrl": null,
+          "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
+          "note": "핑크퍼스를 털어라"
+        }
+      ]
     },
     {
       "id": "nte-15-fortunes-bounty",
+      "version": "1.5",
       "game": "nte",
       "type": "event",
       "title": "「행운의 마켓」",
@@ -2034,11 +2194,11 @@
           "imageSourceUrl": "https://www.icy-veins.com/neverness-to-everness/items",
           "image": "site/assets/calendar/nte-fabricated-dice.webp"
         }
-      ],
-      "notes": "행운의 동전 누적 진행도에 따라 획득합니다. 종료 시각은 아시아 서버 기준으로 변환했습니다."
+      ]
     },
     {
       "id": "nte-15-circle-bounty",
+      "version": "1.5",
       "game": "nte",
       "type": "event",
       "title": "1.5 버전 「시즌 패스」",
@@ -2055,7 +2215,7 @@
           "imageUrl": "https://static.icy-veins.com/images/neverness-to-everness/items/source/icon-ringstone.webp",
           "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
           "imageSourceUrl": "https://www.icy-veins.com/neverness-to-everness/items",
-          "note": "정예 헌터 보급 구매 및 패스 레벨 달성 시.",
+          "note": "유료 패스·레벨 달성",
           "image": "site/assets/calendar/nte-annulith.webp"
         },
         {
@@ -2065,7 +2225,7 @@
           "imageUrl": "https://static.icy-veins.com/images/neverness-to-everness/items/source/dicelimite-256.webp",
           "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
           "imageSourceUrl": "https://www.icy-veins.com/neverness-to-everness/items",
-          "note": "정예 헌터 보급 구매 및 패스 레벨 달성 시.",
+          "note": "유료 패스·레벨 달성",
           "image": "site/assets/calendar/nte-solid-dice.webp"
         },
         {
@@ -2077,13 +2237,12 @@
           "imageSourceUrl": "https://www.icy-veins.com/neverness-to-everness/items",
           "image": "site/assets/calendar/nte-fabricated-dice.webp"
         }
-      ],
-      "notes": "헌터 임무와 패스 레벨로 기본 보상을 획득합니다. 선별한 수량 보상은 「정예 헌터 보급」 구매와 레벨 달성이 필요합니다."
+      ]
     },
     {
       "id": "nte-15-discord-login",
       "game": "nte",
-      "type": "login",
+      "type": "web",
       "title": "공식 Discord 출석 이벤트",
       "start": "2026-11-12T13:00:00+09:00",
       "end": "2026-12-13T01:00:00+09:00",
@@ -2098,10 +2257,10 @@
           "imageUrl": "https://static.icy-veins.com/images/neverness-to-everness/items/source/icon-ringstone.webp",
           "sourceUrl": "https://x.com/NTE_KO/status/2120818890561421416",
           "imageSourceUrl": "https://www.icy-veins.com/neverness-to-everness/items",
-          "image": "site/assets/calendar/nte-annulith.webp"
+          "image": "site/assets/calendar/nte-annulith.webp",
+          "note": "Discord 누적 7일"
         }
       ],
-      "notes": "게임이 아닌 이환 공식 Discord에서 누적 7일 출석을 체크해 환석을 받습니다.",
       "verificationUrls": [
         "https://game.naver.com/lounge/NTE/board/detail/8453058",
         "https://xitter.cf/NTE_KO/status/2120818890561421416",
@@ -2110,8 +2269,9 @@
     },
     {
       "id": "nte-15-tga-gift",
+      "version": "1.5",
       "game": "nte",
-      "type": "login",
+      "type": "claim",
       "title": "TGA 2026 후보 선정 감사 보상",
       "start": "2026-11-18T16:00:00+09:00",
       "end": "2026-12-23T07:00:00+09:00",
@@ -2126,10 +2286,10 @@
           "imageUrl": "https://static.icy-veins.com/images/neverness-to-everness/items/source/icon-ringstone.webp",
           "sourceUrl": "https://game.naver.com/lounge/NTE/board/detail/8478894",
           "imageSourceUrl": "https://www.icy-veins.com/neverness-to-everness/items",
-          "image": "site/assets/calendar/nte-annulith.webp"
+          "image": "site/assets/calendar/nte-annulith.webp",
+          "note": "버전 종료 전 캐릭터 생성·우편 해금"
         }
       ],
-      "notes": "게임 내 우편으로 지급합니다. 일정 종료 표시는 1.5 버전 종료 전 캐릭터 생성과 우편 기능 해금 조건의 마감입니다.",
       "verificationUrls": [
         "https://pf.kakao.com/_uSxfcG/115281290",
         "https://m.inven.co.kr/board/nte/6517/2316?iskin=nte&my=post",
@@ -2139,8 +2299,9 @@
     },
     {
       "id": "nte-15-fan-submissions",
+      "version": "1.5",
       "game": "nte",
-      "type": "event",
+      "type": "web",
       "title": "1.5 창작 작품 공모전 · 응모",
       "start": "2026-11-05",
       "end": "2026-12-14T01:00:00+09:00",
@@ -2155,29 +2316,29 @@
           "imageUrl": "https://static.icy-veins.com/images/neverness-to-everness/items/source/icon-ringstone.webp",
           "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gameevent/20261104/264892.html",
           "imageSourceUrl": "https://www.icy-veins.com/neverness-to-everness/items",
-          "note": "공모전 최우수 보상 기준. 참가자 전원 지급이 아닙니다.",
+          "note": "공모전 최우수상 · 상금 최대 US$1,000",
           "image": "site/assets/calendar/nte-annulith.webp"
         }
-      ],
-      "notes": "1.5 콘텐츠 창작물을 공식 해시태그와 함께 게시하고 제출 양식을 작성합니다. 환석 6,480개와 상금 미화 1,000달러는 수상 조건이 있는 최대 보상입니다."
+      ]
     },
     {
       "id": "nte-15-fan-results",
+      "version": "1.5",
       "game": "nte",
-      "type": "event",
+      "type": "web",
       "title": "1.5 창작 작품 공모전 · 결과 공개",
       "start": "2026-12-31",
       "end": "2027-01-07T01:00:00+09:00",
       "timePrecision": "date",
       "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gameevent/20261104/264892.html",
       "sourceLabel": "이환 공식 홈페이지 · 1.5 창작 작품 공모전",
-      "rewards": [],
-      "notes": "공식 공모전의 결과 공개 기간입니다. 응모는 12월 14일 00:59(KST)에 종료됩니다."
+      "rewards": []
     },
     {
       "id": "nte-15-fan-awards",
+      "version": "1.5",
       "game": "nte",
-      "type": "event",
+      "type": "web",
       "title": "1.5 창작 작품 공모전 · 보상 지급 개시",
       "start": "2027-01-08",
       "end": null,
@@ -2185,7 +2346,6 @@
       "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gameevent/20261104/264892.html",
       "sourceLabel": "이환 공식 홈페이지 · 1.5 창작 작품 공모전",
       "rewards": [],
-      "notes": "공식 공모전의 수상자 보상을 1월 8일부터 순차 지급합니다.",
       "endUnknown": true
     },
     {
@@ -2205,10 +2365,9 @@
           "quantity": 1,
           "imageUrl": null,
           "sourceUrl": "https://x.com/animate_hongdae/status/2100404378406384122",
-          "note": "대상 그라떼 식음료 또는 유상 특전 1점 구매당 8종 중 무작위 1매. 재고 소진 시 종료됩니다."
+          "note": "대상 상품 1점 구매 · 재고 소진 시 종료"
         }
       ],
-      "notes": "이환 공식 한국 계정이 애니메이트의 「NTE: Neverness to Everness ×Gratte」 개최 공지를 공유했습니다. 그라떼 쿠키·라떼·아이스와 유상 특전 코스터를 판매하며, 대상 구매에는 실물 랜덤 카드 특전이 적용됩니다.",
       "location": "대한민국 · 애니메이트 카페 홍대점·잠실롯데점",
       "verificationUrls": [
         "https://kyawgyii.twstalker.com/NTE_KO",
@@ -2233,10 +2392,9 @@
           "quantity": 1,
           "imageUrl": null,
           "sourceUrl": "https://x.com/Genshin_Cafe_KR/status/2125469570282717242",
-          "note": "굿즈존 5만 원 이상 결제, 1인 1일 1회."
+          "note": "굿즈 5만 원 이상 · 일 1회 · 재고 소진 시 종료"
         }
       ],
-      "notes": "굿즈존 5만 원 이상 결제 시 실물 일러스트집 1권을 증정합니다. 1인 하루 1회, 수량 소진 시 종료됩니다.",
       "location": "대한민국 · 서울 마포구 와우산로 158 티바트타워 5층 굿즈존",
       "verificationUrls": [
         "https://www.instalker.org/Genshin_Cafe_KR/status/2125469570282717242",
@@ -2246,6 +2404,7 @@
     },
     {
       "id": "nte-15-frost-ring",
+      "version": "1.5",
       "game": "nte",
       "type": "event",
       "title": "궤도 너머 「서리의 고리」 특별 노선",
@@ -2254,7 +2413,6 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://x.com/NTE_KO/status/2122932820717064642",
       "sourceLabel": "이환 공식 X · 서리의 고리 특별 노선",
-      "notes": "프롤로그의 에이본 골동품 가게 이동 임무 완료 후 챌린지에 참여할 수 있습니다.",
       "rewards": [
         {
           "id": "nte-annulith",
@@ -2282,15 +2440,23 @@
     {
       "id": "nte-15-elyms-acrostic",
       "game": "nte",
-      "type": "event",
+      "type": "web",
       "title": "엘림 이행시 댓글 이벤트",
       "start": "2026-11-22",
       "end": "2026-12-01T01:00:00+09:00",
       "timePrecision": "date",
       "sourceUrl": "https://x.com/NTE_KO/status/2124391220436992086",
       "sourceLabel": "이환 공식 X · 엘림 이행시 참여 공지",
-      "notes": "공식 라운지 공지 댓글에 엘림 이행시를 작성합니다. 폰즈 50,000개는 추첨 15명에게 지급합니다.",
-      "rewards": [],
+      "rewards": [
+        {
+          "id": "fons",
+          "name": "폰즈",
+          "quantity": 50000,
+          "imageUrl": null,
+          "note": "추첨 15명",
+          "sourceUrl": "https://x.com/NTE_KO/status/2124391220436992086"
+        }
+      ],
       "verificationUrls": [
         "https://www.pickupcal.com/events/926564/"
       ]

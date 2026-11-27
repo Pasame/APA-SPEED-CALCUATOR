@@ -318,14 +318,13 @@ function buildArchive(root, art) {
           <span class="hero-stamp" aria-hidden="true">FLUFFY<br>ARCHIVE <span>✦</span></span>
         </div>
       </section>
-      ${calendarSection(calendar, games, escape, calendarVersion)}
       <section id="games" class="home-section home-game-links">
         <div class="section-heading">
           <h2>게임 자료실</h2>
-          <p>게임별 가이드를 살펴보세요.</p>
         </div>
         <div class="game-grid">${gameCards}</div>
       </section>
+      ${calendarSection(calendar, games, escape, calendarVersion)}
       <section id="tools" class="tool-banner">
         <div class="tool-icon" aria-hidden="true">✦</div>
         <div>
