@@ -168,32 +168,54 @@ function buildArchive(root, art) {
       : '';
   };
 
+  const dedupeSearchText = parts => {
+    const seen = new Set();
+    const tokens = [];
+    for (const part of parts) {
+      for (const token of String(part || '').trim().split(/\s+/)) {
+        if (!token) continue;
+        const key = token.normalize('NFKC').toLocaleLowerCase('ko');
+        if (seen.has(key)) continue;
+        seen.add(key);
+        tokens.push(token);
+      }
+    }
+    return tokens.join(' ');
+  };
+
   const card = (doc, prefix, searchable = false) => {
     const game = games.find(item => item.id === doc.game);
     const profile = profiles.find(item => item.id === doc.id);
-    const equipmentText = profile ? [
-      ...profile.cones.flatMap(cone => [cone.name, cone.short, cone.detail]),
+    const equipmentNames = profile ? [
+      ...profile.cones.map(cone => cone.name),
       ...profile.relicBuilds.flatMap(build => [
         build.name,
         ...build.cavernSets.map(set => assets.relicSets[set.id].name),
         assets.relicSets[build.planarSet].name,
       ]),
+      ...(profile.targetBuilds || []).flatMap(build => build.relicBuild ? [
+        build.name,
+        ...build.relicBuild.cavernSets.map(set => assets.relicSets[set.id].name),
+        assets.relicSets[build.relicBuild.planarSet].name,
+      ] : []),
     ] : [];
+    const equipmentDetails = profile ? profile.cones.flatMap(cone => [cone.short, cone.detail]) : [];
     const sectionText = (doc.sections || []).flatMap(section => [
       section.title,
       ...(section.paragraphs || []),
       ...(section.bullets || []),
     ]);
-    const searchableText = [
+    const searchableText = dedupeSearchText([
       doc.title,
-      doc.summary,
       game.name,
       game.short,
       kinds[doc.kind],
       ...(doc.tags || []),
+      ...equipmentNames,
+      doc.summary,
       ...sectionText,
-      ...equipmentText,
-    ].join(' ');
+      ...equipmentDetails,
+    ]);
     const searchAttributes = searchable
       ? ` data-entry data-game="${doc.game}" data-kind="${doc.kind}" data-search="${escape(searchableText)}"`
       : '';

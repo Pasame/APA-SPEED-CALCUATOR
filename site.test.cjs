@@ -432,3 +432,13 @@ assert.equal(note.dataset.dismissed, undefined);
 for (const key of Object.keys(filterData.elements)) assert.ok(assets.filters['element-' + key]);
 for (const key of Object.keys(filterData.paths)) assert.ok(assets.filters['path-' + key]);
 console.log('PASS stat tiers have linked footnotes and dismissible keyboard tooltips; all filter icons exist');
+
+const searchPageHtml = fs.readFileSync(path.join(root, 'search/index.html'), 'utf8');
+assert.ok(!/fetch\(/.test(searchPageHtml), 'search page stays offline file:// compatible');
+const gallagherCard = searchPageHtml.slice(searchPageHtml.indexOf('href="../guides/hsr-gallagher/index.html"')).split('</a>')[0];
+assert.ok(gallagherCard.includes('알맞은 타이밍'), 'Gallagher search data keeps signature/recommended cone');
+assert.ok(gallagherCard.includes('태양과 번개의 여전사'), 'Gallagher search data keeps relic set');
+const bodyOnlyDoc = docs.find(doc => doc.sections?.some(section => (section.bullets || []).some(text => text.includes('격파'))));
+const bodyOnlyCard = searchPageHtml.slice(searchPageHtml.indexOf(`href="../guides/${bodyOnlyDoc.id}/index.html"`)).split('</a>')[0];
+assert.ok(bodyOnlyCard.includes('격파'), 'search data keeps body-only section terms after deduplication');
+console.log('PASS deduplicated search page preserves equipment, body-only terms and offline compatibility');

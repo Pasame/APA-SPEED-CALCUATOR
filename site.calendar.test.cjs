@@ -385,4 +385,21 @@ globalThis.addEventListener = oldFocus;
 delete globalThis.document;
 delete globalThis.innerWidth;
 delete globalThis.innerHeight;
+
+const builtHome = fs.readFileSync('index.html', 'utf8');
+const embeddedMatch = builtHome.match(/<script type="application\/json" id="game-calendar-data">([\s\S]*?)<\/script>/);
+assert.ok(embeddedMatch, 'built index.html embeds compact calendar data');
+const embeddedCalendar = JSON.parse(embeddedMatch[1]);
+assert.equal('coverage' in embeddedCalendar, false, 'embedded calendar omits maintenance coverage metadata');
+assert.ok(embeddedCalendar.versionTimeline && Object.keys(embeddedCalendar.versionTimeline).length >= 5, 'embedded calendar preserves versionTimeline');
+assert.equal(embeddedCalendar.events.length, data.events.length);
+const sourcePass = data.events.find(event => event.purchaseEnd && event.webPurchaseEnd);
+assert.ok(sourcePass, 'source calendar has a pass with purchaseEnd and webPurchaseEnd');
+const embeddedPass = embeddedCalendar.events.find(event => event.id === sourcePass.id);
+assert.equal(embeddedPass.purchaseEnd, sourcePass.purchaseEnd, 'embedded calendar preserves purchaseEnd');
+assert.equal(embeddedPass.webPurchaseEnd, sourcePass.webPurchaseEnd, 'embedded calendar preserves webPurchaseEnd');
+assert.match(renderDetails(embeddedPass, games), /구매 마감.*웹 구매/, 'pass purchase deadlines still render from embedded data');
+assert.ok(embeddedCalendar.events.every(event => !('verificationUrls' in event) && !('sourceUrl' in event)), 'embedded calendar strips verification provenance URLs');
+assert.ok(embeddedCalendar.events.every(event => (event.rewards || []).every(reward => !('imageUrl' in reward) && !('verificationUrls' in reward))), 'embedded rewards strip remote image and verification URLs');
+
 console.log(`PASS calendar: ${ids.size} source-backed events, KST and week-year boundaries, ordering, independent filters, details and assets`);
