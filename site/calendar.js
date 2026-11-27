@@ -7,6 +7,7 @@
     gacha: '픽업·뽑기',
     event: '인게임 이벤트',
     endgame: '엔드 콘텐츠',
+    pass: '패스',
     web: '웹 이벤트',
     login: '누적 출석',
     claim: '접속 보상',
@@ -15,7 +16,7 @@
     offline: '국내 공식행사',
   };
   const DEFAULT_TYPES = new Set(['gacha', 'event', 'broadcast', 'update']);
-  const TYPE_PRIORITY = { gacha: 0, event: 1, endgame: 1, web: 1, login: 2, claim: 2, broadcast: 3, update: 3, offline: 4 };
+  const TYPE_PRIORITY = { gacha: 0, event: 1, endgame: 1, pass: 1, web: 1, login: 2, claim: 2, broadcast: 3, update: 3, offline: 4 };
   const WEEKDAYS = ['일', '월', '화', '수', '목', '금', '토'];
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const stamp = value => Date.parse(value.length === 10 ? value + 'T00:00:00+09:00' : value);
@@ -36,7 +37,8 @@
     const start = stamp(event.start);
     if (start >= window.end) return false;
     if (event.instant) return start >= (event.start.length === 10 ? window.today : window.now);
-    return event.end ? stamp(event.end) > window.now : Boolean(event.endUnknown && start >= window.today);
+    if (event.end) return stamp(event.end) > window.now;
+    return Boolean(event.endUnknown && (start >= window.today || (event.ongoingAsOf && stamp(event.ongoingAsOf) >= window.today)));
   }
 
   function compareRows(a, b, window) {
@@ -51,7 +53,7 @@
       const start = stamp(event.start);
       const end = event.end ? stamp(event.end) : NaN;
       const confirmedVersion = typeof event.version === 'string' && event.version.trim();
-      const canGroup = confirmedVersion && Number.isFinite(start) && Number.isFinite(end) && !event.instant && !event.endUnknown && event.type !== 'offline';
+      const canGroup = confirmedVersion && Number.isFinite(start) && Number.isFinite(end) && !event.instant && !event.endUnknown && !event.endEstimated && event.type !== 'offline';
       const startKey = start < today ? 'ongoing' : start;
       const key = canGroup ? 'group:' + JSON.stringify([event.game, confirmedVersion, event.type, startKey, end]) : 'event:' + event.id;
       if (!groups.has(key)) groups.set(key, []);
@@ -89,8 +91,9 @@
 
   function position(event, window) {
     const start = stamp(event.start);
-    const end = event.end ? stamp(event.end) : start;
-    const point = event.instant || !event.end;
+    const observedEnd = event.ongoingAsOf && stamp(event.ongoingAsOf) + DAY;
+    const end = event.end ? stamp(event.end) : observedEnd || start;
+    const point = event.instant || (!event.end && !observedEnd);
     const left = Math.max(0, Math.min(100, pct(start, window)));
     const width = point ? 0 : Math.max(0, pct(Math.min(end, window.end), window) - left);
     return { left, width, point, before: start < window.start, after: end > window.end };
@@ -140,7 +143,7 @@
     const transitions = timeline.filter(entry => entry.time >= sunday && entry.time < sunday + WEEK);
     if (transitions.length) return [before, ...transitions].filter(Boolean).map(entry => entry.version).join(' → ');
     if (!before) return '';
-    return before.version + (!before.unknown && (before.estimated || before.time > now) ? ' (예상)' : '');
+    return before.unknown ? '미정' : before.version + (before.estimated || before.time > now ? ' (예상)' : '');
   }
 
   function versionStamp(value) {
@@ -155,7 +158,7 @@
         .filter(entry => entry.version && Number.isFinite(entry.time)).sort((a, b) => a.time - b.time);
       const last = entries.at(-1);
       const end = versionStamp(last?.end);
-      if (last && end > last.time) entries.push({ version: '미정', time: end, unknown: true });
+      if (last && end > last.time) entries.push({ version: last.endEstimated ? '종료 예상' : '미정', time: end, unknown: true });
       return { name: game.name, entries };
     });
     return weeks.map(week => {
@@ -183,7 +186,7 @@
     return rewards.slice(0, limit ?? rewards.length).map(reward => {
       const amount = reward.quantity?.toLocaleString('ko-KR');
       const quantity = amount != null
-        ? '<b>' + (reward.maximum ? ' 최대 ' + esc(amount) + '개' : ' ×' + esc(amount)) + '</b>'
+        ? ' <b>× ' + esc(amount) + '</b>'
         : (/\d+배$/.test(reward.name) ? '' : ' <span class="calendar-reward-unknown">수량 미확인</span>');
       const note = limit == null && reward.note ? '<small>' + esc(reward.note) + '</small>' : '';
       return '<span class="calendar-reward">' + image(reward.image, 32) + '<span>' + esc(reward.name) + quantity + note + '</span></span>';
@@ -242,7 +245,9 @@
 
   function locationAndRewards(event) {
     const location = event.location ? '<p>' + esc(event.location) + '</p>' : '';
-    return location + (event.rewards?.length
+    const purchase = event.purchaseEnd ? '<p>구매 마감 ' + esc(dateText(event.purchaseEnd, true)) +
+      (event.webPurchaseEnd ? ' · 웹 구매 ' + esc(dateText(event.webPurchaseEnd, true)) : '') + '</p>' : '';
+    return location + purchase + (event.rewards?.length
       ? '<div class="calendar-tooltip-rewards"><strong>보상</strong><div class="calendar-rewards">' + rewardItems(event) + '</div></div>'
       : event.type === 'endgame' ? '<p class="calendar-tooltip-period">보상 미확인</p>' : '');
   }

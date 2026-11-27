@@ -26,7 +26,15 @@
       {
         "start": "2026-12-02",
         "version": "3.4",
-        "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/167400?lang=ko-kr"
+        "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/167400?lang=ko-kr",
+        "end": "2027-01-13",
+        "endEstimated": true,
+        "verificationUrls": [
+          "https://www.gamespress.com/en-US/Zenless-Zone-Zero-Version-34-The-Finality-of-the-Day-Launches-December",
+          "https://x.com/ZZZ_EN/status/2123731372984672333",
+          "https://zenless.hoyoverse.com/en-us/news/167395?catchSpider=1",
+          "https://www.pickupcal.com/events/915107/"
+        ]
       }
     ],
     "genshin": [
@@ -343,6 +351,24 @@
             "https://hsrtierlist.net/versions/hsr-4-7"
           ],
           "maximum": true
+        },
+        {
+          "id": "hsr-tracks-of-destiny",
+          "name": "운명의 발자취",
+          "quantity": 2,
+          "note": "기간 한정 1 · 상시 1",
+          "sourceUrl": "https://www.hoyolab.com/article/47351625?reply=1",
+          "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/241.png",
+          "image": "site/assets/calendar/audit-hz/hsr-tracks-of-destiny.png"
+        },
+        {
+          "id": "hsr-resin",
+          "name": "자가 변형성 레진",
+          "quantity": 1,
+          "note": "이벤트 보상",
+          "sourceUrl": "https://www.hoyolab.com/article/47351625?reply=1",
+          "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/236.png",
+          "image": "site/assets/calendar/audit-hz/hsr-resin.png"
         }
       ]
     },
@@ -371,6 +397,15 @@
             "https://www.pickupcal.com/events/914530/"
           ],
           "maximum": true
+        },
+        {
+          "id": "hsr-tracks-of-destiny",
+          "name": "운명의 발자취",
+          "quantity": 1,
+          "note": "5개 결승 A등급 이상",
+          "sourceUrl": "https://www.hoyolab.com/article/47351625?reply=1",
+          "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/241.png",
+          "image": "site/assets/calendar/audit-hz/hsr-tracks-of-destiny.png"
         }
       ]
     },
@@ -415,7 +450,7 @@
           "quantity": null,
           "imageUrl": null,
           "sourceUrl": "https://www.hoyolab.com/article/47252509?reply=1",
-          "note": "유료 코스튬 뽑기"
+          "note": "첫 뽑기 무료 · 이후 초대장 소모"
         },
         {
           "id": "hsr-item-227020",
@@ -424,7 +459,7 @@
           "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/227020.png",
           "sourceUrl": "https://www.hoyolab.com/article/47252509?reply=1",
           "image": "site/assets/calendar/hsr-item-227020.png",
-          "note": "유료 코스튬 뽑기"
+          "note": "첫 뽑기 무료 · 이후 초대장 소모"
         },
         {
           "id": "hsr-item-253006",
@@ -433,7 +468,7 @@
           "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/253006.png",
           "sourceUrl": "https://www.hoyolab.com/article/47252509?reply=1",
           "image": "site/assets/calendar/hsr-item-253006.png",
-          "note": "유료 코스튬 뽑기"
+          "note": "첫 뽑기 무료 · 이후 초대장 소모"
         },
         {
           "id": "hsr-item-220014",
@@ -442,7 +477,7 @@
           "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/220014.png",
           "sourceUrl": "https://www.hoyolab.com/article/47252509?reply=1",
           "image": "site/assets/calendar/hsr-item-220014.png",
-          "note": "유료 코스튬 뽑기"
+          "note": "첫 뽑기 무료 · 이후 초대장 소모"
         }
       ]
     },
@@ -614,7 +649,16 @@
       "timePrecision": "datetime",
       "sourceUrl": "https://www.hoyolab.com/article/47526861?reply=1",
       "sourceLabel": "스타레일 차원 분열 공식 안내",
-      "rewards": [],
+      "rewards": [
+        {
+          "id": "hsr-planar-ornaments-double",
+          "name": "차원 장신구 2배",
+          "quantity": null,
+          "note": "이벤트 적용 횟수 내",
+          "sourceUrl": "https://www.hoyolab.com/article/47526861?reply=1",
+          "imageUrl": null
+        }
+      ],
       "game": "hsr"
     },
     {
@@ -649,7 +693,7 @@
       "start": "2026-11-11",
       "end": "2026-12-02",
       "timePrecision": "date",
-      "sourceUrl": "https://www.hoyolab.com/article/47398071?reply=1",
+      "sourceUrl": "https://www.hoyolab.com/article/47398071",
       "sourceLabel": "스타레일 공식 Discord 퀘스트 공지",
       "game": "hsr",
       "rewards": [
@@ -666,27 +710,36 @@
           "name": "신용 포인트",
           "quantity": 20000,
           "note": "Discord 15분 플레이 · 선착순",
-          "sourceUrl": "https://www.hoyolab.com/article/47398071"
+          "sourceUrl": "https://www.hoyolab.com/article/47398071",
+          "image": "site/assets/calendar/audit-hz/hsr-credit.png",
+          "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/2.png"
         },
         {
           "name": "유실된 황금 파편",
           "quantity": 4,
           "note": "Discord 15분 플레이 · 선착순",
-          "sourceUrl": "https://www.hoyolab.com/article/47398071"
+          "sourceUrl": "https://www.hoyolab.com/article/47398071",
+          "image": "site/assets/calendar/audit-hz/hsr-lost-gold-fragment.png",
+          "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/232.png"
         },
         {
           "name": "응축한 에테르",
           "quantity": 5,
           "note": "Discord 15분 플레이 · 선착순",
-          "sourceUrl": "https://www.hoyolab.com/article/47398071"
+          "sourceUrl": "https://www.hoyolab.com/article/47398071",
+          "image": "site/assets/calendar/audit-hz/hsr-condensed-aether.png",
+          "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/222.png"
         },
         {
           "name": "여행 가이드",
           "quantity": 3,
           "note": "Discord 15분 플레이 · 선착순",
-          "sourceUrl": "https://www.hoyolab.com/article/47398071"
+          "sourceUrl": "https://www.hoyolab.com/article/47398071",
+          "image": "site/assets/calendar/audit-hz/hsr-travelers-guide.png",
+          "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/213.png"
         }
-      ]
+      ],
+      "redemptionEnd": "2026-12-21T12:00:00+09:00"
     },
     {
       "id": "zzz-version-33",
@@ -831,25 +884,28 @@
           "id": "zzz-candle-trick",
           "name": "W-엔진 촛불 트릭",
           "quantity": 1,
-          "imageUrl": null,
+          "imageUrl": "https://i.gachabase.net/nNlH7LdB-EqKXIFarmkJvL2qEOZkmRGxORKxngD7_iQ/q:50/f:webp/plain/zzz/assets/60de5321ebd71450636b52d15b19e8c9.png",
           "sourceUrl": "https://zenless.hoyoverse.com/m/ko-kr/news/166946",
-          "maximum": true
+          "maximum": true,
+          "image": "site/assets/calendar/audit-hz/zzz-candlelit-scheme.webp"
         },
         {
           "id": "zzz-accessory-mischievous",
           "name": "로프꾼 액세서리 말썽꾸러기",
           "quantity": 1,
-          "imageUrl": null,
+          "imageUrl": "https://cdn.topuplive.com/uploads/images/goods/20261021/1792562449_1RirOPLpAK.png",
           "sourceUrl": "https://zenless.hoyoverse.com/m/ko-kr/news/166946",
-          "maximum": true
+          "maximum": true,
+          "image": "site/assets/calendar/audit-hz/zzz-prankster.png"
         },
         {
           "id": "zzz-accessory-prankster",
           "name": "로프꾼 액세서리 개구쟁이",
           "quantity": 1,
-          "imageUrl": null,
+          "imageUrl": "https://cdn.topuplive.com/uploads/images/goods/20261021/1792562463_7kZgAXPLOK.png",
           "sourceUrl": "https://zenless.hoyoverse.com/m/ko-kr/news/166946",
-          "maximum": true
+          "maximum": true,
+          "image": "site/assets/calendar/audit-hz/zzz-mischievous.png"
         }
       ]
     },
@@ -878,6 +934,14 @@
             "https://accountshark.net/blog/zenless-zone-zero-3-3-phase-2-severian-norma-banner-incarcerating-grip-chief-sidekick-events-guide"
           ],
           "maximum": true
+        },
+        {
+          "id": "zzz-tuning-calibrator",
+          "name": "조율 튜너",
+          "quantity": null,
+          "note": "의뢰 완료",
+          "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/167270",
+          "imageUrl": null
         }
       ]
     },
@@ -1029,12 +1093,19 @@
       "type": "update",
       "title": "3.4 버전 「긴 나날의 끝자락」 출시",
       "start": "2026-12-02",
-      "end": null,
+      "end": "2027-01-13",
       "timePrecision": "date",
       "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/167400?lang=ko-kr",
       "sourceLabel": "젠레스 존 제로 3.4 공식 혜택 안내",
       "rewards": [],
-      "instant": true
+      "endEstimated": true,
+      "endDisplay": "1/13 (예상)",
+      "verificationUrls": [
+        "https://www.gamespress.com/en-US/Zenless-Zone-Zero-Version-34-The-Finality-of-the-Day-Launches-December",
+        "https://x.com/ZZZ_EN/status/2123731372984672333",
+        "https://zenless.hoyoverse.com/en-us/news/167395?catchSpider=1",
+        "https://www.pickupcal.com/events/915107/"
+      ]
     },
     {
       "id": "zzz-34-sunbringer",
@@ -1105,7 +1176,34 @@
           "name": "S급 에이전트 로빈",
           "quantity": 1,
           "imageUrl": null,
-          "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/167400?lang=ko-kr"
+          "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/167400?lang=ko-kr",
+          "image": "site/assets/calendar/pickups/zzz-robin.webp"
+        },
+        {
+          "id": "zzz-robin-upgrade-materials",
+          "name": "로빈 육성 재료",
+          "quantity": null,
+          "note": "Lv.40까지",
+          "sourceUrl": "https://www.gamespress.com/en-US/Zenless-Zone-Zero-Version-34-The-Finality-of-the-Day-Launches-December",
+          "imageUrl": null
+        },
+        {
+          "id": "zzz-robin-yunkui-tales",
+          "name": "운규 이야기 디스크",
+          "quantity": 2,
+          "note": "메인 속성 선택",
+          "sourceUrl": "https://www.topuplive.com/ko/news/zenless-zone-zero-3-4-livestream-summary.html",
+          "imageUrl": "https://cdn.gachabase.net/zzz/assets/f46db4b133fedd5552dccf4cc86e0b6c.png",
+          "image": "site/assets/calendar/audit-hz/zzz-yunkui-tales.png"
+        },
+        {
+          "id": "zzz-robin-bunny-in-wonderland",
+          "name": "이상한 나라의 눈토끼 디스크",
+          "quantity": 4,
+          "note": "메인 속성 선택",
+          "sourceUrl": "https://www.topuplive.com/ko/news/zenless-zone-zero-3-4-livestream-summary.html",
+          "imageUrl": "https://cdn.gachabase.net/zzz/assets/26fd8620d7b1584dfb4c8260db61295e.png",
+          "image": "site/assets/calendar/audit-hz/zzz-bunny-in-wonderland.png"
         }
       ],
       "endUnknown": true
@@ -1126,9 +1224,19 @@
           "id": "zzz-bangboo-pom-pom",
           "name": "Bangboo 폼폼",
           "quantity": 1,
-          "imageUrl": null,
+          "imageUrl": "https://i.gachabase.net/m7r1aiCT0aIauv4stn0ZEMnf8Yn7y3CGy7t57IcjJIg/q:50/f:webp/plain/zzz/assets/98a8eaab17c6cc6c748e69aad7298b9a.png",
           "sourceUrl": "https://youtu.be/s1E6w6QrYZA",
-          "maximum": true
+          "maximum": true,
+          "image": "site/assets/calendar/audit-hz/zzz-pom-pom.webp"
+        },
+        {
+          "id": "zzz-polychrome",
+          "name": "폴리크롬",
+          "quantity": null,
+          "note": "이벤트 완료",
+          "sourceUrl": "https://www.gamespress.com/en-US/Zenless-Zone-Zero-Version-34-The-Finality-of-the-Day-Launches-December",
+          "imageUrl": "https://zzz.gg/_ipx/q_70&s_45x45/images/IconCurrency.png",
+          "image": "site/assets/calendar/zzz-polychrome.png"
         }
       ],
       "endUnknown": true
@@ -1242,8 +1350,8 @@
       "start": "2026-11-27T11:00:00+09:00",
       "end": "2026-12-07T05:00:00+09:00",
       "timePrecision": "datetime",
-      "sourceUrl": "https://www.hoyolab.com/accountCenter/postList?id=1015537",
-      "sourceLabel": "HoYoLAB 원신 공식 사진 촬영 공지",
+      "sourceUrl": "https://genshin.hoyoverse.com/ko/news/detail/167376",
+      "sourceLabel": "원신 공식 7.2 후반 이벤트 안내",
       "rewards": [
         {
           "id": "genshin-primogem",
@@ -1275,7 +1383,7 @@
           "quantity": null,
           "imageUrl": null,
           "sourceUrl": "https://genshin.hoyoverse.com/ko/news/detail/167376",
-          "note": "하루 최대 3회"
+          "note": "하루 3회까지"
         }
       ]
     },
@@ -1288,8 +1396,8 @@
       "start": "2026-11-04T12:00:00+09:00",
       "end": "2026-12-15T16:00:00+09:00",
       "timePrecision": "datetime",
-      "sourceUrl": "https://genshin.hoyoverse.com/ko/news/detail/167376",
-      "sourceLabel": "원신 공식 7.2 제2회 이벤트 안내",
+      "sourceUrl": "https://www.hoyolab.com/article/47284167",
+      "sourceLabel": "원신 공식 마신 임무 기간 한정 보상 공지",
       "rewards": [
         {
           "id": "genshin-primogem",
@@ -1328,8 +1436,8 @@
       "start": "2026-11-04T12:00:00+09:00",
       "end": "2027-01-26T16:00:00+09:00",
       "timePrecision": "datetime",
-      "sourceUrl": "https://genshin.hoyoverse.com/ko/news/detail/167376",
-      "sourceLabel": "원신 공식 7.2 제2회 이벤트 안내",
+      "sourceUrl": "https://www.hoyolab.com/article/47284163",
+      "sourceLabel": "원신 공식 수정이 우거진 땅 탐사 보상 공지",
       "rewards": [
         {
           "id": "genshin-primogem",
@@ -1402,6 +1510,15 @@
           "quantity": null,
           "imageUrl": null,
           "sourceUrl": "https://genshin.hoyoverse.com/en/news/detail/167155"
+        },
+        {
+          "id": "crown-of-insight",
+          "name": "지식의 왕관",
+          "quantity": 1,
+          "sourceUrl": "https://genshin.hoyoverse.com/ko/news/detail/167148",
+          "image": "site/assets/calendar/audit-gw/genshin-crown-of-insight.png",
+          "imageUrl": "https://enka.network/ui/UI_ItemIcon_104319.png",
+          "note": "이벤트 보상 목표 달성"
         }
       ]
     },
@@ -1462,8 +1579,8 @@
       "start": "2026-11-21T11:00:00+09:00",
       "end": "2026-12-07T05:00:00+09:00",
       "timePrecision": "datetime",
-      "sourceUrl": "https://gamevika.com/ko/genshin/event/일곱-성인의-소환-격투-모드-빠른-기책-20663",
-      "sourceLabel": "원신 인게임 공식 공지 사본",
+      "sourceUrl": "https://www.hoyolab.com/article/47493297",
+      "sourceLabel": "원신 공식 빠른 기책 공지",
       "rewards": []
     },
     {
@@ -1475,8 +1592,8 @@
       "start": "2026-11-05T11:00:00+09:00",
       "end": "2026-12-15T05:00:00+09:00",
       "timePrecision": "datetime",
-      "sourceUrl": "https://gamevika.com/ko/genshin/event/하모니-시즌-개방-안내-21993",
-      "sourceLabel": "원신 인게임 공식 공지 사본",
+      "sourceUrl": "https://www.hoyolab.com/article/47298708",
+      "sourceLabel": "원신 공식 하모니 시즌 공지",
       "rewards": []
     },
     {
@@ -1488,8 +1605,8 @@
       "start": "2026-11-04T12:00:00+09:00",
       "end": "2026-12-16T07:00:00+09:00",
       "timePrecision": "datetime",
-      "sourceUrl": "https://gamevika.com/ko/genshin/event/코스튬-선물열정-참여-시-선택형-코스튬-세트-동심-수리공-획득-가능-21991",
-      "sourceLabel": "원신 인게임 공식 공지 사본",
+      "sourceUrl": "https://www.hoyolab.com/article/47283828",
+      "sourceLabel": "원신 공식 7.2 업데이트 공지",
       "rewards": [
         {
           "id": "genshin-young-repairer",
@@ -1518,8 +1635,8 @@
       "start": "2026-11-02T05:00:00+09:00",
       "end": "2027-01-25T05:00:00+09:00",
       "timePrecision": "datetime",
-      "sourceUrl": "https://gamevika.com/ko/genshin/event/수행의-길-노력에-따른-보상-21892",
-      "sourceLabel": "원신 인게임 공식 공지 사본",
+      "sourceUrl": "https://www.hoyolab.com/article/47260024",
+      "sourceLabel": "원신 공식 수행의 길 6회차 공지",
       "rewards": [
         {
           "id": "genshin-selectable-stella-fortuna",
@@ -1549,10 +1666,20 @@
           "quantity": 1,
           "imageUrl": null,
           "sourceUrl": "https://gamevika.com/ko/genshin/event/검에-서린-설원의-여정-이벤트-초심자-혜택-원하는-세상-여행-일반-기원의-5-캐릭터-초대-가능-21968",
-          "note": "7.2 이후 신규 가입·기원 해금"
+          "note": "7.2 이후 신규 가입·기원 해금 · 가입 후 42일 이내"
+        },
+        {
+          "id": "selected-character-ascension-materials",
+          "name": "선택 캐릭터 레벨 돌파 소재",
+          "quantity": null,
+          "sourceUrl": "https://gamevika.com/ko/genshin/event/검에-서린-설원의-여정-이벤트-초심자-혜택-원하는-세상-여행-일반-기원의-5-캐릭터-초대-가능-21968",
+          "image": null,
+          "imageUrl": null,
+          "note": "★5 캐릭터 초대와 함께 지급"
         }
       ],
-      "endUnknown": true
+      "endUnknown": true,
+      "notes": "7.2 업데이트 이후 신규 가입한 여행자 대상. 가입 후 최대 42일이며 7.x 버전 종료 시 공통 마감합니다."
     },
     {
       "id": "wuwa-38-p1-lily",
@@ -1563,8 +1690,8 @@
       "start": "2026-11-12T12:00:00+09:00",
       "end": "2026-12-03T11:00:00+09:00",
       "timePrecision": "datetime",
-      "sourceUrl": "https://x.com/Wuthering_Waves/status/2120350803970138329",
-      "sourceLabel": "명조 공식 릴리 튜닝 공지",
+      "sourceUrl": "https://game.naver.com/lounge/WutheringWaves/board/detail/8443234",
+      "sourceLabel": "명조 공식 3.8 전반 한국 튜닝 공지",
       "rewards": []
     },
     {
@@ -1576,8 +1703,8 @@
       "start": "2026-11-12T12:00:00+09:00",
       "end": "2026-12-03T11:00:00+09:00",
       "timePrecision": "datetime",
-      "sourceUrl": "https://www.youtube.com/watch?v=o1RBxRZlb6o",
-      "sourceLabel": "명조 공식 럴러바이 영상 안내",
+      "sourceUrl": "https://game.naver.com/lounge/WutheringWaves/board/detail/8443278",
+      "sourceLabel": "명조 공식 3.8 전반 한국 튜닝 공지",
       "rewards": []
     },
     {
@@ -1589,8 +1716,8 @@
       "start": "2026-11-12T12:00:00+09:00",
       "end": "2026-12-03T11:00:00+09:00",
       "timePrecision": "datetime",
-      "sourceUrl": "https://wutheringwaves.kurogames.com/m/en/main/news/detail/5754",
-      "sourceLabel": "명조 공식 3.8 제1차 튜닝 공지",
+      "sourceUrl": "https://game.naver.com/lounge/WutheringWaves/board/detail/8443278",
+      "sourceLabel": "명조 공식 3.8 전반 한국 튜닝 공지",
       "rewards": []
     },
     {
@@ -1598,12 +1725,12 @@
       "version": "3.8",
       "game": "wuwa",
       "type": "gacha",
-      "title": "시그리카 무기 픽업 · Solsworn Ciphers",
+      "title": "시그리카 무기 픽업 · 솔스원의 해석",
       "start": "2026-11-12T12:00:00+09:00",
       "end": "2026-12-03T11:00:00+09:00",
       "timePrecision": "datetime",
-      "sourceUrl": "https://wutheringwaves.kurogames.com/m/en/main/news/detail/5754",
-      "sourceLabel": "명조 공식 3.8 제1차 튜닝 공지",
+      "sourceUrl": "https://game.naver.com/lounge/WutheringWaves/board/detail/8443278",
+      "sourceLabel": "명조 공식 3.8 전반 한국 튜닝 공지",
       "rewards": []
     },
     {
@@ -1615,8 +1742,8 @@
       "start": "2026-11-12T12:00:00+09:00",
       "end": "2026-12-03T11:00:00+09:00",
       "timePrecision": "datetime",
-      "sourceUrl": "https://wutheringwaves.kurogames.com/m/en/main/news/detail/5754",
-      "sourceLabel": "명조 공식 3.8 제1차 튜닝 공지",
+      "sourceUrl": "https://game.naver.com/lounge/WutheringWaves/board/detail/8443278",
+      "sourceLabel": "명조 공식 3.8 전반 한국 튜닝 공지",
       "rewards": []
     },
     {
@@ -1624,12 +1751,12 @@
       "version": "3.8",
       "game": "wuwa",
       "type": "gacha",
-      "title": "구원 무기 픽업 · Emerald Sentence",
+      "title": "구원 무기 픽업 · 푸른 의지",
       "start": "2026-11-12T12:00:00+09:00",
       "end": "2026-12-03T11:00:00+09:00",
       "timePrecision": "datetime",
-      "sourceUrl": "https://wutheringwaves.kurogames.com/m/en/main/news/detail/5754",
-      "sourceLabel": "명조 공식 3.8 제1차 튜닝 공지",
+      "sourceUrl": "https://game.naver.com/lounge/WutheringWaves/board/detail/8443278",
+      "sourceLabel": "명조 공식 3.8 전반 한국 튜닝 공지",
       "rewards": []
     },
     {
@@ -1650,7 +1777,7 @@
       "version": "3.8",
       "game": "wuwa",
       "type": "gacha",
-      "title": "양양·현령 무기 픽업 · Azure Oath",
+      "title": "양양·현령 무기 픽업 · 아득히 푸른 하늘",
       "start": "2026-12-03T11:00:00+09:00",
       "end": "2026-12-21T13:00:00+09:00",
       "timePrecision": "datetime",
@@ -1676,7 +1803,7 @@
       "version": "3.8",
       "game": "wuwa",
       "type": "gacha",
-      "title": "수수 무기 픽업 · Firstlight's Herald",
+      "title": "수수 무기 픽업 · 노을에 깃든 이슬",
       "start": "2026-12-03T11:00:00+09:00",
       "end": "2026-12-21T13:00:00+09:00",
       "timePrecision": "datetime",
@@ -1702,7 +1829,7 @@
       "version": "3.8",
       "game": "wuwa",
       "type": "gacha",
-      "title": "히유키 무기 픽업 · Frostburn",
+      "title": "히유키 무기 픽업 · 서린 불꽃",
       "start": "2026-12-03T11:00:00+09:00",
       "end": "2026-12-21T13:00:00+09:00",
       "timePrecision": "datetime",
@@ -1768,45 +1895,50 @@
         },
         {
           "id": "wuwa-modifier",
-          "name": "Modifier",
+          "name": "주파수 조절기",
           "quantity": null,
-          "imageUrl": null,
-          "sourceUrl": "https://wutheringwaves.kurogames.com/en/main/news/detail/5741"
+          "imageUrl": "https://wuthering.gg/images/items/T_IconA_18_UI.png",
+          "sourceUrl": "https://wutheringwaves.kurogames.com/en/main/news/detail/5741",
+          "image": "site/assets/calendar/audit-gw/wuwa-modifier.png"
         },
         {
           "id": "wuwa-premium-tuner",
-          "name": "Premium Tuner",
+          "name": "특급 튜너",
           "quantity": null,
-          "imageUrl": null,
-          "sourceUrl": "https://wutheringwaves.kurogames.com/en/main/news/detail/5741"
+          "imageUrl": "https://wuthering.gg/images/items/T_IconA_txq_03_UI.png",
+          "sourceUrl": "https://wutheringwaves.kurogames.com/en/main/news/detail/5741",
+          "image": "site/assets/calendar/audit-gw/wuwa-premium-tuner.png"
         },
         {
           "id": "wuwa-premium-sealed-tube",
           "name": "특급 비밀음파 통",
           "quantity": null,
-          "imageUrl": null,
-          "sourceUrl": "https://wutheringwaves.kurogames.com/en/main/news/detail/5741"
+          "imageUrl": "https://wuthering.gg/images/items/T_IconA_13_UI.png",
+          "sourceUrl": "https://wutheringwaves.kurogames.com/en/main/news/detail/5741",
+          "image": "site/assets/calendar/audit-gw/wuwa-premium-sealed-tube.png"
         },
         {
           "id": "wuwa-premium-resonance-potion",
-          "name": "Premium Resonance Potion",
+          "name": "특급 공명 촉진제",
           "quantity": null,
-          "imageUrl": null,
-          "sourceUrl": "https://wutheringwaves.kurogames.com/en/main/news/detail/5741"
+          "imageUrl": "https://wuthering.gg/images/items/T_IconRup_exp_4_UI.png",
+          "sourceUrl": "https://wutheringwaves.kurogames.com/en/main/news/detail/5741",
+          "image": "site/assets/calendar/audit-gw/wuwa-premium-resonance-potion.png"
         },
         {
           "id": "wuwa-premium-energy-core",
-          "name": "Premium Energy Core",
+          "name": "특급 에너지 코어",
           "quantity": null,
           "imageUrl": null,
           "sourceUrl": "https://wutheringwaves.kurogames.com/en/main/news/detail/5741"
         },
         {
           "id": "wuwa-shell-credit",
-          "name": "셸 코인",
+          "name": "클램 코인",
           "quantity": null,
-          "imageUrl": null,
-          "sourceUrl": "https://wutheringwaves.kurogames.com/en/main/news/detail/5741"
+          "imageUrl": "https://wuthering.gg/images/items/T_IconA_hsb_UI.png",
+          "sourceUrl": "https://wutheringwaves.kurogames.com/en/main/news/detail/5741",
+          "image": "site/assets/calendar/audit-gw/wuwa-shell-credit.png"
         }
       ]
     },
@@ -1861,7 +1993,9 @@
           "quantity": 5,
           "note": "의뢰 완료 후 무무 코인을 쓰는 특별 소포 뽑기 보상",
           "sourceUrl": "https://wuwa-today.vercel.app/events",
-          "maximum": true
+          "maximum": true,
+          "image": "site/assets/calendar/audit-gw/wuwa-lustrous-tide.png",
+          "imageUrl": "https://wuthering.gg/images/items/T_IconA_qpmy_UI.png"
         }
       ]
     },
@@ -1912,13 +2046,17 @@
           "name": "금빛 파도의 무늬",
           "quantity": 5,
           "note": "연각 레벨 8 이상 · 7일 출석 보상 수령",
-          "sourceUrl": "https://www.buffget.com/news/wuthering-waves-3-8-reverbs-ii-selectable-banners-key-dates-2026"
+          "sourceUrl": "https://www.buffget.com/news/wuthering-waves-3-8-reverbs-ii-selectable-banners-key-dates-2026",
+          "image": "site/assets/calendar/audit-gw/wuwa-radiant-tide.png",
+          "imageUrl": "https://wuthering.gg/images/items/T_IconA_jzmy_UI.png"
         },
         {
           "name": "회오리의 무늬",
           "quantity": 5,
           "note": "연각 레벨 8 이상 · 7일 출석 보상 수령",
-          "sourceUrl": "https://www.buffget.com/news/wuthering-waves-3-8-reverbs-ii-selectable-banners-key-dates-2026"
+          "sourceUrl": "https://www.buffget.com/news/wuthering-waves-3-8-reverbs-ii-selectable-banners-key-dates-2026",
+          "image": "site/assets/calendar/audit-gw/wuwa-lustrous-tide.png",
+          "imageUrl": "https://wuthering.gg/images/items/T_IconA_qpmy_UI.png"
         }
       ]
     },
@@ -1956,18 +2094,9 @@
       "timePrecision": "date",
       "sourceUrl": "https://new-federation.kurogames-global.com/?lang=kr&source=x",
       "sourceLabel": "명조 4.0 공식 사전예약",
-      "rewards": [
-        {
-          "id": "wuwa-astrite",
-          "name": "별의 소리",
-          "quantity": 100,
-          "imageUrl": "https://cdn.th.gl/wuthering-waves/icons/icons.3a94f1b55b6d1e9019126e7b25db11c6.webp",
-          "sourceUrl": "https://new-federation.kurogames-global.com/?lang=kr&source=x",
-          "note": "사전예약 후 로그인",
-          "image": "site/assets/calendar/wuwa-astrite.webp"
-        }
-      ],
-      "instant": true
+      "rewards": [],
+      "instant": true,
+      "notes": "공식 사전예약 사이트의 연간 대형 스토리 공개일입니다. 업데이트 서버 점검 시각은 공개되지 않았습니다."
     },
     {
       "id": "nte-15-version",
@@ -1978,13 +2107,14 @@
       "start": "2026-11-11",
       "end": "2026-12-23T07:00:00+09:00",
       "timePrecision": "date",
-      "sourceUrl": "https://www.youtube.com/watch?v=SXTEyXX__I8",
-      "sourceLabel": "이환 1.5 공식 프리뷰 특별 방송",
+      "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
+      "sourceLabel": "이환 1.5 버전 한국어 공식 공지",
       "rewards": [],
       "verificationUrls": [
         "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
         "https://m.inven.co.kr/webzine/wznews.php?idx=322681&site=nte",
-        "https://www.gamespress.com/NTE-Version-15-Once-Upon-a-Glitched-Call-Brings-a-New-Mystery-to-Hethe"
+        "https://www.gamespress.com/NTE-Version-15-Once-Upon-a-Glitched-Call-Brings-a-New-Mystery-to-Hethe",
+        "https://www.youtube.com/watch?v=SXTEyXX__I8"
       ]
     },
     {
@@ -2053,7 +2183,8 @@
       "rewards": [],
       "verificationUrls": [
         "https://m.inven.co.kr/webzine/wznews.php?idx=322681&site=nte",
-        "https://www.gamespress.com/NTE-Version-15-Once-Upon-a-Glitched-Call-Brings-a-New-Mystery-to-Hethe"
+        "https://www.gamespress.com/NTE-Version-15-Once-Upon-a-Glitched-Call-Brings-a-New-Mystery-to-Hethe",
+        "https://gagether.wiki/ko/games/nte/items/recap-nte-ko-SXTEyXX__I8"
       ]
     },
     {
@@ -2070,7 +2201,8 @@
       "rewards": [],
       "verificationUrls": [
         "https://m.inven.co.kr/webzine/wznews.php?idx=322681&site=nte",
-        "https://www.gamespress.com/NTE-Version-15-Once-Upon-a-Glitched-Call-Brings-a-New-Mystery-to-Hethe"
+        "https://www.gamespress.com/NTE-Version-15-Once-Upon-a-Glitched-Call-Brings-a-New-Mystery-to-Hethe",
+        "https://gagether.wiki/ko/games/nte/items/recap-nte-ko-SXTEyXX__I8"
       ]
     },
     {
@@ -2087,7 +2219,8 @@
       "rewards": [],
       "verificationUrls": [
         "https://m.inven.co.kr/webzine/wznews.php?idx=322681&site=nte",
-        "https://www.gamespress.com/NTE-Version-15-Once-Upon-a-Glitched-Call-Brings-a-New-Mystery-to-Hethe"
+        "https://www.gamespress.com/NTE-Version-15-Once-Upon-a-Glitched-Call-Brings-a-New-Mystery-to-Hethe",
+        "https://gagether.wiki/ko/games/nte/items/recap-nte-ko-SXTEyXX__I8"
       ]
     },
     {
@@ -2104,7 +2237,8 @@
       "rewards": [],
       "verificationUrls": [
         "https://m.inven.co.kr/webzine/wznews.php?idx=322681&site=nte",
-        "https://www.gamespress.com/NTE-Version-15-Once-Upon-a-Glitched-Call-Brings-a-New-Mystery-to-Hethe"
+        "https://www.gamespress.com/NTE-Version-15-Once-Upon-a-Glitched-Call-Brings-a-New-Mystery-to-Hethe",
+        "https://gagether.wiki/ko/games/nte/items/recap-nte-ko-SXTEyXX__I8"
       ]
     },
     {
@@ -2147,17 +2281,21 @@
           "id": "nte-iron-ogre",
           "name": "차량 「철강호」",
           "quantity": 1,
-          "imageUrl": null,
+          "imageUrl": "https://www.kaiden.gg/img/nte/UI/UI_Icon/Item/YH_UI_car_ICON30.webp",
           "sourceUrl": "https://neverless.moe/notices/511056",
-          "note": "폰즈 또는 환석으로 15회 개봉 시 확정"
+          "note": "폰즈 또는 환석으로 15회 개봉 시 확정",
+          "image": "site/assets/calendar/audit-nte/iron-ogre.webp",
+          "imageSourceUrl": "https://www.kaiden.gg/nte/events/open-roads-ahead/"
         },
         {
           "id": "nte-land-overlord-001",
           "name": "차량 「육지의 지배자 001 시제품」",
           "quantity": 1,
-          "imageUrl": null,
+          "imageUrl": "https://www.kaiden.gg/img/nte/UI/UI_Icon/Item/YH_UI_car_ICON31.webp",
           "sourceUrl": "https://neverless.moe/notices/511056",
-          "note": "폰즈 또는 환석으로 15회 개봉 시 확정"
+          "note": "폰즈 또는 환석으로 15회 개봉 시 확정",
+          "image": "site/assets/calendar/audit-nte/prototype-land-overlord.webp",
+          "imageSourceUrl": "https://www.kaiden.gg/nte/events/open-roads-ahead/"
         },
         {
           "id": "nte-fabricated-dice",
@@ -2173,14 +2311,53 @@
           "name": "유빙 극장 티켓",
           "quantity": 3,
           "note": "폰즈 또는 환석으로 15회 개봉 시 확정",
-          "sourceUrl": "https://neverless.moe/notices/511056"
+          "sourceUrl": "https://neverless.moe/notices/511056",
+          "image": "site/assets/calendar/audit-nte/floe-cinema-ticket.webp",
+          "imageUrl": "https://www.kaiden.gg/img/nte/UI/UI_Icon/Item/YH_UI_Item_Likeability_Gift_02.webp",
+          "imageSourceUrl": "https://www.kaiden.gg/nte/events/open-roads-ahead/"
         },
         {
           "name": "폰즈",
           "quantity": 500000,
           "note": "폰즈 또는 환석으로 15회 개봉 시 확정",
-          "sourceUrl": "https://neverless.moe/notices/511056"
+          "sourceUrl": "https://neverless.moe/notices/511056",
+          "image": "site/assets/calendar/audit-nte/fons.webp",
+          "imageUrl": "https://www.kaiden.gg/img/nte/UI/UI_Icon/Item/Icon_Fonizie.webp",
+          "imageSourceUrl": "https://www.kaiden.gg/nte/events/open-roads-ahead/"
+        },
+        {
+          "id": "nte-iron-ogre-livery",
+          "name": "철강호 리버리 「그래피티 주의」",
+          "quantity": 1,
+          "sourceUrl": "https://neverless.moe/notices/511056",
+          "note": "폰즈 또는 환석으로 15회 개봉 시 확정",
+          "image": "site/assets/calendar/audit-nte/road-livery.webp",
+          "imageUrl": "https://www.kaiden.gg/img/nte/UI/UI_Icon/Item/Vehicle045_Skin_3.webp",
+          "imageSourceUrl": "https://www.kaiden.gg/nte/events/open-roads-ahead/"
+        },
+        {
+          "id": "nte-road-wayfinder",
+          "name": "프로필 테두리 「길 찾기」",
+          "quantity": 1,
+          "sourceUrl": "https://neverless.moe/notices/511056",
+          "note": "폰즈 또는 환석으로 15회 개봉 시 확정",
+          "image": "site/assets/calendar/audit-nte/wayfinder.webp",
+          "imageUrl": "https://www.kaiden.gg/img/nte/UI/UI_Icon/Item/UI_IMG_Frame_MangHe_005_256.webp",
+          "imageSourceUrl": "https://www.kaiden.gg/nte/events/open-roads-ahead/"
+        },
+        {
+          "id": "nte-road-open-road",
+          "name": "명함 「광활한 거리」",
+          "quantity": 1,
+          "sourceUrl": "https://neverless.moe/notices/511056",
+          "note": "폰즈 또는 환석으로 15회 개봉 시 확정",
+          "image": "site/assets/calendar/audit-nte/open-road.webp",
+          "imageUrl": "https://www.kaiden.gg/img/nte/UI/UI_Icon/Item/PlayerCard/YH_UI_bg_card_show_strip_67_256.webp",
+          "imageSourceUrl": "https://www.kaiden.gg/nte/events/open-roads-ahead/"
         }
+      ],
+      "verificationUrls": [
+        "https://neverless.moe/notices/511056"
       ]
     },
     {
@@ -2199,19 +2376,23 @@
           "id": "nte-c001",
           "name": "차량 「C001」",
           "quantity": 1,
-          "imageUrl": null,
+          "imageUrl": "https://lanbpxqhkqoalqbxarzz.supabase.co/storage/v1/object/public/fortgacha-media/site-v1/assets/reward-quality-20261116/nte-c001.webp",
           "sourceUrl": "https://gaming-st.com/pc-games/nte-city-logistics-event-period-rewards-2026-11/",
-          "note": "쿠바 코인 12,000개 교환",
-          "maximum": true
+          "note": "쿠바 12,000개 교환",
+          "maximum": true,
+          "image": "site/assets/calendar/audit-nte/c001.webp",
+          "imageSourceUrl": "https://fortgacha.com/events/nte-city-logistics-15-20261111"
         },
         {
           "id": "nte-ori-lv03",
           "name": "차량 「Ori-LV03」",
           "quantity": 1,
-          "imageUrl": null,
+          "imageUrl": "https://lanbpxqhkqoalqbxarzz.supabase.co/storage/v1/object/public/fortgacha-media/site-v1/assets/reward-quality-20261116/nte-ori-lv03.webp",
           "sourceUrl": "https://gaming-st.com/pc-games/nte-city-logistics-event-period-rewards-2026-11/",
-          "note": "배달 평판 Lv.16",
-          "maximum": true
+          "note": "신용 등급 Lv.16",
+          "maximum": true,
+          "image": "site/assets/calendar/audit-nte/ori-lv03.webp",
+          "imageSourceUrl": "https://fortgacha.com/events/nte-city-logistics-15-20261111"
         },
         {
           "id": "nte-annulith",
@@ -2221,17 +2402,19 @@
           "sourceUrl": "https://gaming-st.com/pc-games/nte-city-logistics-event-period-rewards-2026-11/",
           "imageSourceUrl": "https://www.icy-veins.com/neverness-to-everness/items",
           "image": "site/assets/calendar/nte-annulith.webp",
-          "note": "임무 8개 및 배달 평판 Lv.20",
+          "note": "임무 8개 및 신용 등급 Lv.20",
           "maximum": true
         },
         {
           "id": "nte-theater-ticket",
           "name": "유빙 극장 티켓",
           "quantity": 3,
-          "imageUrl": null,
+          "imageUrl": "https://www.kaiden.gg/img/nte/UI/UI_Icon/Item/YH_UI_Item_Likeability_Gift_02.webp",
           "sourceUrl": "https://gaming-st.com/pc-games/nte-city-logistics-event-period-rewards-2026-11/",
-          "note": "배달 평판 Lv.3",
-          "maximum": true
+          "note": "신용 등급 Lv.3",
+          "maximum": true,
+          "image": "site/assets/calendar/audit-nte/floe-cinema-ticket.webp",
+          "imageSourceUrl": "https://www.kaiden.gg/nte/events/open-roads-ahead/"
         },
         {
           "id": "nte-fabricated-dice",
@@ -2241,70 +2424,89 @@
           "sourceUrl": "https://gaming-st.com/pc-games/nte-city-logistics-event-period-rewards-2026-11/",
           "imageSourceUrl": "https://www.icy-veins.com/neverness-to-everness/items",
           "image": "site/assets/calendar/nte-fabricated-dice.webp",
-          "note": "쿠바 코인 교환",
+          "note": "쿠바 교환",
           "maximum": true
         },
         {
           "id": "nte-city-big-dreams",
           "name": "명함 「원대한 포부」",
           "quantity": 1,
-          "imageUrl": null,
+          "imageUrl": "https://lanbpxqhkqoalqbxarzz.supabase.co/storage/v1/object/public/fortgacha-media/site-v1/assets/reward-quality-20261116/nte-big-dreams.webp",
           "sourceUrl": "https://gaming-st.com/pc-games/nte-city-logistics-event-period-rewards-2026-11/",
           "note": "한정 임무 8개 완료",
-          "maximum": true
+          "maximum": true,
+          "image": "site/assets/calendar/audit-nte/big-dreams.webp",
+          "imageSourceUrl": "https://fortgacha.com/events/nte-city-logistics-15-20261111"
         },
         {
           "id": "nte-city-delivery-king",
           "name": "칭호 「헤테로 배송왕」",
           "quantity": 1,
-          "imageUrl": null,
+          "imageUrl": "https://lanbpxqhkqoalqbxarzz.supabase.co/storage/v1/object/public/fortgacha-media/site-v1/assets/reward-quality-20261116/nte-delivery-king.webp",
           "sourceUrl": "https://gaming-st.com/pc-games/nte-city-logistics-event-period-rewards-2026-11/",
-          "note": "쿠바 코인 12,000개 교환",
-          "maximum": true
+          "note": "쿠바 12,000개 교환",
+          "maximum": true,
+          "image": "site/assets/calendar/audit-nte/delivery-king.webp",
+          "imageSourceUrl": "https://fortgacha.com/events/nte-city-logistics-15-20261111"
         },
         {
           "id": "nte-city-five-star-reviews",
           "name": "휴대폰 케이스 「쏟아지는 찬사」",
           "quantity": 1,
-          "imageUrl": null,
+          "imageUrl": "https://lanbpxqhkqoalqbxarzz.supabase.co/storage/v1/object/public/fortgacha-media/site-v1/assets/reward-quality-20261116/nte-five-star-reviews.webp",
           "sourceUrl": "https://gaming-st.com/pc-games/nte-city-logistics-event-period-rewards-2026-11/",
-          "note": "쿠바 코인 6,000개 교환",
-          "maximum": true
+          "note": "쿠바 6,000개 교환",
+          "maximum": true,
+          "image": "site/assets/calendar/audit-nte/five-star-reviews.webp",
+          "imageSourceUrl": "https://fortgacha.com/events/nte-city-logistics-15-20261111"
         },
         {
           "id": "nte-city-next-order",
           "name": "휴대폰 배경화면 「다음 배송!」",
           "quantity": 1,
-          "imageUrl": null,
+          "imageUrl": "https://lanbpxqhkqoalqbxarzz.supabase.co/storage/v1/object/public/fortgacha-media/site-v1/assets/reward-quality-20261116/nte-next-order.webp",
           "sourceUrl": "https://gaming-st.com/pc-games/nte-city-logistics-event-period-rewards-2026-11/",
-          "note": "쿠바 코인 6,000개 교환",
-          "maximum": true
+          "note": "쿠바 6,000개 교환",
+          "maximum": true,
+          "image": "site/assets/calendar/audit-nte/next-order.webp",
+          "imageSourceUrl": "https://fortgacha.com/events/nte-city-logistics-15-20261111"
         },
         {
           "id": "nte-city-kool-avatar",
           "name": "프로필 「COOL바」",
           "quantity": 1,
-          "imageUrl": null,
+          "imageUrl": "https://lanbpxqhkqoalqbxarzz.supabase.co/storage/v1/object/public/fortgacha-media/site-v1/assets/reward-quality-20261116/nte-kool.webp",
           "sourceUrl": "https://gaming-st.com/pc-games/nte-city-logistics-event-period-rewards-2026-11/",
-          "note": "쿠바 코인 6,000개 교환",
-          "maximum": true
+          "note": "쿠바 6,000개 교환",
+          "maximum": true,
+          "image": "site/assets/calendar/audit-nte/kool.webp",
+          "imageSourceUrl": "https://fortgacha.com/events/nte-city-logistics-15-20261111"
         },
         {
           "id": "nte-city-boss-is-in",
           "name": "프로필 테두리 「점장 납시오!」",
           "quantity": 1,
-          "imageUrl": null,
+          "imageUrl": "https://lanbpxqhkqoalqbxarzz.supabase.co/storage/v1/object/public/fortgacha-media/site-v1/assets/reward-quality-20261116/nte-boss-is-in.webp",
           "sourceUrl": "https://gaming-st.com/pc-games/nte-city-logistics-event-period-rewards-2026-11/",
-          "note": "쿠바 코인 6,000개 교환",
-          "maximum": true
+          "note": "쿠바 6,000개 교환",
+          "maximum": true,
+          "image": "site/assets/calendar/audit-nte/boss-is-in.webp",
+          "imageSourceUrl": "https://fortgacha.com/events/nte-city-logistics-15-20261111"
         },
         {
           "name": "폰즈",
           "quantity": 160000,
           "note": "한정 임무 고정 보상",
           "sourceUrl": "https://gaming-st.com/pc-games/nte-city-logistics-event-period-rewards-2026-11/",
-          "maximum": true
+          "maximum": true,
+          "image": "site/assets/calendar/audit-nte/fons.webp",
+          "imageUrl": "https://www.kaiden.gg/img/nte/UI/UI_Icon/Item/Icon_Fonizie.webp",
+          "imageSourceUrl": "https://www.kaiden.gg/nte/events/open-roads-ahead/"
         }
+      ],
+      "verificationUrls": [
+        "https://neverless.moe/notices/511046",
+        "https://store.steampowered.com/news/app/4508340/view/717922167860232264"
       ]
     },
     {
@@ -2351,7 +2553,10 @@
         {
           "name": "폰즈",
           "quantity": null,
-          "sourceUrl": "https://kamigame.jp/nte/page/426887150135459697.html"
+          "sourceUrl": "https://kamigame.jp/nte/page/426887150135459697.html",
+          "image": "site/assets/calendar/audit-nte/fons.webp",
+          "imageUrl": "https://www.kaiden.gg/img/nte/UI/UI_Icon/Item/Icon_Fonizie.webp",
+          "imageSourceUrl": "https://www.kaiden.gg/nte/events/open-roads-ahead/"
         }
       ]
     },
@@ -2382,17 +2587,22 @@
           "id": "nte-theater-ticket",
           "name": "유빙 극장 티켓",
           "quantity": 2,
-          "imageUrl": null,
+          "imageUrl": "https://www.kaiden.gg/img/nte/UI/UI_Icon/Item/YH_UI_Item_Likeability_Gift_02.webp",
           "sourceUrl": "https://gamewith.jp/nte/587220",
           "note": "TX 기념 코인 교환",
-          "maximum": true
+          "maximum": true,
+          "image": "site/assets/calendar/audit-nte/floe-cinema-ticket.webp",
+          "imageSourceUrl": "https://www.kaiden.gg/nte/events/open-roads-ahead/"
         },
         {
           "name": "폰즈",
           "quantity": 150000,
           "note": "TX 기념 코인 교환",
           "sourceUrl": "https://gamewith.jp/nte/587220",
-          "maximum": true
+          "maximum": true,
+          "image": "site/assets/calendar/audit-nte/fons.webp",
+          "imageUrl": "https://www.kaiden.gg/img/nte/UI/UI_Icon/Item/Icon_Fonizie.webp",
+          "imageSourceUrl": "https://www.kaiden.gg/nte/events/open-roads-ahead/"
         }
       ]
     },
@@ -2423,17 +2633,21 @@
           "id": "nte-theater-ticket",
           "name": "유빙 극장 티켓",
           "quantity": 2,
-          "imageUrl": null,
+          "imageUrl": "https://www.kaiden.gg/img/nte/UI/UI_Icon/Item/YH_UI_Item_Likeability_Gift_02.webp",
           "sourceUrl": "https://kamigame.jp/nte/page/432975852993546093.html",
           "note": "어획 레벨 보상",
-          "maximum": true
+          "maximum": true,
+          "image": "site/assets/calendar/audit-nte/floe-cinema-ticket.webp",
+          "imageSourceUrl": "https://www.kaiden.gg/nte/events/open-roads-ahead/"
         },
         {
           "id": "nte-manhole-boss",
           "name": "맨홀 보스",
           "quantity": null,
-          "imageUrl": null,
-          "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html"
+          "imageUrl": "https://static.icy-veins.com/images/neverness-to-everness/items/source/xiewang-03.webp",
+          "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
+          "image": "site/assets/calendar/audit-nte/manhole-boss.webp",
+          "imageSourceUrl": "https://www.icy-veins.com/neverness-to-everness/items/equipmentupmaterial-lv3"
         },
         {
           "id": "nte-fabricated-dice",
@@ -2463,9 +2677,11 @@
           "id": "fons-bonus",
           "name": "폰즈 획득량 2배",
           "quantity": null,
-          "imageUrl": null,
+          "imageUrl": "https://www.kaiden.gg/img/nte/UI/UI_Icon/Item/Icon_Fonizie.webp",
           "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
-          "note": "핑크퍼스를 털어라"
+          "note": "핑크퍼스를 털어라",
+          "image": "site/assets/calendar/audit-nte/fons.webp",
+          "imageSourceUrl": "https://www.kaiden.gg/nte/events/open-roads-ahead/"
         }
       ]
     },
@@ -2485,19 +2701,23 @@
           "id": "nte-fortune-stall",
           "name": "이동식 점술 노점",
           "quantity": 1,
-          "imageUrl": null,
+          "imageUrl": "https://lh3.googleusercontent.com/v40fM3-1dtij49dmBkAcso5XnXlNGfQ_5BRi2q9EZellmRsXVOay5RXmOk8hH5VGS3mBFoz7HzuRrgRUa5HMI8VzuNGTAf_9aTrTh4-5W3Fm",
           "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
           "note": "행운의 동전 누적 5,100개",
-          "maximum": true
+          "maximum": true,
+          "image": "site/assets/calendar/audit-nte/divination-stall.png",
+          "imageSourceUrl": "https://kamigame.jp/nte/page/447627638777878704.html"
         },
         {
           "id": "nte-little-friend",
           "name": "액세서리 「작은 친구」",
           "quantity": 1,
-          "imageUrl": null,
+          "imageUrl": "https://lh3.googleusercontent.com/ZlAtD026BlWfwVYb6c5ffu9hwRtmx46go5iY0mXDYlFG0w_jluAhop01lztdRrZvX1PxCSUgT1s6DHQOJj6WmYfynrPeHU1rorSwWQvYqJ4",
           "sourceUrl": "https://kamigame.jp/nte/page/447627638777878704.html",
           "note": "행운의 동전 누적 3,000개",
-          "maximum": true
+          "maximum": true,
+          "image": "site/assets/calendar/audit-nte/little-friend.png",
+          "imageSourceUrl": "https://kamigame.jp/nte/page/447627638777878704.html"
         },
         {
           "id": "nte-solid-dice",
@@ -2526,14 +2746,20 @@
           "quantity": 3,
           "note": "행운의 동전 누적 600개",
           "sourceUrl": "https://kamigame.jp/nte/page/447627638777878704.html",
-          "maximum": true
+          "maximum": true,
+          "image": "site/assets/calendar/audit-nte/floe-cinema-ticket.webp",
+          "imageUrl": "https://www.kaiden.gg/img/nte/UI/UI_Icon/Item/YH_UI_Item_Likeability_Gift_02.webp",
+          "imageSourceUrl": "https://www.kaiden.gg/nte/events/open-roads-ahead/"
         },
         {
           "name": "폰즈",
           "quantity": 200000,
           "note": "행운의 동전 누적 6,000개",
           "sourceUrl": "https://kamigame.jp/nte/page/447627638777878704.html",
-          "maximum": true
+          "maximum": true,
+          "image": "site/assets/calendar/audit-nte/fons.webp",
+          "imageUrl": "https://www.kaiden.gg/img/nte/UI/UI_Icon/Item/Icon_Fonizie.webp",
+          "imageSourceUrl": "https://www.kaiden.gg/nte/events/open-roads-ahead/"
         }
       ]
     },
@@ -2541,7 +2767,7 @@
       "id": "nte-15-circle-bounty",
       "version": "1.5",
       "game": "nte",
-      "type": "event",
+      "type": "pass",
       "title": "1.5 버전 「시즌 패스」",
       "start": "2026-11-11",
       "end": "2026-12-23T01:00:00+09:00",
@@ -2556,7 +2782,7 @@
           "imageUrl": "https://static.icy-veins.com/images/neverness-to-everness/items/source/icon-ringstone.webp",
           "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
           "imageSourceUrl": "https://www.icy-veins.com/neverness-to-everness/items",
-          "note": "유료 패스·레벨 달성",
+          "note": "정예 헌터 보급 구매 · 패스 레벨 달성",
           "image": "site/assets/calendar/nte-annulith.webp",
           "maximum": true
         },
@@ -2567,7 +2793,7 @@
           "imageUrl": "https://static.icy-veins.com/images/neverness-to-everness/items/source/dicelimite-256.webp",
           "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
           "imageSourceUrl": "https://www.icy-veins.com/neverness-to-everness/items",
-          "note": "유료 패스·레벨 달성",
+          "note": "정예 헌터 보급 구매 · 패스 레벨 달성",
           "image": "site/assets/calendar/nte-solid-dice.webp",
           "maximum": true
         },
@@ -2585,9 +2811,12 @@
         {
           "name": "폰즈",
           "quantity": 3450000,
-          "note": "유료 추가분 · 명예 및 컬렉션 폰즈 선택",
+          "note": "유료 추가분 · 명예 구매 및 컬렉션에서 폰즈 선택",
           "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gamenews/20261109/264952.html",
-          "maximum": true
+          "maximum": true,
+          "image": "site/assets/calendar/audit-nte/fons.webp",
+          "imageUrl": "https://www.kaiden.gg/img/nte/UI/UI_Icon/Item/Icon_Fonizie.webp",
+          "imageSourceUrl": "https://www.kaiden.gg/nte/events/open-roads-ahead/"
         }
       ]
     },
@@ -2668,7 +2897,7 @@
           "imageUrl": "https://static.icy-veins.com/images/neverness-to-everness/items/source/icon-ringstone.webp",
           "sourceUrl": "https://nte.perfectworld.com/kr/article/news/gameevent/20261104/264892.html",
           "imageSourceUrl": "https://www.icy-veins.com/neverness-to-everness/items",
-          "note": "공모전 최우수상 · 상금 최대 US$1,000",
+          "note": "공모전 최우수상 · 상금 US$1,000까지",
           "image": "site/assets/calendar/nte-annulith.webp",
           "maximum": true
         }
@@ -2705,27 +2934,29 @@
       "id": "nte-animate-gratte-2026",
       "game": "nte",
       "type": "offline",
-      "title": "『이환』 × Gratte",
+      "title": "이환 × 애니메이트 페어·그라떼",
       "start": "2026-12-24",
       "end": "2027-01-18",
       "timePrecision": "date",
-      "sourceUrl": "https://x.com/NTE_KO",
-      "sourceLabel": "이환 공식 X · 애니메이트 Gratte 협업 안내 공유",
+      "sourceUrl": "https://x.com/animate_hongdae/status/2100404378406384122",
+      "sourceLabel": "애니메이트 홍대점 공식 안내",
       "rewards": [
         {
           "id": "nte-animate-fair-card",
           "name": "실물 랜덤 특전 카드",
           "quantity": 1,
-          "imageUrl": null,
+          "imageUrl": "https://pbs.twimg.com/media/HSYh_sFaUAAhSa6.jpg?name=orig",
           "sourceUrl": "https://x.com/animate_hongdae/status/2100404378406384122",
-          "note": "대상 상품 1점 구매 · 재고 소진 시 종료"
+          "note": "관련 굿즈 15,000원당 또는 그라떼 식음료·유상 특전 1점당 · 8종 중 랜덤 · 소진 시 종료",
+          "image": "site/assets/calendar/nte-animate-fair-card.webp"
         }
       ],
-      "location": "대한민국 · 애니메이트 카페 홍대점·잠실롯데점",
+      "location": "페어 · 홍대·부산·잠실롯데·수원점 / 그라떼 · 홍대·잠실롯데점",
       "verificationUrls": [
         "https://kyawgyii.twstalker.com/NTE_KO",
         "https://teapawt.net/animate_hongdae/status/2100404378406384122",
-        "https://dueple.co.kr/events/ev_muyzw5yt_52dc55d2"
+        "https://dueple.co.kr/events/ev_muyzw5yt_52dc55d2",
+        "https://recal.kr/ko/e/offline/animate-nte-2026"
       ]
     },
     {
@@ -2743,9 +2974,10 @@
           "id": "genshin-seoul-3rd-illustration-book",
           "name": "실물 3주년 기념 일러스트집 (노드크라이)",
           "quantity": 1,
-          "imageUrl": null,
+          "imageUrl": "https://pbs.twimg.com/media/HX8fim6a4AA9RH2.jpg?name=orig",
           "sourceUrl": "https://x.com/Genshin_Cafe_KR/status/2125469570282717242",
-          "note": "굿즈 5만 원 이상 · 일 1회 · 재고 소진 시 종료"
+          "note": "5층 굿즈 5만 원 이상 · 증정품 택1 · 일 1회 · 소진 시 종료",
+          "image": "site/assets/calendar/genshin-cafe-artbook.webp"
         }
       ],
       "location": "대한민국 · 서울 마포구 와우산로 158 티바트타워 5층 굿즈존",
@@ -2782,17 +3014,22 @@
           "id": "nte-route-record",
           "name": "운행 기록",
           "quantity": 840,
-          "imageUrl": null,
+          "imageUrl": "https://static.icy-veins.com/images/neverness-to-everness/items/source/abyss-ticket.webp",
           "sourceUrl": "https://www.gamermir.com/neverness-to-everness/articles/neverness-to-everness-frozen-circle-2026-event",
           "note": "특별 노선 보상 전량",
-          "maximum": true
+          "maximum": true,
+          "image": "site/assets/calendar/audit-nte/train-log.webp",
+          "imageSourceUrl": "https://www.icy-veins.com/neverness-to-everness/items/abyss-ticket"
         },
         {
           "name": "폰즈",
           "quantity": 200000,
           "note": "특별 노선 보상 전량",
           "sourceUrl": "https://www.gamermir.com/neverness-to-everness/articles/neverness-to-everness-frozen-circle-2026-event",
-          "maximum": true
+          "maximum": true,
+          "image": "site/assets/calendar/audit-nte/fons.webp",
+          "imageUrl": "https://www.kaiden.gg/img/nte/UI/UI_Icon/Item/Icon_Fonizie.webp",
+          "imageSourceUrl": "https://www.kaiden.gg/nte/events/open-roads-ahead/"
         }
       ],
       "verificationUrls": [
@@ -2816,9 +3053,11 @@
           "id": "fons",
           "name": "폰즈",
           "quantity": 50000,
-          "imageUrl": null,
+          "imageUrl": "https://www.kaiden.gg/img/nte/UI/UI_Icon/Item/Icon_Fonizie.webp",
           "note": "추첨 15명",
-          "sourceUrl": "https://x.com/NTE_KO/status/2124391220436992086"
+          "sourceUrl": "https://x.com/NTE_KO/status/2124391220436992086",
+          "image": "site/assets/calendar/audit-nte/fons.webp",
+          "imageSourceUrl": "https://www.kaiden.gg/nte/events/open-roads-ahead/"
         }
       ],
       "verificationUrls": [
@@ -2917,7 +3156,9 @@
             "https://www.hoyolab.com/article/47394097?lang=ko-kr",
             "https://avenshop.ru/blog/arbitrazh-anomalij-hsr-4-7"
           ],
-          "maximum": true
+          "maximum": true,
+          "image": "site/assets/calendar/audit-hz/hsr-resin.png",
+          "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/236.png"
         },
         {
           "name": "간섭 암호키",
@@ -2927,7 +3168,9 @@
             "https://www.hoyolab.com/article/47394097?lang=ko-kr",
             "https://avenshop.ru/blog/arbitrazh-anomalij-hsr-4-7"
           ],
-          "maximum": true
+          "maximum": true,
+          "image": "site/assets/calendar/audit-hz/hsr-interference-key.png",
+          "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/239.png"
         }
       ],
       "verificationUrls": [
@@ -3220,6 +3463,667 @@
         }
       ],
       "notes": "제2주기 전체 기간입니다. 첫 시작은 명조 공식 제2주기 공지에서 확인했습니다."
+    },
+    {
+      "id": "hsr-47-nameless-honor",
+      "game": "hsr",
+      "version": "4.7",
+      "type": "pass",
+      "title": "4.7 무명의 공훈",
+      "start": "2026-11-11",
+      "end": "2026-12-21T05:00:00+09:00",
+      "timePrecision": "date",
+      "sourceUrl": "https://www.hoyolab.com/article/47351677?reply=1",
+      "sourceLabel": "스타레일 4.7 공식 패스 공지",
+      "rewards": [
+        {
+          "id": "hsr-standard-pass",
+          "name": "별의 궤도 티켓",
+          "quantity": 5,
+          "note": "무료 무명객의 선물",
+          "sourceUrl": "https://astravoy.net/hsr/pull-income",
+          "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/101.png",
+          "image": "site/assets/calendar/audit-hz/hsr-standard-pass.png"
+        },
+        {
+          "id": "hsr-stellar-jade",
+          "name": "성옥",
+          "quantity": 880,
+          "note": "유료 영광 680 · 휘장 추가 200",
+          "sourceUrl": "https://www.hoyolab.com/article/47351677?reply=1",
+          "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/900001.png",
+          "image": "site/assets/calendar/hsr-item-1.png"
+        },
+        {
+          "id": "hsr-special-pass",
+          "name": "별의 궤도 전용티켓",
+          "quantity": 4,
+          "note": "유료 영광 · 공훈 레벨 달성",
+          "sourceUrl": "https://www.hoyolab.com/article/47351677?reply=1",
+          "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/102.png",
+          "image": "site/assets/calendar/hsr-item-102.png"
+        },
+        {
+          "id": "hsr-light-cone-memory-shard",
+          "name": "광추 기억 조각",
+          "quantity": 2,
+          "note": "유료 영광 1 · 휘장 추가 1",
+          "sourceUrl": "https://www.hoyolab.com/article/47351677?reply=1",
+          "imageUrl": null
+        },
+        {
+          "id": "hsr-bp-light-cone",
+          "name": "★4 광추 선택권",
+          "quantity": 1,
+          "note": "유료 영광 · 공훈 레벨 달성",
+          "sourceUrl": "https://www.hoyolab.com/article/47351677?reply=1",
+          "imageUrl": null
+        },
+        {
+          "id": "hsr-variable-dice",
+          "name": "변수 주사위",
+          "quantity": 1,
+          "note": "유료 영광 · 공훈 레벨 달성",
+          "sourceUrl": "https://www.hoyolab.com/article/47351677?reply=1",
+          "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/238.png",
+          "image": "site/assets/calendar/audit-hz/hsr-variable-dice.png"
+        },
+        {
+          "id": "hsr-resin",
+          "name": "자가 변형성 레진",
+          "quantity": 2,
+          "note": "유료 영광 추가분",
+          "sourceUrl": "https://www.hoyolab.com/article/47351677?reply=1",
+          "imageUrl": "https://raw.githubusercontent.com/Mar-7th/StarRailRes/03907e798b46f9eb109a1f882055cdf49ce3d374/icon/item/236.png",
+          "image": "site/assets/calendar/audit-hz/hsr-resin.png"
+        }
+      ],
+      "purchaseEnd": "2026-12-21T04:00:00+09:00",
+      "webPurchaseEnd": "2026-12-20T05:00:00+09:00"
+    },
+    {
+      "id": "zzz-33-new-eridu-city-fund",
+      "game": "zzz",
+      "version": "3.3",
+      "type": "pass",
+      "title": "3.3 리두 펀드",
+      "start": "2026-10-21",
+      "end": "2026-11-30T05:00:00+09:00",
+      "timePrecision": "date",
+      "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/166944",
+      "sourceLabel": "젠레스 3.3 공식 리두 펀드 공지",
+      "rewards": [
+        {
+          "id": "zzz-master-tape",
+          "name": "오리지널 마스터 테이프",
+          "quantity": 5,
+          "note": "무료 기본 플랜",
+          "sourceUrl": "https://www.icy-veins.com/zenless-zone-zero/new-eridu-city-fund",
+          "imageUrl": "https://zzz.gg/images/GachaTicket1Big.png",
+          "image": "site/assets/calendar/audit-hz/zzz-master-tape.png"
+        },
+        {
+          "id": "zzz-boopon",
+          "name": "Bangboo 티켓",
+          "quantity": 5,
+          "note": "무료 기본 플랜",
+          "sourceUrl": "https://www.icy-veins.com/zenless-zone-zero/new-eridu-city-fund",
+          "imageUrl": "https://zzz.gg/_ipx/q_70&s_45x45/images/GachaTicket3Big.png",
+          "image": "site/assets/calendar/zzz-boopon.png"
+        },
+        {
+          "id": "zzz-polychrome",
+          "name": "폴리크롬",
+          "quantity": 888,
+          "note": "유료 즉시 보상 · 성장 680 + 프리미엄 208",
+          "sourceUrl": "https://zenless.hoyoverse.com/en-us/news/166944",
+          "imageUrl": "https://zzz.gg/_ipx/q_70&s_45x45/images/IconCurrency.png",
+          "image": "site/assets/calendar/zzz-polychrome.png"
+        },
+        {
+          "id": "zzz-fund-w-engine",
+          "name": "위대한 건설자의 증표",
+          "quantity": 1,
+          "note": "유료 성장 이상 · 펀드 Lv.30 · A급 W-엔진 선택",
+          "sourceUrl": "https://zenless.hoyoverse.com/en-us/news/166944",
+          "imageUrl": null
+        }
+      ],
+      "purchaseEnd": "2026-11-30T04:00:00+09:00",
+      "verificationUrls": [
+        "https://zenless.hoyoverse.com/en-us/news/166944"
+      ]
+    },
+    {
+      "id": "hsr-47-realm-of-the-strange",
+      "game": "hsr",
+      "version": "4.7",
+      "type": "event",
+      "title": "기묘한 영역 · 유물 2배",
+      "start": "2026-12-11T05:00:00+09:00",
+      "end": "2026-12-23T05:00:00+09:00",
+      "timePrecision": "datetime",
+      "sourceUrl": "https://www.hoyolab.com/article/47351625?reply=1",
+      "sourceLabel": "스타레일 4.7 공식 콘텐츠 미리보기",
+      "rewards": [
+        {
+          "id": "hsr-cavern-relic-double",
+          "name": "침식 터널 유물 2배",
+          "quantity": null,
+          "note": "이벤트 적용 횟수 내",
+          "sourceUrl": "https://www.hoyolab.com/article/47351625?reply=1",
+          "imageUrl": null
+        }
+      ],
+      "verificationUrls": [
+        "https://cafe.naver.com/f-e/cafes/30487825/articles/822467",
+        "https://www.pickupcal.com/events/914542/"
+      ]
+    },
+    {
+      "id": "zzz-33-limited-spookies",
+      "game": "zzz",
+      "version": "3.3",
+      "type": "event",
+      "title": "기이한 미궁 · 괴상한 한정 구매",
+      "start": "2026-10-21",
+      "end": "2026-12-02T07:00:00+09:00",
+      "timePrecision": "date",
+      "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/166963",
+      "sourceLabel": "젠레스 3.3 공식 업데이트 공지",
+      "rewards": [
+        {
+          "id": "zzz-polychrome",
+          "name": "폴리크롬",
+          "quantity": null,
+          "note": "시즌 코인 교환",
+          "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/166963",
+          "imageUrl": "https://zzz.gg/_ipx/q_70&s_45x45/images/IconCurrency.png",
+          "image": "site/assets/calendar/zzz-polychrome.png"
+        },
+        {
+          "id": "zzz-full-moon-homecoming",
+          "name": "로프꾼 액세서리 보름달의 귀환",
+          "quantity": 1,
+          "note": "시즌 코인 교환",
+          "sourceUrl": "https://zenless.hoyoverse.com/ko-kr/news/166963",
+          "imageUrl": null
+        }
+      ]
+    },
+    {
+      "id": "zzz-34-new-year-login",
+      "game": "zzz",
+      "version": "3.4",
+      "type": "login",
+      "title": "서프라이즈 배송 중",
+      "start": "2027-01-01",
+      "end": null,
+      "timePrecision": "date",
+      "sourceUrl": "https://www.gamespress.com/en-US/Zenless-Zone-Zero-Version-34-The-Finality-of-the-Day-Launches-December",
+      "sourceLabel": "HoYoverse 공식 3.4 보도자료",
+      "rewards": [
+        {
+          "id": "zzz-polychrome",
+          "name": "폴리크롬",
+          "quantity": 1600,
+          "note": "누적 출석",
+          "sourceUrl": "https://www.gamespress.com/en-US/Zenless-Zone-Zero-Version-34-The-Finality-of-the-Day-Launches-December",
+          "imageUrl": "https://zzz.gg/_ipx/q_70&s_45x45/images/IconCurrency.png",
+          "image": "site/assets/calendar/zzz-polychrome.png"
+        }
+      ],
+      "endUnknown": true,
+      "verificationUrls": [
+        "https://zenless.hoyoverse.com/ko-kr/news/167399",
+        "https://gamepatchkr.com/board/zzz/3-4-sx96m"
+      ]
+    },
+    {
+      "id": "zzz-34-creator-event",
+      "game": "zzz",
+      "version": "3.4",
+      "type": "web",
+      "title": "3.4 크리에이터 이벤트",
+      "start": "2026-11-20T13:00:00+09:00",
+      "end": "2027-01-15T13:00:00+09:00",
+      "timePrecision": "datetime",
+      "sourceUrl": "https://www.hoyolab.com/article/47509083",
+      "sourceLabel": "젠레스 3.4 공식 크리에이터 공지",
+      "rewards": [
+        {
+          "id": "zzz-polychrome",
+          "name": "폴리크롬",
+          "quantity": 5000,
+          "note": "창작 미션 · 모든 플랫폼 합산",
+          "sourceUrl": "https://docs.google.com/document/d/1kxVOhQ9QLoVdNxEmzhr2YL5DmnGKw3pR3-Zqba3M5aw/edit",
+          "imageUrl": "https://zzz.gg/_ipx/q_70&s_45x45/images/IconCurrency.png",
+          "image": "site/assets/calendar/zzz-polychrome.png"
+        }
+      ],
+      "verificationUrls": [
+        "https://x.com/ZZZ_EN/status/2123770841846468961",
+        "https://docs.google.com/document/d/1kxVOhQ9QLoVdNxEmzhr2YL5DmnGKw3pR3-Zqba3M5aw/edit"
+      ]
+    },
+    {
+      "id": "genshin-72-sacred-spirit-chronicle",
+      "game": "genshin",
+      "version": "7.2",
+      "type": "pass",
+      "title": "신성 기행",
+      "start": "2026-11-04T12:00:00+09:00",
+      "end": "2026-12-14T05:00:00+09:00",
+      "timePrecision": "datetime",
+      "sourceUrl": "https://www.hoyolab.com/article/47284233",
+      "sourceLabel": "원신 공식 7.2 전반 이벤트 안내",
+      "rewards": [
+        {
+          "id": "acquaint-fate",
+          "name": "만남의 인연",
+          "quantity": 5,
+          "sourceUrl": "https://genshinimpact.th.gl/primogem-calculator",
+          "image": "site/assets/calendar/audit-gw/genshin-acquaint-fate.png",
+          "imageUrl": "https://enka.network/ui/UI_ItemIcon_224.png",
+          "note": "무료 대지 기행 · 기행 레벨 50 달성"
+        },
+        {
+          "id": "primogem",
+          "name": "원석",
+          "quantity": 680,
+          "sourceUrl": "https://genshinimpact.th.gl/primogem-calculator",
+          "image": "site/assets/calendar/genshin-primogem.png",
+          "imageUrl": null,
+          "note": "진주 기행 또는 진주의 노래 구매 · 한국 12/14 03:59까지 구매 가능 · 기행 레벨 50 달성"
+        },
+        {
+          "id": "intertwined-fate",
+          "name": "뒤얽힌 인연",
+          "quantity": 4,
+          "sourceUrl": "https://genshinimpact.th.gl/primogem-calculator",
+          "image": "site/assets/calendar/audit-gw/genshin-intertwined-fate.png",
+          "imageUrl": "https://enka.network/ui/UI_ItemIcon_223.png",
+          "note": "진주 기행 또는 진주의 노래 구매 · 한국 12/14 03:59까지 구매 가능 · 기행 레벨 50 달성"
+        },
+        {
+          "id": "battle-pass-weapon",
+          "name": "지정 ★4 무기",
+          "quantity": 1,
+          "sourceUrl": "https://www.hoyolab.com/article/47284233",
+          "image": null,
+          "imageUrl": null,
+          "note": "진주 기행 또는 진주의 노래 구매 · 한국 12/14 03:59까지 구매 가능 · 기행 레벨 30 달성"
+        },
+        {
+          "id": "sacred-spirit-namecard",
+          "name": "기행·신성 명함",
+          "quantity": 1,
+          "sourceUrl": "https://www.hoyolab.com/article/47284233",
+          "image": null,
+          "imageUrl": null,
+          "note": "유료 진주의 노래 구매"
+        },
+        {
+          "id": "rock-paper-scissors-companion-blueprint",
+          "name": "친구형 가위바위보 기계 도면",
+          "quantity": 1,
+          "sourceUrl": "https://www.hoyolab.com/article/47284233",
+          "image": null,
+          "imageUrl": null,
+          "note": "유료 진주의 노래 구매"
+        },
+        {
+          "id": "dust-of-enlightenment",
+          "name": "깨달음의 가루",
+          "quantity": null,
+          "sourceUrl": "https://www.hoyolab.com/article/47284233",
+          "image": null,
+          "imageUrl": null,
+          "note": "유료 진주의 노래 구매"
+        }
+      ],
+      "notes": "모험 등급 20 이상. 유료 구매는 12월 14일 03:59 KST까지이며, 기행 임무와 보상 수령은 04:59 KST까지 가능합니다.",
+      "purchaseEnd": "2026-12-14T04:00:00+09:00"
+    },
+    {
+      "id": "genshin-72-polyphonic-pass",
+      "game": "genshin",
+      "version": "7.2",
+      "type": "pass",
+      "title": "별바다 세계 · 하모니 유람",
+      "start": "2026-11-04T12:00:00+09:00",
+      "end": "2026-12-14T05:00:00+09:00",
+      "timePrecision": "datetime",
+      "sourceUrl": "https://www.hoyolab.com/article/47283828",
+      "sourceLabel": "원신 공식 7.2 업데이트·별바다 세계 안내",
+      "rewards": [
+        {
+          "id": "concerto-costume",
+          "name": "한정 ★4 코스튬 협주곡",
+          "quantity": 1,
+          "sourceUrl": "https://www.hoyolab.com/article/47283828",
+          "image": null,
+          "imageUrl": null,
+          "note": "유료 세계 유람 또는 세계 서사시 해금 · 한국 12/14 03:59까지 구매 가능"
+        },
+        {
+          "id": "nocturnal-theater-lobby",
+          "name": "개인 로비 밤빛 극장·선율",
+          "quantity": 1,
+          "sourceUrl": "https://www.hoyolab.com/article/47283828",
+          "image": null,
+          "imageUrl": null,
+          "note": "유료 세계 서사시 구매"
+        }
+      ],
+      "notes": "신성 기행과 함께 12월 14일 04:59 KST 종료. 세계 유람·세계 서사시·유람 재구성의 구매는 03:59 KST 마감입니다.",
+      "purchaseEnd": "2026-12-14T04:00:00+09:00"
+    },
+    {
+      "id": "genshin-72-miliastra-moments-to-treasure",
+      "game": "genshin",
+      "version": "7.2",
+      "type": "web",
+      "title": "별세계 메모리얼",
+      "start": "2026-11-27",
+      "end": "2026-12-08T05:00:00+09:00",
+      "timePrecision": "date",
+      "sourceUrl": "https://www.hoyolab.com/article/47579095",
+      "sourceLabel": "원신 공식 별세계 메모리얼 웹 이벤트",
+      "rewards": [
+        {
+          "id": "arcane-keystone",
+          "name": "구현의 수정",
+          "quantity": null,
+          "sourceUrl": "https://www.hoyolab.com/article/47579095",
+          "image": null,
+          "imageUrl": null,
+          "note": "모험 등급 1 이상 · 게임 계정 연동 후 웹 임무 완료"
+        },
+        {
+          "id": "miliastra-items",
+          "name": "별바다 세계 아이템",
+          "quantity": null,
+          "sourceUrl": "https://www.hoyolab.com/article/47579095",
+          "image": null,
+          "imageUrl": null,
+          "note": "게임 계정 연동 후 웹 임무 완료"
+        }
+      ]
+    },
+    {
+      "id": "genshin-72-p2-top-up-center",
+      "game": "genshin",
+      "version": "7.2",
+      "type": "web",
+      "title": "HoYoverse 충전 센터 · 7.2 후반",
+      "start": "2026-11-24",
+      "end": "2026-12-16",
+      "timePrecision": "date",
+      "sourceUrl": "https://www.hoyolab.com/article/47546927",
+      "sourceLabel": "원신 공식 7.2 후반 충전 센터 공지",
+      "rewards": [
+        {
+          "id": "primogem",
+          "name": "원석",
+          "quantity": 300,
+          "sourceUrl": "https://www.hoyolab.com/article/47546927",
+          "image": "site/assets/calendar/genshin-primogem.png",
+          "imageUrl": null,
+          "note": "유료 충전 · 7.2 업데이트 이후 HoYoverse 충전 센터 첫 결제 1회"
+        }
+      ]
+    },
+    {
+      "id": "wuwa-38-starpath-reverbs-ii",
+      "game": "wuwa",
+      "version": "3.8",
+      "type": "gacha",
+      "title": "여정이 남긴 울림 Ⅱ · 공명자 선택 튜닝",
+      "start": "2026-11-12T12:00:00+09:00",
+      "end": "2026-12-21T13:00:00+09:00",
+      "timePrecision": "datetime",
+      "sourceUrl": "https://game.naver.com/lounge/WutheringWaves/board/detail/8443312",
+      "sourceLabel": "명조 공식 여정이 남긴 튜닝 공지",
+      "rewards": []
+    },
+    {
+      "id": "wuwa-38-tideforge-reverbs-ii",
+      "game": "wuwa",
+      "version": "3.8",
+      "type": "gacha",
+      "title": "울림에 새겨진 추억 Ⅱ · 무기 선택 튜닝",
+      "start": "2026-11-12T12:00:00+09:00",
+      "end": "2026-12-21T13:00:00+09:00",
+      "timePrecision": "datetime",
+      "sourceUrl": "https://game.naver.com/lounge/WutheringWaves/board/detail/8443312",
+      "sourceLabel": "명조 공식 여정이 남긴 튜닝 공지",
+      "rewards": []
+    },
+    {
+      "id": "wuwa-38-gifts-of-starpath",
+      "game": "wuwa",
+      "version": "3.8",
+      "type": "event",
+      "title": "여정이 남긴 울림 Ⅱ · 누적 튜닝 보상",
+      "start": "2026-11-12T12:00:00+09:00",
+      "end": "2026-12-21T13:00:00+09:00",
+      "timePrecision": "datetime",
+      "sourceUrl": "https://wutheringwaves.kurogames.com/kr/main/news/detail/5784",
+      "sourceLabel": "명조 공식 3.8 업데이트 공지",
+      "rewards": [
+        {
+          "id": "radiant-tide",
+          "name": "금빛 파도의 무늬",
+          "quantity": 21,
+          "sourceUrl": "https://www.buffget.com/news/wuthering-waves-3-8-reverbs-ii-selectable-banners-key-dates-2026",
+          "image": "site/assets/calendar/audit-gw/wuwa-radiant-tide.png",
+          "imageUrl": "https://wuthering.gg/images/items/T_IconA_jzmy_UI.png",
+          "note": "여정이 남긴 공명자 튜닝의 20~80회 누적 보상 전부 수령",
+          "maximum": true
+        }
+      ]
+    },
+    {
+      "id": "wuwa-38-pioneer-podcast",
+      "game": "wuwa",
+      "version": "3.8",
+      "type": "pass",
+      "title": "선약 방송국 · 3.8 시즌",
+      "start": "2026-11-12T12:00:00+09:00",
+      "end": "2026-12-21T13:00:00+09:00",
+      "timePrecision": "datetime",
+      "sourceUrl": "https://wutheringwaves.kurogames.com/kr/main/news/detail/5784",
+      "sourceLabel": "명조 공식 3.8 업데이트 공지",
+      "rewards": [
+        {
+          "id": "lustrous-tide-free",
+          "name": "회오리의 무늬",
+          "quantity": 5,
+          "sourceUrl": "https://m.namu.moe/w/명조:%20워더링%20웨이브/선약%20방송국",
+          "image": "site/assets/calendar/audit-gw/wuwa-lustrous-tide.png",
+          "imageUrl": "https://wuthering.gg/images/items/T_IconA_qpmy_UI.png",
+          "note": "무료 퍼블릭 채널 · 방송국 레벨 50 달성"
+        },
+        {
+          "id": "astrite",
+          "name": "별의 소리",
+          "quantity": 680,
+          "sourceUrl": "https://vortexgaming.io/postdetail/1330005",
+          "image": "site/assets/calendar/wuwa-astrite.webp",
+          "imageUrl": null,
+          "note": "유료 유니버스 채널 이상 · 방송국 레벨 보상"
+        },
+        {
+          "id": "radiant-tide",
+          "name": "금빛 파도의 무늬",
+          "quantity": 5,
+          "sourceUrl": "https://vortexgaming.io/postdetail/1330005",
+          "image": "site/assets/calendar/audit-gw/wuwa-radiant-tide.png",
+          "imageUrl": "https://wuthering.gg/images/items/T_IconA_jzmy_UI.png",
+          "note": "유료 유니버스 채널 이상 · 방송국 레벨 보상"
+        },
+        {
+          "id": "podcast-weapon-or-tuners",
+          "name": "유니버스 개척 물자 상자 Ⅱ",
+          "quantity": 1,
+          "sourceUrl": "https://wutheringpity.com/wuthering-waves/38-events-guide/",
+          "image": "site/assets/calendar/audit-gw/wuwa-podcast-supply-pack-ii.png",
+          "imageUrl": "https://wuthering.gg/images/items/T_IconGiftPack_003_UI.png",
+          "note": "유료 유니버스 채널 이상 · 레벨 30 달성 · 지정 ★4 무기 1개 또는 특급 튜너 200개 선택"
+        },
+        {
+          "id": "lustrous-tide-special",
+          "name": "회오리의 무늬",
+          "quantity": 3,
+          "sourceUrl": "https://wutheringpity.com/wuthering-waves/38-events-guide/",
+          "image": "site/assets/calendar/audit-gw/wuwa-lustrous-tide.png",
+          "imageUrl": "https://wuthering.gg/images/items/T_IconA_qpmy_UI.png",
+          "note": "유료 유니버스 스페셜 채널 구매 시 즉시 추가"
+        },
+        {
+          "id": "podcast-exclusive-sigil",
+          "name": "시즌 한정 휘장",
+          "quantity": 1,
+          "sourceUrl": "https://wutheringpity.com/wuthering-waves/38-events-guide/",
+          "image": null,
+          "imageUrl": null,
+          "note": "유료 유니버스 스페셜 채널 구매"
+        }
+      ],
+      "notes": "연각 레벨 9부터 참여합니다. 유료 채널과 스페셜 채널의 보상을 구분했습니다."
+    },
+    {
+      "id": "wuwa-38-bountiful-crescendo",
+      "game": "wuwa",
+      "version": "3.8",
+      "type": "event",
+      "title": "울림의 영역 · 육성 재료 2배",
+      "start": "2026-11-26T05:00:00+09:00",
+      "end": "2026-12-03T05:00:00+09:00",
+      "timePrecision": "datetime",
+      "sourceUrl": "https://wutheringwaves.kurogames.com/kr/main/news/detail/5784",
+      "sourceLabel": "명조 공식 3.8 업데이트 공지",
+      "rewards": [
+        {
+          "id": "double-materials",
+          "name": "육성 재료 보상 2배",
+          "quantity": null,
+          "sourceUrl": "https://wutheringwaves.kurogames.com/kr/main/news/detail/5784",
+          "image": null,
+          "imageUrl": null,
+          "note": "연각 레벨 14 이상 · 결정 웨이브 플레이트 사용"
+        }
+      ]
+    },
+    {
+      "id": "wuwa-38-chord-cleansing",
+      "game": "wuwa",
+      "version": "3.8",
+      "type": "event",
+      "title": "흩날리는 선율 · 에코 재료 2배",
+      "start": "2026-12-14T05:00:00+09:00",
+      "end": "2026-12-21T05:00:00+09:00",
+      "timePrecision": "datetime",
+      "sourceUrl": "https://wutheringwaves.kurogames.com/kr/main/news/detail/5784",
+      "sourceLabel": "명조 공식 3.8 업데이트 공지",
+      "rewards": [
+        {
+          "id": "double-tacet-suppression",
+          "name": "무음 소탕 보상 2배",
+          "quantity": null,
+          "sourceUrl": "https://wutheringpity.com/wuthering-waves/38-events-guide/",
+          "image": null,
+          "imageUrl": null,
+          "note": "연각 레벨 19 이상 · 무음 소탕에서 결정 웨이브 플레이트 사용"
+        }
+      ]
+    },
+    {
+      "id": "wuwa-38-korea-live-drops",
+      "game": "wuwa",
+      "version": "3.8",
+      "type": "web",
+      "title": "명조 3.8 라이브 드롭스",
+      "start": "2026-11-12T12:00:00+09:00",
+      "end": "2026-12-10T12:00:00+09:00",
+      "timePrecision": "datetime",
+      "sourceUrl": "https://game.naver.com/lounge/WutheringWaves/board/detail/8451598",
+      "sourceLabel": "명조 공식 한국 라이브 드롭스 공지",
+      "rewards": [
+        {
+          "id": "shell-credit",
+          "name": "클램 코인",
+          "quantity": 25000,
+          "sourceUrl": "https://game.naver.com/lounge/WutheringWaves/board/detail/8451598",
+          "image": "site/assets/calendar/audit-gw/wuwa-shell-credit.png",
+          "imageUrl": "https://wuthering.gg/images/items/T_IconA_hsb_UI.png",
+          "note": "치지직·SOOP 계정 연동 및 누적 15분 시청"
+        },
+        {
+          "id": "medium-resonance-potion",
+          "name": "중급 공명 촉진제",
+          "quantity": 5,
+          "sourceUrl": "https://game.naver.com/lounge/WutheringWaves/board/detail/8451598",
+          "image": "site/assets/calendar/audit-gw/wuwa-medium-resonance-potion.png",
+          "imageUrl": "https://wuthering.gg/images/items/T_IconRup_exp_2_UI.png",
+          "note": "누적 30분 시청"
+        },
+        {
+          "id": "advanced-energy-core",
+          "name": "고급 에너지 코어",
+          "quantity": 3,
+          "sourceUrl": "https://game.naver.com/lounge/WutheringWaves/board/detail/8451598",
+          "image": null,
+          "imageUrl": null,
+          "note": "누적 60분 시청"
+        },
+        {
+          "id": "advanced-sealed-tube",
+          "name": "고급 비밀음파 통",
+          "quantity": 2,
+          "sourceUrl": "https://game.naver.com/lounge/WutheringWaves/board/detail/8451598",
+          "image": "site/assets/calendar/audit-gw/wuwa-advanced-sealed-tube.png",
+          "imageUrl": "https://wuthering.gg/images/items/T_IconA_12_UI.png",
+          "note": "누적 90분 시청"
+        },
+        {
+          "id": "astrite",
+          "name": "별의 소리",
+          "quantity": 50,
+          "sourceUrl": "https://game.naver.com/lounge/WutheringWaves/board/detail/8451598",
+          "image": "site/assets/calendar/wuwa-astrite.webp",
+          "imageUrl": null,
+          "note": "누적 120분 시청"
+        }
+      ],
+      "notes": "치지직 또는 SOOP 계정을 게임 계정과 연동한 뒤 해당 플랫폼의 드롭스 대상 방송을 시청하고 보상을 수령합니다."
+    },
+    {
+      "id": "wuwa-40-new-federation-preregistration",
+      "game": "wuwa",
+      "version": "4.0",
+      "type": "web",
+      "title": "영원을 밝힐 불씨 · 신연방 사전예약",
+      "start": "2026-11-18",
+      "end": null,
+      "timePrecision": "date",
+      "sourceUrl": "https://new-federation.kurogames-global.com/?lang=kr&source=x",
+      "sourceLabel": "명조 공식 신연방 사전예약 페이지",
+      "rewards": [
+        {
+          "id": "astrite",
+          "name": "별의 소리",
+          "quantity": 100,
+          "sourceUrl": "https://new-federation.kurogames-global.com/?lang=kr&source=x",
+          "image": "site/assets/calendar/wuwa-astrite.webp",
+          "imageUrl": null,
+          "note": "웹 사전예약 완료 후 4.0 업데이트 이후 게임 접속"
+        }
+      ],
+      "endUnknown": true,
+      "ongoingAsOf": "2026-11-28",
+      "notes": "공식 페이지에서 11월 28일 예약 진행 확인. 공식 안내에서 종료일을 확인하지 못했습니다."
     }
   ],
   "coverage": [

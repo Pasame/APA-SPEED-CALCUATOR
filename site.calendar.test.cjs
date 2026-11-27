@@ -7,7 +7,7 @@ const pickups = require('./site/calendar-pickups.json');
 const now = stamp('2026-11-28T12:00:00+09:00');
 const window = windowFor(now), selected = new Set(['hsr']);
 const allTypes = new Set(Object.keys(TYPES));
-assert.deepEqual([...allTypes], ['gacha', 'event', 'endgame', 'web', 'login', 'claim', 'broadcast', 'update', 'offline']);
+assert.deepEqual([...allTypes], ['gacha', 'event', 'endgame', 'pass', 'web', 'login', 'claim', 'broadcast', 'update', 'offline']);
 assert.deepEqual([...DEFAULT_TYPES], ['gacha', 'event', 'broadcast', 'update']);
 const onlineTypes = new Set([...allTypes].filter(type => type !== 'offline'));
 assert.equal(window.start, stamp('2026-11-27'), 'the axis starts one day before today');
@@ -78,6 +78,10 @@ assert.equal(visible({ ...unknown, start: '2026-11-27' }, window, selected, onli
 assert.equal(position(unknown, window).point, true);
 assert.equal(position(unknown, window).width, 0);
 assert.match(period(unknown), /종료 미공개/);
+const observed = { ...unknown, ongoingAsOf: '2026-11-28' };
+assert.ok(visible(observed, window, selected, allTypes));
+assert.ok(position(observed, window).width > 0);
+assert.equal(visible(observed, windowFor(stamp('2026-11-29')), selected, allTypes), false);
 assert.equal(period({ ...ongoing, end: '2026-12-02' }), '11/1 → 12/1');
 assert.equal(period({ ...ongoing, end: '2026-12-02T13:00:00+09:00' }), '11/1 → 12/2 12:59');
 const categories = ['offline', 'update', 'broadcast', 'claim', 'login', 'web', 'event', 'gacha'];
@@ -114,8 +118,9 @@ assert.match(details, /아하/);
 assert.match(details, /성옥/);
 assert.match(details, /수량 미확인/);
 const capped = { ...fixture, rewards: [{ name: '원석', quantity: 800, maximum: true, note: '36별' }] };
-assert.match(renderDetails(capped, games), /최대 800개.*36별/);
-assert.match(renderRow(capped, window, games), /최대 800개/);
+assert.match(renderDetails(capped, games), /× 800.*36별/);
+assert.match(renderRow(capped, window, games), /× 800/);
+assert.doesNotMatch(renderDetails(capped, games), /최대/);
 const manyRewards = { ...ongoing, rewards: Array.from({ length: 13 }, (_, i) => ({ name: `보상${i}` })) };
 assert.match(renderRow(manyRewards, window, games), /calendar-reward-extra">\+10/);
 assert.match(renderDetails(manyRewards, games), /보상12/);
@@ -142,6 +147,7 @@ const samePeriodPickup = {
   ],
 };
 const separateEvents = [
+  { ...versionedPickup, id: 'estimated-end', endEstimated: true },
   { ...versionedPickup, id: 'different-end', end: '2026-12-03T00:01:00+09:00' },
   { ...versionedPickup, id: 'different-start', start: '2026-11-30T12:01:00+09:00' },
   { ...versionedPickup, id: 'different-type', type: 'event' },
@@ -229,12 +235,19 @@ for (const event of data.events) {
   }
 }
 assert.equal(ids.size, data.events.length);
+assert.deepEqual(new Set(data.events.filter(e => e.type === 'pass').map(e => e.game)), new Set(games.map(g => g.id)));
+const zzzUpdate = data.events.find(e => e.id === 'zzz-version-34-launch');
+assert.ok(position(zzzUpdate, window).width > 0);
+assert.match(period(zzzUpdate), /12\/2 → 1\/13 \(예상\)/);
+assert.equal(data.versionTimeline.zzz.find(v => v.version === '3.4').end, zzzUpdate.end);
+assert.ok(stamp(data.events.find(e => e.id === 'zzz-34-kafka').end) > stamp(zzzUpdate.end));
 for (const [id, featured] of Object.entries(pickups)) {
   assert.equal(data.events.find(event => event.id === id)?.type, 'gacha', id);
   for (const pickup of featured) {
     assert.ok(pickup.name, id);
     if (pickup.image) {
       assert.match(pickup.image, /^site\/assets\//);
+      assert.doesNotMatch(pickup.image, /\/games\//, 'a game logo cannot identify a featured item');
       assert.ok(fs.existsSync(pickup.image), pickup.image);
     }
   }
