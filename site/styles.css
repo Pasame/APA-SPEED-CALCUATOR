@@ -435,6 +435,21 @@ main { max-width: 1160px; margin: auto; padding: 36px 32px 64px; }
   .target-grid { grid-template-columns: minmax(0, 1fr); }
 }
 
+.party-calc-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 16px;
+  margin-top: 18px;
+  padding: 16px 20px;
+  border-radius: 18px;
+  background: var(--cream);
+  color: var(--cream-text);
+}
+.party-calc-cta p { font-size: .9375rem; font-weight: 600; }
+.party-calc-cta .button { flex-shrink: 0; }
+
 /* Home calendar: game imagery identifies the game; bars identify the event kind. */
 .home-hero { min-height: 210px; padding: 24px 32px; grid-template-columns: 1.5fr 1fr; }
 .home-hero h1 { font-size: clamp(1.8rem, 3vw, 2.3rem); }

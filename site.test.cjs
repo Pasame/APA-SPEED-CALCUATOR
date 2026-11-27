@@ -442,3 +442,22 @@ const bodyOnlyDoc = docs.find(doc => doc.sections?.some(section => (section.bull
 const bodyOnlyCard = searchPageHtml.slice(searchPageHtml.indexOf(`href="../guides/${bodyOnlyDoc.id}/index.html"`)).split('</a>')[0];
 assert.ok(bodyOnlyCard.includes('격파'), 'search data keeps body-only section terms after deduplication');
 console.log('PASS deduplicated search page preserves equipment, body-only terms and offline compatibility');
+
+const AhaState = require('./state.js');
+const elationGroupHtml = fs.readFileSync(path.join(root, 'guides/hsr-elation-hypercarry/index.html'), 'utf8');
+const expectedElationTeams = {
+  'hsr-evanescia-elation': ['eva', 'yao', 'aeon', 'pearl'],
+  'hsr-silver-wolf-lv-999-team': ['wolf', 'yao', 'aeon', 'pearl'],
+  'hsr-sparxie-team': ['sparxie', 'yao', 'aeon', 'pearl'],
+  'hsr-aventurine-waveflair-elation': ['wave', 'yao', 'aeon', 'pearl'],
+};
+for (const [partyId, expectedSlots] of Object.entries(expectedElationTeams)) {
+  const linkMatch = elationGroupHtml.match(new RegExp(`href="\\.\\.\\/\\.\\.\\/tools\\/aha\\/index\\.html\\?preview=guide#aha=([A-Za-z0-9_-]+)"[^>]*data-calculator-link="${partyId}"[^>]*>기본 편성으로 열기`));
+  assert.ok(linkMatch, `${partyId} links to Aha calculator preview as 기본 편성으로 열기`);
+  const decoded = AhaState.decode(linkMatch[1]);
+  assert.deepEqual(decoded.config.slots.map(slot => slot.id), expectedSlots, `${partyId} round-trips exact 4-member Elation slots`);
+}
+assert.ok(calculator.includes('id="previewBanner"') && calculator.includes('id="applyPreview"') && calculator.includes('id="discardPreview"'), 'standalone calculator includes preview banner and explicit apply controls');
+const nonElationHtml = fs.readFileSync(path.join(root, 'guides/hsr-firefly-super-break/index.html'), 'utf8');
+assert.ok(!nonElationHtml.includes('data-calculator-link='), 'non-Elation parties do not attach Aha calculator links');
+console.log('PASS Elation party guides link verified 4-member default formations to the Aha calculator');

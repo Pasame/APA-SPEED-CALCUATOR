@@ -15,9 +15,13 @@
       if(previous){const saved=JSON.parse(previous);if(saved?.rumor){initial=S.migratePrevious(saved.rumor).config;}}
     }
   }catch{ /* A first visit and unusable storage both use the sample party. */ }
-  function readShare(){const shared=S.decode(location.hash.slice(5));try{history.replaceState(null,'',location.href.split('#')[0]);}catch(error){/* Some file hosts restrict history. */}notice('공유된 파티를 불러왔어요.');return shared.config;}
-  if(location.hash.startsWith('#aha='))try{initial=readShare();}catch(error){notice('이 공유 링크를 열 수 없어요.');}
-  function changed(config){if(E.validate(config).length)return;try{localStorage.setItem(S.STORAGE_KEY,JSON.stringify(S.pack(config)));}catch(error){/* Keep last valid settings or allow offline use without storage. */}}
+  const savedConfig=structuredClone(initial);
+  let previewing=false;
+  function readShare(preview=false){const shared=S.decode(location.hash.slice(5));try{const clean=new URL(location.href);clean.hash='';if(preview)clean.searchParams.delete('preview');history.replaceState(null,'',clean.href);}catch(error){/* Some file hosts restrict history. */}if(preview){previewing=true;notice('');}else{previewing=false;notice('공유된 파티를 불러왔어요.');}return shared.config;}
+  const isGuidePreview=()=>new URLSearchParams(location.search).get('preview')==='guide';
+  if(location.hash.startsWith('#aha='))try{initial=readShare(isGuidePreview());}catch(error){notice('이 공유 링크를 열 수 없어요.');}
+  function syncPreviewBanner(){if($('previewBanner'))$('previewBanner').hidden=!previewing;}
+  function changed(config){if(previewing||E.validate(config).length)return;try{localStorage.setItem(S.STORAGE_KEY,JSON.stringify(S.pack(config)));}catch(error){/* Keep last valid settings or allow offline use without storage. */}}
   const root=$('calculator');
   let cfg = structuredClone(initial), expanded = new Set(), solved=null, compareIdx=0; cfg.goal ||= S.goalDefaults();
   const key=()=>JSON.stringify(cfg);
@@ -298,7 +302,9 @@
   $('toggleAdvanced').addEventListener('click',()=>{$('advanced').hidden=!$('advanced').hidden;$('toggleAdvanced').setAttribute('aria-expanded',String(!$('advanced').hidden));updateResults();if(!$('advanced').hidden){$('advanced').focus({preventScroll:true});$('advanced').scrollIntoView({block:'start'});}});
   ['extraPct','extraFlat'].forEach(id=>$(id).addEventListener('input',()=>{cfg.buffs[id]=$(id).value===''?NaN:+$(id).value;updateResults();}));
   ['target','solveSlot','horizon','soloWaveBonus'].forEach(id=>$(id).addEventListener(id==='target'||id==='soloWaveBonus'?'input':'change',()=>{cfg[id]=$(id).value===''?NaN:+$(id).value;updateResults();}));
-  $('reset').addEventListener('click',()=>{cfg=E.defaults();cfg.goal=S.goalDefaults();expanded=new Set();solved=null;renderAll();});
+  $('reset').addEventListener('click',()=>{previewing=false;syncPreviewBanner();cfg=E.defaults();cfg.goal=S.goalDefaults();expanded=new Set();solved=null;renderAll();});
+  $('applyPreview')?.addEventListener('click',()=>{previewing=false;syncPreviewBanner();changed(cfg);notice('가이드 편성을 적용하고 저장했어요.');});
+  $('discardPreview')?.addEventListener('click',()=>{previewing=false;syncPreviewBanner();cfg=structuredClone(savedConfig);expanded=new Set();solved=null;renderAll();notice('기존 저장 편성으로 돌아왔어요.');});
   $('addEvent').addEventListener('click',()=>{cfg.events.push({time:0,type:'advance',target:cfg.slots.findIndex(s=>s.id!=='empty'),value:25});renderEvents();updateResults();});
   root.querySelectorAll('[data-target]').forEach(el=>el.addEventListener('click',()=>{cfg.target=+el.dataset.target;sync();updateResults();}));
   $('goalKind').addEventListener('change',()=>{cfg.goal.kind=$('goalKind').value;solved=null;renderSelects();updateResults();});
@@ -311,7 +317,7 @@
   });
   $('applyGoal').addEventListener('click',()=>{if(solved?.key!==key()||solved.result.error)return;const slot=cfg.slots[cfg.solveSlot];if(slot.mode==='build')slot.sub+=solved.result.panel-E.panelSpeed(slot);else slot.panel=solved.result.panel;solved=null;renderAll();});
   $('compareSlot').addEventListener('change',()=>{compareIdx=+$('compareSlot').value;updateResults();});
-  $('applyPreset').addEventListener('click',()=>{cfg=S.preset($('preset').value);expanded=new Set();solved=null;renderAll();$('utilityStatus').textContent='예시 설정을 적용했습니다.';});
+  $('applyPreset').addEventListener('click',()=>{previewing=false;syncPreviewBanner();cfg=S.preset($('preset').value);expanded=new Set();solved=null;renderAll();$('utilityStatus').textContent='예시 설정을 적용했습니다.';});
   $('share').addEventListener('click',async()=>{try{const url=new URL(location.href);url.hash='aha='+S.encode(cfg);$('shareURL').value=url.href;$('shareFallback').hidden=false;try{await navigator.clipboard.writeText(url.href);$('utilityStatus').textContent='공유 링크를 복사했습니다.';}catch(error){$('utilityStatus').textContent='아래 주소를 복사해 주세요.';$('shareURL').focus();$('shareURL').select();}}catch(error){$('utilityStatus').textContent='공유 링크를 만들 수 없어요.';}});
   const dock=root.querySelector('aside');new ResizeObserver(()=>{if(dock.getClientRects().length&&matchMedia('(max-width:768px)').matches)document.documentElement.style.setProperty('--dock-height',dock.getBoundingClientRect().height+'px');}).observe(dock);
   const timeline=$('turns');
@@ -319,10 +325,11 @@
   root.querySelectorAll('[data-owned]').forEach(button=>button.addEventListener('click',()=>{cfg.ahaOwned=button.dataset.owned==='1';renderSelects();updateResults();}));
   $('waveAscension').addEventListener('change',e=>{cfg.waveAscension=e.target.checked;renderSelects();updateResults();});
   window.AhaApp={getConfig:()=>structuredClone(cfg),setConfig:value=>{cfg=S.normalize(value);expanded=new Set();solved=null;renderAll();}};
+  syncPreviewBanner();
   renderAll();
   const fullHeight=window.innerHeight;const keyboard=()=>document.documentElement.classList.toggle('keyboard-open',!!window.visualViewport&&window.visualViewport.height<fullHeight-150&&document.activeElement?.matches('input,select,textarea'));
   window.visualViewport?.addEventListener('resize',keyboard);document.addEventListener('focusout',()=>requestAnimationFrame(keyboard));
-  window.addEventListener('hashchange',()=>{if(!location.hash.startsWith('#aha='))return;try{cfg=readShare();expanded=new Set();solved=null;renderAll();}catch(error){notice('이 공유 링크를 열 수 없어요.');}});
+  window.addEventListener('hashchange',()=>{if(!location.hash.startsWith('#aha='))return;try{cfg=readShare(isGuidePreview());syncPreviewBanner();expanded=new Set();solved=null;renderAll();}catch(error){notice('이 공유 링크를 열 수 없어요.');}});
   const scroller=document.querySelector('main');let previousHeight=scroller.clientHeight;
   new ResizeObserver(()=>{const height=scroller.clientHeight;if(height<previousHeight&&Math.abs(scroller.scrollHeight-scroller.scrollTop-previousHeight)<32)scroller.scrollTop=scroller.scrollHeight;previousHeight=height;}).observe(scroller);
 })();

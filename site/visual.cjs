@@ -2,6 +2,28 @@ const characterFilters = require('./character-filters.json');
 const releaseDates = require('./hsr-release-order.json').dates;
 const buildConditions = require('./build-conditions.json');
 const coneLabels = require('./cone-labels.json').cones;
+const AhaEngine = require('../engine.js');
+const AhaState = require('../state.js');
+const CALCULATOR_SLOTS = {
+  '1501': { id: 'sparxie', speed: 134 },
+  '1502': { id: 'yao', speed: 200 },
+  '1503': { id: 'pearl', speed: 160 },
+  '1505': { id: 'eva', speed: 134 },
+  '1506': { id: 'wolf', speed: 200 },
+  '1511': { id: 'aeon', speed: 160 },
+  '1513': { id: 'wave', speed: 134 },
+  '8010': { id: 'trail', speed: 160 },
+};
+
+function calculatorShareForParty(party) {
+  if (party?.category !== 'elation' || party.members?.length !== 4) return '';
+  const mapped = party.members.map(member => CALCULATOR_SLOTS[member.id]);
+  if (mapped.some(slot => !slot || !AhaEngine.CHARACTERS[slot.id])) return '';
+  const cfg = AhaEngine.defaults();
+  cfg.slots = mapped.map(({ id, speed }) => AhaEngine.slot(id, speed));
+  cfg.solveSlot = 0;
+  return AhaState.encode(cfg);
+}
 const categories = {
   dot: '지속 피해',
   followup: '추가 공격',
@@ -335,6 +357,10 @@ ${targetPanels}
       return `<div class="roster-slot" data-member-id="${member.id}">${card}${previewCards}${alternativesHtml}</div>`;
     }).join('');
     const previewData = JSON.stringify({ members: party.members, alternatives: party.alternatives || [], coreMemberIds: party.coreMemberIds }).replace(/</g, '\\u003c');
+    const calculatorHash = calculatorShareForParty(party);
+    const calculatorCta = calculatorHash
+      ? `<div class="party-calc-cta"><p>아하 속도 계산기에서 이 기본 편성의 속도와 행동 순서를 확인해 보세요.</p><a class="button primary" href="${prefix}tools/aha/index.html?preview=guide#aha=${calculatorHash}" data-calculator-link="${doc.id}">기본 편성으로 열기 <span aria-hidden="true">↗</span></a></div>`
+      : '';
     const grouped = groupForParty.has(doc.id);
     const heading = grouped ? `<h2>${escape(party.lead)}</h2>` : `<h1>${escape(party.lead)}</h1>`;
     return `${grouped ? '' : `<a class="back-link" href="${prefix}games/hsr/index.html?view=party&category=${party.category}">← ${categories[party.category]} 파티</a>`}
@@ -346,6 +372,7 @@ ${targetPanels}
           <p class="party-note" data-preview-status role="status">대체 얼굴을 누르면 편성이 바뀝니다.</p>
           <div class="roster-grid">${roster}</div>
           <p class="party-note" data-base-note>${escape(party.note)}</p>
+          ${calculatorCta}
         </section>
         <section class="visual-section">
           <h2 data-operation-heading>이렇게 운영하세요</h2>
