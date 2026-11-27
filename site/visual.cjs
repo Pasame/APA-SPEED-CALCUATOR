@@ -371,8 +371,7 @@ ${targetPanels}
           <div class="section-heading"><h2>추천 편성</h2><button type="button" data-party-reset hidden>기본 편성</button></div>
           <p class="party-note" data-preview-status role="status">대체 얼굴을 누르면 편성이 바뀝니다.</p>
           <div class="roster-grid">${roster}</div>
-          <p class="party-note" data-base-note>${escape(party.note)}</p>
-          ${calculatorCta}
+          <p class="party-note" data-base-note>${escape(party.note)}</p>${calculatorCta}
         </section>
         <section class="visual-section">
           <h2 data-operation-heading>이렇게 운영하세요</h2>

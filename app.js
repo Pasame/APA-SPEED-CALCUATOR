@@ -6,24 +6,33 @@
   const E = window.AhaEngine, S = window.AhaState;
   const $=id=>document.getElementById(id);
   const notice=text=>{$('sessionNotice').hidden=!text;$('sessionNotice').textContent=text;};
-  let initial=E.defaults();
-  try {
-    const raw=localStorage.getItem(S.STORAGE_KEY);
-    if(raw)initial=S.unpack(JSON.parse(raw)).config;
-    else {
+  const defaultConfig=()=>({...E.defaults(),goal:S.goalDefaults()});
+  function readSavedConfig(){
+    try {
+      const raw=localStorage.getItem(S.STORAGE_KEY);
+      if(raw)return S.unpack(JSON.parse(raw)).config;
       const previous=localStorage.getItem(S.PREVIOUS_STORAGE_KEY);
-      if(previous){const saved=JSON.parse(previous);if(saved?.rumor){initial=S.migratePrevious(saved.rumor).config;}}
-    }
-  }catch{ /* A first visit and unusable storage both use the sample party. */ }
-  const savedConfig=structuredClone(initial);
+      if(previous){
+        const saved=JSON.parse(previous);
+        if(saved?.rumor)return S.migratePrevious(saved.rumor).config;
+      }
+    }catch{ /* A first visit and unusable storage both use the sample party. */ }
+    return null;
+  }
+  let initial=readSavedConfig()||defaultConfig();
   let previewing=false;
   function readShare(preview=false){const shared=S.decode(location.hash.slice(5));try{const clean=new URL(location.href);clean.hash='';if(preview)clean.searchParams.delete('preview');history.replaceState(null,'',clean.href);}catch(error){/* Some file hosts restrict history. */}if(preview){previewing=true;notice('');}else{previewing=false;notice('공유된 파티를 불러왔어요.');}return shared.config;}
   const isGuidePreview=()=>new URLSearchParams(location.search).get('preview')==='guide';
   if(location.hash.startsWith('#aha='))try{initial=readShare(isGuidePreview());}catch(error){notice('이 공유 링크를 열 수 없어요.');}
   function syncPreviewBanner(){if($('previewBanner'))$('previewBanner').hidden=!previewing;}
-  function changed(config){if(previewing||E.validate(config).length)return;try{localStorage.setItem(S.STORAGE_KEY,JSON.stringify(S.pack(config)));}catch(error){/* Keep last valid settings or allow offline use without storage. */}}
+  function saveConfig(config){
+    let packed;
+    try{packed=S.pack(config);}catch{return '편성을 저장하려면 입력값과 목표 조건을 확인해 주세요.';}
+    try{localStorage.setItem(S.STORAGE_KEY,JSON.stringify(packed));}catch{return '브라우저에 편성을 저장할 수 없어요.';}
+    return '';
+  }
   const root=$('calculator');
-  let cfg = structuredClone(initial), expanded = new Set(), solved=null, compareIdx=0; cfg.goal ||= S.goalDefaults();
+  let cfg = structuredClone(initial), expanded = new Set(), solved=null, compareIdx=0;
   const key=()=>JSON.stringify(cfg);
   const focusEditor=(i,key)=>{renderParty();(key?$('equipment'+i).querySelector(`[data-key="${key}"]`):$('party').querySelector(`[data-editor="${i}"]`))?.focus({preventScroll:true});updateResults();};
   const f=(n,d=3,min=d)=>Number.isFinite(n)?n.toLocaleString('en-US',{minimumFractionDigits:min,maximumFractionDigits:d}):'—';
@@ -202,11 +211,11 @@
     }));
     $('events').querySelectorAll('[data-remove]').forEach(el=>el.addEventListener('click',()=>{cfg.events.splice(+el.dataset.remove,1);renderEvents();updateResults();}));
   }
-  function updateResults(){
+  function updateResults(save=true){
     const errors=E.validate(cfg),snap=E.snapshot(cfg);
     const globalErrors=errors.filter(t=>!/^슬롯 \d+:/.test(t));$('errors').hidden=!globalErrors.length;$('errors').innerHTML=globalErrors.map(esc).join('<br>');
     cfg.slots.forEach((s,i)=>{const local=errors.filter(t=>t.startsWith('슬롯 '+(i+1)+':')),error=$('slotError'+i),input=$('party').querySelector(`[data-panel="${i}"]`);if(!error)return;error.hidden=!local.length;error.textContent=local.join(' ');input.setAttribute('aria-invalid',String(!!local.length));input.setAttribute('aria-describedby',error.id);});
-    changed(cfg);
+    if(save&&!previewing&&!errors.length)saveConfig(cfg);
     cfg.slots.forEach((s,i)=>{if($('combat'+i))$('combat'+i).textContent=f(snap.chars[i].speed);const inp=$('party').querySelector(`[data-panel="${i}"]`);if(s.mode==='build')inp.value=Number.isFinite(E.panelSpeed(s))?E.panelSpeed(s).toFixed(3):'';});
     cfg.slots.forEach((s,i)=>{const notes=[],c=snap.chars[i];
       if(s.eidolon){if(s.id==='wolf')notes.push('은랑 2돌 선택 · 행동 효과 수동');else if(s.id==='aeon')notes.push('아하 2돌 선택 · 웨이브 승격 '+(E.isWaveAscended(cfg)?'+25% 반영':'미적용'));else notes.push((eidolons[s.id]?.[0]||'돌파 선택')+(s.buffActive?' · 적용 중':' · 비활성')+(s.id==='pearl'?' · 필살기 시 반영':s.id==='sparxie'?' · 아하 타임 후 반영':''));}
@@ -298,13 +307,30 @@
     $('waveAscensionControl').hidden=!eligible;
   }
   function sync(){['extraPct','extraFlat'].forEach(k=>$(k).value=cfg.buffs[k]);['target','horizon','soloWaveBonus'].forEach(k=>$(k).value=cfg[k]);}
-  function renderAll(){sync();renderParty();renderBuffs();renderSelects();renderEvents();updateResults();}
+  function renderAll(save=true){sync();renderParty();renderBuffs();renderSelects();renderEvents();updateResults(save);}
   $('toggleAdvanced').addEventListener('click',()=>{$('advanced').hidden=!$('advanced').hidden;$('toggleAdvanced').setAttribute('aria-expanded',String(!$('advanced').hidden));updateResults();if(!$('advanced').hidden){$('advanced').focus({preventScroll:true});$('advanced').scrollIntoView({block:'start'});}});
   ['extraPct','extraFlat'].forEach(id=>$(id).addEventListener('input',()=>{cfg.buffs[id]=$(id).value===''?NaN:+$(id).value;updateResults();}));
   ['target','solveSlot','horizon','soloWaveBonus'].forEach(id=>$(id).addEventListener(id==='target'||id==='soloWaveBonus'?'input':'change',()=>{cfg[id]=$(id).value===''?NaN:+$(id).value;updateResults();}));
-  $('reset').addEventListener('click',()=>{previewing=false;syncPreviewBanner();cfg=E.defaults();cfg.goal=S.goalDefaults();expanded=new Set();solved=null;renderAll();});
-  $('applyPreview')?.addEventListener('click',()=>{previewing=false;syncPreviewBanner();changed(cfg);notice('가이드 편성을 적용하고 저장했어요.');});
-  $('discardPreview')?.addEventListener('click',()=>{previewing=false;syncPreviewBanner();cfg=structuredClone(savedConfig);expanded=new Set();solved=null;renderAll();notice('기존 저장 편성으로 돌아왔어요.');});
+  $('reset').addEventListener('click',()=>{cfg=defaultConfig();expanded=new Set();solved=null;renderAll();});
+  $('applyPreview')?.addEventListener('click',()=>{
+    if(!previewing)return;
+    const error=saveConfig(cfg);
+    if(error){notice(error);return;}
+    previewing=false;
+    syncPreviewBanner();
+    notice('가이드 편성을 적용하고 저장했어요.');
+  });
+  $('discardPreview')?.addEventListener('click',()=>{
+    if(!previewing)return;
+    const saved=readSavedConfig();
+    cfg=saved||defaultConfig();
+    expanded=new Set();
+    solved=null;
+    previewing=false;
+    syncPreviewBanner();
+    renderAll(false);
+    notice(saved?'기존 저장 편성으로 돌아왔어요.':'저장된 편성이 없어 계산기 기본 편성을 불러왔어요.');
+  });
   $('addEvent').addEventListener('click',()=>{cfg.events.push({time:0,type:'advance',target:cfg.slots.findIndex(s=>s.id!=='empty'),value:25});renderEvents();updateResults();});
   root.querySelectorAll('[data-target]').forEach(el=>el.addEventListener('click',()=>{cfg.target=+el.dataset.target;sync();updateResults();}));
   $('goalKind').addEventListener('change',()=>{cfg.goal.kind=$('goalKind').value;solved=null;renderSelects();updateResults();});
@@ -317,11 +343,11 @@
   });
   $('applyGoal').addEventListener('click',()=>{if(solved?.key!==key()||solved.result.error)return;const slot=cfg.slots[cfg.solveSlot];if(slot.mode==='build')slot.sub+=solved.result.panel-E.panelSpeed(slot);else slot.panel=solved.result.panel;solved=null;renderAll();});
   $('compareSlot').addEventListener('change',()=>{compareIdx=+$('compareSlot').value;updateResults();});
-  $('applyPreset').addEventListener('click',()=>{previewing=false;syncPreviewBanner();cfg=S.preset($('preset').value);expanded=new Set();solved=null;renderAll();$('utilityStatus').textContent='예시 설정을 적용했습니다.';});
+  $('applyPreset').addEventListener('click',()=>{cfg=S.preset($('preset').value);expanded=new Set();solved=null;renderAll();$('utilityStatus').textContent='예시 설정을 적용했습니다.';});
   $('share').addEventListener('click',async()=>{try{const url=new URL(location.href);url.hash='aha='+S.encode(cfg);$('shareURL').value=url.href;$('shareFallback').hidden=false;try{await navigator.clipboard.writeText(url.href);$('utilityStatus').textContent='공유 링크를 복사했습니다.';}catch(error){$('utilityStatus').textContent='아래 주소를 복사해 주세요.';$('shareURL').focus();$('shareURL').select();}}catch(error){$('utilityStatus').textContent='공유 링크를 만들 수 없어요.';}});
   const dock=root.querySelector('aside');new ResizeObserver(()=>{if(dock.getClientRects().length&&matchMedia('(max-width:768px)').matches)document.documentElement.style.setProperty('--dock-height',dock.getBoundingClientRect().height+'px');}).observe(dock);
   const timeline=$('turns');
-  new ResizeObserver(()=>{if(timeline.isConnected&&timeline.getClientRects().length)updateResults();}).observe($('plot'));
+  new ResizeObserver(()=>{if(timeline.isConnected&&timeline.getClientRects().length)updateResults(false);}).observe($('plot'));
   root.querySelectorAll('[data-owned]').forEach(button=>button.addEventListener('click',()=>{cfg.ahaOwned=button.dataset.owned==='1';renderSelects();updateResults();}));
   $('waveAscension').addEventListener('change',e=>{cfg.waveAscension=e.target.checked;renderSelects();updateResults();});
   window.AhaApp={getConfig:()=>structuredClone(cfg),setConfig:value=>{cfg=S.normalize(value);expanded=new Set();solved=null;renderAll();}};

@@ -1,11 +1,113 @@
 const assert=require('node:assert/strict'),path=require('node:path'),fs=require('node:fs');
 const {pathToFileURL}=require('node:url'),{chromium}=require('playwright');
+const engine = require('./engine.js');
+const state = require('./state.js');
 // Run with an existing Playwright installation; no production dependency is needed.
 const launch={headless:true};
 if(process.env.PLAYWRIGHT_CHROME_PATH)launch.executablePath=process.env.PLAYWRIGHT_CHROME_PATH;
+
+async function verifyGuidePreview(browser) {
+ const context = await browser.newContext({ offline: true });
+ try {
+  const page = await context.newPage();
+  const calculatorUrl = pathToFileURL(path.join(__dirname, 'tools', 'aha', 'index.html')).href;
+  const guide = engine.defaults();
+  guide.slots[0].panel = 233.456;
+  const previewUrl = `${calculatorUrl}?preview=guide#aha=${state.encode(guide)}`;
+  const banner = page.locator('#previewBanner');
+  const apply = page.locator('#applyPreview');
+  const discard = page.locator('#discardPreview');
+  const notice = page.locator('#sessionNotice');
+  const speed = page.locator('[data-panel="0"]');
+  const saved = (target = page, key = state.STORAGE_KEY) => target.evaluate(key => localStorage.getItem(key), key);
+  const openPreview = async () => {
+   await page.goto(previewUrl);
+   assert.equal(await banner.isVisible(), true, 'guide entry opens an isolated preview');
+   assert.equal(await speed.inputValue(), '233.456');
+  };
+
+  await openPreview();
+  assert.equal(await saved(), null, 'first visit does not write the guide config');
+  await speed.fill('224.567');
+  assert.equal(await saved(), null, 'editing the preview does not autosave');
+  await page.locator('#reset').click();
+  assert.equal(await speed.inputValue(), String(engine.defaults().slots[0].panel));
+  assert.equal(await banner.isVisible(), true, 'reset updates the draft while keeping preview open');
+  assert.equal(await saved(), null, 'reset in preview does not write default settings');
+  await page.locator('#toggleAdvanced').click();
+  await page.getByText('예시 설정·저장·공유', { exact: true }).click();
+  await page.locator('#preset').selectOption('team');
+  await page.locator('#applyPreset').click();
+  assert.equal(await page.locator('[data-slot="3"]').inputValue(), 'huohuo');
+  assert.equal(await banner.isVisible(), true, 'preset changes only the preview draft');
+  assert.equal(await saved(), null, 'preset in preview does not write settings');
+  await discard.click();
+  assert.equal(await banner.isVisible(), false);
+  assert.deepEqual(state.normalize(await page.evaluate(() => AhaApp.getConfig())), state.normalize(engine.defaults()));
+  assert.equal(await saved(), null, 'discard on a fresh visit restores defaults without saving');
+
+  const legacyConfig = engine.defaults();
+  legacyConfig.slots[0].panel = 217.654;
+  legacyConfig.rumor = { enabled: true, owned: false, waveAscension: false };
+  const legacy = { schema: 2, mode: '47', dataVersion: 'v4.6.53 D16833202', config: legacyConfig };
+  const legacyRaw = JSON.stringify({ schema: 2, mode: '46', standard: {}, rumor: legacy });
+  await page.evaluate(([key, value]) => localStorage.setItem(key, value), [state.PREVIOUS_STORAGE_KEY, legacyRaw]);
+  await openPreview();
+  await discard.click();
+  assert.deepEqual(await page.evaluate(() => AhaApp.getConfig()), state.migratePrevious(legacy).config);
+  assert.equal(await saved(), null, 'discard does not turn migrated settings into a new save');
+  assert.equal(await saved(page, state.PREVIOUS_STORAGE_KEY), legacyRaw, 'discard preserves the previous-version save');
+
+  await speed.fill('210.321');
+  await openPreview();
+  const otherTab = await context.newPage();
+  await otherTab.goto(calculatorUrl);
+  await otherTab.locator('[data-panel="0"]').fill('211.432');
+  const latest = await saved(otherTab);
+  assert.equal(JSON.parse(latest).config.slots[0].panel, 211.432);
+  await discard.click();
+  assert.equal(await speed.inputValue(), '211.432', 'discard restores the newest save, including changes from another tab');
+  assert.equal(await saved(), latest, 'discard leaves the newest save intact');
+  await otherTab.close();
+
+  await openPreview();
+  await speed.fill('');
+  await apply.click();
+  assert.equal(await banner.isVisible(), true, 'invalid apply keeps the draft in preview');
+  assert.equal(await notice.isVisible(), true, 'invalid apply reports a problem');
+  assert.equal(await saved(), latest, 'invalid apply preserves the last valid save');
+
+  await speed.fill('225.678');
+  const expected = state.pack(await page.evaluate(() => AhaApp.getConfig()));
+  await page.evaluate(key => {
+   const original = Storage.prototype.setItem;
+   window.restorePreviewTestStorage = () => { Storage.prototype.setItem = original; };
+   Storage.prototype.setItem = function (name, value) {
+    if (name === key) throw new DOMException('Storage quota exceeded', 'QuotaExceededError');
+    return original.call(this, name, value);
+   };
+  }, state.STORAGE_KEY);
+  await apply.click();
+  assert.equal(await banner.isVisible(), true, 'failed storage write keeps the draft in preview');
+  assert.match(await notice.innerText(), /저장할 수 없/, 'failed storage write reports the error');
+  assert.equal(await saved(), latest, 'failed storage write leaves the last valid save intact');
+  await page.evaluate(() => window.restorePreviewTestStorage());
+
+  await apply.click();
+  assert.equal(await banner.isVisible(), false, 'successful apply leaves preview mode');
+  assert.deepEqual(JSON.parse(await saved()), expected, 'successful apply saves the edited preview');
+  await page.reload();
+  assert.equal(await speed.inputValue(), '225.678', 'explicitly applied preview survives reload');
+ } finally {
+  await context.close();
+ }
+}
+
 (async()=>{
  const browser=await chromium.launch(launch),measurements=[];
  try{
+  await verifyGuidePreview(browser);
+  console.log('PASS QA: guide preview drafts, explicit apply, storage failures and discard restoration');
   for(const width of [1280,1024,768,390,320]){
    const context=await browser.newContext({viewport:{width,height:844},offline:true}),page=await context.newPage(),errors=[],requests=[];
    page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(/^https?:/.test(r.url()))requests.push(r.url());});
