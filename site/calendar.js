@@ -6,6 +6,7 @@
   const TYPES = {
     gacha: '픽업·뽑기',
     event: '인게임 이벤트',
+    endgame: '엔드 콘텐츠',
     web: '웹 이벤트',
     login: '누적 출석',
     claim: '접속 보상',
@@ -14,7 +15,7 @@
     offline: '국내 공식행사',
   };
   const DEFAULT_TYPES = new Set(['gacha', 'event', 'broadcast', 'update']);
-  const TYPE_PRIORITY = { gacha: 0, event: 1, web: 1, login: 2, claim: 2, broadcast: 3, update: 3, offline: 4 };
+  const TYPE_PRIORITY = { gacha: 0, event: 1, endgame: 1, web: 1, login: 2, claim: 2, broadcast: 3, update: 3, offline: 4 };
   const WEEKDAYS = ['일', '월', '화', '수', '목', '금', '토'];
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const stamp = value => Date.parse(value.length === 10 ? value + 'T00:00:00+09:00' : value);
@@ -44,20 +45,23 @@
     return displayedStart(a) - displayedStart(b) || end(a) - end(b) || TYPE_PRIORITY[a.type] - TYPE_PRIORITY[b.type];
   }
 
-  function groupEvents(events) {
+  function groupEvents(events, today = windowFor().today) {
     const groups = new Map();
     for (const event of events) {
       const start = stamp(event.start);
       const end = event.end ? stamp(event.end) : NaN;
       const confirmedVersion = typeof event.version === 'string' && event.version.trim();
       const canGroup = confirmedVersion && Number.isFinite(start) && Number.isFinite(end) && !event.instant && !event.endUnknown && event.type !== 'offline';
-      const key = canGroup ? 'group:' + JSON.stringify([event.game, confirmedVersion, event.type, start, end]) : 'event:' + event.id;
+      const startKey = start < today ? 'ongoing' : start;
+      const key = canGroup ? 'group:' + JSON.stringify([event.game, confirmedVersion, event.type, startKey, end]) : 'event:' + event.id;
       if (!groups.has(key)) groups.set(key, []);
       groups.get(key).push(event);
     }
     return [...groups].map(([key, members]) => {
       if (members.length === 1) return members[0];
       const representative = members[0];
+      const earliest = members.reduce((a, b) => stamp(a.start) <= stamp(b.start) ? a : b);
+      const differentStarts = members.some(event => stamp(event.start) !== stamp(earliest.start));
       const pickups = new Map();
       for (const pickup of members.flatMap(event => event.pickups || [])) {
         if (!pickups.get(pickup.name)?.image) pickups.set(pickup.name, pickup);
@@ -74,6 +78,8 @@
         id: key,
         title: representative.version.trim() + ' · ' + members.length + '개 일정',
         representativeTitle,
+        start: earliest.start,
+        differentStarts,
         endDisplay: members.every(event => event.endDisplay === representative.endDisplay) ? representative.endDisplay : undefined,
         pickups: [...pickups.values()],
         members,
@@ -121,6 +127,7 @@
 
   function period(event) {
     if (event.instant) return dateText(event.start);
+    if (event.differentStarts) return (event.endDisplay || dateText(event.end, true)) + ' 종료';
     return dateText(event.start) + ' → ' + (event.endDisplay || (event.end ? dateText(event.end, true) : '종료 미공개'));
   }
 
@@ -174,7 +181,10 @@
   function rewardItems(event, limit) {
     const rewards = event.rewards || [];
     return rewards.slice(0, limit ?? rewards.length).map(reward => {
-      const quantity = reward.quantity == null ? '' : '<b> ×' + esc(reward.quantity.toLocaleString('ko-KR')) + '</b>';
+      const amount = reward.quantity?.toLocaleString('ko-KR');
+      const quantity = amount != null
+        ? '<b>' + (reward.maximum ? ' 최대 ' + esc(amount) + '개' : ' ×' + esc(amount)) + '</b>'
+        : (/\d+배$/.test(reward.name) ? '' : ' <span class="calendar-reward-unknown">수량 미확인</span>');
       const note = limit == null && reward.note ? '<small>' + esc(reward.note) + '</small>' : '';
       return '<span class="calendar-reward">' + image(reward.image, 32) + '<span>' + esc(reward.name) + quantity + note + '</span></span>';
     }).join('');
@@ -208,9 +218,9 @@
     return '<article class="calendar-row" data-calendar-row="' + esc(event.id) + '" data-game="' + esc(event.game) + '" data-kind="' + esc(event.type) + '">' +
       '<div class="calendar-track" style="--left:' + pos.left + '%;--width:' + pos.width + '%">' + todayLine() +
       '<button type="button" class="' + classes + '" data-calendar-event="' + esc(event.id) + '" aria-label="' + label + '" aria-expanded="false" aria-controls="calendar-tooltip">' +
-      content +
+      '<span class="calendar-duration" aria-hidden="true">' +
       (pos.before && !pos.point ? '<span class="bar-edge" aria-hidden="true">‹</span>' : '') +
-      (pos.after ? '<span class="bar-edge end" aria-hidden="true">›</span>' : '') + '</button></div></article>';
+      (pos.after ? '<span class="bar-edge end" aria-hidden="true">›</span>' : '') + '</span>' + content + '</button></div></article>';
   }
 
   function renderDetails(event, games) {
@@ -221,17 +231,20 @@
       '<p class="calendar-tooltip-period">' + esc(period(event)) + '</p>';
     const pickups = event.pickups?.length ? '<div class="calendar-tooltip-pickups"><strong>픽업 대상</strong><div>' + pickupItems(event, true) + '</div></div>' : '';
     if (!event.members) return header + pickups + locationAndRewards(event);
-    const entries = event.members.filter(member => member.rewards?.length || member.location || !member.pickups?.length);
-    return '<div class="calendar-tooltip-group">' + header + pickups +
+    const entries = event.members.filter(member => event.differentStarts || member.rewards?.length || member.location || !member.pickups?.length);
+    return '<div class="calendar-tooltip-group">' + header + (event.differentStarts ? '' : pickups) +
       entries.map(member => '<article class="calendar-tooltip-entry" data-kind="' + esc(member.type) + '"><strong>' +
-        esc(member.title) + '</strong>' + locationAndRewards(member) + '</article>').join('') + '</div>';
+        esc(member.title) + '</strong>' +
+        (event.differentStarts ? '<p class="calendar-tooltip-period">' + esc(period(member)) + '</p>' : '') +
+        (event.differentStarts && member.pickups?.length ? '<div class="calendar-tooltip-pickups"><div>' + pickupItems(member, true) + '</div></div>' : '') +
+        locationAndRewards(member) + '</article>').join('') + '</div>';
   }
 
   function locationAndRewards(event) {
     const location = event.location ? '<p>' + esc(event.location) + '</p>' : '';
     return location + (event.rewards?.length
       ? '<div class="calendar-tooltip-rewards"><strong>보상</strong><div class="calendar-rewards">' + rewardItems(event) + '</div></div>'
-      : '');
+      : event.type === 'endgame' ? '<p class="calendar-tooltip-period">보상 미확인</p>' : '');
   }
 
   function mount(section, data) {
@@ -336,7 +349,7 @@
       const gameFilter = selected(games, 'calendarGame');
       const typeFilter = selected(types, 'calendarType');
       const events = data.events.filter(event => visible(event, window, gameFilter, typeFilter));
-      const items = groupEvents(events).sort((a, b) => compareRows(a, b, window));
+      const items = groupEvents(events, window.today).sort((a, b) => compareRows(a, b, window));
       if (axisStart !== window.start) {
         axisStart = window.start;
         weeks = weeksFor(window);

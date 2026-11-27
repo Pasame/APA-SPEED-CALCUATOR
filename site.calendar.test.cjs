@@ -7,7 +7,7 @@ const pickups = require('./site/calendar-pickups.json');
 const now = stamp('2026-11-28T12:00:00+09:00');
 const window = windowFor(now), selected = new Set(['hsr']);
 const allTypes = new Set(Object.keys(TYPES));
-assert.deepEqual([...allTypes], ['gacha', 'event', 'web', 'login', 'claim', 'broadcast', 'update', 'offline']);
+assert.deepEqual([...allTypes], ['gacha', 'event', 'endgame', 'web', 'login', 'claim', 'broadcast', 'update', 'offline']);
 assert.deepEqual([...DEFAULT_TYPES], ['gacha', 'event', 'broadcast', 'update']);
 const onlineTypes = new Set([...allTypes].filter(type => type !== 'offline'));
 assert.equal(window.start, stamp('2026-11-27'), 'the axis starts one day before today');
@@ -112,6 +112,10 @@ assert.doesNotMatch(details, /href=|공식 공지 상세|장황한 일정 설명
 assert.match(details, /11\/1 → 12\/1/);
 assert.match(details, /아하/);
 assert.match(details, /성옥/);
+assert.match(details, /수량 미확인/);
+const capped = { ...fixture, rewards: [{ name: '원석', quantity: 800, maximum: true, note: '36별' }] };
+assert.match(renderDetails(capped, games), /최대 800개.*36별/);
+assert.match(renderRow(capped, window, games), /최대 800개/);
 const manyRewards = { ...ongoing, rewards: Array.from({ length: 13 }, (_, i) => ({ name: `보상${i}` })) };
 assert.match(renderRow(manyRewards, window, games), /calendar-reward-extra">\+10/);
 assert.match(renderDetails(manyRewards, games), /보상12/);
@@ -153,7 +157,7 @@ const separateEvents = [
   { ...versionedPickup, id: 'instant-b', end: null, instant: true },
 ];
 const groupFixture = [versionedPickup, samePeriodPickup, ...separateEvents];
-const [grouped, ...singles] = groupEvents(groupFixture);
+const [grouped, ...singles] = groupEvents(groupFixture, window.today);
 assert.deepEqual(singles, separateEvents, 'only identical known game, version, category, start and end can be grouped');
 assert.deepEqual(grouped.members.map(event => event.id), ['warp-aha', 'warp-sparxie']);
 assert.equal(stamp(grouped.start), stamp(samePeriodPickup.start), 'offset timestamps normalize to the same start instant');
@@ -175,7 +179,7 @@ const titleOnlyMembers = [
   { ...versionedPickup, rewards: [] },
   { ...samePeriodPickup, pickups: [], rewards: [] },
 ];
-const titleOnlyDetails = renderDetails(groupEvents(titleOnlyMembers)[0], games);
+const titleOnlyDetails = renderDetails(groupEvents(titleOnlyMembers, window.today)[0], games);
 assert.match(titleOnlyDetails, /스파키 복각/, 'a member without pickup data keeps its original title');
 assert.doesNotMatch(titleOnlyDetails, /아하 워프/, 'a pictured pickup without rewards or location does not repeat its title');
 const clippedTogether = [
@@ -183,9 +187,21 @@ const clippedTogether = [
   { ...samePeriodPickup, start: '2026-11-03' },
 ];
 assert.ok(clippedTogether.every(event => position(event, window).left === 0));
-assert.deepEqual(groupEvents(clippedTogether), clippedTogether, 'matching clipped starts do not imply matching real starts');
+const [pastGroup] = groupEvents(clippedTogether, window.today);
+assert.deepEqual(pastGroup.members, clippedTogether);
+assert.match(period(pastGroup), /종료$/);
+for (const event of clippedTogether) assert.ok(renderDetails(pastGroup, games).includes(period(event)));
+const todayStart = { ...versionedPickup, start: '2026-11-28T00:00:00+09:00' };
+const todayLater = { ...versionedPickup, start: '2026-11-28T01:00:00+09:00' };
+assert.equal(groupEvents([...clippedTogether, todayStart, todayLater], window.today).length, 3);
+assert.equal(groupEvents([...clippedTogether, todayStart, todayLater], stamp('2026-11-29')).length, 1);
+assert.equal(groupEvents([clippedTogether[0], { ...clippedTogether[1], type: 'event' }], window.today).length, 2);
+const screenshotIds = ['zzz-33-spooky-funhouse', 'zzz-33-hobbling-crow', 'zzz-33-drifting-art', 'zzz-33-combat-bounty', 'genshin-72-block-smashing'];
+const screenshotRows = groupEvents(data.events.filter(event => screenshotIds.includes(event.id)), window.today);
+assert.equal(screenshotRows.length, 2);
+assert.equal(screenshotRows.find(event => event.game === 'zzz').members.length, 4);
 const actualWarps = data.events.filter(event => event.type === 'gacha').map(event => ({ ...event, pickups: pickups[event.id] }));
-const actualWarpRows = groupEvents(actualWarps);
+const actualWarpRows = groupEvents(actualWarps, window.today);
 const ahaWarp = actualWarpRows.find(event => event.id === 'hsr-47-aha');
 const phaseTwoWarp = actualWarpRows.find(event => event.id === 'hsr-47-phase-2-reruns');
 assert.ok(ahaWarp && phaseTwoWarp, 'Aha and phase two reruns must appear as separate rows');
