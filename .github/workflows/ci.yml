@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main, 'agy/**', 'codex/**']
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Build generated site and calculator
+        run: npm run build
+
+      - name: Run automated test suites
+        run: npm test
+
+      - name: Verify tracked generated artifacts are up to date
+        run: git diff --exit-code
+
+      - name: Verify no untracked generated artifacts remain
+        run: |
+          untracked="$(git status --porcelain --untracked-files=all)"
+          if [ -n "$untracked" ]; then
+            echo "Untracked or uncommitted build outputs detected:"
+            echo "$untracked"
+            exit 1
+          fi
