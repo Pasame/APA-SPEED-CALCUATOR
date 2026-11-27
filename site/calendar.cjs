@@ -1,12 +1,42 @@
 const { TYPES, DEFAULT_TYPES } = require('./calendar.js');
 const pickups = require('./calendar-pickups.json');
 const filterNames = { gacha: '픽업', event: '인게임', endgame: '엔드', web: '웹', login: '출석', claim: '접속', broadcast: '방송', update: '버전', offline: '공식행사' };
+const EVENT_FIELDS = [
+  'id', 'version', 'game', 'type', 'title', 'start', 'end', 'endDisplay',
+  'instant', 'endUnknown', 'ongoingAsOf', 'endEstimated', 'location',
+  'purchaseEnd', 'webPurchaseEnd',
+];
+const REWARD_FIELDS = ['name', 'quantity', 'image', 'note', 'maximum'];
+
+function pickFields(source, fields) {
+  const result = {};
+  for (const field of fields) {
+    if (source[field] !== undefined) result[field] = source[field];
+  }
+  return result;
+}
+
+function compactEvent(event, featured) {
+  const entry = pickFields(event, EVENT_FIELDS);
+  if (event.rewards?.length) {
+    entry.rewards = event.rewards.map(reward => pickFields(reward, REWARD_FIELDS));
+  }
+  const items = featured || event.pickups;
+  if (items?.length) {
+    entry.pickups = items.map(pickup => ({
+      name: pickup.name,
+      ...(pickup.image ? { image: pickup.image } : {}),
+    }));
+  }
+  return entry;
+}
 
 function calendarSection(data, games, escape, scriptVersion) {
   const payload = {
-    ...data,
+    checkedAt: data.checkedAt,
+    versionTimeline: data.versionTimeline,
     games: games.map(game => ({ id: game.id, name: game.name, image: `site/assets/games/${game.id}.jpg` })),
-    events: data.events.map(event => pickups[event.id] ? { ...event, pickups: pickups[event.id] } : event)
+    events: data.events.map(event => compactEvent(event, pickups[event.id])),
   };
   return `<section class="home-section game-calendar" data-game-calendar aria-labelledby="calendar-title">
     <div class="section-heading horizontal"><h2 id="calendar-title">지금부터 6주</h2><span class="calendar-range" data-calendar-range></span></div>
