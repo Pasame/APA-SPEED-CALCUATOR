@@ -270,6 +270,7 @@ function buildArchive(root, art) {
     <meta name="twitter:description" content="${escape(description)}">
     <meta name="twitter:image" content="${escape(shareImage)}">
     <link rel="icon" href="${prefix}site/favicon.svg" type="image/svg+xml">
+    <script>try{const t=localStorage.getItem('fluffy-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch{}</script>
     <link rel="stylesheet" href="${prefix}site/styles.css?v=${styleVersion}">${legacyScript}
     <script src="${prefix}site/app.js?v=${scriptVersion}" defer></script>
   </head>
@@ -289,6 +290,7 @@ function buildArchive(root, art) {
               <path d="m15 15 5 5"></path>
             </svg><span>검색</span>
           </a>
+          <button type="button" class="theme-toggle" data-theme-toggle aria-label="화면 테마 변경 (현재: 시스템)">시스템</button>
         </nav>
       </div>
     </header>

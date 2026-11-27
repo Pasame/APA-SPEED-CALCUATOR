@@ -1,18 +1,80 @@
 :root {
   color-scheme: light dark;
-  --bg: light-dark(#fff9f5, #1c191c);
-  --surface: light-dark(#ffffff, #282328);
-  --text: light-dark(#2d2027, #f8f0f3);
-  --muted: light-dark(#62545b, #c3b5be);
-  --line: light-dark(#e9dfe2, #4b3d47);
-  --field-border: light-dark(#8b7782, #98828e);
-  --accent: light-dark(#a43162, #f6a8c9);
-  --accent-text: light-dark(#ffffff, #321524);
-  --pink: light-dark(#fdeaf1, #402530);
-  --cream: light-dark(#fff0d7, #3a2d20);
-  --cream-text: light-dark(#754723, #f0cc95);
-  --soft: light-dark(#f4eeed, #352d33);
+  --bg: #fff9f5;
+  --surface: #ffffff;
+  --text: #2d2027;
+  --muted: #62545b;
+  --line: #e9dfe2;
+  --field-border: #8b7782;
+  --accent: #a43162;
+  --accent-text: #ffffff;
+  --pink: #fdeaf1;
+  --cream: #fff0d7;
+  --cream-text: #754723;
+  --soft: #f4eeed;
   --radius: 24px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1c191c;
+    --surface: #282328;
+    --text: #f8f0f3;
+    --muted: #c3b5be;
+    --line: #4b3d47;
+    --field-border: #98828e;
+    --accent: #f6a8c9;
+    --accent-text: #321524;
+    --pink: #402530;
+    --cream: #3a2d20;
+    --cream-text: #f0cc95;
+    --soft: #352d33;
+  }
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #fff9f5;
+  --surface: #ffffff;
+  --text: #2d2027;
+  --muted: #62545b;
+  --line: #e9dfe2;
+  --field-border: #8b7782;
+  --accent: #a43162;
+  --accent-text: #ffffff;
+  --pink: #fdeaf1;
+  --cream: #fff0d7;
+  --cream-text: #754723;
+  --soft: #f4eeed;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #1c191c;
+  --surface: #282328;
+  --text: #f8f0f3;
+  --muted: #c3b5be;
+  --line: #4b3d47;
+  --field-border: #98828e;
+  --accent: #f6a8c9;
+  --accent-text: #321524;
+  --pink: #402530;
+  --cream: #3a2d20;
+  --cream-text: #f0cc95;
+  --soft: #352d33;
+}
+@supports (color: light-dark(black, white)) {
+  :root {
+    --bg: light-dark(#fff9f5, #1c191c);
+    --surface: light-dark(#ffffff, #282328);
+    --text: light-dark(#2d2027, #f8f0f3);
+    --muted: light-dark(#62545b, #c3b5be);
+    --line: light-dark(#e9dfe2, #4b3d47);
+    --field-border: light-dark(#8b7782, #98828e);
+    --accent: light-dark(#a43162, #f6a8c9);
+    --accent-text: light-dark(#ffffff, #321524);
+    --pink: light-dark(#fdeaf1, #402530);
+    --cream: light-dark(#fff0d7, #3a2d20);
+    --cream-text: light-dark(#754723, #f0cc95);
+    --soft: light-dark(#f4eeed, #352d33);
+  }
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 24px; }
@@ -40,9 +102,21 @@ h3 { font-size: 1.1875rem; line-height: 1.5; letter-spacing: -.025em; }
 .brand { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; font-weight: 550; letter-spacing: -.04em; }
 .brand strong { font-weight: 750; }
 .brand img { flex: 0 0 40px; }
-.header-inner nav { display: flex; gap: 28px; align-items: center; margin-left: auto; }
+.header-inner nav { display: flex; gap: 20px; align-items: center; margin-left: auto; flex-wrap: wrap; }
 .header-inner nav a { min-height: 44px; display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-weight: 600; white-space: nowrap; }
 .header-inner nav a:hover, .header-inner nav a[aria-current] { color: var(--accent); text-decoration: underline; text-underline-offset: 7px; }
+.theme-toggle {
+  min-height: 40px;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--soft);
+  color: var(--text);
+  font-size: .875rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
 main { max-width: 1160px; margin: auto; padding: 36px 32px 64px; }
 .eyebrow { font-size: .875rem; font-weight: 600; color: var(--muted); line-height: 1.5; }
 .home-hero { min-height: 320px; display: grid; grid-template-columns: 1.25fr 1fr; gap: 24px; align-items: center; padding: 20px 44px 28px; background: var(--pink); border-radius: 32px; position: relative; }
@@ -71,11 +145,27 @@ main { max-width: 1160px; margin: auto; padding: 36px 32px 64px; }
 .game-card { display: flex; gap: 12px; flex-direction: column; align-items: start; position: relative; padding: 20px 16px; border-radius: var(--radius); background: var(--surface); transition: transform .15s ease, box-shadow .15s ease; }
 .game-card:hover, .doc-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px #36202b09; }
 .game-symbol { width: 48px; height: 48px; display: inline-grid; place-items: center; border-radius: 16px; background: var(--soft); color: var(--text); font-size: 1.5rem; font-weight: 800; font-style: italic; flex: 0 0 48px; }
-.game-symbol.violet { background: light-dark(#eee8fb, #38294f); color: light-dark(#66508e, #d2bbff); }
-.game-symbol.orange { background: light-dark(#ffecd6, #472e1e); color: light-dark(#9e4f17, #ffc79e); }
-.game-symbol.blue { background: light-dark(#e2f1fb, #203b4f); color: light-dark(#2e6989, #a8dbf6); }
+.game-symbol.violet { background: #eee8fb; color: #66508e; }
+.game-symbol.orange { background: #ffecd6; color: #9e4f17; }
+.game-symbol.blue { background: #e2f1fb; color: #2e6989; }
 .game-symbol.pink { background: var(--pink); color: var(--accent); }
-.game-symbol.green { background: light-dark(#e3f2e9, #203d31); color: light-dark(#366b50, #a7d9bc); }
+.game-symbol.green { background: #e3f2e9; color: #366b50; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .game-symbol.violet { background: #38294f; color: #d2bbff; }
+  :root:not([data-theme="light"]) .game-symbol.orange { background: #472e1e; color: #ffc79e; }
+  :root:not([data-theme="light"]) .game-symbol.blue { background: #203b4f; color: #a8dbf6; }
+  :root:not([data-theme="light"]) .game-symbol.green { background: #203d31; color: #a7d9bc; }
+}
+:root[data-theme="dark"] .game-symbol.violet { background: #38294f; color: #d2bbff; }
+:root[data-theme="dark"] .game-symbol.orange { background: #472e1e; color: #ffc79e; }
+:root[data-theme="dark"] .game-symbol.blue { background: #203b4f; color: #a8dbf6; }
+:root[data-theme="dark"] .game-symbol.green { background: #203d31; color: #a7d9bc; }
+@supports (color: light-dark(black, white)) {
+  .game-symbol.violet { background: light-dark(#eee8fb, #38294f); color: light-dark(#66508e, #d2bbff); }
+  .game-symbol.orange { background: light-dark(#ffecd6, #472e1e); color: light-dark(#9e4f17, #ffc79e); }
+  .game-symbol.blue { background: light-dark(#e2f1fb, #203b4f); color: light-dark(#2e6989, #a8dbf6); }
+  .game-symbol.green { background: light-dark(#e3f2e9, #203d31); color: light-dark(#366b50, #a7d9bc); }
+}
 .game-card strong { font-size: 1rem; display: block; line-height: 1.5; }
 .game-card small { font-size: .875rem; color: var(--muted); }
 .game-card .arrow { position: absolute; top: 20px; right: 16px; color: var(--muted); }
@@ -467,7 +557,7 @@ main { max-width: 1160px; margin: auto; padding: 36px 32px 64px; }
   --calendar-chart-width: 56rem;
   --calendar-gutter: 18px;
   --calendar-label-tail: 7rem;
-  --calendar-today-color: light-dark(#b52d58, #ff8eb4);
+  --calendar-today-color: #b52d58;
   min-width: 0;
 }
 .game-calendar .section-heading { margin-bottom: 16px; align-items: center; }
@@ -478,16 +568,53 @@ main { max-width: 1160px; margin: auto; padding: 36px 32px 64px; }
 .calendar-games button[aria-pressed=true] { border-color: var(--accent); background: var(--pink); box-shadow: inset 0 0 0 1px var(--accent); }
 .calendar-games button[aria-pressed=false] img { opacity: .6; filter: grayscale(1); }
 .calendar-games img { width: 28px; height: 28px; border-radius: 8px; }
-.game-calendar [data-kind=gacha] { --kind: light-dark(#7653ba, #c3a3ff); --kind-bg: light-dark(#eee5ff, #423153); }
-.game-calendar [data-kind=event] { --kind: light-dark(#247aab, #8dcffa); --kind-bg: light-dark(#daeffa, #244252); }
-.game-calendar [data-kind=endgame] { --kind: light-dark(#953e52, #f8a1af); --kind-bg: light-dark(#fbe6eb, #4d2935); }
-.game-calendar [data-kind=pass] { --kind: light-dark(#596b16, #c7d981); --kind-bg: light-dark(#eef2db, #353c24); }
-.game-calendar [data-kind=web] { --kind: light-dark(#137572, #80dad7); --kind-bg: light-dark(#d9f3f1, #254645); }
-.game-calendar [data-kind=login] { --kind: light-dark(#247754, #8cdbb6); --kind-bg: light-dark(#def3e8, #244335); }
-.game-calendar [data-kind=claim] { --kind: light-dark(#52617b, #bfcae9); --kind-bg: light-dark(#e7ecf7, #333d55); }
-.game-calendar [data-kind=broadcast] { --kind: light-dark(#b23c69, #ffacca); --kind-bg: light-dark(#fde3ed, #502d3c); }
-.game-calendar [data-kind=update] { --kind: light-dark(#9a6315, #f4cc86); --kind-bg: light-dark(#fff0ce, #4c3c23); }
-.game-calendar [data-kind=offline] { --kind: light-dark(#b7552a, #ffb79a); --kind-bg: light-dark(#ffeadb, #50352b); }
+.game-calendar [data-kind=gacha] { --kind: #7653ba; --kind-bg: #eee5ff; }
+.game-calendar [data-kind=event] { --kind: #247aab; --kind-bg: #daeffa; }
+.game-calendar [data-kind=endgame] { --kind: #953e52; --kind-bg: #fbe6eb; }
+.game-calendar [data-kind=pass] { --kind: #596b16; --kind-bg: #eef2db; }
+.game-calendar [data-kind=web] { --kind: #137572; --kind-bg: #d9f3f1; }
+.game-calendar [data-kind=login] { --kind: #247754; --kind-bg: #def3e8; }
+.game-calendar [data-kind=claim] { --kind: #52617b; --kind-bg: #e7ecf7; }
+.game-calendar [data-kind=broadcast] { --kind: #b23c69; --kind-bg: #fde3ed; }
+.game-calendar [data-kind=update] { --kind: #9a6315; --kind-bg: #fff0ce; }
+.game-calendar [data-kind=offline] { --kind: #b7552a; --kind-bg: #ffeadb; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .game-calendar { --calendar-today-color: #ff8eb4; }
+  :root:not([data-theme="light"]) .game-calendar [data-kind=gacha] { --kind: #c3a3ff; --kind-bg: #423153; }
+  :root:not([data-theme="light"]) .game-calendar [data-kind=event] { --kind: #8dcffa; --kind-bg: #244252; }
+  :root:not([data-theme="light"]) .game-calendar [data-kind=endgame] { --kind: #f8a1af; --kind-bg: #4d2935; }
+  :root:not([data-theme="light"]) .game-calendar [data-kind=pass] { --kind: #c7d981; --kind-bg: #353c24; }
+  :root:not([data-theme="light"]) .game-calendar [data-kind=web] { --kind: #80dad7; --kind-bg: #254645; }
+  :root:not([data-theme="light"]) .game-calendar [data-kind=login] { --kind: #8cdbb6; --kind-bg: #244335; }
+  :root:not([data-theme="light"]) .game-calendar [data-kind=claim] { --kind: #bfcae9; --kind-bg: #333d55; }
+  :root:not([data-theme="light"]) .game-calendar [data-kind=broadcast] { --kind: #ffacca; --kind-bg: #502d3c; }
+  :root:not([data-theme="light"]) .game-calendar [data-kind=update] { --kind: #f4cc86; --kind-bg: #4c3c23; }
+  :root:not([data-theme="light"]) .game-calendar [data-kind=offline] { --kind: #ffb79a; --kind-bg: #50352b; }
+}
+:root[data-theme="dark"] .game-calendar { --calendar-today-color: #ff8eb4; }
+:root[data-theme="dark"] .game-calendar [data-kind=gacha] { --kind: #c3a3ff; --kind-bg: #423153; }
+:root[data-theme="dark"] .game-calendar [data-kind=event] { --kind: #8dcffa; --kind-bg: #244252; }
+:root[data-theme="dark"] .game-calendar [data-kind=endgame] { --kind: #f8a1af; --kind-bg: #4d2935; }
+:root[data-theme="dark"] .game-calendar [data-kind=pass] { --kind: #c7d981; --kind-bg: #353c24; }
+:root[data-theme="dark"] .game-calendar [data-kind=web] { --kind: #80dad7; --kind-bg: #254645; }
+:root[data-theme="dark"] .game-calendar [data-kind=login] { --kind: #8cdbb6; --kind-bg: #244335; }
+:root[data-theme="dark"] .game-calendar [data-kind=claim] { --kind: #bfcae9; --kind-bg: #333d55; }
+:root[data-theme="dark"] .game-calendar [data-kind=broadcast] { --kind: #ffacca; --kind-bg: #502d3c; }
+:root[data-theme="dark"] .game-calendar [data-kind=update] { --kind: #f4cc86; --kind-bg: #4c3c23; }
+:root[data-theme="dark"] .game-calendar [data-kind=offline] { --kind: #ffb79a; --kind-bg: #50352b; }
+@supports (color: light-dark(black, white)) {
+  .game-calendar { --calendar-today-color: light-dark(#b52d58, #ff8eb4); }
+  .game-calendar [data-kind=gacha] { --kind: light-dark(#7653ba, #c3a3ff); --kind-bg: light-dark(#eee5ff, #423153); }
+  .game-calendar [data-kind=event] { --kind: light-dark(#247aab, #8dcffa); --kind-bg: light-dark(#daeffa, #244252); }
+  .game-calendar [data-kind=endgame] { --kind: light-dark(#953e52, #f8a1af); --kind-bg: light-dark(#fbe6eb, #4d2935); }
+  .game-calendar [data-kind=pass] { --kind: light-dark(#596b16, #c7d981); --kind-bg: light-dark(#eef2db, #353c24); }
+  .game-calendar [data-kind=web] { --kind: light-dark(#137572, #80dad7); --kind-bg: light-dark(#d9f3f1, #254645); }
+  .game-calendar [data-kind=login] { --kind: light-dark(#247754, #8cdbb6); --kind-bg: light-dark(#def3e8, #244335); }
+  .game-calendar [data-kind=claim] { --kind: light-dark(#52617b, #bfcae9); --kind-bg: light-dark(#e7ecf7, #333d55); }
+  .game-calendar [data-kind=broadcast] { --kind: light-dark(#b23c69, #ffacca); --kind-bg: light-dark(#fde3ed, #502d3c); }
+  .game-calendar [data-kind=update] { --kind: light-dark(#9a6315, #f4cc86); --kind-bg: light-dark(#fff0ce, #4c3c23); }
+  .game-calendar [data-kind=offline] { --kind: light-dark(#b7552a, #ffb79a); --kind-bg: light-dark(#ffeadb, #50352b); }
+}
 .calendar-categories {
   flex-wrap: nowrap;
   overflow-x: auto;

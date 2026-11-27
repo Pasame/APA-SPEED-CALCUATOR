@@ -1,9 +1,16 @@
 <!doctype html>
-<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>아하 속도 계산기</title>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>아하 속도 계산기</title><!--__STANDALONE_THEME_SCRIPT_START__--><script>try{const t=localStorage.getItem('fluffy-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch{}</script><!--__STANDALONE_THEME_SCRIPT_END__-->
 <style>
-:root{color-scheme:light dark;--bg:light-dark(#fff9f5,#1c191c);--surface:light-dark(#ffffff,#282328);--text:light-dark(#2d2027,#f8f0f3);--muted:light-dark(#62545b,#c3b5be);--line:light-dark(#e9dfe2,#4b3d47);--soft:light-dark(#f4eeed,#352d33);--accent:light-dark(#a43162,#f6a8c9);--error:light-dark(#b12c43,#ff9aae);--selected:light-dark(#fdeaf1,#402530);--field-border:light-dark(#bbabb2,#89747f);--run-goal-text:light-dark(#fff,#321524)}
+:root{color-scheme:light dark;--bg:#fff9f5;--surface:#ffffff;--text:#2d2027;--muted:#62545b;--line:#e9dfe2;--soft:#f4eeed;--accent:#a43162;--error:#b12c43;--selected:#fdeaf1;--field-border:#bbabb2;--run-goal-text:#fff}
+/*__STANDALONE_THEME_START__*/
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1c191c;--surface:#282328;--text:#f8f0f3;--muted:#c3b5be;--line:#4b3d47;--soft:#352d33;--accent:#f6a8c9;--error:#ff9aae;--selected:#402530;--field-border:#89747f;--run-goal-text:#321524}:root:not([data-theme=light]) body{--path-bg:#151a22}}
+:root[data-theme=light]{color-scheme:light;--bg:#fff9f5;--surface:#ffffff;--text:#2d2027;--muted:#62545b;--line:#e9dfe2;--soft:#f4eeed;--accent:#a43162;--error:#b12c43;--selected:#fdeaf1;--field-border:#bbabb2;--run-goal-text:#fff}
+:root[data-theme=dark]{color-scheme:dark;--bg:#1c191c;--surface:#282328;--text:#f8f0f3;--muted:#c3b5be;--line:#4b3d47;--soft:#352d33;--accent:#f6a8c9;--error:#ff9aae;--selected:#402530;--field-border:#89747f;--run-goal-text:#321524}
+:root[data-theme=dark] body{--path-bg:#151a22}
+@supports(color:light-dark(black,white)){:root{--bg:light-dark(#fff9f5,#1c191c);--surface:light-dark(#ffffff,#282328);--text:light-dark(#2d2027,#f8f0f3);--muted:light-dark(#62545b,#c3b5be);--line:light-dark(#e9dfe2,#4b3d47);--soft:light-dark(#f4eeed,#352d33);--accent:light-dark(#a43162,#f6a8c9);--error:light-dark(#b12c43,#ff9aae);--selected:light-dark(#fdeaf1,#402530);--field-border:light-dark(#bbabb2,#89747f);--run-goal-text:light-dark(#fff,#321524)}body{--path-bg:light-dark(#414956,#151a22)}}
+/*__STANDALONE_THEME_END__*/
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:1rem/1.6 system-ui,'Malgun Gothic',sans-serif;--radius-pill:999px;--radius-card:24px;--radius-item:16px;--path-bg:light-dark(#414956,#151a22)}
+body{margin:0;background:var(--bg);color:var(--text);font:1rem/1.6 system-ui,'Malgun Gothic',sans-serif;--radius-pill:999px;--radius-card:24px;--radius-item:16px;--path-bg:#414956}
 main{max-width:1160px;margin:auto;padding:32px 24px 40px}
 h1{font-size:1.875rem;line-height:1.3;letter-spacing:-.04em;margin:0}
 h2{font-size:1.25rem;letter-spacing:-.02em;margin:0 0 12px}
@@ -247,7 +254,7 @@ th{color:var(--muted);font-size:.875rem;font-weight:500}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 </style></head><body><main tabindex="-1">
-<header><div class="masthead"><a class="archive-back" href="../../index.html">← Fluffy Archive</a><br><span class="eyebrow">붕괴: 스타레일 / 4.7</span><h1>아하 속도 계산기</h1></div><div class="page-tools row"><button id="toggleAdvanced" aria-expanded="false" aria-controls="advanced">고급 계산</button><button id="reset" class="secondary">초기화</button></div></header><p id="sessionNotice" class="help" role="status" hidden></p><div id="previewBanner" class="preview-banner" role="region" aria-label="가이드 편성 미리보기" hidden><p>가이드의 기본 편성을 미리 보고 있어요. 적용하기 전까지 기존 저장 설정은 유지됩니다.</p><div class="row"><button id="applyPreview" type="button">이 편성 적용하고 저장</button><button id="discardPreview" type="button" class="secondary">기존 저장 편성으로 돌아가기</button></div></div>
+<header><div class="masthead"><a class="archive-back" href="../../index.html">← Fluffy Archive</a><br><span class="eyebrow">붕괴: 스타레일 / 4.7</span><h1>아하 속도 계산기</h1></div><div class="page-tools row"><button id="themeToggle" class="secondary" type="button" data-theme-toggle aria-label="화면 테마 변경 (현재: 시스템)">시스템</button><button id="toggleAdvanced" aria-expanded="false" aria-controls="advanced">고급 계산</button><button id="reset" class="secondary">초기화</button></div></header><p id="sessionNotice" class="help" role="status" hidden></p><div id="previewBanner" class="preview-banner" role="region" aria-label="가이드 편성 미리보기" hidden><p>가이드의 기본 편성을 미리 보고 있어요. 적용하기 전까지 기존 저장 설정은 유지됩니다.</p><div class="row"><button id="applyPreview" type="button">이 편성 적용하고 저장</button><button id="discardPreview" type="button" class="secondary">기존 저장 편성으로 돌아가기</button></div></div>
 <div id="calculator"><div id="errors" class="errors" role="alert" hidden></div>
 <div class="layout"><div class="calculator-main"><section><h2 class="step-heading">파티 설정</h2><p class="help party-help">마을 속도를 입력하면 결과가 바로 바뀌어요.</p><div class="row aha-options"><div id="ahaOwnedControl" class="ownership" role="group" aria-label="미편성 아하 보유 상태"><span>아하</span><button data-owned="0" aria-pressed="false">미보유</button><button data-owned="1" aria-pressed="true">보유</button></div><p id="ahaOwnedStatus" class="help" role="status"></p><div id="waveAscensionControl" hidden><label class="check"><input type="checkbox" id="waveAscension"><span>아하·웨이브 승격 중</span></label></div></div><div id="party"></div></section>
 
