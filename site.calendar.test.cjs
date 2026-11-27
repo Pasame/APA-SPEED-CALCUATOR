@@ -1,0 +1,82 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const { TYPES, stamp, windowFor, visible, position, period, renderRow, mount } = require('./site/calendar.js');
+const data = require('./site/calendar.json');
+const now = stamp('2026-11-28T12:00:00+09:00');
+const window = windowFor(now), selected = new Set(['hsr']);
+assert.equal(window.start, stamp('2026-11-28'));
+assert.equal(window.end, stamp('2027-01-09'));
+assert.equal(windowFor(stamp('2026-11-27T16:00:00Z')).start, window.start, 'KST day, not UTC day');
+const ongoing = { id: 'ongoing', game: 'hsr', type: 'event', title: '행사', start: '2026-11-01', end: '2026-12-02' };
+assert.equal(visible(ongoing, window, selected, false), true);
+assert.equal(position(ongoing, window).left, 0);
+assert.equal(position(ongoing, window).before, true);
+assert.equal(visible({ ...ongoing, end: '2026-11-28T10:00:00+09:00' }, window, selected, true), false, 'already ended today');
+assert.equal(visible({ ...ongoing, start: '2027-01-09', end: '2027-01-10' }, window, selected, true), false);
+assert.equal(visible({ ...ongoing, game: 'zzz' }, window, selected, true), false);
+const offline = { ...ongoing, type: 'offline' };
+assert.equal(visible(offline, window, new Set(), true), true, 'offline ignores all game switches');
+assert.equal(visible(offline, window, selected, false), false, 'offline off hides even selected game');
+const broadcast = { ...ongoing, type: 'broadcast', instant: true, start: '2026-11-29T21:00:00+09:00', end: null };
+assert.equal(visible(broadcast, window, selected, false), true);
+assert.equal(position(broadcast, window).point, true);
+assert.equal(position(broadcast, window).width, 0, 'broadcast is a point, not fabricated duration');
+assert.equal(visible({ ...broadcast, start: '2026-11-27' }, window, selected, false), false);
+assert.equal(visible({ ...broadcast, start: '2026-11-28T11:00:00+09:00' }, window, selected, false), false, 'finished timed broadcast');
+assert.equal(visible({ ...broadcast, start: '2026-11-28' }, window, selected, false), true, 'date-only update stays for its date');
+const unknown = { ...ongoing, end: null, endUnknown: true };
+assert.equal(visible(unknown, window, selected, false), false, 'unknown end does not imply indefinitely ongoing');
+assert.equal(position(unknown, window).point, true);
+assert.equal(position(unknown, window).width, 0);
+assert.match(period(unknown), /종료 미공개/);
+assert.equal(period({ ...ongoing, end: '2026-12-02' }), '11/1 → 12/1');
+assert.equal(period({ ...ongoing, end: '2026-12-02T13:00:00+09:00' }), '11/1 → 12/2 12:59');
+const games = ['hsr', 'zzz', 'genshin', 'nte', 'wuwa'].map(id => ({ id, name: id, image: `site/assets/games/${id}.jpg` }));
+const row = renderRow({ ...ongoing, sourceUrl: 'https://example.org/?a=1&b=2', title: '<img onerror=x>', rewards: [{ name: '성옥', quantity: null }] }, window, games);
+assert.ok(!row.includes('<img onerror'));
+assert.ok(!row.includes('×0'));
+assert.ok(row.includes('&amp;b=2'));
+const manyRewards = renderRow({ ...ongoing, rewards: Array.from({ length: 13 }, (_, i) => ({ name: `보상${i}` })) }, window, games);
+assert.match(manyRewards, /보상 10개 더/);
+assert.match(manyRewards, /보상12/);
+const ids = new Set();
+for (const event of data.events) {
+  assert.ok(!ids.has(event.id)); ids.add(event.id);
+  assert.ok(games.some(g => g.id === event.game));
+  assert.ok(TYPES[event.type]);
+  assert.ok(Number.isFinite(stamp(event.start)));
+  assert.ok(event.end ? stamp(event.end) > stamp(event.start) : event.instant || event.endUnknown, event.id);
+  assert.match(event.sourceUrl, /^https:\/\//);
+  if (event.type === 'offline') assert.ok(event.location, event.id);
+  for (const reward of event.rewards) {
+    assert.ok(reward.quantity == null || Number.isFinite(reward.quantity) && reward.quantity > 0);
+    if (reward.image) { assert.match(reward.image, /^site\/assets\//); assert.ok(fs.existsSync(reward.image)); }
+  }
+}
+assert.equal(ids.size, data.events.length);
+// Exercise actual control handlers, including repeated game switches and independent offline state.
+function control(dataset = {}) { return { dataset, attrs: { 'aria-pressed': 'true' }, checked: true, events: {}, setAttribute(k, v) { this.attrs[k] = v; }, getAttribute(k) { return this.attrs[k]; }, addEventListener(k, v) { this.events[k] = v; } }; }
+const buttons = games.map(g => control({ calendarGame: g.id }));
+const nodes = Object.fromEntries(['offline', 'rows', 'axis', 'range', 'count', 'empty', 'checked'].map(id => [`[data-calendar-${id}]`, control()]));
+const section = { querySelectorAll() { return buttons; }, querySelector(s) { return nodes[s]; } };
+const oldFocus = globalThis.addEventListener;
+globalThis.addEventListener = () => {};
+const today = new Date(Date.now() + 9 * 3600000).toISOString().slice(0, 10);
+const mounted = mount(section, { checkedAt: today, games, events: [{ ...unknown, start: today }, { ...unknown, id: 'offline-row', start: today, type: 'offline' }] });
+const initialHTML = nodes['[data-calendar-rows]'].innerHTML;
+let replacements = 0;
+Object.defineProperty(nodes['[data-calendar-rows]'], 'innerHTML', { get() { return this.html ?? initialHTML; }, set(value) { replacements++; this.html = value; } });
+mounted.render();
+assert.equal(replacements, 0, 'focus refresh must preserve open disclosures and keyboard focus');
+buttons.forEach(b => b.events.click());
+assert.ok(!nodes['[data-calendar-rows]'].innerHTML.includes('data-calendar-row="ongoing"'));
+assert.ok(nodes['[data-calendar-rows]'].innerHTML.includes('offline-row'));
+nodes['[data-calendar-offline]'].checked = false;
+nodes['[data-calendar-offline]'].events.change();
+assert.equal(nodes['[data-calendar-rows]'].innerHTML, '');
+assert.equal(nodes['[data-calendar-empty]'].hidden, false);
+buttons[0].events.click();
+assert.equal(nodes['[data-calendar-empty]'].hidden, true);
+assert.equal(nodes['[data-calendar-offline]'].checked, false);
+globalThis.addEventListener = oldFocus;
+console.log(`PASS calendar: ${ids.size} source-backed events, KST boundaries, six-week clipping, milestones, independent filters and reward assets`);

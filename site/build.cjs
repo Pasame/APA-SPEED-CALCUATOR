@@ -2,6 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { createHash } = require('node:crypto');
 const { createVisuals } = require('./visual.cjs');
+const { calendarSection } = require('./calendar.cjs');
 
 const games = [
   {
@@ -65,6 +66,8 @@ const escape = value => String(value).replace(/[&<>"']/g, character => ({
 }[character]));
 
 function buildArchive(root, art) {
+  const calendar = JSON.parse(fs.readFileSync(path.join(root, 'site/calendar.json'), 'utf8'));
+  const calendarVersion = createHash('sha256').update(fs.readFileSync(path.join(root, 'site/calendar.js'))).digest('hex').slice(0, 12);
   const styleVersion = createHash('sha256').update(fs.readFileSync(path.join(root, 'site/styles.css'))).digest('hex').slice(0, 12);
   const scriptVersion = createHash('sha256').update(fs.readFileSync(path.join(root, 'site/app.js'))).digest('hex').slice(0, 12);
   const docs = JSON.parse(fs.readFileSync(path.join(root, 'site/content.json'), 'utf8'));
@@ -281,7 +284,7 @@ function buildArchive(root, art) {
 
   const gameCards = games.map(game => `
     <a class="game-card ${game.color}" href="games/${game.id}/index.html">
-      ${badge(game)}
+      <img class="game-cover" src="site/assets/games/${game.id}.jpg" alt="" width="64" height="64">
       <span><strong>${game.name}</strong><small>${game.short}</small></span>
       <span class="arrow" aria-hidden="true">↗</span>
     </a>`).join('');
@@ -297,8 +300,8 @@ function buildArchive(root, art) {
       <section class="home-hero">
         <div class="hero-copy">
           <p class="eyebrow">복슬복슬호 자료실</p>
-          <h1>좋아하는 게임의<br>다음 한 걸음.</h1>
-          <p class="hero-description">캐릭터 육성부터 파티 구성까지,<br class="desktop-break"> 필요한 정보를 함께 찾아보세요.</p>
+          <h1>좋아하는 게임의 <br>다음 한 걸음.</h1>
+          <p class="hero-description">오늘의 일정, 캐릭터 육성, 추천 파티.</p>
           <form class="search-box" action="search/index.html" role="search">
             <label class="sr-only" for="home-search">가이드와 도구 검색</label>
             <input id="home-search" type="search" name="q" placeholder="캐릭터, 파티, 도구 검색" maxlength="120">
@@ -315,9 +318,10 @@ function buildArchive(root, art) {
           <span class="hero-stamp" aria-hidden="true">FLUFFY<br>ARCHIVE <span>✦</span></span>
         </div>
       </section>
-      <section id="games" class="home-section">
+      ${calendarSection(calendar, games, escape, calendarVersion)}
+      <section id="games" class="home-section home-game-links">
         <div class="section-heading">
-          <h2>어떤 게임을 찾으세요?</h2>
+          <h2>게임 자료실</h2>
           <p>게임별 가이드를 살펴보세요.</p>
         </div>
         <div class="game-grid">${gameCards}</div>
