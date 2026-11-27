@@ -151,6 +151,21 @@ async function verifyGuidePreview(browser) {
     if(process.env.QA_SCREENSHOTS_DIR){await page.keyboard.press('Control+Home');await page.screenshot({path:path.join(process.env.QA_SCREENSHOTS_DIR,'qa-'+mode+'-'+width+'.png')});}
    };
    await measure('47',main);
+   if (width <= 768) {
+    for (const selector of ['#toggleAdvanced', '#reset']) {
+     assert.ok((await page.locator(selector).boundingBox()).height >= 44, 'mobile header target ' + selector);
+    }
+   }
+   if (width === 768) {
+    for (const tabletWidth of [769, 800]) {
+     await page.setViewportSize({ width: tabletWidth, height: 844 });
+     const spacing = await main.locator('.result-evidence').evaluate(el => [
+      getComputedStyle(el).marginTop, getComputedStyle(el.querySelector('summary')).minHeight,
+     ]);
+     assert.deepEqual(spacing, ['6px', '30px'], 'compact result spacing at ' + tabletWidth);
+    }
+    await page.setViewportSize({ width, height: 844 });
+   }
    assert.equal(await main.locator('.result-evidence summary').innerText(),'상세 결과');
    const firstChar=main.locator('[data-picker="char-0"]');
    await firstChar.press('Enter');
