@@ -16,6 +16,8 @@
     offline: '국내 공식행사',
   };
   const DEFAULT_TYPES = new Set(['gacha', 'event', 'broadcast', 'update']);
+  const FILTER_STORAGE_KEY = 'fluffy-calendar-filters-v1';
+  const INTERNAL_GUIDE_RE = /^guides\/[a-z0-9-]+\/index\.html$/;
   const TYPE_PRIORITY = { gacha: 0, event: 1, endgame: 1, pass: 1, web: 1, login: 2, claim: 2, broadcast: 3, update: 3, offline: 4 };
   const WEEKDAYS = ['일', '월', '화', '수', '목', '금', '토'];
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -66,7 +68,10 @@
       const differentStarts = members.some(event => stamp(event.start) !== stamp(earliest.start));
       const pickups = new Map();
       for (const pickup of members.flatMap(event => event.pickups || [])) {
-        if (!pickups.get(pickup.name)?.image) pickups.set(pickup.name, pickup);
+        const existing = pickups.get(pickup.name);
+        if (!existing?.image || (!existing.guideHref && pickup.guideHref)) {
+          pickups.set(pickup.name, existing ? { ...existing, ...pickup } : pickup);
+        }
       }
       let representativeTitle = representative.title;
       if (representative.type === 'gacha') {
@@ -193,13 +198,60 @@
     }).join('');
   }
 
+  function dDay(event, window = windowFor()) {
+    if (!event?.end || event.instant || event.endUnknown || event.endEstimated) return '';
+    const endTime = stamp(event.end);
+    if (!Number.isFinite(endTime) || endTime <= window.now) return '';
+    const lastInstant = endTime - (event.end.length === 10 ? DAY : 60000);
+    const lastDay = stamp(kstDate(lastInstant).toISOString().slice(0, 10));
+    const days = Math.round((lastDay - window.today) / DAY);
+    if (days < 0 || days > 3) return '';
+    return days === 0 ? 'D-Day' : 'D-' + days;
+  }
+
+  function dDayBadge(event, window) {
+    const label = dDay(event, window);
+    return label ? '<span class="calendar-dday">' + label + '</span>' : '';
+  }
+
+  function readFilters(storage, validGames, validTypes) {
+    if (!storage) return null;
+    try {
+      const raw = storage.getItem(FILTER_STORAGE_KEY);
+      if (raw == null) return null;
+      const parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return null;
+      if (!Array.isArray(parsed.games) || !Array.isArray(parsed.types)) return null;
+      if (!parsed.games.every(id => typeof id === 'string' && validGames.has(id))) return null;
+      if (!parsed.types.every(id => typeof id === 'string' && validTypes.has(id))) return null;
+      return { games: new Set(parsed.games), types: new Set(parsed.types) };
+    } catch {
+      return null;
+    }
+  }
+
+  function saveFilters(storage, selectedGames, selectedTypes) {
+    if (!storage) return;
+    try {
+      storage.setItem(FILTER_STORAGE_KEY, JSON.stringify({
+        games: [...selectedGames],
+        types: [...selectedTypes],
+      }));
+    } catch { /* Ignore storage quota or privacy restrictions. */ }
+  }
+
   function pickupItems(event, showNames = false) {
     const items = [];
     const pictures = new Set();
     for (const pickup of event.pickups || []) {
       if (!showNames && (!pickup.image || pictures.has(pickup.image))) continue;
       pictures.add(pickup.image);
-      items.push('<span class="calendar-pickup">' + image(pickup.image, showNames ? 44 : 28) + (showNames ? '<span>' + esc(pickup.name) + '</span>' : '') + '</span>');
+      const inner = image(pickup.image, showNames ? 44 : 28) + (showNames ? '<span>' + esc(pickup.name) + '</span>' : '');
+      if (showNames && typeof pickup.guideHref === 'string' && INTERNAL_GUIDE_RE.test(pickup.guideHref)) {
+        items.push('<a class="calendar-pickup calendar-pickup-link" href="' + esc(pickup.guideHref) + '">' + inner + '</a>');
+      } else {
+        items.push('<span class="calendar-pickup">' + inner + '</span>');
+      }
     }
     return items.join('');
   }
@@ -210,11 +262,12 @@
     const rewardCount = event.rewards?.length || 0;
     const extra = rewardCount > 3 ? '<span class="calendar-reward-extra">+' + (rewardCount - 3) + '</span>' : '';
     const types = (event.types || [event.type]).map(type => TYPES[type]).join(' · ');
-    const label = [game.name, types, event.title, event.representativeTitle, period(event)].filter(Boolean).map(esc).join(' · ');
+    const deadline = dDay(event, window);
+    const label = [game.name, types, event.title, event.representativeTitle, period(event), deadline].filter(Boolean).map(esc).join(' · ');
     const content = '<span class="calendar-bar-content"><span class="calendar-bar-heading"><span class="calendar-bar-game">' + image(game.image, 22) + '</span>' +
       '<span class="calendar-bar-title">' + esc(event.representativeTitle || event.title) + '</span>' +
       (event.members ? '<span class="calendar-group-count">' + esc(event.title) + '</span>' : '') +
-      '</span><span class="calendar-bar-meta"><span class="calendar-bar-period">' + esc(period(event)) + '</span>' +
+      '</span><span class="calendar-bar-meta">' + dDayBadge(event, window) + '<span class="calendar-bar-period">' + esc(period(event)) + '</span>' +
       (event.pickups?.length ? '<span class="calendar-banner">' + pickupItems(event) + '</span>' : '') +
       (rewardCount ? '<span class="calendar-rewards">' + rewardItems(event, 3) + extra + '</span>' : '') + '</span></span>';
     const classes = ['calendar-bar', pos.point && 'is-point', event.endUnknown && 'is-unknown'].filter(Boolean).join(' ');
@@ -226,12 +279,13 @@
       (pos.after ? '<span class="bar-edge end" aria-hidden="true">›</span>' : '') + '</span>' + content + '</button></div></article>';
   }
 
-  function renderDetails(event, games) {
+  function renderDetails(event, games, window) {
     const game = games.find(g => g.id === event.game);
     const headingClass = event.members ? 'calendar-tooltip-heading calendar-tooltip-group-heading' : 'calendar-tooltip-heading';
+    const badge = window ? dDayBadge(event, window) : '';
     const header = '<div class="' + headingClass + '">' + image(game.image, 28) +
       '<div><small>' + esc(game.name) + ' · ' + TYPES[event.type] + '</small><strong>' + esc(event.title) + '</strong></div></div>' +
-      '<p class="calendar-tooltip-period">' + esc(period(event)) + '</p>';
+      '<p class="calendar-tooltip-period">' + badge + esc(period(event)) + '</p>';
     const pickups = event.pickups?.length ? '<div class="calendar-tooltip-pickups"><strong>픽업 대상</strong><div>' + pickupItems(event, true) + '</div></div>' : '';
     if (!event.members) return header + pickups + locationAndRewards(event);
     const entries = event.members.filter(member => event.differentStarts || member.rewards?.length || member.location || !member.pickups?.length);
@@ -252,15 +306,20 @@
       : event.type === 'endgame' ? '<p class="calendar-tooltip-period">보상 미확인</p>' : '');
   }
 
-  function mount(section, data) {
+  function mount(section, data, options = {}) {
     const games = [...section.querySelectorAll('[data-calendar-game]')];
     const types = [...section.querySelectorAll('[data-calendar-type]')];
+    const resetButton = section.querySelector('[data-calendar-reset]');
     const rows = section.querySelector('[data-calendar-rows]');
     const axis = section.querySelector('[data-calendar-axis]');
     const scroll = section.querySelector('.calendar-scroll');
     const tooltip = section.querySelector('[data-calendar-tooltip]');
+    const storage = 'storage' in options ? options.storage : (() => { try { return root.localStorage; } catch { return null; } })();
+    const validGames = new Set(games.map(button => button.dataset.calendarGame));
+    const validTypes = new Set(types.map(button => button.dataset.calendarType));
     const selected = (buttons, key) => new Set(buttons.filter(button => button.getAttribute('aria-pressed') === 'true').map(button => button.dataset[key]));
     let rowById;
+    let currentWindow;
     let signature;
     let axisStart;
     let axisMarkup;
@@ -269,6 +328,20 @@
     let dismissedTrigger;
     let sticky = false;
     let closeTimer;
+
+    function isDefaultFilters(gameFilter, typeFilter) {
+      return gameFilter.size === validGames.size &&
+        typeFilter.size === DEFAULT_TYPES.size &&
+        [...DEFAULT_TYPES].every(type => typeFilter.has(type));
+    }
+
+    function applyFilterState(gameSet, typeSet) {
+      for (const button of games) button.setAttribute('aria-pressed', String(gameSet.has(button.dataset.calendarGame)));
+      for (const button of types) button.setAttribute('aria-pressed', String(typeSet.has(button.dataset.calendarType)));
+    }
+
+    const restored = readFilters(storage, validGames, validTypes);
+    if (restored) applyFilterState(restored.games, restored.types);
 
     function positionPopup(anchor, popup, prefix) {
       const size = popup.getBoundingClientRect();
@@ -334,7 +407,7 @@
         activeTrigger?.setAttribute('aria-expanded', 'false');
         activeTrigger = trigger;
         trigger.setAttribute('aria-expanded', 'true');
-        tooltip.innerHTML = renderDetails(rowById.get(trigger.dataset.calendarEvent), data.games);
+        tooltip.innerHTML = renderDetails(rowById.get(trigger.dataset.calendarEvent), data.games, currentWindow);
         tooltip.scrollTop = 0;
       }
       sticky = pin;
@@ -351,8 +424,10 @@
 
     function render() {
       const window = windowFor();
+      currentWindow = window;
       const gameFilter = selected(games, 'calendarGame');
       const typeFilter = selected(types, 'calendarType');
+      if (resetButton) resetButton.hidden = isDefaultFilters(gameFilter, typeFilter);
       const events = data.events.filter(event => visible(event, window, gameFilter, typeFilter));
       const items = groupEvents(events, window.today).sort((a, b) => compareRows(a, b, window));
       if (axisStart !== window.start) {
@@ -401,9 +476,16 @@
     for (const button of [...games, ...types]) {
       button.addEventListener('click', () => {
         button.setAttribute('aria-pressed', String(button.getAttribute('aria-pressed') !== 'true'));
+        saveFilters(storage, selected(games, 'calendarGame'), selected(types, 'calendarType'));
         render();
       });
     }
+    resetButton?.addEventListener('click', () => {
+      applyFilterState(validGames, DEFAULT_TYPES);
+      try { storage?.removeItem(FILTER_STORAGE_KEY); } catch { /* Ignore storage restrictions. */ }
+      render();
+      games[0]?.focus?.({ preventScroll: true });
+    });
     axis.addEventListener('click', event => {
       const week = event.target.closest('[data-calendar-week]');
       if (!week) return;
@@ -489,7 +571,7 @@
   }
 
   if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { TYPES, DEFAULT_TYPES, stamp, windowFor, visible, compareRows, groupEvents, position, weeksFor, period, renderWeeks, renderRow, renderDetails, mount };
+    module.exports = { TYPES, DEFAULT_TYPES, FILTER_STORAGE_KEY, stamp, windowFor, visible, compareRows, groupEvents, position, weeksFor, period, dDay, readFilters, saveFilters, renderWeeks, renderRow, renderDetails, mount };
   } else {
     const section = document.querySelector('[data-game-calendar]');
     if (section) mount(section, JSON.parse(document.getElementById('game-calendar-data').textContent));

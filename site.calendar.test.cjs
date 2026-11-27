@@ -1,7 +1,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
-const { TYPES, DEFAULT_TYPES, stamp, windowFor, visible, compareRows, groupEvents, position, weeksFor, period, renderWeeks, renderRow, renderDetails, mount } = require('./site/calendar.js');
-const { calendarSection } = require('./site/calendar.cjs');
+const { TYPES, DEFAULT_TYPES, FILTER_STORAGE_KEY, stamp, windowFor, visible, compareRows, groupEvents, position, weeksFor, period, dDay, readFilters, saveFilters, renderWeeks, renderRow, renderDetails, mount } = require('./site/calendar.js');
+const { calendarSection, compactEvent } = require('./site/calendar.cjs');
 const data = require('./site/calendar.json');
 const pickups = require('./site/calendar-pickups.json');
 const now = stamp('2026-11-28T12:00:00+09:00');
@@ -401,5 +401,93 @@ assert.equal(embeddedPass.webPurchaseEnd, sourcePass.webPurchaseEnd, 'embedded c
 assert.match(renderDetails(embeddedPass, games), /구매 마감.*웹 구매/, 'pass purchase deadlines still render from embedded data');
 assert.ok(embeddedCalendar.events.every(event => !('verificationUrls' in event) && !('sourceUrl' in event)), 'embedded calendar strips verification provenance URLs');
 assert.ok(embeddedCalendar.events.every(event => (event.rewards || []).every(reward => !('imageUrl' in reward) && !('verificationUrls' in reward))), 'embedded rewards strip remote image and verification URLs');
+
+// P1-2: Verified HSR pickup character links in individual and grouped details, while external/non-guide links remain forbidden.
+const embeddedAha = embeddedCalendar.events.find(event => event.id === 'hsr-47-aha');
+const ahaDetails = renderDetails(embeddedAha, games, window);
+assert.match(ahaDetails, /href="guides\/hsr-aha\/index\.html"[^>]*>(?:(?!<\/a>).)*에이언즈★아하<\/span><\/a>/, 'individual HSR pickup links verified character guide');
+assert.match(ahaDetails, /<span class="calendar-pickup"><img src="site\/assets\/hsr\/cones\/23065\.png"[^>]*><span>『아하』가 처음 울리는 순간<\/span><\/span>/, 'light cone pickup stays a plain span without a character guide link');
+assert.doesNotMatch(ahaDetails, /href="https?:/, 'external source links remain excluded from details');
+const embeddedPhase1 = embeddedCalendar.events.find(event => event.id === 'hsr-47-phase-1-reruns');
+const phase1Details = renderDetails(embeddedPhase1, games, window);
+assert.match(phase1Details, /href="guides\/hsr-silver-wolf-lv-999\/index\.html"/);
+assert.match(phase1Details, /href="guides\/hsr-sparxie\/index\.html"/);
+assert.match(phase1Details, /href="guides\/hsr-yao-guang\/index\.html"/);
+const groupedHsr = groupEvents([
+  { ...embeddedAha, start: '2026-11-11', end: '2026-12-02T13:00:00+09:00' },
+  { ...embeddedPhase1, start: '2026-11-11', end: '2026-12-02T13:00:00+09:00' },
+], window.today)[0];
+const groupedHsrDetails = renderDetails(groupedHsr, games, window);
+assert.match(groupedHsrDetails, /href="guides\/hsr-aha\/index\.html"/, 'grouped HSR pickup preserves verified character guide link');
+assert.match(groupedHsrDetails, /href="guides\/hsr-sparxie\/index\.html"/);
+assert.doesNotMatch(renderRow(embeddedAha, window, games), /<a\b/, 'calendar bar button never nests anchor links');
+const forgedPickupDetails = renderDetails({ ...ongoing, pickups: [{ name: '외부', image: 'site/assets/test.png', guideHref: 'https://evil.example/guide' }] }, games, window);
+assert.doesNotMatch(forgedPickupDetails, /href=/, 'external or forged guideHref values are rejected');
+const zzzPickupDetails = renderDetails(embeddedCalendar.events.find(event => event.id === 'zzz-33-severian'), games, window);
+assert.doesNotMatch(zzzPickupDetails, /href=/, 'non-HSR pickups do not receive unverified guide links');
+
+// P1-3: KST last-day D-day calculation excludes estimated, unknown, and instant schedules.
+assert.equal(dDay({ ...ongoing, end: '2026-11-29' }, window), 'D-Day', 'date-only next day exclusive ends today KST');
+assert.equal(dDay({ ...ongoing, end: '2026-11-28T16:00:00+09:00' }, window), 'D-Day', 'same-day timed event still active is D-Day');
+assert.equal(dDay({ ...ongoing, end: '2026-11-29T00:00:00+09:00' }, window), 'D-Day', 'midnight exclusive belongs to previous KST day');
+assert.equal(dDay({ ...ongoing, end: '2026-11-30' }, window), 'D-1');
+assert.equal(dDay({ ...ongoing, end: '2026-12-02' }, window), 'D-3');
+assert.equal(dDay({ ...ongoing, end: '2026-12-03' }, window), '', 'more than 3 days away shows no D-day');
+assert.equal(dDay({ ...ongoing, end: '2026-11-29', endEstimated: true }, window), '', 'estimated end is excluded from D-day');
+assert.equal(dDay({ ...ongoing, end: null, endUnknown: true }, window), '', 'unknown end is excluded from D-day');
+assert.equal(dDay({ ...ongoing, end: null, instant: true }, window), '', 'instant schedule is excluded from D-day');
+assert.match(renderRow({ ...ongoing, end: '2026-11-30' }, window, games), /calendar-dday">D-1</);
+assert.match(renderDetails({ ...ongoing, end: '2026-11-29' }, games, window), /calendar-dday">D-Day</);
+
+// P1-1: Filter persistence distinguishes first visit, all-off, offline-only, and corrupt storage.
+function memoryStorage(initial = {}) {
+  const store = new Map(Object.entries(initial));
+  return {
+    getItem: key => (store.has(key) ? store.get(key) : null),
+    setItem: (key, value) => store.set(key, String(value)),
+    removeItem: key => store.delete(key),
+  };
+}
+const validGamesSet = new Set(games.map(g => g.id));
+assert.equal(readFilters(memoryStorage(), validGamesSet, allTypes), null, 'first visit has no saved filter');
+const emptyAllOff = readFilters(memoryStorage({ [FILTER_STORAGE_KEY]: JSON.stringify({ games: [], types: [] }) }), validGamesSet, allTypes);
+assert.deepEqual([...emptyAllOff.games], [], 'explicit all-off games state is preserved');
+assert.deepEqual([...emptyAllOff.types], [], 'explicit all-off types state is preserved');
+const offlineOnly = readFilters(memoryStorage({ [FILTER_STORAGE_KEY]: JSON.stringify({ games: [], types: ['offline'] }) }), validGamesSet, allTypes);
+assert.deepEqual([...offlineOnly.games], []);
+assert.deepEqual([...offlineOnly.types], ['offline'], 'offline filter persists independently of games');
+for (const bad of ['{broken', 'null', '[]', JSON.stringify({ games: ['unknown'], types: ['gacha'] }), JSON.stringify({ games: 'hsr', types: [] })]) {
+  assert.equal(readFilters(memoryStorage({ [FILTER_STORAGE_KEY]: bad }), validGamesSet, allTypes), null, 'corrupt storage falls back to defaults');
+}
+const persistedStore = memoryStorage({ [FILTER_STORAGE_KEY]: JSON.stringify({ games: [], types: ['offline'] }) });
+const pButtons = games.map(g => control({ calendarGame: g.id }));
+const pTypeButtons = [...allTypes].map(type => {
+  const button = control({ calendarType: type });
+  button.setAttribute('aria-pressed', String(DEFAULT_TYPES.has(type)));
+  return button;
+});
+const pReset = control();
+const pNodes = Object.fromEntries(['rows', 'axis', 'range', 'count', 'empty', 'checked', 'tooltip'].map(id => [`[data-calendar-${id}]`, control()]));
+pNodes['.calendar-scroll'] = control();
+pNodes['[data-calendar-reset]'] = pReset;
+const pDoc = control();
+pButtons[0].focus = () => { pDoc.activeElement = pButtons[0]; };
+globalThis.addEventListener = () => {};
+globalThis.document = pDoc;
+mount({
+  querySelectorAll(s) { return s === '[data-calendar-game]' ? pButtons : pTypeButtons; },
+  querySelector(s) { return pNodes[s]; },
+}, { checkedAt: today, games, events: testEvents, versionTimeline: activeTimeline }, { storage: persistedStore });
+assert.ok(pButtons.every(b => b.getAttribute('aria-pressed') === 'false'), 'mounted calendar restores all-off games');
+assert.equal(pTypeButtons.find(b => b.dataset.calendarType === 'offline').getAttribute('aria-pressed'), 'true');
+assert.equal(pReset.hidden, false, 'reset button is visible when customized');
+assert.deepEqual([...pNodes['[data-calendar-rows]'].innerHTML.matchAll(/data-calendar-row="([^"]+)"/g)].map(m => m[1]), ['offline-row']);
+pReset.events.click();
+assert.ok(pButtons.every(b => b.getAttribute('aria-pressed') === 'true'), 'reset restores all games');
+assert.equal(pReset.hidden, true, 'reset hides after restoring defaults');
+assert.equal(pDoc.activeElement, pButtons[0], 'keyboard reset moves focus to the first game filter');
+assert.equal(persistedStore.getItem(FILTER_STORAGE_KEY), null, 'reset clears persisted storage');
+globalThis.addEventListener = oldFocus;
+delete globalThis.document;
 
 console.log(`PASS calendar: ${ids.size} source-backed events, KST and week-year boundaries, ordering, independent filters, details and assets`);
