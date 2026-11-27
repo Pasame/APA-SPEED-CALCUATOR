@@ -434,3 +434,114 @@ main { max-width: 1160px; margin: auto; padding: 36px 32px 64px; }
   .cone-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .target-grid { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* Home calendar: game imagery identifies the game; bars identify the event kind. */
+.home-hero { min-height: 210px; padding: 24px 32px; grid-template-columns: 1.5fr 1fr; }
+.home-hero h1 { font-size: clamp(1.8rem, 3vw, 2.3rem); }
+.hero-copy>.eyebrow { margin-bottom: 6px; }
+.hero-copy .search-box { margin-top: 16px; }
+.hero-visual { min-height: 190px; }
+.hero-visual::before { width: 180px; height: 180px; }
+.hero-raccoon { width: 156px; max-height: 205px; }
+.hero-stamp { left: 0; bottom: 6px; }
+.home-game-links .game-card { flex-direction: row; align-items: center; padding: 16px 12px; gap: 10px; }
+.game-cover { width: 54px; height: 54px; border-radius: 18px; flex-shrink: 0; object-fit: cover; }
+.home-game-links .arrow { display: none; }
+.home-game-links .game-card strong { font-size: 1rem; }
+.game-calendar { --calendar-columns: minmax(200px, 1.25fr) minmax(280px, 2fr) minmax(150px, .9fr); }
+.game-calendar .section-heading { margin-bottom: 16px; align-items: center; }
+.calendar-range, .calendar-footer { font-size: .875rem; color: var(--muted); }
+.calendar-controls { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 14px; }
+.calendar-games { display: flex; flex-wrap: wrap; gap: 8px; }
+.calendar-games button { border: 1px solid var(--line); border-radius: 16px; padding: 8px 12px; display: flex; align-items: center; gap: 7px; background: var(--surface); }
+.calendar-games button[aria-pressed=true] { border-color: var(--accent); background: var(--pink); box-shadow: inset 0 0 0 1px var(--accent); }
+.calendar-games button[aria-pressed=false] img { opacity: .6; filter: grayscale(1); }
+.calendar-games img { width: 28px; height: 28px; border-radius: 8px; }
+.calendar-offline { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; cursor: pointer; }
+.calendar-offline input { width: 20px; height: 20px; min-height: 20px; accent-color: var(--accent); margin: 0; }
+.game-calendar [data-kind=gacha] { --kind: light-dark(#7653ba, #c3a3ff); --kind-bg: light-dark(#eee5ff, #423153); }
+.game-calendar [data-kind=event] { --kind: light-dark(#247aab, #8dcffa); --kind-bg: light-dark(#daeffa, #244252); }
+.game-calendar [data-kind=login] { --kind: light-dark(#247754, #8cdbb6); --kind-bg: light-dark(#def3e8, #244335); }
+.game-calendar [data-kind=broadcast] { --kind: light-dark(#b23c69, #ffacca); --kind-bg: light-dark(#fde3ed, #502d3c); }
+.game-calendar [data-kind=update] { --kind: light-dark(#9a6315, #f4cc86); --kind-bg: light-dark(#fff0ce, #4c3c23); }
+.game-calendar [data-kind=offline] { --kind: light-dark(#b7552a, #ffb79a); --kind-bg: light-dark(#ffeadb, #50352b); }
+.calendar-key { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .875rem; margin-bottom: 12px; color: var(--muted); }
+.calendar-key>span { display: inline-flex; align-items: center; gap: 6px; }
+.calendar-key i { width: 10px; height: 10px; border-radius: 3px; background: var(--kind); }
+.calendar-scroll { max-height: 650px; overflow: auto; border: 1px solid var(--line); border-radius: 22px; background: var(--surface); scrollbar-gutter: stable; }
+.calendar-head, .calendar-row { display: grid; grid-template-columns: var(--calendar-columns); column-gap: 14px; padding: 14px 18px; }
+.calendar-head { position: sticky; top: 0; z-index: 2; background: var(--soft); font-size: .875rem; color: var(--muted); border-bottom: 1px solid var(--line); }
+.calendar-axis { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); line-height: 1.4; }
+.calendar-axis small { display: block; font-size: .75rem; color: var(--accent); }
+.calendar-row { border-bottom: 1px solid var(--line); align-items: center; min-width: 0; }
+.calendar-row:last-child { border-bottom: 0; }
+.calendar-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+.calendar-meta img { width: 22px; height: 22px; border-radius: 7px; }
+.calendar-type { color: var(--kind); font-size: .875rem; font-weight: 650; }
+.calendar-label>a { font-weight: 650; line-height: 1.5; display: block; }
+.calendar-label>a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.calendar-label>small { display: block; font-size: .875rem; color: var(--muted); line-height: 1.5; margin-top: 4px; }
+.calendar-note { font-size: .875rem; margin-top: 6px; color: var(--muted); }
+.calendar-note summary { cursor: pointer; min-height: 32px; display: list-item; }
+.calendar-note p { margin: 4px 0; line-height: 1.5; }
+.calendar-track { position: relative; min-height: 54px; align-self: stretch; background: repeating-linear-gradient(to right, var(--line) 0 1px, transparent 1px calc(100% / 6)); }
+.calendar-bar { position: absolute; left: var(--left); width: var(--width); top: 50%; transform: translateY(-50%); height: 26px; min-width: 3px; border-radius: 8px; background: var(--kind-bg); border: 1px solid var(--kind); }
+.calendar-bar.is-point { width: 14px; height: 14px; border-radius: 4px; background: var(--kind); transform: translate(-50%, -50%) rotate(45deg); margin-left: 7px; max-width: calc(100% - var(--left)); }
+.calendar-bar.is-unknown { background: var(--surface); border-style: dashed; }
+.bar-edge { position: absolute; left: 4px; top: -3px; font-size: 20px; line-height: 26px; color: var(--kind); }
+.bar-edge.end { left: auto; right: 4px; }
+.calendar-rewards { display: flex; flex-wrap: wrap; gap: 8px; align-content: center; min-width: 0; }
+.calendar-reward { display: inline-flex; gap: 5px; align-items: center; font-size: .875rem; line-height: 1.5; }
+.calendar-reward img { width: 32px; height: 32px; object-fit: contain; flex-shrink: 0; }
+.calendar-reward b { white-space: nowrap; font-weight: 650; }
+.calendar-reward small { display: block; font-size: .875rem; color: var(--muted); }
+.calendar-more { font-size: .875rem; width: 100%; }
+.calendar-more summary { min-height: 40px; padding-top: 8px; cursor: pointer; color: var(--muted); }
+.calendar-more .calendar-reward { display: flex; margin-top: 8px; }
+.calendar-empty { padding: 32px 16px; text-align: center; color: var(--muted); }
+.calendar-footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.calendar-sources { margin-top: 12px; font-size: .875rem; color: var(--muted); line-height: 1.5; }
+.calendar-sources summary { cursor: pointer; min-height: 40px; padding-top: 8px; }
+.calendar-sources p { margin: 8px 0; }
+.calendar-sources a { text-decoration: underline; }
+@media (max-width: 360px) {
+  .calendar-axis>span:nth-child(even) { visibility: hidden; }
+}
+@media (max-width: 900px) {
+  .home-game-links .game-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .game-calendar { --calendar-columns: minmax(170px, 1.15fr) minmax(180px, 1.5fr) minmax(120px, 1fr); }
+  .calendar-head, .calendar-row { column-gap: 10px; padding: 12px; }
+}
+@media (max-width: 600px) {
+  .home-hero { display: block; min-height: 0; padding: 20px; }
+  .hero-visual { display: none; }
+  .home-hero h1 br { display: none; }
+  .home-hero h1 { font-size: 1.65rem; }
+  .hero-description { margin-top: 6px; font-size: .875rem; }
+  .home-hero .search-box { margin-top: 14px; }
+  .game-calendar { margin-top: 24px; }
+  .game-calendar .section-heading { display: block; }
+  .game-calendar .eyebrow { display: none; }
+  .calendar-range { display: block; margin-top: 3px; }
+  .calendar-games { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; gap: 6px; }
+  .calendar-games button { padding: 7px 8px; text-align: left; font-size: .875rem; }
+  .calendar-games button img { width: 24px; height: 24px; }
+  .calendar-controls { gap: 4px; }
+  .calendar-offline { font-size: .875rem; }
+  .calendar-key { gap: 5px 12px; }
+  .calendar-scroll { max-height: 620px; scrollbar-gutter: auto; border-radius: 18px; }
+  .calendar-head { display: block; }
+  .calendar-head>span { display: none; }
+  .calendar-head, .calendar-row { padding: 12px; }
+  .calendar-row { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 8px; }
+  .calendar-label { grid-column: 1; grid-row: 1; }
+  .calendar-rewards { grid-column: 2; grid-row: 1; align-self: center; }
+  .calendar-track { grid-column: 1 / -1; grid-row: 2; min-height: 30px; }
+  .calendar-bar { height: 18px; }
+  .bar-edge { line-height: 18px; }
+  .calendar-reward { gap: 3px; }
+  .calendar-reward img { width: 26px; height: 26px; }
+  .calendar-footer { font-size: .875rem; }
+  .home-game-links .game-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home-game-links .game-card { flex-direction: column; align-items: flex-start; }
+}

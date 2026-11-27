@@ -1,0 +1,37 @@
+{
+  "hsr": {
+    "name": "붕괴: 스타레일",
+    "local": "site/assets/games/hsr.jpg",
+    "source": "https://apps.apple.com/kr/app/%EB%B6%95%EA%B4%B4-%EC%8A%A4%ED%83%80%EB%A0%88%EC%9D%BC/id1599719154?uo=4",
+    "publisher": "COGNOSPHERE PTE. LTD.",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b9/19/0a/b9190ac1-9dfc-6d88-5ac4-96dd4e6d6ff4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg"
+  },
+  "zzz": {
+    "name": "젠레스 존 제로",
+    "local": "site/assets/games/zzz.jpg",
+    "source": "https://apps.apple.com/kr/app/%EC%A0%A0%EB%A0%88%EC%8A%A4-%EC%A1%B4-%EC%A0%9C%EB%A1%9C/id1606356401?uo=4",
+    "publisher": "COGNOSPHERE PTE. LTD.",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c8/ee/27/c8ee2769-fe15-e1ea-aeb7-2247a535767a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg"
+  },
+  "genshin": {
+    "name": "원신",
+    "local": "site/assets/games/genshin.jpg",
+    "source": "https://apps.apple.com/kr/app/%EC%9B%90%EC%8B%A0/id1517783697?uo=4",
+    "publisher": "COGNOSPHERE PTE. LTD.",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/15/9e/b1/159eb1a7-fc58-2b43-b330-c5e619a77e2d/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg"
+  },
+  "nte": {
+    "name": "이환",
+    "local": "site/assets/games/nte.jpg",
+    "source": "https://apps.apple.com/kr/app/%EC%9D%B4%ED%99%98/id6754593077?uo=4",
+    "publisher": "N2E ENTERTAINMENT PTE. LTD.",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cf/a1/4d/cfa14d27-bb1d-7036-4d53-a578181d44f3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg"
+  },
+  "wuwa": {
+    "name": "명조:워더링 웨이브",
+    "local": "site/assets/games/wuwa.jpg",
+    "source": "https://apps.apple.com/kr/app/%EB%AA%85%EC%A1%B0-%EC%9B%8C%EB%8D%94%EB%A7%81-%EC%9B%A8%EC%9D%B4%EB%B8%8C/id6475033368?uo=4",
+    "publisher": "HK KURO GAMES LIMITED",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3f/77/be/3f77be9b-5344-9483-efda-1c5932732b3a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg"
+  }
+}
